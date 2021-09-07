@@ -1,0 +1,538 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReportModel>
+    <ReportSettings>
+        <ReportSettings>
+            <ReportName>Report1</ReportName>
+            <ReportType>FormSheet</ReportType>
+            <BottomMargin>50</BottomMargin>
+            <TopMargin>50</TopMargin>
+            <LeftMargin>50</LeftMargin>
+            <RightMargin>50</RightMargin>
+            <PageSize>827, 1169</PageSize>
+            <Landscape>True</Landscape>
+            <GraphicsUnit>Pixel</GraphicsUnit>
+            <Padding>5, 5, 5, 5</Padding>
+            <AvailableFieldsCollection />
+            <SortColumnsCollection />
+            <GroupColumnsCollection />
+            <ParameterCollection />
+            <SqlParameters />
+            <ConnectionString />
+            <CommandText />
+            <CommandType>Text</CommandType>
+            <DataModel>FormSheet</DataModel>
+            <NoDataMessage>No Data for this Report</NoDataMessage>
+            <DefaultFont>Microsoft Sans Serif, 10pt</DefaultFont>
+            <UseStandardPrinter>True</UseStandardPrinter>
+        </ReportSettings>
+    </ReportSettings>
+    <SectionCollection>
+        <BaseSection>
+            <Location>50, 50</Location>
+            <Size>727, 168</Size>
+            <BackColor>White</BackColor>
+            <SectionOffset>0</SectionOffset>
+            <SectionMargin>0</SectionMargin>
+            <DrawBorder>False</DrawBorder>
+            <PageBreakAfter>False</PageBreakAfter>
+            <Items>
+                <BaseTextItem>
+                    <Location>536, 124</Location>
+                    <Size>188, 20</Size>
+                    <BackColor>White</BackColor>
+                    <Font>Microsoft Sans Serif, 11.25pt, style=Bold</Font>
+                    <StringTrimming>None</StringTrimming>
+                    <ContentAlignment>TopLeft</ContentAlignment>
+                    <CanGrow>False</CanGrow>
+                    <CanShrink>False</CanShrink>
+                    <RTL>No</RTL>
+                    <Text>COP_ECO_EST_201510</Text>
+                    <DrawBorder>False</DrawBorder>
+                    <FrameColor>Black</FrameColor>
+                    <ForeColor>Black</ForeColor>
+                    <Name>BaseTextItem6</Name>
+                </BaseTextItem>
+                <BaseTextItem>
+                    <Location>133, 124</Location>
+                    <Size>170, 20</Size>
+                    <BackColor>White</BackColor>
+                    <Font>Microsoft Sans Serif, 10pt</Font>
+                    <StringTrimming>None</StringTrimming>
+                    <ContentAlignment>MiddleLeft</ContentAlignment>
+                    <CanGrow>False</CanGrow>
+                    <CanShrink>False</CanShrink>
+                    <RTL>No</RTL>
+                    <Text>Departamento de Cobranza</Text>
+                    <DrawBorder>False</DrawBorder>
+                    <FrameColor>Black</FrameColor>
+                    <ForeColor>Black</ForeColor>
+                    <Name>BaseTextItem5</Name>
+                </BaseTextItem>
+                <BaseTextItem>
+                    <Location>133, 98</Location>
+                    <Size>145, 20</Size>
+                    <BackColor>White</BackColor>
+                    <Font>Microsoft Sans Serif, 10pt</Font>
+                    <StringTrimming>None</StringTrimming>
+                    <ContentAlignment>MiddleLeft</ContentAlignment>
+                    <CanGrow>False</CanGrow>
+                    <CanShrink>False</CanShrink>
+                    <RTL>No</RTL>
+                    <Text>Subdelegación Hidalgo</Text>
+                    <DrawBorder>False</DrawBorder>
+                    <FrameColor>Black</FrameColor>
+                    <ForeColor>Black</ForeColor>
+                    <Name>BaseTextItem4</Name>
+                </BaseTextItem>
+                <BaseTextItem>
+                    <Location>133, 72</Location>
+                    <Size>127, 20</Size>
+                    <BackColor>White</BackColor>
+                    <Font>Microsoft Sans Serif, 10pt</Font>
+                    <StringTrimming>None</StringTrimming>
+                    <ContentAlignment>MiddleLeft</ContentAlignment>
+                    <CanGrow>False</CanGrow>
+                    <CanShrink>False</CanShrink>
+                    <RTL>No</RTL>
+                    <Text>Delegación Jalisco</Text>
+                    <DrawBorder>False</DrawBorder>
+                    <FrameColor>Black</FrameColor>
+                    <ForeColor>Black</ForeColor>
+                    <Name>BaseTextItem3</Name>
+                </BaseTextItem>
+                <BaseLineItem>
+                    <Location>128, 50</Location>
+                    <Size>596, 10</Size>
+                    <BackColor>White</BackColor>
+                    <ForeColor>SeaGreen</ForeColor>
+                    <FromPoint>5, 5</FromPoint>
+                    <ToPoint>595, 5</ToPoint>
+                    <StartLineCap>Flat</StartLineCap>
+                    <EndLineCap>Flat</EndLineCap>
+                    <DashLineCap>Flat</DashLineCap>
+                    <DashStyle>Solid</DashStyle>
+                    <Thickness>5</Thickness>
+                    <Name>BaseLineItem1</Name>
+                </BaseLineItem>
+                <BaseTextItem>
+                    <Location>133, 30</Location>
+                    <Size>242, 20</Size>
+                    <BackColor>White</BackColor>
+                    <Font>Microsoft Sans Serif, 10pt</Font>
+                    <StringTrimming>None</StringTrimming>
+                    <ContentAlignment>MiddleLeft</ContentAlignment>
+                    <CanGrow>False</CanGrow>
+                    <CanShrink>False</CanShrink>
+                    <RTL>No</RTL>
+                    <Text>SEGURIDAD Y SOLIDARIDAD SOCIAL</Text>
+                    <DrawBorder>False</DrawBorder>
+                    <FrameColor>Black</FrameColor>
+                    <ForeColor>Black</ForeColor>
+                    <Name>BaseTextItem2</Name>
+                </BaseTextItem>
+                <BaseTextItem>
+                    <Location>133, 4</Location>
+                    <Size>328, 20</Size>
+                    <BackColor>White</BackColor>
+                    <Font>Arial, 12pt, style=Bold</Font>
+                    <StringTrimming>None</StringTrimming>
+                    <ContentAlignment>TopLeft</ContentAlignment>
+                    <CanGrow>False</CanGrow>
+                    <CanShrink>False</CanShrink>
+                    <RTL>No</RTL>
+                    <Text>Instituto Mexicano del Seguro Social</Text>
+                    <DrawBorder>False</DrawBorder>
+                    <FrameColor>Black</FrameColor>
+                    <ForeColor>Black</ForeColor>
+                    <Name>BaseTextItem1</Name>
+                </BaseTextItem>
+                <BaseImageItem>
+                    <Location>4, 4</Location>
+                    <Size>114, 140</Size>
+                    <BackColor>White</BackColor>
+                    <ImageFileName>C:\Users\usuario\Desktop\IMSS\logo imss_white_small.jpg</ImageFileName>
+                    <ScaleImageToSize>False</ScaleImageToSize>
+                    <ImageSource>File</ImageSource>
+                    <RelativeFileName>..\Desktop\IMSS\logo imss_white_small.jpg</RelativeFileName>
+                </BaseImageItem>
+            </Items>
+            <FrameColor>Black</FrameColor>
+            <Name>ReportHeader</Name>
+        </BaseSection>
+        <BaseSection>
+            <Location>50, 233</Location>
+            <Size>727, 122</Size>
+            <BackColor>White</BackColor>
+            <SectionOffset>0</SectionOffset>
+            <SectionMargin>0</SectionMargin>
+            <DrawBorder>False</DrawBorder>
+            <PageBreakAfter>False</PageBreakAfter>
+            <Items>
+                <BaseTextItem>
+                    <Location>106, 3</Location>
+                    <Size>505, 20</Size>
+                    <BackColor>White</BackColor>
+                    <Font>Microsoft Sans Serif, 12pt, style=Bold</Font>
+                    <StringTrimming>None</StringTrimming>
+                    <ContentAlignment>TopLeft</ContentAlignment>
+                    <CanGrow>False</CanGrow>
+                    <CanShrink>False</CanShrink>
+                    <RTL>No</RTL>
+                    <Text>Control de Trabajo del Despacho de la Diligencia de la Notificación</Text>
+                    <DrawBorder>False</DrawBorder>
+                    <FrameColor>Black</FrameColor>
+                    <ForeColor>Black</ForeColor>
+                    <Name>BaseTextItem7</Name>
+                </BaseTextItem>
+                <BaseTextItem>
+                    <Location>547, 45</Location>
+                    <Size>115, 51</Size>
+                    <BackColor>White</BackColor>
+                    <Font>Microsoft Sans Serif, 8.25pt</Font>
+                    <StringTrimming>None</StringTrimming>
+                    <ContentAlignment>MiddleCenter</ContentAlignment>
+                    <CanGrow>False</CanGrow>
+                    <CanShrink>False</CanShrink>
+                    <RTL>No</RTL>
+                    <Text>FECHA DE ACTA 
+CIRCUNSTANCIADA
+(IMPORTE)</Text>
+                    <DrawBorder>True</DrawBorder>
+                    <FrameColor>Black</FrameColor>
+                    <ForeColor>Black</ForeColor>
+                    <Name>BaseTextItem14</Name>
+                </BaseTextItem>
+                <BaseTextItem>
+                    <Location>347, 45</Location>
+                    <Size>64, 51</Size>
+                    <BackColor>White</BackColor>
+                    <Font>Microsoft Sans Serif, 8.25pt</Font>
+                    <StringTrimming>None</StringTrimming>
+                    <ContentAlignment>MiddleCenter</ContentAlignment>
+                    <CanGrow>False</CanGrow>
+                    <CanShrink>False</CanShrink>
+                    <RTL>No</RTL>
+                    <Text>PERIODO</Text>
+                    <DrawBorder>True</DrawBorder>
+                    <FrameColor>Black</FrameColor>
+                    <ForeColor>Black</ForeColor>
+                    <Name>BaseTextItem11</Name>
+                </BaseTextItem>
+                <BaseTextItem>
+                    <Location>495, 45</Location>
+                    <Size>52, 51</Size>
+                    <BackColor>White</BackColor>
+                    <Font>Microsoft Sans Serif, 8.25pt</Font>
+                    <StringTrimming>None</StringTrimming>
+                    <ContentAlignment>MiddleCenter</ContentAlignment>
+                    <CanGrow>False</CanGrow>
+                    <CanShrink>False</CanShrink>
+                    <RTL>No</RTL>
+                    <Text>SECTOR</Text>
+                    <DrawBorder>True</DrawBorder>
+                    <FrameColor>Black</FrameColor>
+                    <ForeColor>Black</ForeColor>
+                    <Name>BaseTextItem13</Name>
+                </BaseTextItem>
+                <BaseTextItem>
+                    <Location>4, 45</Location>
+                    <Size>35, 51</Size>
+                    <BackColor>White</BackColor>
+                    <Font>Microsoft Sans Serif, 8.25pt</Font>
+                    <StringTrimming>None</StringTrimming>
+                    <ContentAlignment>MiddleCenter</ContentAlignment>
+                    <CanGrow>False</CanGrow>
+                    <CanShrink>False</CanShrink>
+                    <RTL>No</RTL>
+                    <Text>NÚM</Text>
+                    <DrawBorder>True</DrawBorder>
+                    <FrameColor>Black</FrameColor>
+                    <ForeColor>Black</ForeColor>
+                    <Name>BaseTextItem8</Name>
+                </BaseTextItem>
+                <BaseTextItem>
+                    <Location>411, 45</Location>
+                    <Size>84, 51</Size>
+                    <BackColor>White</BackColor>
+                    <Font>Microsoft Sans Serif, 8.25pt</Font>
+                    <StringTrimming>None</StringTrimming>
+                    <ContentAlignment>MiddleCenter</ContentAlignment>
+                    <CanGrow>False</CanGrow>
+                    <CanShrink>False</CanShrink>
+                    <RTL>No</RTL>
+                    <Text>TIPO DE 
+DOCUMENTO</Text>
+                    <DrawBorder>True</DrawBorder>
+                    <FrameColor>Black</FrameColor>
+                    <ForeColor>Black</ForeColor>
+                    <Name>BaseTextItem12</Name>
+                </BaseTextItem>
+                <BaseTextItem>
+                    <Location>39, 45</Location>
+                    <Size>203, 51</Size>
+                    <BackColor>White</BackColor>
+                    <Font>Microsoft Sans Serif, 8.25pt</Font>
+                    <StringTrimming>None</StringTrimming>
+                    <ContentAlignment>MiddleCenter</ContentAlignment>
+                    <CanGrow>False</CanGrow>
+                    <CanShrink>False</CanShrink>
+                    <RTL>No</RTL>
+                    <Text>REGISTRO PATRONAL Y NOMBRE
+DEL PATRON O SUJETO OBLIGADO</Text>
+                    <DrawBorder>True</DrawBorder>
+                    <FrameColor>Black</FrameColor>
+                    <ForeColor>Black</ForeColor>
+                    <Name>BaseTextItem9</Name>
+                </BaseTextItem>
+                <BaseTextItem>
+                    <Location>242, 45</Location>
+                    <Size>105, 51</Size>
+                    <BackColor>White</BackColor>
+                    <Font>Microsoft Sans Serif, 8.25pt</Font>
+                    <StringTrimming>None</StringTrimming>
+                    <ContentAlignment>MiddleCenter</ContentAlignment>
+                    <CanGrow>False</CanGrow>
+                    <CanShrink>False</CanShrink>
+                    <RTL>No</RTL>
+                    <Text>NÚMERO DE 
+CRÉDITO O FOLIO</Text>
+                    <DrawBorder>True</DrawBorder>
+                    <FrameColor>Black</FrameColor>
+                    <ForeColor>Black</ForeColor>
+                    <Name>BaseTextItem10</Name>
+                </BaseTextItem>
+            </Items>
+            <FrameColor>Black</FrameColor>
+            <Name>ReportPageHeader</Name>
+        </BaseSection>
+        <BaseSection>
+            <Location>50, 370</Location>
+            <Size>727, 601</Size>
+            <BackColor>White</BackColor>
+            <SectionOffset>0</SectionOffset>
+            <SectionMargin>0</SectionMargin>
+            <DrawBorder>True</DrawBorder>
+            <PageBreakAfter>False</PageBreakAfter>
+            <Items>
+                <BaseTableItem>
+                    <Location>4, 3</Location>
+                    <Size>720, 595</Size>
+                    <BackColor>White</BackColor>
+                    <DrawBorder>False</DrawBorder>
+                    <ForeColor>Black</ForeColor>
+                    <FrameColor>Black</FrameColor>
+                    <Items />
+                    <Name>BaseTableItem1</Name>
+                </BaseTableItem>
+            </Items>
+            <FrameColor>Black</FrameColor>
+            <Name>ReportDetail</Name>
+        </BaseSection>
+        <BaseSection>
+            <Location>50, 986</Location>
+            <Size>727, 92</Size>
+            <BackColor>White</BackColor>
+            <SectionOffset>0</SectionOffset>
+            <SectionMargin>0</SectionMargin>
+            <DrawBorder>False</DrawBorder>
+            <PageBreakAfter>False</PageBreakAfter>
+            <Items>
+                <BaseRectangleItem>
+                    <Location>4, 61</Location>
+                    <Size>720, 26</Size>
+                    <BackColor>White</BackColor>
+                    <ForeColor>ControlText</ForeColor>
+                    <DashStyle>Solid</DashStyle>
+                    <Thickness>1</Thickness>
+                    <CornerRadius>1</CornerRadius>
+                    <Items>
+                        <BaseTextItem>
+                            <Location>3, 3</Location>
+                            <Size>204, 20</Size>
+                            <BackColor>White</BackColor>
+                            <Font>Microsoft Sans Serif, 10pt</Font>
+                            <StringTrimming>None</StringTrimming>
+                            <ContentAlignment>MiddleLeft</ContentAlignment>
+                            <CanGrow>False</CanGrow>
+                            <CanShrink>False</CanShrink>
+                            <RTL>No</RTL>
+                            <Text>Francisco Javier Palacios Alonso</Text>
+                            <DrawBorder>False</DrawBorder>
+                            <FrameColor>Black</FrameColor>
+                            <ForeColor>Black</ForeColor>
+                            <Name>BaseTextItem19</Name>
+                        </BaseTextItem>
+                        <BaseTextItem>
+                            <Location>564, 3</Location>
+                            <Size>56, 20</Size>
+                            <BackColor>White</BackColor>
+                            <Font>Microsoft Sans Serif, 11.25pt, style=Bold</Font>
+                            <StringTrimming>None</StringTrimming>
+                            <ContentAlignment>TopLeft</ContentAlignment>
+                            <CanGrow>False</CanGrow>
+                            <CanShrink>False</CanShrink>
+                            <RTL>No</RTL>
+                            <Text>Fecha:</Text>
+                            <DrawBorder>False</DrawBorder>
+                            <FrameColor>Black</FrameColor>
+                            <ForeColor>Black</ForeColor>
+                            <Name>BaseTextItem20</Name>
+                        </BaseTextItem>
+                        <BaseTextItem>
+                            <Location>633, 3</Location>
+                            <Size>84, 20</Size>
+                            <BackColor>White</BackColor>
+                            <Font>Microsoft Sans Serif, 10pt</Font>
+                            <StringTrimming>None</StringTrimming>
+                            <ContentAlignment>MiddleLeft</ContentAlignment>
+                            <CanGrow>False</CanGrow>
+                            <CanShrink>False</CanShrink>
+                            <RTL>No</RTL>
+                            <Text>18/11/2015</Text>
+                            <DrawBorder>False</DrawBorder>
+                            <FrameColor>Black</FrameColor>
+                            <ForeColor>Black</ForeColor>
+                            <Name>BaseTextItem21</Name>
+                        </BaseTextItem>
+                    </Items>
+                    <Name>BaseRectangleItem3</Name>
+                </BaseRectangleItem>
+                <BaseRectangleItem>
+                    <Location>4, 32</Location>
+                    <Size>720, 26</Size>
+                    <BackColor>White</BackColor>
+                    <ForeColor>ControlText</ForeColor>
+                    <DashStyle>Solid</DashStyle>
+                    <Thickness>1</Thickness>
+                    <CornerRadius>1</CornerRadius>
+                    <Items>
+                        <BaseTextItem>
+                            <Location>3, 3</Location>
+                            <Size>438, 20</Size>
+                            <BackColor>White</BackColor>
+                            <Font>Microsoft Sans Serif, 11.25pt, style=Bold</Font>
+                            <StringTrimming>None</StringTrimming>
+                            <ContentAlignment>TopLeft</ContentAlignment>
+                            <CanGrow>False</CanGrow>
+                            <CanShrink>False</CanShrink>
+                            <RTL>No</RTL>
+                            <Text>Nombre y Firma del Jefe de la Mesa o Sección de Notificación:</Text>
+                            <DrawBorder>False</DrawBorder>
+                            <FrameColor>Black</FrameColor>
+                            <ForeColor>Black</ForeColor>
+                            <Name>BaseTextItem16</Name>
+                        </BaseTextItem>
+                        <BaseTextItem>
+                            <Location>447, 3</Location>
+                            <Size>184, 20</Size>
+                            <BackColor>White</BackColor>
+                            <Font>Microsoft Sans Serif, 10pt</Font>
+                            <StringTrimming>None</StringTrimming>
+                            <ContentAlignment>MiddleLeft</ContentAlignment>
+                            <CanGrow>False</CanGrow>
+                            <CanShrink>False</CanShrink>
+                            <RTL>No</RTL>
+                            <Text>Ing. Reyes Beas Solórzano</Text>
+                            <DrawBorder>False</DrawBorder>
+                            <FrameColor>Black</FrameColor>
+                            <ForeColor>Black</ForeColor>
+                            <Name>BaseTextItem18</Name>
+                        </BaseTextItem>
+                    </Items>
+                    <Name>BaseRectangleItem2</Name>
+                </BaseRectangleItem>
+                <BaseRectangleItem>
+                    <Location>4, 3</Location>
+                    <Size>720, 27</Size>
+                    <BackColor>White</BackColor>
+                    <ForeColor>ControlText</ForeColor>
+                    <DashStyle>Solid</DashStyle>
+                    <Thickness>1</Thickness>
+                    <CornerRadius>1</CornerRadius>
+                    <Items>
+                        <BaseTextItem>
+                            <Location>3, 3</Location>
+                            <Size>353, 20</Size>
+                            <BackColor>White</BackColor>
+                            <Font>Microsoft Sans Serif, 11.25pt, style=Bold</Font>
+                            <StringTrimming>None</StringTrimming>
+                            <ContentAlignment>TopLeft</ContentAlignment>
+                            <CanGrow>False</CanGrow>
+                            <CanShrink>False</CanShrink>
+                            <RTL>No</RTL>
+                            <Text>Nombre y Firma del NL o Persona que se designe:</Text>
+                            <DrawBorder>False</DrawBorder>
+                            <FrameColor>Black</FrameColor>
+                            <ForeColor>Black</ForeColor>
+                            <Name>BaseTextItem15</Name>
+                        </BaseTextItem>
+                        <BaseTextItem>
+                            <Location>362, 3</Location>
+                            <Size>184, 20</Size>
+                            <BackColor>White</BackColor>
+                            <Font>Microsoft Sans Serif, 10pt</Font>
+                            <StringTrimming>None</StringTrimming>
+                            <ContentAlignment>MiddleLeft</ContentAlignment>
+                            <CanGrow>False</CanGrow>
+                            <CanShrink>False</CanShrink>
+                            <RTL>No</RTL>
+                            <Text>Orizaba Gonzalez Juan Carlos</Text>
+                            <DrawBorder>False</DrawBorder>
+                            <FrameColor>Black</FrameColor>
+                            <ForeColor>Black</ForeColor>
+                            <Name>BaseTextItem17</Name>
+                        </BaseTextItem>
+                    </Items>
+                    <Name>BaseRectangleItem1</Name>
+                </BaseRectangleItem>
+            </Items>
+            <FrameColor>Black</FrameColor>
+            <Name>ReportPageFooter</Name>
+        </BaseSection>
+        <BaseSection>
+            <Location>50, 1093</Location>
+            <Size>727, 30</Size>
+            <BackColor>White</BackColor>
+            <SectionOffset>0</SectionOffset>
+            <SectionMargin>0</SectionMargin>
+            <DrawBorder>False</DrawBorder>
+            <PageBreakAfter>False</PageBreakAfter>
+            <Items>
+                <BaseTextItem>
+                    <Location>568, 3</Location>
+                    <Size>148, 20</Size>
+                    <BackColor>White</BackColor>
+                    <Font>Microsoft Sans Serif, 10pt</Font>
+                    <StringTrimming>None</StringTrimming>
+                    <ContentAlignment>MiddleCenter</ContentAlignment>
+                    <CanGrow>False</CanGrow>
+                    <CanShrink>False</CanShrink>
+                    <RTL>No</RTL>
+                    <Text>Clave: 9313-009-046</Text>
+                    <DrawBorder>False</DrawBorder>
+                    <FrameColor>Black</FrameColor>
+                    <ForeColor>Black</ForeColor>
+                    <Name>BaseTextItem23</Name>
+                </BaseTextItem>
+                <BaseTextItem>
+                    <Location>4, 3</Location>
+                    <Size>148, 20</Size>
+                    <BackColor>White</BackColor>
+                    <Font>Microsoft Sans Serif, 10pt</Font>
+                    <StringTrimming>None</StringTrimming>
+                    <ContentAlignment>MiddleCenter</ContentAlignment>
+                    <CanGrow>False</CanGrow>
+                    <CanShrink>False</CanShrink>
+                    <RTL>No</RTL>
+                    <Text>Página 1 de 3</Text>
+                    <DrawBorder>False</DrawBorder>
+                    <FrameColor>Black</FrameColor>
+                    <ForeColor>Black</ForeColor>
+                    <Name>BaseTextItem22</Name>
+                </BaseTextItem>
+            </Items>
+            <FrameColor>Black</FrameColor>
+            <Name>ReportFooter</Name>
+        </BaseSection>
+    </SectionCollection>
+</ReportModel>
