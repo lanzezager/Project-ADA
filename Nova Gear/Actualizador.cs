@@ -45,9 +45,250 @@ namespace Nova_Gear
 		DataTable base_completa = new DataTable();
 		DataTable rale_completo = new DataTable();
 		DataTable consultas = new DataTable();
+
+        DataTable data1 = new DataTable();
+        DataTable data2 = new DataTable();
+        DataTable data3 = new DataTable();
+        DataTable data4 = new DataTable();
+        DataTable data5 = new DataTable();
+        DataTable data6 = new DataTable();
+        DataTable data7 = new DataTable();
+        DataTable data8 = new DataTable();
+        DataTable data9 = new DataTable();
+        DataTable data10 = new DataTable();
 		
 		//Declaracion del Hilo para ejecutar un subproceso
 		private Thread hilosecundario = null;
+
+        public DataTable copiar_datagrid_1()
+        {
+            DataTable tabla_destino = new DataTable();
+
+            for (int j = 0; j < dataGridView1.ColumnCount; j++)
+            {
+                tabla_destino.Columns.Add(dataGridView1.Columns[j].HeaderText);
+            }
+
+            for (int j = 0; j < dataGridView1.RowCount; j++)
+            {
+                DataRow fila_copia = tabla_destino.NewRow();
+                for (int k = 0; k < dataGridView1.ColumnCount; k++)
+                {
+                    fila_copia[k] = dataGridView1.Rows[j].Cells[k].Value.ToString();
+                }
+
+                tabla_destino.Rows.Add(fila_copia);
+            }
+
+            return tabla_destino;
+        }
+
+        public DataTable copiar_datagrid_2()
+        {
+            DataTable tabla_destino = new DataTable();
+
+            for (int j = 0; j < dataGridView2.ColumnCount; j++)
+            {
+                tabla_destino.Columns.Add(dataGridView2.Columns[j].HeaderText);
+            }
+
+            for (int j = 0; j < dataGridView2.RowCount; j++)
+            {
+                DataRow fila_copia = tabla_destino.NewRow();
+                for (int k = 0; k < dataGridView2.ColumnCount; k++)
+                {
+                    fila_copia[k] = dataGridView2.Rows[j].Cells[k].Value.ToString();
+                }
+
+                tabla_destino.Rows.Add(fila_copia);
+            }
+
+            return tabla_destino;
+        }
+
+        public DataTable copiar_datagrid_3()
+        {
+            DataTable tabla_destino = new DataTable();
+
+            for (int j = 0; j < dataGridView3.ColumnCount; j++)
+            {
+                tabla_destino.Columns.Add(dataGridView3.Columns[j].HeaderText);
+            }
+
+            for (int j = 0; j < dataGridView3.RowCount; j++)
+            {
+                DataRow fila_copia = tabla_destino.NewRow();
+                for (int k = 0; k < dataGridView3.ColumnCount; k++)
+                {
+                    fila_copia[k] = dataGridView3.Rows[j].Cells[k].Value.ToString();
+                }
+
+                tabla_destino.Rows.Add(fila_copia);
+            }
+
+            return tabla_destino;
+        }
+
+        public DataTable copiar_datagrid_4()
+        {
+            DataTable tabla_destino = new DataTable();
+
+            for (int j = 0; j < dataGridView4.ColumnCount; j++)
+            {
+                tabla_destino.Columns.Add(dataGridView4.Columns[j].HeaderText);
+            }
+
+            for (int j = 0; j < dataGridView4.RowCount; j++)
+            {
+                DataRow fila_copia = tabla_destino.NewRow();
+                for (int k = 0; k < dataGridView4.ColumnCount; k++)
+                {
+                    fila_copia[k] = dataGridView4.Rows[j].Cells[k].Value.ToString();
+                }
+
+                tabla_destino.Rows.Add(fila_copia);
+            }
+
+            return tabla_destino;
+        }
+
+        public DataTable copiar_datagrid_5()
+        {
+            DataTable tabla_destino = new DataTable();
+
+            for (int j = 0; j < dataGridView5.ColumnCount; j++)
+            {
+                tabla_destino.Columns.Add(dataGridView5.Columns[j].HeaderText);
+            }
+
+            for (int j = 0; j < dataGridView5.RowCount; j++)
+            {
+                DataRow fila_copia = tabla_destino.NewRow();
+                for (int k = 0; k < dataGridView5.ColumnCount; k++)
+                {
+                    fila_copia[k] = dataGridView5.Rows[j].Cells[k].Value.ToString();
+                }
+
+                tabla_destino.Rows.Add(fila_copia);
+            }
+
+            return tabla_destino;
+        }
+
+        public DataTable copiar_datagrid_6()
+        {
+            DataTable tabla_destino = new DataTable();
+
+            for (int j = 0; j < dataGridView6.ColumnCount; j++)
+            {
+                tabla_destino.Columns.Add(dataGridView6.Columns[j].HeaderText);
+            }
+
+            for (int j = 0; j < dataGridView6.RowCount; j++)
+            {
+                DataRow fila_copia = tabla_destino.NewRow();
+                for (int k = 0; k < dataGridView6.ColumnCount; k++)
+                {
+                    fila_copia[k] = dataGridView6.Rows[j].Cells[k].Value.ToString();
+                }
+
+                tabla_destino.Rows.Add(fila_copia);
+            }
+
+            return tabla_destino;
+        }
+
+        public DataTable copiar_datagrid_7()
+        {
+            DataTable tabla_destino = new DataTable();
+
+            for (int j = 0; j < dataGridView7.ColumnCount; j++)
+            {
+                tabla_destino.Columns.Add(dataGridView7.Columns[j].HeaderText);
+            }
+
+            for (int j = 0; j < dataGridView7.RowCount; j++)
+            {
+                DataRow fila_copia = tabla_destino.NewRow();
+                for (int k = 0; k < dataGridView7.ColumnCount; k++)
+                {
+                    fila_copia[k] = dataGridView7.Rows[j].Cells[k].Value.ToString();
+                }
+
+                tabla_destino.Rows.Add(fila_copia);
+            }
+
+            return tabla_destino;
+        }
+
+        public DataTable copiar_datagrid_8()
+        {
+            DataTable tabla_destino = new DataTable();
+
+            for (int j = 0; j < dataGridView8.ColumnCount; j++)
+            {
+                tabla_destino.Columns.Add(dataGridView8.Columns[j].HeaderText);
+            }
+
+            for (int j = 0; j < dataGridView8.RowCount; j++)
+            {
+                DataRow fila_copia = tabla_destino.NewRow();
+                for (int k = 0; k < dataGridView8.ColumnCount; k++)
+                {
+                    fila_copia[k] = dataGridView8.Rows[j].Cells[k].Value.ToString();
+                }
+
+                tabla_destino.Rows.Add(fila_copia);
+            }
+
+            return tabla_destino;
+        }
+
+        public DataTable copiar_datagrid_9()
+        {
+            DataTable tabla_destino = new DataTable();
+
+            for (int j = 0; j < dataGridView9.ColumnCount; j++)
+            {
+                tabla_destino.Columns.Add(dataGridView9.Columns[j].HeaderText);
+            }
+
+            for (int j = 0; j < dataGridView9.RowCount; j++)
+            {
+                DataRow fila_copia = tabla_destino.NewRow();
+                for (int k = 0; k < dataGridView9.ColumnCount; k++)
+                {
+                    fila_copia[k] = dataGridView9.Rows[j].Cells[k].Value.ToString();
+                }
+
+                tabla_destino.Rows.Add(fila_copia);
+            }
+
+            return tabla_destino;
+        }
+
+        public DataTable copiar_datagrid_11()
+        {
+            DataTable tabla_destino = new DataTable();
+
+            for (int j = 0; j < dataGridView11.ColumnCount; j++)
+            {
+                tabla_destino.Columns.Add(dataGridView11.Columns[j].HeaderText);
+            }
+
+            for (int j = 0; j < dataGridView11.RowCount; j++)
+            {
+                DataRow fila_copia = tabla_destino.NewRow();
+                for (int k = 0; k < dataGridView11.ColumnCount; k++)
+                {
+                    fila_copia[k] = dataGridView11.Rows[j].Cells[k].Value.ToString();
+                }
+
+                tabla_destino.Rows.Add(fila_copia);
+            }
+
+            return tabla_destino;
+        }
 	
 		public void analisis(){
 			String rp,cred,peri,status,nn;
@@ -490,5 +731,54 @@ namespace Nova_Gear
 				//analisis_v2();
 			}
 		}
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if(dataGridView1.Rows.Count>0){
+                //GUARDAR EXCEL
+                SaveFileDialog dialog_save = new SaveFileDialog();
+                dialog_save.Filter = "Archivos de Excel (*.XLSX)|*.XLSX"; //le indicamos el tipo de filtro en este caso que busque solo los archivos excel
+                dialog_save.Title = "Guardar Archivo de Excel";//le damos un titulo a la ventana
+
+                data1 = copiar_datagrid_1();
+                data2 = copiar_datagrid_2();
+                data3 = copiar_datagrid_3();
+                data4 = copiar_datagrid_4();
+                data5 = copiar_datagrid_5();
+                data6 = copiar_datagrid_6();
+                data7 = copiar_datagrid_7();
+                data8 = copiar_datagrid_8();
+                data9 = copiar_datagrid_9();
+                data10 = copiar_datagrid_11();
+
+                if (dialog_save.ShowDialog() == DialogResult.OK)
+                {
+                    //tabla_excel
+                    XLWorkbook wb = new XLWorkbook();
+                    wb.Worksheets.Add(data1, "Totales");
+                    wb.Worksheets.Add(data2, "Estatus_0");
+                    wb.Worksheets.Add(data3, "En_Tramite");
+                    wb.Worksheets.Add(data4, "Notificados");
+                    wb.Worksheets.Add(data5, "Estrados");
+                    wb.Worksheets.Add(data6, "Depurados");
+                    wb.Worksheets.Add(data7, "NN");
+                    wb.Worksheets.Add(data8, "En_Cartera");
+                    wb.Worksheets.Add(data9, "Otros");
+                    wb.Worksheets.Add(data10, "Desconocidos");
+                    wb.SaveAs(@"" + dialog_save.FileName + "");
+                    //MessageBox.Show("Archivo guardado correctamente", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                    MessageBox.Show("El archivo se ha guardado Correctamente", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                }
+            }
+            else
+            {
+                MessageBox.Show("No hay datos que Exportar ", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
 	}
 }

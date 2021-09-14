@@ -30,6 +30,30 @@ namespace Nova_Gear.Aclaraciones
         Conexion conex = new Conexion();//principal
 
         DataTable consultamysql = new DataTable();
+        DataTable data1 = new DataTable();
+
+        public DataTable copiar_datagrid_1()
+        {
+            DataTable tabla_destino = new DataTable();
+
+            for (int j = 0; j < dataGridView1.ColumnCount; j++)
+            {
+                tabla_destino.Columns.Add(dataGridView1.Columns[j].HeaderText);
+            }
+
+            for (int j = 0; j < dataGridView1.RowCount; j++)
+            {
+                DataRow fila_copia = tabla_destino.NewRow();
+                for (int k = 0; k < dataGridView1.ColumnCount; k++)
+                {
+                    fila_copia[k] = dataGridView1.Rows[j].Cells[k].Value.ToString();
+                }
+
+                tabla_destino.Rows.Add(fila_copia);
+            }
+
+            return tabla_destino;
+        }
 
         public void buscar_credito()
         {
@@ -132,6 +156,33 @@ namespace Nova_Gear.Aclaraciones
         private void button7_Click(object sender, EventArgs e)
         {
             buscar_credito();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.Rows.Count > 0)
+            {
+                //GUARDAR EXCEL
+                SaveFileDialog dialog_save = new SaveFileDialog();
+                dialog_save.Filter = "Archivos de Excel (*.XLSX)|*.XLSX"; //le indicamos el tipo de filtro en este caso que busque solo los archivos excel
+                dialog_save.Title = "Guardar Archivo de Excel";//le damos un titulo a la ventana
+
+                data1 = copiar_datagrid_1();
+
+                if (dialog_save.ShowDialog() == DialogResult.OK)
+                {
+                    //tabla_excel
+                    XLWorkbook wb = new XLWorkbook();
+                    wb.Worksheets.Add(data1, "Aclaraciones");
+                    wb.SaveAs(@"" + dialog_save.FileName + "");
+                    //MessageBox.Show("Archivo guardado correctamente", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                    MessageBox.Show("El archivo se ha guardado Correctamente", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                }
+            }
+            else
+            {
+                MessageBox.Show("No hay datos que Exportar ", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
         }
     }
 }

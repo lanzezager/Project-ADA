@@ -772,11 +772,11 @@ namespace Nova_Gear.Depuracion
 									conex5.conectar("base_principal");
 									if ((tipo_doc_a_dep.Equals("02") == true) || (tipo_doc_a_dep.Equals("06") == true))
 									{
-										data_rale = conex5.consultar("SELECT registro_patronal,credito,periodo,importe FROM rale WHERE registro_patronal=\"" + data_depu_nova.Rows[i][1].ToString() + "\" AND credito=\"" + data_depu_nova.Rows[i][2].ToString() + "\" AND periodo=\"" + label9.Text + "\" AND incidencia <> \"23\" AND <> \"25\"");
+                                        data_rale = conex5.consultar("SELECT registro_patronal,credito,periodo,importe FROM rale WHERE registro_patronal=\"" + data_depu_nova.Rows[i][1].ToString() + "\" AND credito=\"" + data_depu_nova.Rows[i][2].ToString() + "\" AND periodo=\"" + label9.Text + "\" AND incidencia <> \"23\" AND incidencia <> \"25\"");
 									}
 									else
 									{
-                                        data_rale = conex5.consultar("SELECT registro_patronal,credito,periodo,importe FROM rale WHERE registro_patronal=\"" + data_depu_nova.Rows[i][1].ToString() + "\" AND credito=\"" + data_depu_nova.Rows[i][4].ToString() + "\" AND periodo=\"" + label9.Text + "\" AND incidencia <> \"23\" AND <> \"25\"");
+                                        data_rale = conex5.consultar("SELECT registro_patronal,credito,periodo,importe FROM rale WHERE registro_patronal=\"" + data_depu_nova.Rows[i][1].ToString() + "\" AND credito=\"" + data_depu_nova.Rows[i][4].ToString() + "\" AND periodo=\"" + label9.Text + "\" AND incidencia <> \"23\" AND incidencia <> \"25\"");
 									}
 
                                     if (verif_rale == "1")

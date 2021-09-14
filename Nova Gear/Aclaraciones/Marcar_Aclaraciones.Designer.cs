@@ -54,9 +54,15 @@
             this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.maskedTextBox4 = new System.Windows.Forms.MaskedTextBox();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.comboBox8 = new System.Windows.Forms.ComboBox();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
             // 
             // label29
@@ -155,7 +161,7 @@
             this.label6.ForeColor = System.Drawing.Color.White;
             this.label6.Location = new System.Drawing.Point(12, 413);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(191, 18);
+            this.label6.Size = new System.Drawing.Size(209, 18);
             this.label6.TabIndex = 41;
             this.label6.Text = "Registros Marcados: 0";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -169,7 +175,7 @@
             this.label4.ForeColor = System.Drawing.Color.White;
             this.label4.Location = new System.Drawing.Point(12, 390);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(191, 23);
+            this.label4.Size = new System.Drawing.Size(209, 23);
             this.label4.TabIndex = 40;
             this.label4.Text = "Registros Cargados: 0";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -191,6 +197,7 @@
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(44, 38);
             this.button6.TabIndex = 42;
+            this.toolTip1.SetToolTip(this.button6, "Buscar Crédito");
             this.button6.UseVisualStyleBackColor = false;
             this.button6.Visible = false;
             this.button6.Click += new System.EventHandler(this.button6_Click);
@@ -357,6 +364,7 @@
             this.maskedTextBox3.TabIndex = 88;
             this.maskedTextBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.maskedTextBox3.TextChanged += new System.EventHandler(this.maskedTextBox3_TextChanged);
+            this.maskedTextBox3.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.maskedTextBox3_KeyPress);
             // 
             // label2
             // 
@@ -406,12 +414,92 @@
             this.maskedTextBox4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.maskedTextBox4.TextChanged += new System.EventHandler(this.maskedTextBox4_TextChanged);
             // 
+            // button3
+            // 
+            this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.button3.BackColor = System.Drawing.Color.Transparent;
+            this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button3.FlatAppearance.BorderColor = System.Drawing.SystemColors.Menu;
+            this.button3.FlatAppearance.BorderSize = 0;
+            this.button3.FlatAppearance.MouseDownBackColor = System.Drawing.Color.SlateGray;
+            this.button3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Blue;
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.ForeColor = System.Drawing.Color.White;
+            this.button3.Image = global::Nova_Gear.Properties.Resources.file_save_as;
+            this.button3.Location = new System.Drawing.Point(227, 393);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(44, 38);
+            this.button3.TabIndex = 104;
+            this.button3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.toolTip1.SetToolTip(this.button3, "Guardar créditos sin afectar la Base de Datos");
+            this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // button4
+            // 
+            this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.button4.BackColor = System.Drawing.Color.Transparent;
+            this.button4.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button4.FlatAppearance.BorderColor = System.Drawing.SystemColors.Menu;
+            this.button4.FlatAppearance.BorderSize = 0;
+            this.button4.FlatAppearance.MouseDownBackColor = System.Drawing.Color.SlateGray;
+            this.button4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Blue;
+            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button4.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button4.ForeColor = System.Drawing.Color.White;
+            this.button4.Image = global::Nova_Gear.Properties.Resources.excel_imports;
+            this.button4.Location = new System.Drawing.Point(277, 393);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(44, 38);
+            this.button4.TabIndex = 105;
+            this.button4.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.toolTip1.SetToolTip(this.button4, "Importar lista de créditos Guardados");
+            this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // comboBox8
+            // 
+            this.comboBox8.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.comboBox8.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.comboBox8.DropDownWidth = 250;
+            this.comboBox8.FormattingEnabled = true;
+            this.comboBox8.Items.AddRange(new object[] {
+            "0",
+            "EN TRAMITE",
+            "NOTIFICADO",
+            "CARTERA",
+            "DEPURACION",
+            "DEPURACION MANUAL",
+            "CANCELADO",
+            "TRASPASO",
+            "REPOSICION"});
+            this.comboBox8.Location = new System.Drawing.Point(248, 137);
+            this.comboBox8.Name = "comboBox8";
+            this.comboBox8.Size = new System.Drawing.Size(141, 21);
+            this.comboBox8.TabIndex = 106;
+            this.comboBox8.Visible = false;
+            // 
+            // dataGridView2
+            // 
+            this.dataGridView2.AllowUserToAddRows = false;
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Location = new System.Drawing.Point(48, 137);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.Size = new System.Drawing.Size(173, 60);
+            this.dataGridView2.TabIndex = 107;
+            this.dataGridView2.Visible = false;
+            // 
             // Marcar_Aclaraciones
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(866, 443);
+            this.Controls.Add(this.dataGridView2);
+            this.Controls.Add(this.comboBox8);
+            this.Controls.Add(this.button4);
+            this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.maskedTextBox3);
@@ -438,6 +526,7 @@
             this.contextMenuStrip1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -467,5 +556,10 @@
         private System.Windows.Forms.MaskedTextBox maskedTextBox4;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem removerCréditoToolStripMenuItem;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.ComboBox comboBox8;
+        private System.Windows.Forms.DataGridView dataGridView2;
     }
 }

@@ -65,7 +65,7 @@
     <DefineConstants>TRACE</DefineConstants>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>ICON_GEAR_PRIME.ico</ApplicationIcon>
+    <ApplicationIcon>logo_nova_white_2.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
     <Prefer32Bit>false</Prefer32Bit>
@@ -1711,6 +1711,7 @@
     <None Include="Resources\to_do_list_checked_all_1.png" />
     <None Include="Resources\database_lightning.png" />
     <None Include="Resources\document_valid.png" />
+    <Content Include="logo_nova_white_2.ico" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
