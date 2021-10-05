@@ -449,32 +449,33 @@ namespace Nova_Gear.Depuracion
             this.panel3.Controls.Add(this.progressBar2);
             this.panel3.Controls.Add(this.label6);
             this.panel3.Controls.Add(this.label7);
-            this.panel3.Location = new System.Drawing.Point(12, 14);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel3.Location = new System.Drawing.Point(3, 19);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(382, 46);
+            this.panel3.Size = new System.Drawing.Size(392, 44);
             this.panel3.TabIndex = 4;
             this.panel3.Visible = false;
             // 
             // progressBar2
             // 
-            this.progressBar2.Location = new System.Drawing.Point(3, 7);
+            this.progressBar2.Location = new System.Drawing.Point(12, 3);
             this.progressBar2.Name = "progressBar2";
-            this.progressBar2.Size = new System.Drawing.Size(316, 15);
+            this.progressBar2.Size = new System.Drawing.Size(307, 19);
             this.progressBar2.TabIndex = 0;
             // 
             // label6
             // 
             this.label6.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(3, 24);
+            this.label6.Location = new System.Drawing.Point(12, 24);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(312, 20);
+            this.label6.Size = new System.Drawing.Size(307, 20);
             this.label6.TabIndex = 2;
             this.label6.Text = "Escribiendo en la Base de Datos...\r\n";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label7
             // 
-            this.label7.Location = new System.Drawing.Point(325, 2);
+            this.label7.Location = new System.Drawing.Point(337, 3);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(46, 23);
             this.label7.TabIndex = 1;
@@ -511,12 +512,12 @@ namespace Nova_Gear.Depuracion
             // textBox1
             // 
             this.textBox1.BackColor = System.Drawing.Color.White;
-            this.textBox1.Location = new System.Drawing.Point(12, 19);
+            this.textBox1.Location = new System.Drawing.Point(15, 19);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
             this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox1.Size = new System.Drawing.Size(374, 81);
+            this.textBox1.Size = new System.Drawing.Size(371, 81);
             this.textBox1.TabIndex = 1;
             // 
             // groupBox5
@@ -538,23 +539,24 @@ namespace Nova_Gear.Depuracion
             this.panel2.Controls.Add(this.progressBar1);
             this.panel2.Controls.Add(this.label5);
             this.panel2.Controls.Add(this.label4);
-            this.panel2.Location = new System.Drawing.Point(12, 15);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(3, 19);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(374, 45);
+            this.panel2.Size = new System.Drawing.Size(392, 44);
             this.panel2.TabIndex = 3;
             this.panel2.Visible = false;
             // 
             // progressBar1
             // 
-            this.progressBar1.Location = new System.Drawing.Point(3, 7);
+            this.progressBar1.Location = new System.Drawing.Point(12, 3);
             this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(316, 15);
+            this.progressBar1.Size = new System.Drawing.Size(307, 19);
             this.progressBar1.TabIndex = 0;
             // 
             // label5
             // 
             this.label5.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(3, 24);
+            this.label5.Location = new System.Drawing.Point(15, 24);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(368, 20);
             this.label5.TabIndex = 2;
@@ -563,7 +565,7 @@ namespace Nova_Gear.Depuracion
             // 
             // label4
             // 
-            this.label4.Location = new System.Drawing.Point(325, 2);
+            this.label4.Location = new System.Drawing.Point(337, 3);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(46, 23);
             this.label4.TabIndex = 1;

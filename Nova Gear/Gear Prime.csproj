@@ -197,6 +197,12 @@
     <Compile Include="Aclaraciones\Consulta_aclaraciones.Designer.cs">
       <DependentUpon>Consulta_aclaraciones.cs</DependentUpon>
     </Compile>
+    <Compile Include="Aclaraciones\Detalle_Aclaracion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Aclaraciones\Detalle_Aclaracion.Designer.cs">
+      <DependentUpon>Detalle_Aclaracion.cs</DependentUpon>
+    </Compile>
     <Compile Include="Aclaraciones\Marcar_Aclaraciones.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1114,6 +1120,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Aclaraciones\Consulta_aclaraciones.resx">
       <DependentUpon>Consulta_aclaraciones.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Aclaraciones\Detalle_Aclaracion.resx">
+      <DependentUpon>Detalle_Aclaracion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Aclaraciones\Marcar_Aclaraciones.resx">
       <DependentUpon>Marcar_Aclaraciones.cs</DependentUpon>

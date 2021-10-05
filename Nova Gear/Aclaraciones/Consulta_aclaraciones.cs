@@ -184,5 +184,20 @@ namespace Nova_Gear.Aclaraciones
                 MessageBox.Show("No hay datos que Exportar ", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
+
+        private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            String r="", c="", p="";
+
+            r = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
+            c = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
+            p = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
+
+            MessageBox.Show("r:"+r+"|c:"+c+"|p:"+p);
+
+            Aclaraciones.Detalle_Aclaracion detalle = new Detalle_Aclaracion(r,c,p);
+            detalle.Show();
+            detalle.Focus();
+        }
     }
 }

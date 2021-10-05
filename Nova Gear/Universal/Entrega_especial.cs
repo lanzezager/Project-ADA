@@ -60,7 +60,7 @@ namespace Nova_Gear.Universal
 				per=per.Substring(0,4)+per.Substring(5,2);
 				
 				consulta=conex.consultar("SELECT nombre_periodo,registro_patronal,razon_social,credito_cuotas,credito_multa,importe_cuota,importe_multa,periodo,sector_notificacion_inicial,sector_notificacion_actualizado,controlador,notificador, "+
-										"status,observaciones,id FROM datos_factura WHERE registro_patronal2 =\""+rp+"\" and credito_cuotas=\""+maskedTextBox2.Text+"\" and periodo=\""+per+"\"");
+                                        "status,observaciones,id FROM datos_factura WHERE registro_patronal2 =\"" + rp + "\" and credito_cuotas=\"" + maskedTextBox2.Text + "\" and periodo=\"" + per + "\" AND (status = \"EN TRAMITE\" OR status = \"0\")");
 				
 				if(consulta.Rows.Count>0){
 					dataGridView1.Rows.Add(consulta.Rows[0][0].ToString(),
@@ -96,7 +96,7 @@ namespace Nova_Gear.Universal
 			//if((maskedTextBox1.MaskCompleted)&&(maskedTextBox2.MaskCompleted)&&(maskedTextBox3.MaskCompleted)){
 				
 				consulta=conex.consultar("SELECT nombre_periodo,registro_patronal,razon_social,credito_cuotas,credito_multa,importe_cuota,importe_multa,periodo,sector_notificacion_inicial,sector_notificacion_actualizado,controlador,notificador, "+
-										"status,observaciones,id FROM datos_factura WHERE registro_patronal2 =\""+rp+"\" and credito_cuotas=\""+cred+"\" and periodo=\""+per+"\"");
+                                        "status,observaciones,id FROM datos_factura WHERE registro_patronal2 =\"" + rp + "\" and credito_cuotas=\"" + cred + "\" and periodo=\"" + per + "\" AND (status = \"EN TRAMITE\" OR status = \"0\")");
 				
 				if(consulta.Rows.Count>0){
 					dataGridView1.Rows.Add(consulta.Rows[0][0].ToString(),

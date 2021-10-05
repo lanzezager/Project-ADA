@@ -388,7 +388,7 @@ namespace Nova_Gear.Aclaraciones
             solicita = jefe_sec + "\nOficina de Emisiones P.O.";
             autoriza = jefe_ofi + "\nJefe Oficina de Emisiones y P.O.";
 
-            DialogResult respuesta = MessageBox.Show("Se Generará el Reporte de Aclaraciones \n ¿Desea Continuar?", "AVISO", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button2);
+            DialogResult respuesta = MessageBox.Show("Se Guardarán los créditos listados en la BD de Aclaraciones\n ¿Desea Continuar?", "AVISO", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button2);
 
             if (respuesta == DialogResult.Yes)
             {
@@ -479,7 +479,7 @@ namespace Nova_Gear.Aclaraciones
 
                         conex1.consultar(sql);
                     }
-
+                    /*
                     //GUARDAR EXCEL
                     SaveFileDialog dialog_save = new SaveFileDialog();
                     dialog_save.Filter = "Archivos de Excel (*.XLSX)|*.XLSX"; //le indicamos el tipo de filtro en este caso que busque solo los archivos excel
@@ -500,6 +500,7 @@ namespace Nova_Gear.Aclaraciones
                         entrega_cartera.envio3(tabla_imprime, "CRÉDITOS DEL RALE PARA ACLARAR", "", "E.P.O.");
                         entrega_cartera.Show();
                     }
+                    */
             }
         }
 

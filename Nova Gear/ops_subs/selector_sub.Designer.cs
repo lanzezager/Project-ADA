@@ -125,7 +125,6 @@ namespace Nova_Gear.ops_subs
             // comboBox1
             // 
             this.comboBox1.BackColor = System.Drawing.Color.White;
-            this.comboBox1.Enabled = false;
             this.comboBox1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Items.AddRange(new object[] {
@@ -138,7 +137,6 @@ namespace Nova_Gear.ops_subs
             // comboBox2
             // 
             this.comboBox2.BackColor = System.Drawing.Color.White;
-            this.comboBox2.Enabled = false;
             this.comboBox2.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox2.FormattingEnabled = true;
             this.comboBox2.Items.AddRange(new object[] {
@@ -154,8 +152,6 @@ namespace Nova_Gear.ops_subs
             // 
             // comboBox3
             // 
-            this.comboBox3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboBox3.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox3.FormattingEnabled = true;
             this.comboBox3.Items.AddRange(new object[] {
@@ -175,7 +171,6 @@ namespace Nova_Gear.ops_subs
             // comboBox4
             // 
             this.comboBox4.BackColor = System.Drawing.Color.White;
-            this.comboBox4.Enabled = false;
             this.comboBox4.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox4.FormattingEnabled = true;
             this.comboBox4.Items.AddRange(new object[] {
@@ -195,7 +190,6 @@ namespace Nova_Gear.ops_subs
             // comboBox5
             // 
             this.comboBox5.BackColor = System.Drawing.Color.White;
-            this.comboBox5.Enabled = false;
             this.comboBox5.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox5.FormattingEnabled = true;
             this.comboBox5.Items.AddRange(new object[] {
