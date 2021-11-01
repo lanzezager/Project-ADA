@@ -206,7 +206,11 @@ namespace Nova_Gear
 				if(pos_punto==valor.Length-3){
 					valor_corregido=valor;
 				}else{
-					valor_corregido=valor.Substring(0,pos_punto+3);
+                    if(valor.Length>=(pos_punto+3)){
+					    valor_corregido=valor.Substring(0,pos_punto+3);
+                    }else{
+                        valor_corregido = valor.Substring(0, pos_punto + 2)+"0";
+                    }
 				}
 			}else{ 
 				valor_corregido=valor+".00";
@@ -572,7 +576,7 @@ namespace Nova_Gear
 						
 						StreamWriter wr1 = new StreamWriter(@"capture_inc.bat");
 						wr1.WriteLine("@echo off");
-						wr1.WriteLine("C:");
+                        wr1.WriteLine("" + ruta.Substring(0, 1) + ":");
 						wr1.WriteLine("cd "+ruta.Substring(0,(ruta.Length-19)));
 						
 						if(comboBox2.SelectedIndex==0){
@@ -694,7 +698,7 @@ namespace Nova_Gear
 						
 						StreamWriter wr1 = new StreamWriter(@"capture_am.bat");
 						wr1.WriteLine("@echo off");
-						wr1.WriteLine("C:");
+						wr1.WriteLine(""+ruta.Substring(0,1)+":");
 						wr1.WriteLine("cd "+ruta.Substring(0,(ruta.Length-19)));
 						
 						if(comboBox2.SelectedIndex==0){

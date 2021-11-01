@@ -838,8 +838,21 @@ namespace Nova_Gear.Supervision
 					productividad=Convert.ToDecimal(Convert.ToDecimal(total)/Convert.ToDecimal(cuenta_dias()));
 				}
 				pos_punto=productividad.ToString().IndexOf('.');
+
 				if(pos_punto>-1){
-					dataGridView18.Rows[ii].Cells[8].Value=Convert.ToDecimal(productividad.ToString().Substring(0,pos_punto+3));
+                    if (productividad.ToString().Length >= pos_punto + 3)
+                    {
+                        dataGridView18.Rows[ii].Cells[8].Value=Convert.ToDecimal(productividad.ToString().Substring(0,pos_punto+3));
+                    }else{
+                        if (productividad.ToString().Length >= pos_punto + 2)
+                        {
+                            dataGridView18.Rows[ii].Cells[8].Value = Convert.ToDecimal(productividad.ToString().Substring(0, pos_punto + 2) + "0");
+                        }
+                        else
+                        {
+                            dataGridView18.Rows[ii].Cells[8].Value = Convert.ToDecimal(productividad.ToString().Substring(0, pos_punto + 1) + "00");
+                        }
+                    }
 				}else{
 					dataGridView18.Rows[ii].Cells[8].Value=Convert.ToDecimal(productividad.ToString());
 				}

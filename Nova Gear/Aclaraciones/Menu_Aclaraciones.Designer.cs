@@ -50,7 +50,7 @@
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(251, 71);
             this.button5.TabIndex = 80;
-            this.button5.Text = "  Marcar Créditos \r\n  para Aclaraciones";
+            this.button5.Text = "  Agregar Crédito\r\n     para Aclarar";
             this.button5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button5.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.button5.UseVisualStyleBackColor = false;

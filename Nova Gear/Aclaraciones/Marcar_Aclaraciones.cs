@@ -38,6 +38,7 @@ namespace Nova_Gear.Aclaraciones
         DataTable tabla_imprime = new DataTable();
         DataTable excel = new DataTable();
         DataTable excel_temp = new DataTable();
+        DataTable consultamysql2 = new DataTable();
 
         int b = 0;
 
@@ -380,7 +381,7 @@ namespace Nova_Gear.Aclaraciones
         private void button1_Click(object sender, EventArgs e)
         {
             String sub, jefe_sec,jefe_ofi, solicita,autoriza,sql="",fecha_mov="",fecha_alta="",fecha_noti="",fecha_inc="",fecha_hoy="";
-            int num_marca = 0;
+            int num_marca = 0, omitidos=0, guardados=0;
 	
             sub = conex.leer_config_sub()[4];                    
             jefe_ofi = conex.leer_config_sub()[8];                    
@@ -456,29 +457,51 @@ namespace Nova_Gear.Aclaraciones
                             fecha_noti = excel.Rows[i][10].ToString().Substring(6, 4) + "-" + excel.Rows[i][10].ToString().Substring(3, 2) + "-" + excel.Rows[i][10].ToString().Substring(0, 2);
                         }
 
-                        sql = "INSERT INTO rale_Aclaraciones (registro_patronal,credito,periodo,td,importe,incidencia,fecha_incidencia,mov,fecha_mov,fecha_alta,fecha_noti,sector,dias,ce,sub,tipo_rale,num_marca,fecha_marca) " +
-                              "VALUES(  \""+excel.Rows[i][0].ToString()+"\","+
-                                     "\"" + excel.Rows[i][1].ToString() + "\"," +
-                                     "\"" + excel.Rows[i][2].ToString() + "\"," +
-                                     "\"" + excel.Rows[i][3].ToString() + "\"," +
-                                     "  " + excel.Rows[i][4].ToString() + "," +
-                                     "\"" + excel.Rows[i][5].ToString() + "\"," +
-                                     "\"" + fecha_inc + "\"," +
-                                     "  " + excel.Rows[i][7].ToString() + "," +
-                                     "\"" + fecha_mov + "\"," +
-                                     "\"" + fecha_alta + "\"," +
-                                     "\"" + fecha_noti + "\"," +
-                                     "  " + excel.Rows[i][11].ToString() + "," +
-                                     "  " + excel.Rows[i][12].ToString() + "," +
-                                     "\"" + excel.Rows[i][13].ToString() + "\"," +
-                                     "\"" + sub + "\"," +
-                                     "\"" + excel.Rows[i][14].ToString() + "\"," +
-                                     "\"" + num_marca + "\"," +
-                                     "\"" + fecha_hoy + "\"" +                        
-                            ")";
+                        sql = "SELECT * FROM rale_aclaraciones WHERE registro_patronal=\"" + excel.Rows[i][0].ToString() + "\" AND credito=\"" + excel.Rows[i][1].ToString() + "\" AND periodo =\"" + excel.Rows[i][2].ToString() + "\"";
+                        consultamysql2= conex1.consultar(sql);
 
-                        conex1.consultar(sql);
+                        if (consultamysql2.Rows.Count == 0)
+                        {
+                            sql = "INSERT INTO rale_Aclaraciones (registro_patronal,credito,periodo,td,importe,incidencia,fecha_incidencia,mov,fecha_mov,fecha_alta,fecha_noti,sector,dias,ce,sub,tipo_rale,num_marca,fecha_marca) " +
+                                  "VALUES(  \"" + excel.Rows[i][0].ToString() + "\"," +
+                                         "\"" + excel.Rows[i][1].ToString() + "\"," +
+                                         "\"" + excel.Rows[i][2].ToString() + "\"," +
+                                         "\"" + excel.Rows[i][3].ToString() + "\"," +
+                                         "  " + excel.Rows[i][4].ToString() + "," +
+                                         "\"" + excel.Rows[i][5].ToString() + "\"," +
+                                         "\"" + fecha_inc + "\"," +
+                                         "  " + excel.Rows[i][7].ToString() + "," +
+                                         "\"" + fecha_mov + "\"," +
+                                         "\"" + fecha_alta + "\"," +
+                                         "\"" + fecha_noti + "\"," +
+                                         "  " + excel.Rows[i][11].ToString() + "," +
+                                         "  " + excel.Rows[i][12].ToString() + "," +
+                                         "\"" + excel.Rows[i][13].ToString() + "\"," +
+                                         "\"" + sub + "\"," +
+                                         "\"" + excel.Rows[i][14].ToString() + "\"," +
+                                         "\"" + num_marca + "\"," +
+                                         "\"" + fecha_hoy + "\"" +
+                                ")";
+
+                            conex1.consultar(sql);
+                            guardados++;
+
+                        }
+                        else
+                        {
+                            omitidos++;
+                        }
                     }
+
+                    if(omitidos>0){
+                        MessageBox.Show("Se Guardaron "+guardados+" Créditos Correctamente para su correspondiente Aclaración \nSe Omitieron "+omitidos+" Créditos debido a que ya se encuentran en proceso de Aclaración", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                    }else{
+                        MessageBox.Show("Se Guardaron " + guardados + " Créditos Correctamente para su correspondiente Aclaración", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                    }
+                    
+                    dataGridView1.Rows.Clear();
+                    label4.Text = "Registros Cargados: 0";
+
                     /*
                     //GUARDAR EXCEL
                     SaveFileDialog dialog_save = new SaveFileDialog();

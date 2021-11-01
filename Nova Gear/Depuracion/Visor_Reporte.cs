@@ -36,9 +36,10 @@ namespace Nova_Gear.Depuracion
         Formatos_Reporte.Prefactura prefact = new Formatos_Reporte.Prefactura();
 
 
-        String tipo_per, importe_total, noti, nom_save, nom_save_forzado, user, justi, soli, autori, foli_not, user_id,folio="";
+        String tipo_per, importe_total, noti, nom_save, nom_save_forzado, user, justi, soli, autori, foli_not, user_id,folio="",tipo_rale="cop";
         int x = 0,tipo_report=0,y=0,i=0,tipo_core=0;
         double sumatoria = 0,tot_hojas=0;
+        decimal sumato = 0;
         string[] lista = { "portada_core.pdf", "contenido_core.pdf" };
 
         Conexion conex = new Conexion();
@@ -110,6 +111,81 @@ namespace Nova_Gear.Depuracion
                 x++;
             } 
 			
+            importe_total = sumatoria.ToString();
+            importe_total = importe_total.Substring(0, ((importe_total.IndexOf('.')) + 2));
+            //tabla = depu.core_depu;
+            //return tabla;
+        }
+
+        public void dame_datos_aclaracion()
+        {
+            x = 0;
+            //MessageBox.Show(dataGridView1.Rows[x].Cells[3].FormattedValue.ToString());
+            do
+            {
+                DataSet_Depu.core_depuRow fila = depu.core_depu.Newcore_depuRow();
+                fila.asunto = (x + 1);
+                fila.reg_pat = dataGridView1.Rows[x].Cells[0].FormattedValue.ToString();
+                fila.credito = dataGridView1.Rows[x].Cells[1].FormattedValue.ToString();
+                fila.periodo = dataGridView1.Rows[x].Cells[2].FormattedValue.ToString();
+                fila.tipo_doc = dataGridView1.Rows[x].Cells[3].FormattedValue.ToString();
+                fila.inc = dataGridView1.Rows[x].Cells[4].FormattedValue.ToString();
+                fila.sub = dataGridView1.Rows[x].Cells[5].FormattedValue.ToString();
+                fila.importe = Convert.ToDouble(dataGridView1.Rows[x].Cells[6].FormattedValue);
+                fila.folio = dataGridView1.Rows[x].Cells[7].FormattedValue.ToString();
+                fila.folio1 = dataGridView1.Rows[x].Cells[8].FormattedValue.ToString();
+                fila.folio2 = " ";
+                fila.clave_error = " ";
+                depu.core_depu.Addcore_depuRow(fila);
+
+                x++;
+                if (tipo_report == 1)
+                {
+                    if (x == 25)
+                    {
+                        x = tabla.Rows.Count;
+                    }
+                }
+            } while (x < tabla.Rows.Count);
+
+            sumatoria = 0;
+            i = 0;
+
+            do
+            {
+                sumatoria = sumatoria + Convert.ToDouble(dataGridView1.Rows[i].Cells[6].FormattedValue.ToString());
+                i++;
+            } while (i < tabla.Rows.Count);
+            //tabla = depu.core_depu;
+            //return tabla;
+        }
+
+        public void dame_datos_sub2_aclaracion()
+        {
+            x = 25;
+            //MessageBox.Show(""+x);
+            //sumatoria = 0;
+            while (x < tabla.Rows.Count)
+            {
+
+                DataSet_Depu.core_depu1Row fila1 = depu.core_depu1.Newcore_depu1Row();
+                fila1.asunto = (x + 1);
+                fila1.reg_pat = dataGridView1.Rows[x].Cells[0].FormattedValue.ToString();
+                fila1.credito = dataGridView1.Rows[x].Cells[1].FormattedValue.ToString();
+                fila1.periodo = dataGridView1.Rows[x].Cells[2].FormattedValue.ToString();
+                fila1.tipo_doc = dataGridView1.Rows[x].Cells[3].FormattedValue.ToString();
+                fila1.inc = dataGridView1.Rows[x].Cells[4].FormattedValue.ToString();
+                fila1.sub = dataGridView1.Rows[x].Cells[5].FormattedValue.ToString();
+                fila1.importe = Convert.ToDouble(dataGridView1.Rows[x].Cells[6].FormattedValue);
+                fila1.folio = dataGridView1.Rows[x].Cells[7].FormattedValue.ToString();
+                fila1.folio1 = dataGridView1.Rows[x].Cells[8].FormattedValue.ToString();
+                fila1.folio2 = " ";
+                fila1.clave_error = " ";
+                depu.core_depu1.Addcore_depu1Row(fila1);
+                //sumatoria = sumatoria + Convert.ToDouble(dataGridView1.Rows[x].Cells[5].FormattedValue.ToString());
+                x++;
+            }
+
             importe_total = sumatoria.ToString();
             importe_total = importe_total.Substring(0, ((importe_total.IndexOf('.')) + 2));
             //tabla = depu.core_depu;
@@ -270,6 +346,28 @@ namespace Nova_Gear.Depuracion
                 this.Hide();
             }
         }
+
+        public void envio_aclaracion(DataTable tabla_report, String solicita, String autoriza, String tipo_ra)
+        {
+            tabla = tabla_report;
+            dataGridView1.DataSource = tabla;
+            this.soli = solicita;
+            this.autori = autoriza;
+            tipo_core = 1;
+            foli_not = generar_folio_not("CM_12", "COP");
+            tipo_rale = tipo_ra.ToLower();
+            if (tabla.Rows.Count > 0)
+            {
+                tipo_report = 1;
+                dame_datos_aclaracion();
+                dame_datos_sub2_aclaracion();
+            }
+            else
+            {
+                MessageBox.Show("Este Periodo No se Depuró");
+                this.Hide();
+            }
+        }
         
         public void envio_inc31(DataTable tabla_report,int tipo_per_inc,String solicita, String autoriza){
         	tipo_per="";
@@ -353,8 +451,7 @@ namespace Nova_Gear.Depuracion
 
             //crystalReportViewer1.ReportSource = master;
             //MessageBox.Show("" + depu.Tables[0].Rows.Count);
-            Depu_report1.SetDataSource(depu);
-            crystalReportViewer1.ReportSource = Depu_report1;
+            
 
            /* if ((tipo_per.Equals("1")) || (tipo_per.Equals("2")))
             {
@@ -368,11 +465,25 @@ namespace Nova_Gear.Depuracion
             }
 
             */
-           
+
+            Depu_report1.SetDataSource(depu);
+            crystalReportViewer1.ReportSource = Depu_report1;
 
             Depu_report1.SetParameterValue("folio_not",foli_not );
-            Depu_report1.SetParameterValue("cop", "XXX");
-            Depu_report1.SetParameterValue("rcv", "  ");
+            //Depu_report1.SetParameterValue("cop", "XXX");
+            //Depu_report1.SetParameterValue("rcv", "  ");
+
+            if (tipo_rale.Equals("cop"))
+            {
+                Depu_report1.SetParameterValue("cop", "XXX");
+                Depu_report1.SetParameterValue("rcv", "  ");
+            }
+            else
+            {
+                Depu_report1.SetParameterValue("cop", "  ");
+                Depu_report1.SetParameterValue("rcv", "XXX");
+            }
+
             Depu_report1.SetParameterValue("fecha", System.DateTime.Now.ToShortDateString());
             Depu_report1.SetParameterValue("clase_emision", "  ");
             Depu_report1.SetParameterValue("incidencia", "  ");

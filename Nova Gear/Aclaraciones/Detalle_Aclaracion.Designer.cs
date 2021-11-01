@@ -221,12 +221,15 @@
             // 
             // textBox8
             // 
+            this.textBox8.BackColor = System.Drawing.Color.White;
             this.textBox8.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox8.Location = new System.Drawing.Point(18, 222);
+            this.textBox8.MaxLength = 3;
             this.textBox8.Name = "textBox8";
             this.textBox8.Size = new System.Drawing.Size(97, 21);
             this.textBox8.TabIndex = 102;
             this.textBox8.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBox8.TextChanged += new System.EventHandler(this.textBox8_TextChanged);
             // 
             // label9
             // 
@@ -268,6 +271,7 @@
             this.textBox10.Size = new System.Drawing.Size(97, 21);
             this.textBox10.TabIndex = 106;
             this.textBox10.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBox10.TextChanged += new System.EventHandler(this.textBox10_TextChanged);
             // 
             // label11
             // 
@@ -365,6 +369,7 @@
             this.button1.Text = "     Guardar";
             this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Detalle_Aclaracion
             // 
