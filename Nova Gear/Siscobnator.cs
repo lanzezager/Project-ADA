@@ -348,6 +348,7 @@ namespace Nova_Gear
 		public bool checar_rale(String rp, String cred, String peri){
         	if(radioButton5.Checked==true){
 				DataView vista = new DataView(data_query);
+                //MessageBox.Show(data_query.Rows.Count.ToString());
 				
 				vista.RowFilter="registro_patronal='"+rp+"' AND credito='"+cred+"' AND periodo='"+peri+"'";
 				dataGridView2.DataSource=vista;
@@ -431,11 +432,11 @@ namespace Nova_Gear
                 	
                 if(radioButton3.Checked==true){
                 	//COP
-                	sql="SELECT registro_patronal,credito,periodo FROM rale WHERE tipo_rale=\"COP\" AND fecha_noti LIKE \"0000-00-00\"";
+                	sql="SELECT registro_patronal,credito,periodo FROM rale WHERE tipo_rale=\"COP\" AND fecha_noti LIKE \"0001-01-01\"";
                 }else{
                 	if(radioButton4.Checked==true){
                 		//RCV
-                		sql="SELECT registro_patronal,credito,periodo FROM rale WHERE tipo_rale=\"RCV\" AND fecha_noti LIKE \"0000-00-00\"";
+                		sql="SELECT registro_patronal,credito,periodo FROM rale WHERE tipo_rale=\"RCV\" AND fecha_noti LIKE \"0001-01-01\"";
                 	}
                 }
                 

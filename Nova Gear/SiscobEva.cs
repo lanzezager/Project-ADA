@@ -226,8 +226,8 @@ namespace Nova_Gear
 			if(System.IO.File.Exists(@"capturador_universal/inc/temp1.txt")==true){
 				System.IO.File.Delete(@"capturador_universal/inc/temp1.txt");
 			}
-			if(System.IO.File.Exists(@"capturador_universal/inc/temp_aux1.txt")==true){
-				System.IO.File.Delete(@"capturador_universal/inc/temp_aux1.txt");
+			if(System.IO.File.Exists(@"capturador_universal/inc/temp_aux.txt")==true){
+				System.IO.File.Delete(@"capturador_universal/inc/temp_aux.txt");
 			}
 			
 			//Abrir archivo
@@ -326,8 +326,8 @@ namespace Nova_Gear
 			if(System.IO.File.Exists(@"capturador_universal/am/temp1.txt")==true){
 				System.IO.File.Delete(@"capturador_universal/am/temp1.txt");
 			}
-			if(System.IO.File.Exists(@"capturador_universal/am/temp_aux1.txt")==true){
-				System.IO.File.Delete(@"capturador_universal/am/temp_aux1.txt");
+			if(System.IO.File.Exists(@"capturador_universal/am/temp_aux.txt")==true){
+				System.IO.File.Delete(@"capturador_universal/am/temp_aux.txt");
 			}
 			
 			//Abrir archivo
@@ -459,7 +459,7 @@ namespace Nova_Gear
 			wr.WriteLine("%&");
 			wr.Close();
 
-			StreamWriter wr1 = new StreamWriter(@"capturador_universal/am/temp_aux1.txt");
+			StreamWriter wr1 = new StreamWriter(@"capturador_universal/am/temp_aux.txt");
 			wr1.WriteLine("0");
 			wr1.WriteLine(tot);
 			wr1.Close();
@@ -736,15 +736,15 @@ namespace Nova_Gear
 			
 			StreamReader rdr,rdr1;
 			if(tipo_capt==1){//incidencias
-				rdr = new StreamReader(@"capturador_universal/inc/errores_siscob.txt");
-				rdr1 = new StreamReader(@"capturador_universal/inc/aciertos_siscob.txt");
+				rdr1 = new StreamReader(@"capturador_universal/inc/errores_siscob.txt");
+				rdr = new StreamReader(@"capturador_universal/inc/aciertos_siscob.txt");
 				textBox2.Text=rdr.ReadToEnd();//aciertos
 				textBox3.Text=rdr1.ReadToEnd();//errores
 			}
 			
 			if(tipo_capt==2){//ajustes
-				rdr = new StreamReader(@"capturador_universal/am/errores_siscob.txt");
-				rdr1 = new StreamReader(@"capturador_universal/am/aciertos_siscob.txt");
+				rdr1 = new StreamReader(@"capturador_universal/am/errores_siscob.txt");
+				rdr = new StreamReader(@"capturador_universal/am/aciertos_siscob.txt");
 				textBox2.Text=rdr.ReadToEnd();//aciertos
 				textBox3.Text=rdr1.ReadToEnd();//errores
 			}
@@ -845,10 +845,7 @@ namespace Nova_Gear
 			tabla_am_rcv_errs.Columns.Add("IMPORTE_TOTAL");
 			tabla_am_rcv_errs.Columns.Add("IMPORTE_RETIRO PATRONAL");
 			tabla_am_rcv_errs.Columns.Add("IMPORTE_RCV OBRERO");
-			tabla_am_rcv_errs.Columns.Add("IMPORTE_RCV PATRONAL");
-			
-			
-			
+			tabla_am_rcv_errs.Columns.Add("IMPORTE_RCV PATRONAL");			
 		}
 		
 		void Button1Click(object sender, EventArgs e)

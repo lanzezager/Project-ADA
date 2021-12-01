@@ -1041,7 +1041,9 @@ namespace Nova_Gear.Supervision
 
         private void button2_Click(object sender, EventArgs e)
         {
-
+            detalle_prod_ind d_noti = new detalle_prod_ind();
+            d_noti.Show();
+            d_noti.Focus();
         }
 	}
 }

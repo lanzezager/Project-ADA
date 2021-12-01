@@ -1046,6 +1046,12 @@
       <DependentUpon>Siscobnator.cs</DependentUpon>
     </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
+    <Compile Include="Supervision\detalle_prod_ind.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Supervision\detalle_prod_ind.Designer.cs">
+      <DependentUpon>detalle_prod_ind.cs</DependentUpon>
+    </Compile>
     <Compile Include="Supervision\Estado_noti.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1569,6 +1575,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Siscobnator.resx">
       <DependentUpon>Siscobnator.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Supervision\detalle_prod_ind.resx">
+      <DependentUpon>detalle_prod_ind.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Supervision\Estado_noti.resx">
       <DependentUpon>Estado_noti.cs</DependentUpon>
