@@ -56,10 +56,11 @@ namespace Nova_Gear
 
 	   DialogResult respuesta;
 	   Conexion conex = new Conexion();
+       Conexion conex1 = new Conexion();
 	   
 	   DataTable consultamysql;
 	   DataTable data3 = new DataTable();
-
+       DataTable consultaini;
        
 
 	   public void abrir_lector(){
@@ -215,7 +216,9 @@ namespace Nova_Gear
 	   	if(rango>30){
 	   		lv_permiso=4;
 	   	}
-	   	
+
+        
+        	   	
 	   	switch(lv_permiso){
 				case 0: //Procesos Notificacion
 	   					button5.Enabled=true;
@@ -249,6 +252,8 @@ namespace Nova_Gear
 						button26.Enabled=true;
 						button32.Enabled=true;
                         button48.Enabled = true;
+                        button39.Enabled = true;
+                        button39.Visible = true;
 						
 						//Opciones
 						button17.Enabled=true;
@@ -593,8 +598,29 @@ namespace Nova_Gear
            	panel2.Visible=false;
            	panel5.Visible=false;
            }
-           
-           
+
+           int nivel = Convert.ToInt32(datos_usuario[2]);
+
+           if (nivel == 1)
+           {
+               conex1.conectar("base_principal");
+               consultaini = conex1.consultar("SELECT COUNT(id) FROM datos_factura");
+
+               if (Convert.ToInt32(consultaini.Rows[0][0].ToString()) == 0)
+               {
+                   DialogResult resul = MessageBox.Show("¡La base de datos se encuentra vacía!\nSe recomienda que efectúe la inicialización automática.\n\n¿Desea Proceder con la inicialización?", "AVISO", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
+
+                   if (resul == DialogResult.Yes)
+                   {
+                       Inicializacion_nova ini_nova = new Inicializacion_nova();
+                       this.WindowState = FormWindowState.Minimized; 
+                       ini_nova.Show();
+                       //MessageBox.Show("" +this.WindowState.ToString());
+                       
+                       ini_nova.Focus();
+                   }
+               }
+           }
        }
 	   
 		void LectorDeFacturasToolStripMenuItemClick(object sender, EventArgs e)
@@ -1021,8 +1047,10 @@ namespace Nova_Gear
 		
 		void Button39Click(object sender, EventArgs e)
 		{
-			Correspondencia_acta_citatorio actas = new Correspondencia_acta_citatorio();
-			actas.Show();
+			//Correspondencia_acta_citatorio actas = new Correspondencia_acta_citatorio();
+			//actas.Show();
+            Inicializacion_nova ini_nova = new Inicializacion_nova();
+            ini_nova.Show();
 		}
 		
 		void Button40Click(object sender, EventArgs e)

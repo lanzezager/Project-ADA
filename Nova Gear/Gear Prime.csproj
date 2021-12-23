@@ -581,6 +581,18 @@
       <DependentUpon>Generador_reportes.cs</DependentUpon>
     </Compile>
     <Compile Include="Guarda_Evento.cs" />
+    <Compile Include="Inicializacion_nova.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Inicializacion_nova.Designer.cs">
+      <DependentUpon>Inicializacion_nova.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inicializacion_nova_2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Inicializacion_nova_2.Designer.cs">
+      <DependentUpon>Inicializacion_nova_2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Inventario\Auxiliares.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1337,6 +1349,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Generador_reportes.resx">
       <DependentUpon>Generador_reportes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inicializacion_nova.resx">
+      <DependentUpon>Inicializacion_nova.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inicializacion_nova_2.resx">
+      <DependentUpon>Inicializacion_nova_2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Inventario\Auxiliares.resx">
       <DependentUpon>Auxiliares.cs</DependentUpon>

@@ -109,7 +109,8 @@
             "Notificados",
             "No Notificados",
             "Mixto",
-            "Estrados"});
+            "Estrados",
+            "CLEM Notificados"});
             this.comboBox1.Location = new System.Drawing.Point(75, 62);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(169, 28);
@@ -262,9 +263,9 @@
             this.panel1.BackColor = System.Drawing.Color.Transparent;
             this.panel1.Controls.Add(this.dateTimePicker1);
             this.panel1.Controls.Add(this.label5);
-            this.panel1.Location = new System.Drawing.Point(262, 36);
+            this.panel1.Location = new System.Drawing.Point(266, 33);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(281, 62);
+            this.panel1.Size = new System.Drawing.Size(268, 62);
             this.panel1.TabIndex = 10;
             this.panel1.Visible = false;
             // 
@@ -578,6 +579,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(826, 451);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.button9);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.button6);
@@ -586,7 +588,6 @@
             this.Controls.Add(this.button3);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.dataGridView2);
-            this.Controls.Add(this.panel1);
             this.Controls.Add(this.comboBox2);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.button1);

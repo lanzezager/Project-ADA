@@ -37,7 +37,22 @@ namespace Nova_Gear
             conex.conectar("base_principal");
             comboBox2.Items.Clear();
             i = 0;
-            dataGridView2.DataSource = conex.consultar("SELECT DISTINCT nombre_periodo FROM base_principal.datos_factura ORDER BY nombre_periodo;");
+            dataGridView2.DataSource = conex.consultar("SELECT DISTINCT nombre_periodo FROM base_principal.datos_factura WHERE nombre_periodo NOT LIKE \"CLEM%\" ORDER BY nombre_periodo;");
+            do
+            {
+                comboBox2.Items.Add(dataGridView2.Rows[i].Cells[0].Value.ToString());
+                i++;
+            } while (i < dataGridView2.RowCount);
+            i = 0;
+            conex.cerrar();
+        }
+
+        public void llenar_Cb1_clem()
+        {
+            conex.conectar("base_principal");
+            comboBox2.Items.Clear();
+            i = 0;
+            dataGridView2.DataSource = conex.consultar("SELECT DISTINCT nombre_periodo FROM base_principal.datos_factura WHERE nombre_periodo LIKE \"CLEM%\" ORDER BY nombre_periodo;");
             do
             {
                 comboBox2.Items.Add(dataGridView2.Rows[i].Cells[0].Value.ToString());
@@ -105,6 +120,7 @@ namespace Nova_Gear
             this.Icon = Nova_Gear.Properties.Resources.logo_nova_white_2;
 
             llenar_Cb1();
+
             consultamysql.Columns.Add();
             consultamysql.Columns.Add();
             consultamysql.Columns.Add();
@@ -122,21 +138,31 @@ namespace Nova_Gear
         {
         	if ((comboBox1.SelectedIndex == 1))
             {
-        		 label1.Visible = false;
+        		label1.Visible = false;
                 comboBox2.Visible = false;
                 panel1.Visible = true;
-                //button2.Enabled = true;
-               
+                //button2.Enabled = true;               
             }
             else
             {
-            	if(comboBox1.SelectedIndex>-1){
-                label1.Visible = true;
-                comboBox2.Visible = true;
-                panel1.Visible = false;
-               //button2.Enabled = false;
-                comboBox2.SelectedIndex = -1;
+            	if(comboBox1.SelectedIndex>-1 && comboBox1.SelectedIndex<4){
+                    llenar_Cb1();
+                    label1.Visible = true;
+                    comboBox2.Visible = true;
+                    panel1.Visible = false;
+                    //button2.Enabled = false;
+                    comboBox2.SelectedIndex = -1;
             	}
+
+                if ((comboBox1.SelectedIndex == 4))
+                {
+                    llenar_Cb1_clem();
+                    label1.Visible = true;
+                    comboBox2.Visible = true;
+                    panel1.Visible = false;
+                    //button2.Enabled = false;
+                    comboBox2.SelectedIndex = -1;              
+                }
             }
         }
 
@@ -158,7 +184,8 @@ namespace Nova_Gear
 				}
 			}else
 			{
-				if(comboBox1.SelectedIndex>-1){
+                if (comboBox1.SelectedIndex > -1 && comboBox1.SelectedIndex < 4)
+                {
 					//no notificados
 					if (comboBox1.SelectedIndex == 1){
 						fecha = dateTimePicker1.Text;
@@ -186,7 +213,24 @@ namespace Nova_Gear
 						}
 					}
 				}else{
-					MessageBox.Show("Elige un Tipo de Entrega.","AVISO",MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
+
+                    if (comboBox1.SelectedIndex == 4)
+                    {
+                        if (comboBox2.SelectedIndex > -1)
+                        {
+                            sql = "SELECT registro_patronal,razon_social,credito_cuotas,credito_multa,importe_cuota,importe_multa,tipo_documento,periodo,id,estado_cartera " +
+                                "FROM datos_factura WHERE nombre_periodo = \"" + comboBox2.SelectedItem.ToString() + "\" AND status = \"NOTIFICADO\" AND nn <> \"NN\" AND (estado_cartera = \"-\" OR estado_cartera = \"PENDIENTE_" + id_us + "\") ORDER BY registro_patronal,credito_cuotas";
+                        }
+                        else
+                        {
+                            sql = "SELECT registro_patronal,razon_social,credito_cuotas,credito_multa,importe_cuota,importe_multa,tipo_documento,periodo,id,estado_cartera " +
+                                "FROM datos_factura WHERE nombre_periodo LIKE \"CLEM%\" AND status = \"NOTIFICADO\" AND nn <> \"NN\" AND (estado_cartera = \"-\" OR estado_cartera = \"PENDIENTE_" + id_us + "\") ORDER BY registro_patronal,credito_cuotas";
+                        }                    
+                    }
+                    else
+                    {
+                        MessageBox.Show("Elige un Tipo de Entrega.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    }
 				}
 			}
 			if(comboBox1.SelectedIndex>-1){
@@ -253,8 +297,14 @@ namespace Nova_Gear
                 		                       dataGridView1.Rows[i].Cells[7].FormattedValue.ToString(),
                 		                       dataGridView1.Rows[i].Cells[8].FormattedValue.ToString());
 
-                		sql = "UPDATE datos_factura SET status=\"CARTERA\",fecha_cartera =\""+fecha_cartera+"\",estado_cartera=\"ENTREGADO\" WHERE id=" + dataGridView1.Rows[i].Cells[9].FormattedValue.ToString()+"";
-                		conex2.consultar(sql);
+                        if (comboBox1.SelectedIndex != 4)
+                        {
+                		    sql = "UPDATE datos_factura SET status=\"CARTERA\",fecha_cartera =\""+fecha_cartera+"\",estado_cartera=\"ENTREGADO\" WHERE id=" + dataGridView1.Rows[i].Cells[9].FormattedValue.ToString()+"";
+                		}else{
+                            sql = "UPDATE datos_factura SET status=\"C_EMPRESAS\",fecha_cartera =\"" + fecha_cartera + "\",estado_cartera=\"ENTREGADO\" WHERE id=" + dataGridView1.Rows[i].Cells[9].FormattedValue.ToString() + "";
+                        }
+
+                        conex2.consultar(sql);
                 		conex2.guardar_evento("Se entrega a cartera el crédito con el ID: "+dataGridView1.Rows[i].Cells[9].FormattedValue.ToString()+ " el dia: "+fecha_cartera);
                 	}
                     i++;
@@ -292,16 +342,38 @@ namespace Nova_Gear
 			                   //conex2.guardar_evento("Se Generó Reporte de Entrega a cartera de créditos NO Notificados procesados el "+fecha);
 			                    entrega_cartera.Show();
                 		}else{
-                			if (comboBox1.SelectedIndex == 3){
-                				Visor_reporte_cartera entrega_cartera = new Visor_reporte_cartera();
-                				if(comboBox2.SelectedIndex > -1){
+                            if (comboBox1.SelectedIndex == 3)
+                            {
+                                Visor_reporte_cartera entrega_cartera = new Visor_reporte_cartera();
+                                if (comboBox2.SelectedIndex > -1)
+                                {
                                     entrega_cartera.envio3(consultamysql, "RELACIÓN DE ENTREGA DE CRÉDITOS NOTIFICADOS POR ESTRADOS A CARTERA", comboBox2.SelectedItem.ToString() + " ESTRADOS", "CARTERA");
-                				}else{
+                                }
+                                else
+                                {
                                     entrega_cartera.envio3(consultamysql, "RELACIÓN DE ENTREGA DE CRÉDITOS NOTIFICADOS POR ESTRADOS A CARTERA", "ESTRADOS", "CARTERA");
-                				}
-                				//conex2.guardar_evento("Se Generó Reporte de Entrega a cartera de créditos NO Notificados procesados el "+fecha);
-			                    entrega_cartera.Show();
-                			}
+                                }
+                                //conex2.guardar_evento("Se Generó Reporte de Entrega a cartera de créditos NO Notificados procesados el "+fecha);
+                                entrega_cartera.Show();
+                            }
+                            else
+                            {
+                                if (comboBox1.SelectedIndex == 4)
+                                {//notificados CLEM 
+                                    Visor_reporte_cartera entrega_cartera = new Visor_reporte_cartera();
+                                    if (comboBox2.SelectedIndex > -1)
+                                    {
+                                        entrega_cartera.envio3(consultamysql, "RELACIÓN DE ENTREGA DE CRÉDITOS NOTIFICADOS A CLASIFICACIÓN DE EMPRESAS", comboBox2.SelectedItem.ToString(), "C. de EMPRESAS");
+                                    }
+                                    else
+                                    {
+                                        entrega_cartera.envio3(consultamysql, "RELACIÓN DE ENTREGA DE CRÉDITOS NOTIFICADOS A CLASIFICACIÓN DE EMPRESAS", " ", "C. de EMPRESAS");
+                                        //conex2.guardar_evento("Se Generó Reporte de Entrega a cartera de créditos Notificados del Periodo: "+comboBox2.SelectedItem.ToString());
+                                    }
+                                    entrega_cartera.Show();
+                                    //this.Hide();
+                                }
+                            }
                 			
                 		}
                 	}

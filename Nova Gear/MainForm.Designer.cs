@@ -38,61 +38,61 @@ namespace Nova_Gear
 		{
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Ingresar Facturas");
-            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Capturar Fecha de Notificacion");
-            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Depuracion");
-            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Generar Reportes");
-            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("Consultar Patrón");
-            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("Capturar NN");
-            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("Sectorización");
-            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("Consulta de Estadísticas");
-            System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("Ingresar Credito de Carga Manual");
-            System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("Procesos de Notificación", new System.Windows.Forms.TreeNode[] {
-            treeNode1,
-            treeNode2,
-            treeNode3,
-            treeNode4,
-            treeNode5,
-            treeNode6,
-            treeNode7,
-            treeNode8,
-            treeNode9});
-            System.Windows.Forms.TreeNode treeNode11 = new System.Windows.Forms.TreeNode("Capturar Fecha Notificación");
-            System.Windows.Forms.TreeNode treeNode12 = new System.Windows.Forms.TreeNode("Capturar Cambio de Incidencia");
-            System.Windows.Forms.TreeNode treeNode13 = new System.Windows.Forms.TreeNode("Capturar CM12, CM42");
-            System.Windows.Forms.TreeNode treeNode14 = new System.Windows.Forms.TreeNode("Capturar SICOFI");
-            System.Windows.Forms.TreeNode treeNode15 = new System.Windows.Forms.TreeNode("Automatización Siscob", new System.Windows.Forms.TreeNode[] {
-            treeNode11,
-            treeNode12,
-            treeNode13,
-            treeNode14});
-            System.Windows.Forms.TreeNode treeNode16 = new System.Windows.Forms.TreeNode("Agregar Usuario");
-            System.Windows.Forms.TreeNode treeNode17 = new System.Windows.Forms.TreeNode("Editar Usuarios");
-            System.Windows.Forms.TreeNode treeNode18 = new System.Windows.Forms.TreeNode("Capturar Fechas Cifra Control");
-            System.Windows.Forms.TreeNode treeNode19 = new System.Windows.Forms.TreeNode("Generar Reporte Total");
-            System.Windows.Forms.TreeNode treeNode20 = new System.Windows.Forms.TreeNode("Historial de Eventos");
-            System.Windows.Forms.TreeNode treeNode21 = new System.Windows.Forms.TreeNode("Modificar Registros");
-            System.Windows.Forms.TreeNode treeNode22 = new System.Windows.Forms.TreeNode("Modalidad 40");
-            System.Windows.Forms.TreeNode treeNode23 = new System.Windows.Forms.TreeNode("Ingresar RALE");
-            System.Windows.Forms.TreeNode treeNode24 = new System.Windows.Forms.TreeNode("Inventario");
-            System.Windows.Forms.TreeNode treeNode25 = new System.Windows.Forms.TreeNode("Oficios");
-            System.Windows.Forms.TreeNode treeNode26 = new System.Windows.Forms.TreeNode("Productividad Notificadores");
-            System.Windows.Forms.TreeNode treeNode27 = new System.Windows.Forms.TreeNode("Supervisión", new System.Windows.Forms.TreeNode[] {
-            treeNode16,
-            treeNode17,
-            treeNode18,
-            treeNode19,
-            treeNode20,
-            treeNode21,
-            treeNode22,
-            treeNode23,
-            treeNode24,
-            treeNode25,
-            treeNode26});
-            System.Windows.Forms.TreeNode treeNode28 = new System.Windows.Forms.TreeNode("Nova Gear", new System.Windows.Forms.TreeNode[] {
-            treeNode10,
-            treeNode15,
-            treeNode27});
+            System.Windows.Forms.TreeNode treeNode29 = new System.Windows.Forms.TreeNode("Ingresar Facturas");
+            System.Windows.Forms.TreeNode treeNode30 = new System.Windows.Forms.TreeNode("Capturar Fecha de Notificacion");
+            System.Windows.Forms.TreeNode treeNode31 = new System.Windows.Forms.TreeNode("Depuracion");
+            System.Windows.Forms.TreeNode treeNode32 = new System.Windows.Forms.TreeNode("Generar Reportes");
+            System.Windows.Forms.TreeNode treeNode33 = new System.Windows.Forms.TreeNode("Consultar Patrón");
+            System.Windows.Forms.TreeNode treeNode34 = new System.Windows.Forms.TreeNode("Capturar NN");
+            System.Windows.Forms.TreeNode treeNode35 = new System.Windows.Forms.TreeNode("Sectorización");
+            System.Windows.Forms.TreeNode treeNode36 = new System.Windows.Forms.TreeNode("Consulta de Estadísticas");
+            System.Windows.Forms.TreeNode treeNode37 = new System.Windows.Forms.TreeNode("Ingresar Credito de Carga Manual");
+            System.Windows.Forms.TreeNode treeNode38 = new System.Windows.Forms.TreeNode("Procesos de Notificación", new System.Windows.Forms.TreeNode[] {
+            treeNode29,
+            treeNode30,
+            treeNode31,
+            treeNode32,
+            treeNode33,
+            treeNode34,
+            treeNode35,
+            treeNode36,
+            treeNode37});
+            System.Windows.Forms.TreeNode treeNode39 = new System.Windows.Forms.TreeNode("Capturar Fecha Notificación");
+            System.Windows.Forms.TreeNode treeNode40 = new System.Windows.Forms.TreeNode("Capturar Cambio de Incidencia");
+            System.Windows.Forms.TreeNode treeNode41 = new System.Windows.Forms.TreeNode("Capturar CM12, CM42");
+            System.Windows.Forms.TreeNode treeNode42 = new System.Windows.Forms.TreeNode("Capturar SICOFI");
+            System.Windows.Forms.TreeNode treeNode43 = new System.Windows.Forms.TreeNode("Automatización Siscob", new System.Windows.Forms.TreeNode[] {
+            treeNode39,
+            treeNode40,
+            treeNode41,
+            treeNode42});
+            System.Windows.Forms.TreeNode treeNode44 = new System.Windows.Forms.TreeNode("Agregar Usuario");
+            System.Windows.Forms.TreeNode treeNode45 = new System.Windows.Forms.TreeNode("Editar Usuarios");
+            System.Windows.Forms.TreeNode treeNode46 = new System.Windows.Forms.TreeNode("Capturar Fechas Cifra Control");
+            System.Windows.Forms.TreeNode treeNode47 = new System.Windows.Forms.TreeNode("Generar Reporte Total");
+            System.Windows.Forms.TreeNode treeNode48 = new System.Windows.Forms.TreeNode("Historial de Eventos");
+            System.Windows.Forms.TreeNode treeNode49 = new System.Windows.Forms.TreeNode("Modificar Registros");
+            System.Windows.Forms.TreeNode treeNode50 = new System.Windows.Forms.TreeNode("Modalidad 40");
+            System.Windows.Forms.TreeNode treeNode51 = new System.Windows.Forms.TreeNode("Ingresar RALE");
+            System.Windows.Forms.TreeNode treeNode52 = new System.Windows.Forms.TreeNode("Inventario");
+            System.Windows.Forms.TreeNode treeNode53 = new System.Windows.Forms.TreeNode("Oficios");
+            System.Windows.Forms.TreeNode treeNode54 = new System.Windows.Forms.TreeNode("Productividad Notificadores");
+            System.Windows.Forms.TreeNode treeNode55 = new System.Windows.Forms.TreeNode("Supervisión", new System.Windows.Forms.TreeNode[] {
+            treeNode44,
+            treeNode45,
+            treeNode46,
+            treeNode47,
+            treeNode48,
+            treeNode49,
+            treeNode50,
+            treeNode51,
+            treeNode52,
+            treeNode53,
+            treeNode54});
+            System.Windows.Forms.TreeNode treeNode56 = new System.Windows.Forms.TreeNode("Nova Gear", new System.Windows.Forms.TreeNode[] {
+            treeNode38,
+            treeNode43,
+            treeNode55});
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
@@ -124,6 +124,7 @@ namespace Nova_Gear
             this.button32 = new System.Windows.Forms.Button();
             this.button26 = new System.Windows.Forms.Button();
             this.button31 = new System.Windows.Forms.Button();
+            this.button39 = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
             this.button6 = new System.Windows.Forms.Button();
@@ -160,7 +161,6 @@ namespace Nova_Gear
             this.button23 = new System.Windows.Forms.Button();
             this.button17 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
-            this.button39 = new System.Windows.Forms.Button();
             this.button38 = new System.Windows.Forms.Button();
             this.button22 = new System.Windows.Forms.Button();
             this.button19 = new System.Windows.Forms.Button();
@@ -520,6 +520,7 @@ namespace Nova_Gear
             this.panel7.Controls.Add(this.button32);
             this.panel7.Controls.Add(this.button26);
             this.panel7.Controls.Add(this.button31);
+            this.panel7.Controls.Add(this.button39);
             this.panel7.Location = new System.Drawing.Point(2, 166);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(221, 176);
@@ -610,6 +611,29 @@ namespace Nova_Gear
             this.button31.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.button31.UseVisualStyleBackColor = true;
             this.button31.Click += new System.EventHandler(this.Button31Click);
+            // 
+            // button39
+            // 
+            this.button39.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button39.Enabled = false;
+            this.button39.FlatAppearance.BorderSize = 0;
+            this.button39.FlatAppearance.MouseDownBackColor = System.Drawing.Color.LightSteelBlue;
+            this.button39.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DodgerBlue;
+            this.button39.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button39.Font = new System.Drawing.Font("Arial Narrow", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button39.ForeColor = System.Drawing.Color.White;
+            this.button39.Image = global::Nova_Gear.Properties.Resources.document_inspector;
+            this.button39.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.button39.Location = new System.Drawing.Point(77, 81);
+            this.button39.Name = "button39";
+            this.button39.Size = new System.Drawing.Size(70, 71);
+            this.button39.TabIndex = 33;
+            this.button39.Text = "Iniciar\r\nNova";
+            this.button39.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button39.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.button39.UseVisualStyleBackColor = true;
+            this.button39.Visible = false;
+            this.button39.Click += new System.EventHandler(this.Button39Click);
             // 
             // label8
             // 
@@ -1340,25 +1364,6 @@ namespace Nova_Gear
             this.button7.Visible = false;
             this.button7.Click += new System.EventHandler(this.Button7Click);
             // 
-            // button39
-            // 
-            this.button39.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button39.FlatAppearance.BorderSize = 0;
-            this.button39.FlatAppearance.MouseDownBackColor = System.Drawing.Color.SlateGray;
-            this.button39.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Navy;
-            this.button39.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button39.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button39.ForeColor = System.Drawing.Color.White;
-            this.button39.Image = global::Nova_Gear.Properties.Resources.document_signature;
-            this.button39.Location = new System.Drawing.Point(272, 437);
-            this.button39.Name = "button39";
-            this.button39.Size = new System.Drawing.Size(40, 40);
-            this.button39.TabIndex = 33;
-            this.button39.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button39.UseVisualStyleBackColor = true;
-            this.button39.Visible = false;
-            this.button39.Click += new System.EventHandler(this.Button39Click);
-            // 
             // button38
             // 
             this.button38.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
@@ -1780,64 +1785,64 @@ namespace Nova_Gear
             this.treeView1.LineColor = System.Drawing.Color.White;
             this.treeView1.Location = new System.Drawing.Point(595, 286);
             this.treeView1.Name = "treeView1";
-            treeNode1.Name = "Nodo2";
-            treeNode1.Text = "Ingresar Facturas";
-            treeNode2.Name = "Nodo13";
-            treeNode2.Text = "Capturar Fecha de Notificacion";
-            treeNode3.Name = "Nodo14";
-            treeNode3.Text = "Depuracion";
-            treeNode4.Name = "Nodo15";
-            treeNode4.Text = "Generar Reportes";
-            treeNode5.Name = "Nodo16";
-            treeNode5.Text = "Consultar Patrón";
-            treeNode6.Name = "Nodo17";
-            treeNode6.Text = "Capturar NN";
-            treeNode7.Name = "Nodo18";
-            treeNode7.Text = "Sectorización";
-            treeNode8.Name = "Nodo19";
-            treeNode8.Text = "Consulta de Estadísticas";
-            treeNode9.Name = "Nodo20";
-            treeNode9.Text = "Ingresar Credito de Carga Manual";
-            treeNode10.Name = "Nodo1";
-            treeNode10.Text = "Procesos de Notificación";
-            treeNode11.Name = "Nodo8";
-            treeNode11.Text = "Capturar Fecha Notificación";
-            treeNode12.Name = "Nodo9";
-            treeNode12.Text = "Capturar Cambio de Incidencia";
-            treeNode13.Name = "Nodo21";
-            treeNode13.Text = "Capturar CM12, CM42";
-            treeNode14.Name = "Nodo22";
-            treeNode14.Text = "Capturar SICOFI";
-            treeNode15.Name = "Nodo6";
-            treeNode15.Text = "Automatización Siscob";
-            treeNode16.Name = "Nodo10";
-            treeNode16.Text = "Agregar Usuario";
-            treeNode17.Name = "Nodo23";
-            treeNode17.Text = "Editar Usuarios";
-            treeNode18.Name = "Nodo24";
-            treeNode18.Text = "Capturar Fechas Cifra Control";
-            treeNode19.Name = "Nodo25";
-            treeNode19.Text = "Generar Reporte Total";
-            treeNode20.Name = "Nodo26";
-            treeNode20.Text = "Historial de Eventos";
-            treeNode21.Name = "Nodo27";
-            treeNode21.Text = "Modificar Registros";
-            treeNode22.Name = "Nodo28";
-            treeNode22.Text = "Modalidad 40";
-            treeNode23.Name = "Nodo29";
-            treeNode23.Text = "Ingresar RALE";
-            treeNode24.Name = "Nodo30";
-            treeNode24.Text = "Inventario";
-            treeNode25.Name = "Nodo31";
-            treeNode25.Text = "Oficios";
-            treeNode26.Name = "Nodo32";
-            treeNode26.Text = "Productividad Notificadores";
-            treeNode27.Name = "Nodo7";
-            treeNode27.Text = "Supervisión";
-            treeNode28.Name = "Nodo0";
-            treeNode28.Text = "Nova Gear";
+            treeNode29.Name = "Nodo2";
+            treeNode29.Text = "Ingresar Facturas";
+            treeNode30.Name = "Nodo13";
+            treeNode30.Text = "Capturar Fecha de Notificacion";
+            treeNode31.Name = "Nodo14";
+            treeNode31.Text = "Depuracion";
+            treeNode32.Name = "Nodo15";
+            treeNode32.Text = "Generar Reportes";
+            treeNode33.Name = "Nodo16";
+            treeNode33.Text = "Consultar Patrón";
+            treeNode34.Name = "Nodo17";
+            treeNode34.Text = "Capturar NN";
+            treeNode35.Name = "Nodo18";
+            treeNode35.Text = "Sectorización";
+            treeNode36.Name = "Nodo19";
+            treeNode36.Text = "Consulta de Estadísticas";
+            treeNode37.Name = "Nodo20";
+            treeNode37.Text = "Ingresar Credito de Carga Manual";
+            treeNode38.Name = "Nodo1";
+            treeNode38.Text = "Procesos de Notificación";
+            treeNode39.Name = "Nodo8";
+            treeNode39.Text = "Capturar Fecha Notificación";
+            treeNode40.Name = "Nodo9";
+            treeNode40.Text = "Capturar Cambio de Incidencia";
+            treeNode41.Name = "Nodo21";
+            treeNode41.Text = "Capturar CM12, CM42";
+            treeNode42.Name = "Nodo22";
+            treeNode42.Text = "Capturar SICOFI";
+            treeNode43.Name = "Nodo6";
+            treeNode43.Text = "Automatización Siscob";
+            treeNode44.Name = "Nodo10";
+            treeNode44.Text = "Agregar Usuario";
+            treeNode45.Name = "Nodo23";
+            treeNode45.Text = "Editar Usuarios";
+            treeNode46.Name = "Nodo24";
+            treeNode46.Text = "Capturar Fechas Cifra Control";
+            treeNode47.Name = "Nodo25";
+            treeNode47.Text = "Generar Reporte Total";
+            treeNode48.Name = "Nodo26";
+            treeNode48.Text = "Historial de Eventos";
+            treeNode49.Name = "Nodo27";
+            treeNode49.Text = "Modificar Registros";
+            treeNode50.Name = "Nodo28";
+            treeNode50.Text = "Modalidad 40";
+            treeNode51.Name = "Nodo29";
+            treeNode51.Text = "Ingresar RALE";
+            treeNode52.Name = "Nodo30";
+            treeNode52.Text = "Inventario";
+            treeNode53.Name = "Nodo31";
+            treeNode53.Text = "Oficios";
+            treeNode54.Name = "Nodo32";
+            treeNode54.Text = "Productividad Notificadores";
+            treeNode55.Name = "Nodo7";
+            treeNode55.Text = "Supervisión";
+            treeNode56.Name = "Nodo0";
+            treeNode56.Text = "Nova Gear";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode28});
+            treeNode56});
             this.treeView1.SelectedImageIndex = 0;
             this.treeView1.Size = new System.Drawing.Size(212, 262);
             this.treeView1.TabIndex = 21;
@@ -1873,7 +1878,6 @@ namespace Nova_Gear
             this.Controls.Add(this.label5);
             this.Controls.Add(this.button37);
             this.Controls.Add(this.treeView1);
-            this.Controls.Add(this.button39);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.button38);
             this.Controls.Add(this.button33);

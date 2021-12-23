@@ -29,11 +29,15 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Edicion_en_Volumen));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.seleccionarTodosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.desmarcarTodoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exportarAExcelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label1 = new System.Windows.Forms.Label();
             this.comboBox4 = new System.Windows.Forms.ComboBox();
             this.label34 = new System.Windows.Forms.Label();
@@ -103,11 +107,8 @@
             this.maskedTextBox14 = new System.Windows.Forms.MaskedTextBox();
             this.comboBox10 = new System.Windows.Forms.ComboBox();
             this.button5 = new System.Windows.Forms.Button();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.seleccionarTodosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.desmarcarTodoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.exportarAExcelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.contextMenuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -115,7 +116,6 @@
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.panel3.SuspendLayout();
-            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -127,26 +127,26 @@
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ControlDarkDark;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1});
             this.dataGridView1.ContextMenuStrip = this.contextMenuStrip1;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.LimeGreen;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.LimeGreen;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridView1.Location = new System.Drawing.Point(12, 113);
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
@@ -162,6 +162,40 @@
             this.Column1.Frozen = true;
             this.Column1.HeaderText = "Seleccionar";
             this.Column1.Name = "Column1";
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.seleccionarTodosToolStripMenuItem,
+            this.desmarcarTodoToolStripMenuItem,
+            this.exportarAExcelToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(165, 70);
+            this.contextMenuStrip1.Text = "Seleccionar todos";
+            // 
+            // seleccionarTodosToolStripMenuItem
+            // 
+            this.seleccionarTodosToolStripMenuItem.Image = global::Nova_Gear.Properties.Resources.check_box_5;
+            this.seleccionarTodosToolStripMenuItem.Name = "seleccionarTodosToolStripMenuItem";
+            this.seleccionarTodosToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
+            this.seleccionarTodosToolStripMenuItem.Text = "Marcar Todos";
+            this.seleccionarTodosToolStripMenuItem.Click += new System.EventHandler(this.seleccionarTodosToolStripMenuItem_Click);
+            // 
+            // desmarcarTodoToolStripMenuItem
+            // 
+            this.desmarcarTodoToolStripMenuItem.Image = global::Nova_Gear.Properties.Resources.check_box_uncheck_1;
+            this.desmarcarTodoToolStripMenuItem.Name = "desmarcarTodoToolStripMenuItem";
+            this.desmarcarTodoToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
+            this.desmarcarTodoToolStripMenuItem.Text = "Desmarcar Todos";
+            this.desmarcarTodoToolStripMenuItem.Click += new System.EventHandler(this.desmarcarTodoToolStripMenuItem_Click);
+            // 
+            // exportarAExcelToolStripMenuItem
+            // 
+            this.exportarAExcelToolStripMenuItem.Image = global::Nova_Gear.Properties.Resources.excel_exports_1;
+            this.exportarAExcelToolStripMenuItem.Name = "exportarAExcelToolStripMenuItem";
+            this.exportarAExcelToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
+            this.exportarAExcelToolStripMenuItem.Text = "Exportar a Excel";
+            this.exportarAExcelToolStripMenuItem.Click += new System.EventHandler(this.exportarAExcelToolStripMenuItem_Click);
             // 
             // label1
             // 
@@ -491,7 +525,9 @@
             "DEPURACION MANUAL",
             "CANCELADO",
             "TRASPASO",
-            "REPOSICION"});
+            "REPOSICION",
+            "C_EMPRESAS",
+            "A_JURIDICA"});
             this.comboBox3.Location = new System.Drawing.Point(132, 31);
             this.comboBox3.Name = "comboBox3";
             this.comboBox3.Size = new System.Drawing.Size(230, 23);
@@ -1167,40 +1203,6 @@
             this.button5.UseVisualStyleBackColor = false;
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.seleccionarTodosToolStripMenuItem,
-            this.desmarcarTodoToolStripMenuItem,
-            this.exportarAExcelToolStripMenuItem});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(165, 92);
-            this.contextMenuStrip1.Text = "Seleccionar todos";
-            // 
-            // seleccionarTodosToolStripMenuItem
-            // 
-            this.seleccionarTodosToolStripMenuItem.Image = global::Nova_Gear.Properties.Resources.check_box_5;
-            this.seleccionarTodosToolStripMenuItem.Name = "seleccionarTodosToolStripMenuItem";
-            this.seleccionarTodosToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
-            this.seleccionarTodosToolStripMenuItem.Text = "Marcar Todos";
-            this.seleccionarTodosToolStripMenuItem.Click += new System.EventHandler(this.seleccionarTodosToolStripMenuItem_Click);
-            // 
-            // desmarcarTodoToolStripMenuItem
-            // 
-            this.desmarcarTodoToolStripMenuItem.Image = global::Nova_Gear.Properties.Resources.check_box_uncheck_1;
-            this.desmarcarTodoToolStripMenuItem.Name = "desmarcarTodoToolStripMenuItem";
-            this.desmarcarTodoToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
-            this.desmarcarTodoToolStripMenuItem.Text = "Desmarcar Todos";
-            this.desmarcarTodoToolStripMenuItem.Click += new System.EventHandler(this.desmarcarTodoToolStripMenuItem_Click);
-            // 
-            // exportarAExcelToolStripMenuItem
-            // 
-            this.exportarAExcelToolStripMenuItem.Image = global::Nova_Gear.Properties.Resources.excel_exports_1;
-            this.exportarAExcelToolStripMenuItem.Name = "exportarAExcelToolStripMenuItem";
-            this.exportarAExcelToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
-            this.exportarAExcelToolStripMenuItem.Text = "Exportar a Excel";
-            this.exportarAExcelToolStripMenuItem.Click += new System.EventHandler(this.exportarAExcelToolStripMenuItem_Click);
-            // 
             // Edicion_en_Volumen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1233,6 +1235,7 @@
             this.Text = "Nova Gear - Edición de Créditos por Volumen";
             this.Load += new System.EventHandler(this.Edicion_en_Volumen_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.contextMenuStrip1.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
@@ -1244,7 +1247,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 

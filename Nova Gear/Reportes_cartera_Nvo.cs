@@ -177,25 +177,29 @@ namespace Nova_Gear
 
             if (comboBox1.SelectedIndex == 0)//NOTIFICADO
             {
-                tipo = " status = \"NOTIFICADO\" AND nn <> \"NN\" ";
+                tipo = " nombre_periodo NOT LIKE \"CLEM%\" AND status = \"NOTIFICADO\" AND nn <> \"NN\"  ";
             }
 
             if (comboBox1.SelectedIndex == 1)//NO NOTIFICADO
             {
-                tipo = " (status <> \"CARTERA\" AND status NOT LIKE \"DEPU%\") AND nn=\"NN\" ";
+                tipo = " nombre_periodo NOT LIKE \"CLEM%\" AND (status <> \"CARTERA\" AND status NOT LIKE \"DEPU%\") AND nn=\"NN\" ";
             }
 
             if (comboBox1.SelectedIndex == 2)//MIXTO
             {
-                tipo = " status <> \"CARTERA\" ";
-            }     
-       
+                tipo = " nombre_periodo NOT LIKE \"CLEM%\" AND status <> \"CARTERA\" ";
+            }
+
+            if (comboBox1.SelectedIndex == 4)//CLEM
+            {
+                tipo = " nombre_periodo LIKE \"CLEM%\" AND status <> \"CARTERA\" ";
+            }  
 
             if (comboBox1.SelectedIndex == 3)//ESTRADOS
             {
                 
                 //tipo = " id>0 ";
-                tipo = " fecha_cartera IS NULL AND nn = \"ESTRADOS\" ";
+                tipo = " nombre_periodo NOT LIKE \"CLEM%\" AND fecha_cartera IS NULL AND nn = \"ESTRADOS\" ";
 
                 if ((comboBox2.SelectedIndex > -1) && (comboBox2.SelectedItem.ToString() != "NIGUNO"))//NUM PAQUETE
                 {
@@ -536,8 +540,13 @@ namespace Nova_Gear
                                                   dataGridView1.Rows[i].Cells[8].FormattedValue.ToString());
                     }
 
-                    sql = "UPDATE datos_factura SET status=\"CARTERA\",fecha_cartera =\"" + fecha_cartera + "\",estado_cartera=\"ENTREGADO\" WHERE id=" + dataGridView1.Rows[i].Cells[9].FormattedValue.ToString() + "";
-                    //MessageBox.Show(sql);
+                    if(comboBox1.SelectedIndex != 4){
+                        sql = "UPDATE datos_factura SET status=\"CARTERA\",fecha_cartera =\"" + fecha_cartera + "\",estado_cartera=\"ENTREGADO\" WHERE id=" + dataGridView1.Rows[i].Cells[9].FormattedValue.ToString() + "";
+                    }else{
+                        sql = "UPDATE datos_factura SET status=\"C_EMPRESAS\",fecha_cartera =\"" + fecha_cartera + "\",estado_cartera=\"ENTREGADO\" WHERE id=" + dataGridView1.Rows[i].Cells[9].FormattedValue.ToString() + "";
+                    
+                    }
+                        //MessageBox.Show(sql);
                     conex2.consultar(sql);
                     conex2.guardar_evento("Se entrega a cartera el crédito con el ID: " + dataGridView1.Rows[i].Cells[9].FormattedValue.ToString() + " el dia: " + fecha_cartera);
                 }
@@ -575,7 +584,13 @@ namespace Nova_Gear
                         entrega_cartera.envio_estrados(consultamysql, "RELACIÓN DE ENTREGA DE CRÉDITOS NOTIFICADOS POR ESTRADOS A CARTERA", "ESTRADOS", "CARTERA");
                     }
                     entrega_cartera.Show();
-                }               
+                }
+
+                if (comboBox1.SelectedIndex == 4)//CLEM
+                {
+                    entrega_cartera.envio3(consultamysql, "RELACIÓN DE ENTREGA DE CRÉDITOS NOTIFICADOS A CLASIFICACIÓN DE EMPRESAS", " ", "C. de EMPRESAS");
+                    entrega_cartera.Show();
+                }
 
                 dataGridView1.Rows.Clear();
             }

@@ -35,6 +35,18 @@
             this.label5 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Column9 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -52,18 +64,6 @@
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.button5 = new System.Windows.Forms.Button();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.Column9 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -146,6 +146,71 @@
             this.dataGridView1.TabIndex = 43;
             this.dataGridView1.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellEndEdit);
             this.dataGridView1.UserDeletingRow += new System.Windows.Forms.DataGridViewRowCancelEventHandler(this.dataGridView1_UserDeletingRow);
+            // 
+            // Column9
+            // 
+            this.Column9.Frozen = true;
+            this.Column9.HeaderText = "Seleccionar";
+            this.Column9.Name = "Column9";
+            // 
+            // Column2
+            // 
+            this.Column2.Frozen = true;
+            this.Column2.HeaderText = "Registro Patronal";
+            this.Column2.Name = "Column2";
+            // 
+            // Column14
+            // 
+            this.Column14.HeaderText = "Razon Social";
+            this.Column14.Name = "Column14";
+            this.Column14.Width = 250;
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "Credito Cuota";
+            this.Column4.Name = "Column4";
+            // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "Credito Multa";
+            this.Column5.Name = "Column5";
+            // 
+            // Column6
+            // 
+            this.Column6.HeaderText = "Importe Cuota";
+            this.Column6.Name = "Column6";
+            // 
+            // Column7
+            // 
+            this.Column7.HeaderText = "Importe Multa";
+            this.Column7.Name = "Column7";
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Tipo Doc.";
+            this.Column1.Name = "Column1";
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "Periodo";
+            this.Column3.Name = "Column3";
+            // 
+            // Column15
+            // 
+            this.Column15.HeaderText = "id";
+            this.Column15.Name = "Column15";
+            this.Column15.Visible = false;
+            // 
+            // Column12
+            // 
+            this.Column12.HeaderText = "Estatus Cartera";
+            this.Column12.Name = "Column12";
+            this.Column12.Visible = false;
+            // 
+            // Column8
+            // 
+            this.Column8.HeaderText = "Nom. Paquete";
+            this.Column8.Name = "Column8";
             // 
             // groupBox1
             // 
@@ -297,7 +362,8 @@
             "Notificados",
             "No Notificados",
             "Mixto",
-            "Estrados"});
+            "Estrados",
+            "CLEM Notificados"});
             this.comboBox1.Location = new System.Drawing.Point(154, 369);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(169, 23);
@@ -401,71 +467,6 @@
             this.checkBox1.UseVisualStyleBackColor = true;
             this.checkBox1.Visible = false;
             this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
-            // 
-            // Column9
-            // 
-            this.Column9.Frozen = true;
-            this.Column9.HeaderText = "Seleccionar";
-            this.Column9.Name = "Column9";
-            // 
-            // Column2
-            // 
-            this.Column2.Frozen = true;
-            this.Column2.HeaderText = "Registro Patronal";
-            this.Column2.Name = "Column2";
-            // 
-            // Column14
-            // 
-            this.Column14.HeaderText = "Razon Social";
-            this.Column14.Name = "Column14";
-            this.Column14.Width = 250;
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "Credito Cuota";
-            this.Column4.Name = "Column4";
-            // 
-            // Column5
-            // 
-            this.Column5.HeaderText = "Credito Multa";
-            this.Column5.Name = "Column5";
-            // 
-            // Column6
-            // 
-            this.Column6.HeaderText = "Importe Cuota";
-            this.Column6.Name = "Column6";
-            // 
-            // Column7
-            // 
-            this.Column7.HeaderText = "Importe Multa";
-            this.Column7.Name = "Column7";
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "Tipo Doc.";
-            this.Column1.Name = "Column1";
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "Periodo";
-            this.Column3.Name = "Column3";
-            // 
-            // Column15
-            // 
-            this.Column15.HeaderText = "id";
-            this.Column15.Name = "Column15";
-            this.Column15.Visible = false;
-            // 
-            // Column12
-            // 
-            this.Column12.HeaderText = "Estatus Cartera";
-            this.Column12.Name = "Column12";
-            this.Column12.Visible = false;
-            // 
-            // Column8
-            // 
-            this.Column8.HeaderText = "Nom. Paquete";
-            this.Column8.Name = "Column8";
             // 
             // Reportes_cartera_Nvo
             // 

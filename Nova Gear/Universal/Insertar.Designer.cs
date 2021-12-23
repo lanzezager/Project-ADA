@@ -1125,7 +1125,9 @@ namespace Nova_Gear.Universal
             "DEPURACION MANUAL",
             "CANCELADO",
             "TRASPASO",
-            "REPOSICION"});
+            "REPOSICION",
+            "C_EMPRESAS",
+            "A_JURIDICA"});
             this.comboBox3.Location = new System.Drawing.Point(132, 25);
             this.comboBox3.Name = "comboBox3";
             this.comboBox3.Size = new System.Drawing.Size(230, 23);
@@ -1420,9 +1422,9 @@ namespace Nova_Gear.Universal
             this.panel2.Controls.Add(this.dataGridView1);
             this.panel2.Controls.Add(this.dataGridView3);
             this.panel2.Controls.Add(this.label12);
-            this.panel2.Location = new System.Drawing.Point(12, 73);
+            this.panel2.Location = new System.Drawing.Point(12, 68);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(857, 497);
+            this.panel2.Size = new System.Drawing.Size(857, 502);
             this.panel2.TabIndex = 43;
             // 
             // label12
