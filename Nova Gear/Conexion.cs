@@ -22,10 +22,10 @@ namespace Nova_Gear
 	/// </summary>
 	public class Conexion
 	{
-		public Conexion()
-		{
+		//public Conexion()
+		//{
 		//this.sql = sql;
-		}
+		//}
 		
 	   String cad_con,cado_con,bd_load="",fecha,user,bd_user,bd_pass,bd_server,bd_base;
 	   	   
@@ -317,5 +317,6 @@ namespace Nova_Gear
                  MessageBox.Show("Ha ocurrido un error al guardar la configuración", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);                 
              }
         }
-	}
+	
+    }
 }

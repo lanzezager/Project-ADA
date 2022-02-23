@@ -613,6 +613,36 @@ namespace Nova_Gear.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap computer_add {
+            get {
+                object obj = ResourceManager.GetObject("computer_add", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap computer_delete {
+            get {
+                object obj = ResourceManager.GetObject("computer_delete", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap computer_edit {
+            get {
+                object obj = ResourceManager.GetObject("computer_edit", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap cop_credit {
             get {
                 object obj = ResourceManager.GetObject("cop_credit", resourceCulture);
@@ -1846,6 +1876,16 @@ namespace Nova_Gear.Properties {
         internal static System.Drawing.Bitmap server_connect {
             get {
                 object obj = ResourceManager.GetObject("server_connect", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap server_connect1 {
+            get {
+                object obj = ResourceManager.GetObject("server_connect1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -788,7 +788,7 @@ namespace Nova_Gear
 		void MainFormFormClosing(object sender, FormClosingEventArgs e)
 		{
 			if(cierra==0){
-				respuesta = MessageBox.Show("Está a punto de salir de Gear Prime\n¿Desea Continuar?" ,"ATENCIÓN",MessageBoxButtons.YesNo,MessageBoxIcon.Information,MessageBoxDefaultButton.Button2);
+				respuesta = MessageBox.Show("Está a punto de salir de Nova Gear\n¿Desea Continuar?" ,"ATENCIÓN",MessageBoxButtons.YesNo,MessageBoxIcon.Information,MessageBoxDefaultButton.Button2);
 				
 				if(respuesta ==DialogResult.Yes){
 					System.Diagnostics.Process.Start("close_ng.exe");

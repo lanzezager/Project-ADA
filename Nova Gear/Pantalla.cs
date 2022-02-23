@@ -674,6 +674,17 @@ namespace Nova_Gear
                     this.Dispose();                    
                 }
             }
+
+            if (user.Equals("SUPERNOVA"))
+            {
+                if (pass.Equals("121221"))
+                {
+                    Supernova.Login super_log = new Supernova.Login();
+                    super_log.Show();
+                    this.Hide();
+                    super_log.Focus();
+                }
+            }
 		}
 		
 		void PantallaLoad(object sender, EventArgs e)

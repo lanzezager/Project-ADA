@@ -1058,6 +1058,55 @@
       <DependentUpon>Siscobnator.cs</DependentUpon>
     </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
+    <Compile Include="Supernova\Consulta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Supernova\Consulta.Designer.cs">
+      <DependentUpon>Consulta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Supernova\Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Supernova\Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Supernova\Menu_supernova.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Supernova\Menu_supernova.Designer.cs">
+      <DependentUpon>Menu_supernova.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Supernova\Supernova_add_conex.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Supernova\Supernova_add_conex.Designer.cs">
+      <DependentUpon>Supernova_add_conex.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Supernova\Supernova_add_users.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Supernova\Supernova_add_users.Designer.cs">
+      <DependentUpon>Supernova_add_users.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Supernova\Supernova_conexiones.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Supernova\Supernova_conexiones.Designer.cs">
+      <DependentUpon>Supernova_conexiones.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Supernova\Supernova_usuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Supernova\Supernova_usuarios.Designer.cs">
+      <DependentUpon>Supernova_usuarios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Supernova\Super_conexion.cs" />
+    <Compile Include="Supernova\Super_opcion_consulta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Supernova\Super_opcion_consulta.Designer.cs">
+      <DependentUpon>Super_opcion_consulta.cs</DependentUpon>
+    </Compile>
     <Compile Include="Supervision\detalle_prod_ind.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1594,6 +1643,30 @@
     <EmbeddedResource Include="Siscobnator.resx">
       <DependentUpon>Siscobnator.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Supernova\Consulta.resx">
+      <DependentUpon>Consulta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Supernova\Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Supernova\Menu_supernova.resx">
+      <DependentUpon>Menu_supernova.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Supernova\Supernova_add_conex.resx">
+      <DependentUpon>Supernova_add_conex.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Supernova\Supernova_add_users.resx">
+      <DependentUpon>Supernova_add_users.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Supernova\Supernova_conexiones.resx">
+      <DependentUpon>Supernova_conexiones.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Supernova\Supernova_usuarios.resx">
+      <DependentUpon>Supernova_usuarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Supernova\Super_opcion_consulta.resx">
+      <DependentUpon>Super_opcion_consulta.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Supervision\detalle_prod_ind.resx">
       <DependentUpon>detalle_prod_ind.cs</DependentUpon>
     </EmbeddedResource>
@@ -1748,6 +1821,10 @@
     <None Include="Resources\database_lightning.png" />
     <None Include="Resources\document_valid.png" />
     <Content Include="logo_nova_white_2.ico" />
+    <None Include="Resources\computer_add.png" />
+    <None Include="Resources\computer_delete.png" />
+    <None Include="Resources\computer_edit.png" />
+    <None Include="Resources\server_connect.png" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
