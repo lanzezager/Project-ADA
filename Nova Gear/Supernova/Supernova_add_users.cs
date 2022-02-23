@@ -73,19 +73,22 @@ namespace Nova_Gear.Supernova
 
             }
 
-            if (int.TryParse(textBox5.Text, out num_sub))
-            { }
-            else
+            if ((comboBox1.SelectedIndex > -1 && comboBox1.SelectedIndex < 2) && textBox5.Text.Length> 0 && error == 0)
             {
-                error = 1;
-                if (comboBox1.SelectedIndex == 0)
+                if (int.TryParse(textBox5.Text, out num_sub))
+                { }
+                else
                 {
-                    MessageBox.Show("NUMERO DE SUBDELEGACIÓN debe de ser un Número", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                }
+                    error = 1;
+                    if (comboBox1.SelectedIndex == 0)
+                    {
+                        MessageBox.Show("NUMERO DE SUBDELEGACIÓN debe de ser un Número", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    }
 
-                if (comboBox1.SelectedIndex == 1)
-                {
-                    MessageBox.Show("NUMERO DE DELEGACIÓN debe de ser un Número", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    if (comboBox1.SelectedIndex == 1)
+                    {
+                        MessageBox.Show("NUMERO DE DELEGACIÓN debe de ser un Número", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    }
                 }
             }
 
