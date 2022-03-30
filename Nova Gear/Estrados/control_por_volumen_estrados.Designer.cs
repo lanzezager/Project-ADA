@@ -71,7 +71,6 @@
             this.desmarcarTodosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exportarAExcelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label2 = new System.Windows.Forms.Label();
-            this.listBox1 = new System.Windows.Forms.ListBox();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel3 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
@@ -81,26 +80,13 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.button8 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.maskedTextBox4 = new System.Windows.Forms.MaskedTextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.button6 = new System.Windows.Forms.Button();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.maskedTextBox2 = new System.Windows.Forms.MaskedTextBox();
-            this.dataGridView3 = new System.Windows.Forms.DataGridView();
-            this.dataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.button3 = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.button11 = new System.Windows.Forms.Button();
             this.button12 = new System.Windows.Forms.Button();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.button8 = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.comboBox4 = new System.Windows.Forms.ComboBox();
             this.label13 = new System.Windows.Forms.Label();
@@ -109,9 +95,7 @@
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.label15 = new System.Windows.Forms.Label();
             this.dateTimePicker8 = new System.Windows.Forms.DateTimePicker();
-            this.label16 = new System.Windows.Forms.Label();
             this.dateTimePicker9 = new System.Windows.Forms.DateTimePicker();
-            this.label18 = new System.Windows.Forms.Label();
             this.dateTimePicker10 = new System.Windows.Forms.DateTimePicker();
             this.label24 = new System.Windows.Forms.Label();
             this.dateTimePicker11 = new System.Windows.Forms.DateTimePicker();
@@ -127,16 +111,32 @@
             this.dataGridViewCheckBoxColumn2 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.label29 = new System.Windows.Forms.Label();
             this.button15 = new System.Windows.Forms.Button();
+            this.dataGridView3 = new System.Windows.Forms.DataGridView();
+            this.dataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.maskedTextBox2 = new System.Windows.Forms.MaskedTextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.button6 = new System.Windows.Forms.Button();
+            this.label8 = new System.Windows.Forms.Label();
+            this.maskedTextBox4 = new System.Windows.Forms.MaskedTextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.button7 = new System.Windows.Forms.Button();
+            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
-            this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -319,8 +319,9 @@
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(96, 17);
             this.label21.TabIndex = 73;
-            this.label21.Text = "Fecha Fin Not:";
+            this.label21.Text = "Fecha Fin Pub:";
             this.label21.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.toolTip1.SetToolTip(this.label21, "Fecha Fin de Publicación");
             // 
             // dateTimePicker5
             // 
@@ -340,8 +341,9 @@
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(118, 17);
             this.label20.TabIndex = 72;
-            this.label20.Text = "Fecha Inicio Not.:";
+            this.label20.Text = "Fecha Inicio Pub.:";
             this.label20.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.toolTip1.SetToolTip(this.label20, "Fecha Inicio de la Publicación");
             // 
             // dateTimePicker4
             // 
@@ -613,14 +615,6 @@
             this.label2.Text = "Recibir NN para Estrados";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // listBox1
-            // 
-            this.listBox1.Location = new System.Drawing.Point(723, 105);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(120, 173);
-            this.listBox1.TabIndex = 62;
-            this.listBox1.Visible = false;
-            // 
             // statusStrip1
             // 
             this.statusStrip1.BackColor = System.Drawing.Color.Black;
@@ -731,282 +725,6 @@
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.comboBox2);
-            this.panel2.Controls.Add(this.label11);
-            this.panel2.Controls.Add(this.button8);
-            this.panel2.Controls.Add(this.listBox1);
-            this.panel2.Controls.Add(this.button7);
-            this.panel2.Controls.Add(this.dateTimePicker1);
-            this.panel2.Controls.Add(this.label10);
-            this.panel2.Controls.Add(this.label9);
-            this.panel2.Controls.Add(this.maskedTextBox4);
-            this.panel2.Controls.Add(this.label8);
-            this.panel2.Controls.Add(this.button6);
-            this.panel2.Controls.Add(this.label7);
-            this.panel2.Controls.Add(this.label6);
-            this.panel2.Controls.Add(this.maskedTextBox2);
-            this.panel2.Controls.Add(this.dataGridView3);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(870, 447);
-            this.panel2.TabIndex = 77;
-            this.panel2.Visible = false;
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.comboBox2.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.comboBox2.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(414, 42);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(115, 24);
-            this.comboBox2.TabIndex = 80;
-            this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
-            // 
-            // label11
-            // 
-            this.label11.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.label11.BackColor = System.Drawing.Color.Transparent;
-            this.label11.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.ForeColor = System.Drawing.Color.White;
-            this.label11.Location = new System.Drawing.Point(305, 42);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(103, 21);
-            this.label11.TabIndex = 79;
-            this.label11.Text = "Num Paquete:";
-            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // button8
-            // 
-            this.button8.BackColor = System.Drawing.Color.Transparent;
-            this.button8.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button8.FlatAppearance.BorderColor = System.Drawing.SystemColors.Menu;
-            this.button8.FlatAppearance.BorderSize = 0;
-            this.button8.FlatAppearance.MouseDownBackColor = System.Drawing.Color.LightSteelBlue;
-            this.button8.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DodgerBlue;
-            this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button8.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button8.ForeColor = System.Drawing.Color.White;
-            this.button8.Image = global::Nova_Gear.Properties.Resources.document_page;
-            this.button8.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button8.Location = new System.Drawing.Point(12, 9);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(25, 25);
-            this.button8.TabIndex = 78;
-            this.button8.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.toolTip1.SetToolTip(this.button8, "Regresar a la Pantalla Anterior");
-            this.button8.UseVisualStyleBackColor = false;
-            this.button8.Click += new System.EventHandler(this.button8_Click);
-            // 
-            // button7
-            // 
-            this.button7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button7.BackColor = System.Drawing.Color.Transparent;
-            this.button7.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button7.FlatAppearance.BorderColor = System.Drawing.SystemColors.Menu;
-            this.button7.FlatAppearance.BorderSize = 0;
-            this.button7.FlatAppearance.MouseDownBackColor = System.Drawing.Color.LightSteelBlue;
-            this.button7.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DodgerBlue;
-            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button7.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button7.ForeColor = System.Drawing.Color.White;
-            this.button7.Image = global::Nova_Gear.Properties.Resources.file_save_as_1;
-            this.button7.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button7.Location = new System.Drawing.Point(257, 379);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(164, 25);
-            this.button7.TabIndex = 77;
-            this.button7.Text = "Actualizar Fecha";
-            this.button7.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.button7.UseVisualStyleBackColor = false;
-            this.button7.Visible = false;
-            this.button7.Click += new System.EventHandler(this.button7_Click);
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.dateTimePicker1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(141, 379);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(110, 23);
-            this.dateTimePicker1.TabIndex = 75;
-            this.dateTimePicker1.Visible = false;
-            // 
-            // label10
-            // 
-            this.label10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label10.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.ForeColor = System.Drawing.Color.Yellow;
-            this.label10.Location = new System.Drawing.Point(12, 385);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(123, 17);
-            this.label10.TabIndex = 76;
-            this.label10.Text = "Fecha Notificación:";
-            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label10.Visible = false;
-            // 
-            // label9
-            // 
-            this.label9.BackColor = System.Drawing.Color.Transparent;
-            this.label9.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.Color.White;
-            this.label9.Location = new System.Drawing.Point(12, 41);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(95, 25);
-            this.label9.TabIndex = 68;
-            this.label9.Text = "Buscar Folio:";
-            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // maskedTextBox4
-            // 
-            this.maskedTextBox4.BackColor = System.Drawing.Color.White;
-            this.maskedTextBox4.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.maskedTextBox4.ForeColor = System.Drawing.Color.Black;
-            this.maskedTextBox4.InsertKeyMode = System.Windows.Forms.InsertKeyMode.Overwrite;
-            this.maskedTextBox4.Location = new System.Drawing.Point(113, 43);
-            this.maskedTextBox4.Mask = "E0000/00-00000";
-            this.maskedTextBox4.Name = "maskedTextBox4";
-            this.maskedTextBox4.Size = new System.Drawing.Size(124, 23);
-            this.maskedTextBox4.TabIndex = 67;
-            this.maskedTextBox4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.maskedTextBox4.TextChanged += new System.EventHandler(this.maskedTextBox4_TextChanged);
-            // 
-            // label8
-            // 
-            this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label8.BackColor = System.Drawing.Color.Transparent;
-            this.label8.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(12, 356);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(183, 25);
-            this.label8.TabIndex = 66;
-            this.label8.Text = "Registros: ";
-            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // button6
-            // 
-            this.button6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button6.BackColor = System.Drawing.Color.Transparent;
-            this.button6.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button6.FlatAppearance.BorderColor = System.Drawing.SystemColors.Menu;
-            this.button6.FlatAppearance.BorderSize = 0;
-            this.button6.FlatAppearance.MouseDownBackColor = System.Drawing.Color.SlateGray;
-            this.button6.FlatAppearance.MouseOverBackColor = System.Drawing.Color.MediumBlue;
-            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button6.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button6.ForeColor = System.Drawing.Color.White;
-            this.button6.Image = global::Nova_Gear.Properties.Resources.tick_light_blue_1;
-            this.button6.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button6.Location = new System.Drawing.Point(723, 367);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(135, 47);
-            this.button6.TabIndex = 65;
-            this.button6.Text = "Confirmar\r\nFechas";
-            this.button6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button6.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.button6.UseVisualStyleBackColor = false;
-            this.button6.Click += new System.EventHandler(this.button6_Click_1);
-            // 
-            // label7
-            // 
-            this.label7.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.label7.BackColor = System.Drawing.Color.Transparent;
-            this.label7.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(81, 9);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(708, 25);
-            this.label7.TabIndex = 64;
-            this.label7.Text = "Confirmar Fecha de Notificación";
-            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label6
-            // 
-            this.label6.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.label6.BackColor = System.Drawing.Color.Transparent;
-            this.label6.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(642, 41);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(111, 25);
-            this.label6.TabIndex = 63;
-            this.label6.Text = "Buscar Crédito:";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // maskedTextBox2
-            // 
-            this.maskedTextBox2.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.maskedTextBox2.BackColor = System.Drawing.Color.White;
-            this.maskedTextBox2.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.maskedTextBox2.ForeColor = System.Drawing.Color.Black;
-            this.maskedTextBox2.InsertKeyMode = System.Windows.Forms.InsertKeyMode.Overwrite;
-            this.maskedTextBox2.Location = new System.Drawing.Point(759, 43);
-            this.maskedTextBox2.Mask = "000000000";
-            this.maskedTextBox2.Name = "maskedTextBox2";
-            this.maskedTextBox2.Size = new System.Drawing.Size(99, 23);
-            this.maskedTextBox2.TabIndex = 62;
-            this.maskedTextBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.maskedTextBox2.ValidatingType = typeof(int);
-            this.maskedTextBox2.TextChanged += new System.EventHandler(this.maskedTextBox2_TextChanged);
-            // 
-            // dataGridView3
-            // 
-            this.dataGridView3.AllowUserToAddRows = false;
-            this.dataGridView3.AllowUserToDeleteRows = false;
-            this.dataGridView3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridView3.BackgroundColor = System.Drawing.SystemColors.ControlDarkDark;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView3.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
-            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView3.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewCheckBoxColumn1});
-            this.dataGridView3.ContextMenuStrip = this.contextMenuStrip1;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.LimeGreen;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView3.DefaultCellStyle = dataGridViewCellStyle5;
-            this.dataGridView3.Location = new System.Drawing.Point(12, 74);
-            this.dataGridView3.MultiSelect = false;
-            this.dataGridView3.Name = "dataGridView3";
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView3.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
-            this.dataGridView3.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView3.Size = new System.Drawing.Size(846, 279);
-            this.dataGridView3.TabIndex = 61;
-            // 
-            // dataGridViewCheckBoxColumn1
-            // 
-            this.dataGridViewCheckBoxColumn1.Frozen = true;
-            this.dataGridViewCheckBoxColumn1.HeaderText = "MARCAR";
-            this.dataGridViewCheckBoxColumn1.Name = "dataGridViewCheckBoxColumn1";
-            // 
             // button3
             // 
             this.button3.Anchor = System.Windows.Forms.AnchorStyles.Top;
@@ -1078,6 +796,54 @@
             this.toolTip1.SetToolTip(this.button12, "Regresar a la Pantalla Anterior");
             this.button12.UseVisualStyleBackColor = false;
             this.button12.Click += new System.EventHandler(this.button12_Click);
+            // 
+            // label16
+            // 
+            this.label16.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label16.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.ForeColor = System.Drawing.Color.White;
+            this.label16.Location = new System.Drawing.Point(245, 395);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(96, 17);
+            this.label16.TabIndex = 73;
+            this.label16.Text = "Fecha Fin Pub:";
+            this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.toolTip1.SetToolTip(this.label16, "Fecha Fin de Publicación");
+            // 
+            // label18
+            // 
+            this.label18.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label18.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.ForeColor = System.Drawing.Color.White;
+            this.label18.Location = new System.Drawing.Point(12, 395);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(118, 17);
+            this.label18.TabIndex = 72;
+            this.label18.Text = "Fecha Inicio Pub.:";
+            this.label18.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.toolTip1.SetToolTip(this.label18, "Fecha Inicio de la Publicación");
+            // 
+            // button8
+            // 
+            this.button8.BackColor = System.Drawing.Color.Transparent;
+            this.button8.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button8.FlatAppearance.BorderColor = System.Drawing.SystemColors.Menu;
+            this.button8.FlatAppearance.BorderSize = 0;
+            this.button8.FlatAppearance.MouseDownBackColor = System.Drawing.Color.LightSteelBlue;
+            this.button8.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DodgerBlue;
+            this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button8.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button8.ForeColor = System.Drawing.Color.White;
+            this.button8.Image = global::Nova_Gear.Properties.Resources.document_page;
+            this.button8.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button8.Location = new System.Drawing.Point(12, 9);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(25, 25);
+            this.button8.TabIndex = 78;
+            this.button8.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.toolTip1.SetToolTip(this.button8, "Regresar a la Pantalla Anterior");
+            this.button8.UseVisualStyleBackColor = false;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
             // panel3
             // 
@@ -1199,18 +965,6 @@
             this.dateTimePicker8.Size = new System.Drawing.Size(101, 20);
             this.dateTimePicker8.TabIndex = 67;
             // 
-            // label16
-            // 
-            this.label16.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label16.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.ForeColor = System.Drawing.Color.White;
-            this.label16.Location = new System.Drawing.Point(245, 395);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(96, 17);
-            this.label16.TabIndex = 73;
-            this.label16.Text = "Fecha Fin Not:";
-            this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
             // dateTimePicker9
             // 
             this.dateTimePicker9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
@@ -1219,18 +973,6 @@
             this.dateTimePicker9.Name = "dateTimePicker9";
             this.dateTimePicker9.Size = new System.Drawing.Size(101, 20);
             this.dateTimePicker9.TabIndex = 66;
-            // 
-            // label18
-            // 
-            this.label18.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label18.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.ForeColor = System.Drawing.Color.White;
-            this.label18.Location = new System.Drawing.Point(12, 395);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(118, 17);
-            this.label18.TabIndex = 72;
-            this.label18.Text = "Fecha Inicio Not.:";
-            this.label18.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // dateTimePicker10
             // 
@@ -1307,9 +1049,9 @@
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView4.Location = new System.Drawing.Point(520, 86);
+            this.dataGridView4.Location = new System.Drawing.Point(619, 86);
             this.dataGridView4.Name = "dataGridView4";
-            this.dataGridView4.Size = new System.Drawing.Size(323, 107);
+            this.dataGridView4.Size = new System.Drawing.Size(224, 145);
             this.dataGridView4.TabIndex = 61;
             this.dataGridView4.Visible = false;
             // 
@@ -1398,37 +1140,37 @@
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView5.BackgroundColor = System.Drawing.SystemColors.ControlDarkDark;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView5.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView5.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridView5.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView5.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewCheckBoxColumn2});
             this.dataGridView5.ContextMenuStrip = this.contextMenuStrip1;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.LimeGreen;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView5.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.LimeGreen;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView5.DefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridView5.Location = new System.Drawing.Point(12, 74);
             this.dataGridView5.MultiSelect = false;
             this.dataGridView5.Name = "dataGridView5";
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView5.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView5.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridView5.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView5.Size = new System.Drawing.Size(846, 254);
             this.dataGridView5.TabIndex = 37;
@@ -1477,6 +1219,268 @@
             this.button15.UseVisualStyleBackColor = false;
             this.button15.Click += new System.EventHandler(this.button15_Click);
             // 
+            // dataGridView3
+            // 
+            this.dataGridView3.AllowUserToAddRows = false;
+            this.dataGridView3.AllowUserToDeleteRows = false;
+            this.dataGridView3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridView3.BackgroundColor = System.Drawing.SystemColors.ControlDarkDark;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView3.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView3.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewCheckBoxColumn1});
+            this.dataGridView3.ContextMenuStrip = this.contextMenuStrip1;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.LimeGreen;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView3.DefaultCellStyle = dataGridViewCellStyle8;
+            this.dataGridView3.Location = new System.Drawing.Point(12, 74);
+            this.dataGridView3.MultiSelect = false;
+            this.dataGridView3.Name = "dataGridView3";
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView3.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            this.dataGridView3.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView3.Size = new System.Drawing.Size(846, 279);
+            this.dataGridView3.TabIndex = 61;
+            // 
+            // dataGridViewCheckBoxColumn1
+            // 
+            this.dataGridViewCheckBoxColumn1.Frozen = true;
+            this.dataGridViewCheckBoxColumn1.HeaderText = "MARCAR";
+            this.dataGridViewCheckBoxColumn1.Name = "dataGridViewCheckBoxColumn1";
+            // 
+            // maskedTextBox2
+            // 
+            this.maskedTextBox2.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.maskedTextBox2.BackColor = System.Drawing.Color.White;
+            this.maskedTextBox2.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.maskedTextBox2.ForeColor = System.Drawing.Color.Black;
+            this.maskedTextBox2.InsertKeyMode = System.Windows.Forms.InsertKeyMode.Overwrite;
+            this.maskedTextBox2.Location = new System.Drawing.Point(759, 43);
+            this.maskedTextBox2.Mask = "000000000";
+            this.maskedTextBox2.Name = "maskedTextBox2";
+            this.maskedTextBox2.Size = new System.Drawing.Size(99, 23);
+            this.maskedTextBox2.TabIndex = 62;
+            this.maskedTextBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.maskedTextBox2.ValidatingType = typeof(int);
+            this.maskedTextBox2.TextChanged += new System.EventHandler(this.maskedTextBox2_TextChanged);
+            // 
+            // label6
+            // 
+            this.label6.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label6.BackColor = System.Drawing.Color.Transparent;
+            this.label6.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.White;
+            this.label6.Location = new System.Drawing.Point(642, 41);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(111, 25);
+            this.label6.TabIndex = 63;
+            this.label6.Text = "Buscar Crédito:";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label7
+            // 
+            this.label7.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label7.BackColor = System.Drawing.Color.Transparent;
+            this.label7.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.White;
+            this.label7.Location = new System.Drawing.Point(81, 9);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(708, 25);
+            this.label7.TabIndex = 64;
+            this.label7.Text = "Confirmar Fecha de Notificación";
+            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // button6
+            // 
+            this.button6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.button6.BackColor = System.Drawing.Color.Transparent;
+            this.button6.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button6.FlatAppearance.BorderColor = System.Drawing.SystemColors.Menu;
+            this.button6.FlatAppearance.BorderSize = 0;
+            this.button6.FlatAppearance.MouseDownBackColor = System.Drawing.Color.SlateGray;
+            this.button6.FlatAppearance.MouseOverBackColor = System.Drawing.Color.MediumBlue;
+            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button6.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button6.ForeColor = System.Drawing.Color.White;
+            this.button6.Image = global::Nova_Gear.Properties.Resources.tick_light_blue_1;
+            this.button6.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button6.Location = new System.Drawing.Point(723, 367);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(135, 47);
+            this.button6.TabIndex = 65;
+            this.button6.Text = "Confirmar\r\nFechas";
+            this.button6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button6.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.button6.UseVisualStyleBackColor = false;
+            this.button6.Click += new System.EventHandler(this.button6_Click_1);
+            // 
+            // label8
+            // 
+            this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label8.BackColor = System.Drawing.Color.Transparent;
+            this.label8.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.White;
+            this.label8.Location = new System.Drawing.Point(12, 356);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(183, 25);
+            this.label8.TabIndex = 66;
+            this.label8.Text = "Registros: ";
+            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // maskedTextBox4
+            // 
+            this.maskedTextBox4.BackColor = System.Drawing.Color.White;
+            this.maskedTextBox4.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.maskedTextBox4.ForeColor = System.Drawing.Color.Black;
+            this.maskedTextBox4.InsertKeyMode = System.Windows.Forms.InsertKeyMode.Overwrite;
+            this.maskedTextBox4.Location = new System.Drawing.Point(113, 43);
+            this.maskedTextBox4.Mask = "E0000/00-00000";
+            this.maskedTextBox4.Name = "maskedTextBox4";
+            this.maskedTextBox4.Size = new System.Drawing.Size(124, 23);
+            this.maskedTextBox4.TabIndex = 67;
+            this.maskedTextBox4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.maskedTextBox4.TextChanged += new System.EventHandler(this.maskedTextBox4_TextChanged);
+            // 
+            // label9
+            // 
+            this.label9.BackColor = System.Drawing.Color.Transparent;
+            this.label9.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.Color.White;
+            this.label9.Location = new System.Drawing.Point(12, 41);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(95, 25);
+            this.label9.TabIndex = 68;
+            this.label9.Text = "Buscar Folio:";
+            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label10
+            // 
+            this.label10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label10.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.Color.Yellow;
+            this.label10.Location = new System.Drawing.Point(12, 385);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(123, 17);
+            this.label10.TabIndex = 76;
+            this.label10.Text = "Fecha Notificación:";
+            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label10.Visible = false;
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.dateTimePicker1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePicker1.Location = new System.Drawing.Point(141, 379);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(110, 23);
+            this.dateTimePicker1.TabIndex = 75;
+            this.dateTimePicker1.Visible = false;
+            // 
+            // button7
+            // 
+            this.button7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.button7.BackColor = System.Drawing.Color.Transparent;
+            this.button7.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button7.FlatAppearance.BorderColor = System.Drawing.SystemColors.Menu;
+            this.button7.FlatAppearance.BorderSize = 0;
+            this.button7.FlatAppearance.MouseDownBackColor = System.Drawing.Color.LightSteelBlue;
+            this.button7.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DodgerBlue;
+            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button7.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button7.ForeColor = System.Drawing.Color.White;
+            this.button7.Image = global::Nova_Gear.Properties.Resources.file_save_as_1;
+            this.button7.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button7.Location = new System.Drawing.Point(257, 379);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(164, 25);
+            this.button7.TabIndex = 77;
+            this.button7.Text = "Actualizar Fecha";
+            this.button7.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.button7.UseVisualStyleBackColor = false;
+            this.button7.Visible = false;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
+            // 
+            // listBox1
+            // 
+            this.listBox1.Location = new System.Drawing.Point(723, 105);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(120, 173);
+            this.listBox1.TabIndex = 62;
+            this.listBox1.Visible = false;
+            // 
+            // label11
+            // 
+            this.label11.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label11.BackColor = System.Drawing.Color.Transparent;
+            this.label11.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ForeColor = System.Drawing.Color.White;
+            this.label11.Location = new System.Drawing.Point(305, 42);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(103, 21);
+            this.label11.TabIndex = 79;
+            this.label11.Text = "Num Paquete:";
+            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.comboBox2.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.comboBox2.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.comboBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(414, 42);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(115, 24);
+            this.comboBox2.TabIndex = 80;
+            this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.comboBox2);
+            this.panel2.Controls.Add(this.label11);
+            this.panel2.Controls.Add(this.button8);
+            this.panel2.Controls.Add(this.listBox1);
+            this.panel2.Controls.Add(this.button7);
+            this.panel2.Controls.Add(this.dateTimePicker1);
+            this.panel2.Controls.Add(this.label10);
+            this.panel2.Controls.Add(this.label9);
+            this.panel2.Controls.Add(this.maskedTextBox4);
+            this.panel2.Controls.Add(this.label8);
+            this.panel2.Controls.Add(this.button6);
+            this.panel2.Controls.Add(this.label7);
+            this.panel2.Controls.Add(this.label6);
+            this.panel2.Controls.Add(this.maskedTextBox2);
+            this.panel2.Controls.Add(this.dataGridView3);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(870, 447);
+            this.panel2.TabIndex = 77;
+            this.panel2.Visible = false;
+            // 
             // control_por_volumen_estrados
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1505,13 +1509,13 @@
             this.contextMenuStrip1.ResumeLayout(false);
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1533,7 +1537,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Column1;
-        private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.MaskedTextBox maskedTextBox3;
         private System.Windows.Forms.Label label23;
@@ -1553,25 +1556,9 @@
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
         private System.Windows.Forms.ToolStripProgressBar toolStripProgressBar1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel2;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox2;
-        private System.Windows.Forms.DataGridView dataGridView3;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn1;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox4;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Button button8;
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.Button button9;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.Label label11;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem marcarTodosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem desmarcarTodosToolStripMenuItem;
@@ -1607,5 +1594,22 @@
         private System.Windows.Forms.Label label29;
         private System.Windows.Forms.Button button15;
         private System.Windows.Forms.ToolStripMenuItem exportarAExcelToolStripMenuItem;
+        private System.Windows.Forms.DataGridView dataGridView3;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn1;
+        private System.Windows.Forms.MaskedTextBox maskedTextBox2;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.MaskedTextBox maskedTextBox4;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.Panel panel2;
     }
 }

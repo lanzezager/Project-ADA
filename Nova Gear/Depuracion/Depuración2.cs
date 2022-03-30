@@ -589,7 +589,7 @@ namespace Nova_Gear.Depuracion
 				//Consulta el periodo en la BD SI ES DEPURACION AUTOMÁTICA
 				sql = "SELECT id,registro_patronal2,credito_cuotas,importe_cuota,credito_multa,importe_multa,status,status_credito,folio_sipare_sua,importe_pago,porcentaje_pago,num_pago,fecha_pago,tipo_documento,subdelegacion FROM datos_factura WHERE " +
 					//"nombre_periodo = \"" + periodo + "\" AND (status = \"EN TRAMITE\" OR status = \"0\") AND porcentaje_pago < 75.00 ORDER BY registro_patronal2,credito_multa";
-                    "nombre_periodo = \"" + periodo + "\" AND (status = \"EN TRAMITE\" OR status = \"0\") AND porcentaje_pago < "+pago_min+" ORDER BY registro_patronal2,credito_multa";
+                    "nombre_periodo = \"" + periodo + "\" AND (status = \"EN TRAMITE\" OR status = \"0\") AND nn=\"-\" AND porcentaje_pago < " + pago_min + " ORDER BY registro_patronal2,credito_multa";
 			} else {
 				if (radioButton2.Checked == true) {
 					//Consulta el periodo en la BD SI ES DEPURACION MANUAL
@@ -617,7 +617,7 @@ namespace Nova_Gear.Depuracion
 
 					sql = "SELECT id,registro_patronal2,credito_cuotas,importe_cuota,credito_multa,importe_multa,status,status_credito,folio_sipare_sua,importe_pago,porcentaje_pago,num_pago,fecha_pago,tipo_documento,subdelegacion FROM datos_factura WHERE " +
 					//"id in (" + lista_ids_depu_manu + ") AND (status = \"EN TRAMITE\" OR status = \"0\") AND porcentaje_pago < 75.00 ORDER BY registro_patronal2,credito_multa";
-                    "id in (" + lista_ids_depu_manu + ") AND (status = \"EN TRAMITE\" OR status = \"0\") AND porcentaje_pago < "+pago_min+" ORDER BY registro_patronal2,credito_multa";
+                    "id in (" + lista_ids_depu_manu + ") AND (status = \"EN TRAMITE\" OR status = \"0\") AND nn=\"-\" AND porcentaje_pago < " + pago_min + " ORDER BY registro_patronal2,credito_multa";
 				}
 			}
 

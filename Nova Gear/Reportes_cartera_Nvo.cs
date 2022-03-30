@@ -231,7 +231,7 @@ namespace Nova_Gear
                         {
                             if(veri_acti==1){
                                 sql = "SELECT registro_patronal,razon_social,credito_cuotas,credito_multa,importe_cuota,importe_multa,tipo_documento,periodo,id,estado_cartera " +
-                                  "FROM datos_factura WHERE id=" + packs.Rows[i][0].ToString() + " and status=\"NOTIFICADO\"";
+                                  "FROM datos_factura WHERE id=" + packs.Rows[i][0].ToString() + " ";
                             }else{
                                 sql = "SELECT registro_patronal,razon_social,credito_cuotas,credito_multa,importe_cuota,importe_multa,tipo_documento,periodo,id,estado_cartera " +
                               "FROM datos_factura WHERE id=" + packs.Rows[i][0].ToString() + " ";

@@ -92,5 +92,19 @@ namespace Nova_Gear.Supernova
                 entrar();
             }
         }
+
+        private void Login_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            DialogResult respuesta = MessageBox.Show("Está a punto de salir de Supervisión Nova\n¿Desea Continuar?", "ATENCIÓN", MessageBoxButtons.YesNo, MessageBoxIcon.Information, MessageBoxDefaultButton.Button2);
+
+            if (respuesta == DialogResult.Yes)
+            {
+                System.Diagnostics.Process.Start("close_ng.exe");
+            }
+            else
+            {
+                e.Cancel = true;
+            }
+        }
     }
 }

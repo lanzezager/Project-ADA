@@ -403,6 +403,16 @@ namespace Nova_Gear.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ceo {
+            get {
+                object obj = ResourceManager.GetObject("ceo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap chart_bar {
             get {
                 object obj = ResourceManager.GetObject("chart_bar", resourceCulture);

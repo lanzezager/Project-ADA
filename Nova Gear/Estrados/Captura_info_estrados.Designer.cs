@@ -804,9 +804,9 @@ namespace Nova_Gear.Estrados
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(96, 17);
             this.label21.TabIndex = 37;
-            this.label21.Text = "Fecha Fin Not:";
+            this.label21.Text = "Fecha Fin Pub:";
             this.label21.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.toolTip1.SetToolTip(this.label21, "Fecha de Finalización del Periodo de Notificación");
+            this.toolTip1.SetToolTip(this.label21, "Fecha de Finalización del Periodo de Publicación");
             // 
             // dateTimePicker5
             // 
@@ -824,9 +824,9 @@ namespace Nova_Gear.Estrados
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(118, 17);
             this.label20.TabIndex = 35;
-            this.label20.Text = "Fecha Inicio Not.:";
+            this.label20.Text = "Fecha Inicio Pub.:";
             this.label20.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.toolTip1.SetToolTip(this.label20, "Fecha de Inicio del Periodo de Notificación");
+            this.toolTip1.SetToolTip(this.label20, "Fecha de Inicio del Periodo de Publicación");
             // 
             // dateTimePicker4
             // 

@@ -1825,6 +1825,7 @@
     <None Include="Resources\computer_delete.png" />
     <None Include="Resources\computer_edit.png" />
     <None Include="Resources\server_connect.png" />
+    <None Include="Resources\ceo.png" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

@@ -39,6 +39,7 @@ namespace Nova_Gear
 		int error=0,cuenta=0,err_cuenta=0;
 		public int login_exitoso=0;
 		string[] nombre,datos;
+        public static int estado_pantalla=0;
 		
 		//Declaracion de elementos para conexion mysql
 		Conexion conex = new Conexion();
@@ -729,6 +730,7 @@ namespace Nova_Gear
 		void Button2Click(object sender, EventArgs e)
 		{
             Menu_nova config = new Menu_nova(0);
+            timer1.Start();
             config.Show();
             config.Focus();
 		}
@@ -797,7 +799,9 @@ namespace Nova_Gear
 		
 		void Timer1Tick(object sender, EventArgs e)
 		{
-			
+			if(estado_pantalla==1){
+                this.Hide();
+            }
 		}
 		
 		void Timer2Tick(object sender, EventArgs e)

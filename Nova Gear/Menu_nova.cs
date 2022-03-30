@@ -72,5 +72,14 @@ namespace Nova_Gear
 			respaldo.Focus();
 			this.Hide();
 		}
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            Supernova.Login super_log = new Supernova.Login();            
+            Pantalla.estado_pantalla = 1;
+            this.Hide();
+            super_log.Show();
+            super_log.Focus();
+        }
 	}
 }

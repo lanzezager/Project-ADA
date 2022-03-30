@@ -123,6 +123,9 @@
   <data name="comboBox1.Items" xml:space="preserve">
     <value>Desocupo o desaparecio del domicilio fiscal sin presentar el aviso de cambio después de la notificación de la orden de visita domiciliaria o del requerimiento de la contabilidad, documentación o información, o bien, después de que se le hubiere notificado el crédito fiscal (fracción V del artículo 110 del Código Fiscal de la Federación)</value>
   </data>
+  <metadata name="toolTip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
   <metadata name="timer1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>109, 17</value>
   </metadata>

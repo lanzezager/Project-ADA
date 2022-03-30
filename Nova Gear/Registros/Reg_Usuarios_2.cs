@@ -785,7 +785,8 @@ namespace Nova_Gear.Registros
 		
 		public void Reg_Usuarios_2Load(object sender, EventArgs e)
 		{
-			
+
+            String sub = "";
 
 			switch (mode){
 			 	case 1: this.Text="Nova Gear: Registro de Usuario";
@@ -809,6 +810,9 @@ namespace Nova_Gear.Registros
             //window_name = window_name.Replace("Gear Prime", "Nova Gear");
             this.Text = window_name;
             this.Icon = Nova_Gear.Properties.Resources.logo_nova_white_2;
+
+            sub=conex.leer_config_sub()[3];
+            label19.Text = "Subdelegacion: "+sub;
 
 		}
 		

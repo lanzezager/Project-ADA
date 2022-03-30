@@ -90,8 +90,8 @@ namespace Nova_Gear.Registros
             this.label22 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.label9 = new System.Windows.Forms.Label();
             this.textBox11 = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.textBox9 = new System.Windows.Forms.TextBox();
             this.label30 = new System.Windows.Forms.Label();
@@ -759,6 +759,16 @@ namespace Nova_Gear.Registros
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Datos Usuario";
             // 
+            // textBox11
+            // 
+            this.textBox11.Location = new System.Drawing.Point(595, 22);
+            this.textBox11.MaxLength = 32000;
+            this.textBox11.Multiline = true;
+            this.textBox11.Name = "textBox11";
+            this.textBox11.Size = new System.Drawing.Size(262, 67);
+            this.textBox11.TabIndex = 34;
+            this.textBox11.Visible = false;
+            // 
             // label9
             // 
             this.label9.BackColor = System.Drawing.Color.Transparent;
@@ -771,16 +781,6 @@ namespace Nova_Gear.Registros
             this.label9.TabIndex = 31;
             this.label9.Text = "Nuevo";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // textBox11
-            // 
-            this.textBox11.Location = new System.Drawing.Point(595, 22);
-            this.textBox11.MaxLength = 32000;
-            this.textBox11.Multiline = true;
-            this.textBox11.Name = "textBox11";
-            this.textBox11.Size = new System.Drawing.Size(262, 67);
-            this.textBox11.TabIndex = 34;
-            this.textBox11.Visible = false;
             // 
             // label17
             // 
@@ -860,11 +860,12 @@ namespace Nova_Gear.Registros
             this.label19.Font = new System.Drawing.Font("Arial Rounded MT Bold", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label19.ForeColor = System.Drawing.Color.White;
             this.label19.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.label19.Location = new System.Drawing.Point(299, 576);
+            this.label19.Location = new System.Drawing.Point(250, 572);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(408, 21);
+            this.label19.Size = new System.Drawing.Size(315, 21);
             this.label19.TabIndex = 30;
             this.label19.Text = "Subdelegacion: Hidalgo";
+            this.label19.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // button1
             // 

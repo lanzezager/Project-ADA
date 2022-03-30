@@ -48,7 +48,7 @@ namespace Nova_Gear.Estrados
         OleDbDataAdapter dataAdapter = null;
 
         int id_user = 0;
-        String subdele,sub_nom,del_num,sub_num,dias_not;
+        String subdele,sub_nom,del_num,sub_num,dias_not,fech_doc="";
 
         private Thread hilo2 = null;
         private Thread hilo3 = null;
@@ -499,16 +499,38 @@ namespace Nova_Gear.Estrados
             conex1.conectar("base_principal");
             if (comboBox1.SelectedIndex <= -1)
             {
-                sql = "SELECT registro_patronal,razon_social,credito_cuotas,credito_multa,importe_cuota,importe_multa,fecha_recepcion,id,tipo_documento,nombre_periodo,pags_pdf FROM datos_factura WHERE" +
-                    " nn = \"NN\" AND status=\"EN TRAMITE\" ORDER BY fecha_recepcion,registro_patronal, credito_cuotas";
+                 DialogResult resul = MessageBox.Show("Si no se selecciona un periodo en particular, no se podrá determinar de forma automática la fecha de emisión del documento.\n¿Desea Continuar?", "AVISO", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button2);
+
+                 if (resul == DialogResult.Yes)
+                 {
+                     sql = "SELECT registro_patronal,razon_social,credito_cuotas,credito_multa,importe_cuota,importe_multa,fecha_recepcion,id,tipo_documento,nombre_periodo,pags_pdf FROM datos_factura WHERE" +
+                         " nn = \"NN\" AND status=\"EN TRAMITE\" ORDER BY fecha_recepcion,registro_patronal, credito_cuotas";
+                     consultamysql = conex1.consultar(sql);
+
+                     fech_doc = dateTimePicker3.Text;
+                     fech_doc = fech_doc.Substring(6, 4) + "-" + fech_doc.Substring(3, 2) + "-" + fech_doc.Substring(0, 2);
+                 }
             }
             else
             {
-                sql = "SELECT registro_patronal,razon_social,credito_cuotas,credito_multa,importe_cuota,importe_multa,fecha_recepcion,id,tipo_documento,nombre_periodo,pags_pdf FROM datos_factura WHERE" +
-                    " nn = \"NN\" AND status=\"EN TRAMITE\" AND nombre_periodo=\"" + comboBox1.SelectedItem.ToString() + "\" ORDER BY fecha_recepcion,registro_patronal, credito_cuotas";
-            }
+                sql = "SELECT fecha_impresa_documento FROM estado_periodos WHERE nombre_periodo=\"" + comboBox1.SelectedItem.ToString() + "\"";
+                consultamysql = conex1.consultar(sql);
 
-            consultamysql = conex1.consultar(sql);
+                if (consultamysql.Rows.Count > 0)
+                {
+                    fech_doc = consultamysql.Rows[0][0].ToString();
+
+                    sql = "SELECT registro_patronal,razon_social,credito_cuotas,credito_multa,importe_cuota,importe_multa,fecha_recepcion,id,tipo_documento,nombre_periodo,pags_pdf FROM datos_factura WHERE" +
+                    " nn = \"NN\" AND status=\"EN TRAMITE\" AND nombre_periodo=\"" + comboBox1.SelectedItem.ToString() + "\" ORDER BY fecha_recepcion,registro_patronal, credito_cuotas";
+                    consultamysql = conex1.consultar(sql);
+                }
+                else
+                {
+                    MessageBox.Show("El periodo seleccionado no cuenta con fecha de documento almacenada en la base de datos.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                
+            }
+            
             dataGridView1.DataSource = consultamysql;
             label3.Text = "Registros Totales: " + consultamysql.Rows.Count;
             estilo_grid();
@@ -874,7 +896,7 @@ namespace Nova_Gear.Estrados
 
                         datos_para_usuario.Rows.Clear();
 
-                        fecha_doc = dateTimePicker3.Text;
+                        fecha_doc = fech_doc;
                         fecha_act = dateTimePicker3.Text;
                         fecha_firm = dateTimePicker3.Text;
                         fecha_publi = dateTimePicker4.Text;
@@ -882,7 +904,7 @@ namespace Nova_Gear.Estrados
                         fecha_fin_not = dateTimePicker6.Text;
                         fecha_ret_not = dateTimePicker7.Text;
 
-                        fecha_doc = fecha_doc.Substring(6, 4) + "-" + fecha_doc.Substring(3, 2) + "-" + fecha_doc.Substring(0, 2);
+                        //fecha_doc = fecha_doc.Substring(6, 4) + "-" + fecha_doc.Substring(3, 2) + "-" + fecha_doc.Substring(0, 2);
                         fecha_act = fecha_act.Substring(6, 4) + "-" + fecha_act.Substring(3, 2) + "-" + fecha_act.Substring(0, 2);
                         fecha_firm = fecha_firm.Substring(6, 4) + "-" + fecha_firm.Substring(3, 2) + "-" + fecha_firm.Substring(0, 2);
                         fecha_publi = fecha_publi.Substring(6, 4) + "-" + fecha_publi.Substring(3, 2) + "-" + fecha_publi.Substring(0, 2);
@@ -1348,6 +1370,7 @@ namespace Nova_Gear.Estrados
         //CARGAR
         private void button5_Click(object sender, EventArgs e)
         {
+            
             cargar_datos_nn();
         }
 
