@@ -131,7 +131,7 @@
             this.MinimizeBox = false;
             this.Name = "config_fenix";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Nova Gear - Estrados [Automatización Estrados]";
+            this.Text = "Nova Gear - Fenix [Configuración]";
             this.Load += new System.EventHandler(this.config_fenix_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
