@@ -78,7 +78,7 @@ namespace Nova_Gear.Estrados
 		{
 			Opciones_estrados opcs = new Opciones_estrados();
 			opcs.Show();
-				
+            opcs.Focus();
 		}
 		
 		void Button5Click(object sender, EventArgs e)
@@ -99,6 +99,12 @@ namespace Nova_Gear.Estrados
         {
             control_por_volumen_estrados volumen = new control_por_volumen_estrados();
             volumen.Show();
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            Fenix_estrados fenix = new Fenix_estrados();
+            fenix.Show();
         }
 	}
 }

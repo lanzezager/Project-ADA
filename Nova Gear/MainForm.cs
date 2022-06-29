@@ -53,6 +53,7 @@ namespace Nova_Gear
        public static int cartera_estrados = 0;
        public static string nombre_periodo = "";
        public static string reg_pat_sindo = "";
+       public static int estado_pantalla_main = 0; 
 
 	   DialogResult respuesta;
 	   Conexion conex = new Conexion();
@@ -246,7 +247,8 @@ namespace Nova_Gear
 						button35.Enabled=true;
 						button36.Enabled=true;
 						button18.Enabled=true;
-						
+                        button49.Enabled = true;
+
 						//Otros
 						button31.Enabled=true;
 						button26.Enabled=true;
@@ -287,6 +289,7 @@ namespace Nova_Gear
 						button16.Enabled=true;
 						button35.Enabled=true;
 						button36.Enabled=true;
+                        button49.Enabled = true;
 						
 						
 						//Otros
@@ -323,6 +326,7 @@ namespace Nova_Gear
 						button16.Enabled=true;
 						button35.Enabled=true;
 						button36.Enabled=true;
+                        button49.Enabled = true;
 						
 						//Otros
 						button31.Enabled=true;
@@ -673,6 +677,7 @@ namespace Nova_Gear
 				System.Diagnostics.Process.Start("close_ng.exe");
 			}*/
 			Menu_nova config = new Menu_nova(1);
+            timer3.Start();
             config.Show();
             config.Focus();
 		}
@@ -1170,6 +1175,20 @@ namespace Nova_Gear
             Aclaraciones.Menu_Aclaraciones menu_aclara = new Aclaraciones.Menu_Aclaraciones();
             menu_aclara.Show();
             menu_aclara.Focus();
+        }
+
+        private void timer3_Tick(object sender, EventArgs e)
+        {
+            if(estado_pantalla_main==1){
+                this.Hide();
+            }
+        }
+
+        private void button49_Click(object sender, EventArgs e)
+        {
+            Automatizacion.Fenix_automat fenix_auto = new Automatizacion.Fenix_automat();
+            fenix_auto.Show();
+            fenix_auto.Focus();
         }
 }
 }

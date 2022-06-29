@@ -33,6 +33,7 @@ namespace Nova_Gear
 
         //Declaracion de elementos para conexion mysql
         Conexion conex = new Conexion();
+        Conexion conex2 = new Conexion();
 
         //Declaracion de elementos para conexion office
         OleDbConnection conexion = null;
@@ -52,6 +53,7 @@ namespace Nova_Gear
         DataTable data_sindo = new DataTable();
         DataTable datos_totales = new DataTable();
         DataTable data_notif = new DataTable();
+        DataTable data_fech_dom = new DataTable();
 
 
         //Declaracion del Delegado y del Hilo para ejecutar un subproceso
@@ -626,7 +628,7 @@ namespace Nova_Gear
                            datos_word[16] = tabla_datos_ordenada.Rows[i][31].ToString();//cargo_firmante    
                            datos_word[17] = tabla_datos_ordenada.Rows[i][32].ToString();//folio_doc 
                             */
-
+                        //MessageBox.Show(fieldName + "|" + word_datos[0]);
                         if (fieldName == "Razon_social")
                         {
                             myMergeField.Select();
@@ -1158,7 +1160,7 @@ namespace Nova_Gear
         {
             DataTable tabla_destino = new DataTable();
 
-            for (int j = 0; j < dataGridView1.ColumnCount; j++)
+            for (int j = 1 ; j < dataGridView1.ColumnCount; j++)
             {
                 tabla_destino.Columns.Add(dataGridView1.Columns[j].HeaderText);
             }
@@ -1166,9 +1168,9 @@ namespace Nova_Gear
             for (int j = 0; j < dataGridView1.RowCount; j++)
             {
                 DataRow fila_copia = tabla_destino.NewRow();
-                for (int k = 0; k < dataGridView1.ColumnCount; k++)
+                for (int k = 1; k < dataGridView1.ColumnCount; k++)
                 {
-                    fila_copia[k] = dataGridView1.Rows[j].Cells[k].Value.ToString();
+                    fila_copia[k-1] = dataGridView1.Rows[j].Cells[k].Value.ToString();
                 }
                 
                 tabla_destino.Rows.Add(fila_copia);
@@ -1380,6 +1382,26 @@ namespace Nova_Gear
             }
         }
 
+        public string saca_fecha_dom(String nom_per)
+        {
+           data_fech_dom= consultamysql = conex2.consultar("SELECT fecha_impresa_documento FROM base_principal.estado_periodos where nombre_periodo=\"" + nom_per + "\" ");
+
+           if (data_fech_dom.Rows.Count > 0)
+           {
+               if (data_fech_dom.Rows[0][0].ToString().Length>0)
+               {
+                   return data_fech_dom.Rows[0][0].ToString().Substring(0,10);
+               }else{
+                   return "01/01/0001";
+               }
+               
+           }
+           else
+           {
+               return "01/01/0001";
+           }
+        }
+
         //GENERAR ARCHIVOS
         private void button4_Click(object sender, EventArgs e)
         {   
@@ -1522,6 +1544,8 @@ namespace Nova_Gear
         //consulta_bd
         private void button2_Click(object sender, EventArgs e)
         {
+            String fech_dom="";
+
             if(comboBox2.SelectedIndex > -1){
                 conex.conectar("base_principal");
                 consultamysql = conex.consultar("SELECT razon_social,registro_patronal1,registro_patronal,tipo_documento,nombre_periodo,credito_cuotas,credito_multa,periodo,sector_notificacion_actualizado,notificador,subdelegacion FROM base_principal.datos_factura where (fecha_notificacion is null and status =\"0\" or status=\"EN TRAMITE\" and fecha_recepcion is null) and notificador=\"" + comboBox2.SelectedItem.ToString() + "\" order by registro_patronal1 asc, periodo asc");
@@ -1554,8 +1578,8 @@ namespace Nova_Gear
                     datos_totales.Columns.Add("FIRMANTE");
                     datos_totales.Columns.Add("CARGO FIRMANTE");
                  */
-                
 
+                conex2.conectar("base_principal");
                 for (int i = 0; i < datos_creditos.Rows.Count; i++)
                 {
                     string[] datos_patron = new string[2];
@@ -1571,7 +1595,8 @@ namespace Nova_Gear
                         datos_creditos.Rows[i][5].ToString(),//CREDITO CUOTA
                         datos_creditos.Rows[i][6].ToString(),//CREDITO MULTA
                         datos_creditos.Rows[i][7].ToString(),//PERIODO
-                        "01/01/0001",//FECHA DOCUMENTO
+                        //"01/01/0001",//FECHA DOCUMENTO vieja forma
+                        saca_fecha_dom(datos_creditos.Rows[i][4].ToString()),//FECHA DOCUMENTO nueva forma                   
                         "IX",//FRAC ART 150
                         "XIII",//FRAC ART 155
                         "b)",//INCISO ART 155
@@ -1582,12 +1607,13 @@ namespace Nova_Gear
                         noti_load_persis.Rows[comboBox2.SelectedIndex][4].ToString().Substring(0, 10),//CONSTANCIA FIN
                         "ESTATAL "+del_nom.ToUpper(),//DELEGACION
                         sub_nom.ToUpper(),//SUBDELEGACION
-                        "Avenida Ávila Camacho No. 1696, Col. Niños Héroes, Sector Hidalgo,  C.P. 44260, Guadalajara, Jalisco.",//DOMICILIO SUB
+                        conex.leer_config_sub()[12],//DOMICILIO SUB nueva forma
+                        //"Avenida Ávila Camacho No. 1696, Col. Niños Héroes, Sector Hidalgo,  C.P. 44260, Guadalajara, Jalisco.",//DOMICILIO SUB vieja forma
                         subdele,//FIRMANTE
                         "TITULAR"//CARGO FIRMANTE
                         );
                 }
-
+                conex2.cerrar();
                 modo_origen_datos = 2;
                 ini_grid = 0;
                 dataGridView1.DataSource = datos_totales;

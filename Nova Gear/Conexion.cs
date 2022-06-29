@@ -216,9 +216,9 @@ namespace Nova_Gear
         
         public string[] leer_config_sub(){
 
-            String del, no_del, muni, sub, no_sub, subdele, jefe_afi, jefe_cob, jefe_emi, sec_emi,jefe_cobro, dias_not, info;
+            String del, no_del, muni, sub, no_sub, subdele, jefe_afi, jefe_cob, jefe_emi, sec_emi,jefe_cobro, dias_not, domi, info;
         	
-        	string[] datos_ubicacion = new string[12];
+        	string[] datos_ubicacion = new string[13];
             try{
                 StreamReader rdr1 = new StreamReader(@"sub_config.lz");
                 del =rdr1.ReadLine();
@@ -233,6 +233,7 @@ namespace Nova_Gear
                 sec_emi = rdr1.ReadLine();
                 jefe_cobro = rdr1.ReadLine();
                 dias_not = rdr1.ReadLine();
+                domi = rdr1.ReadLine();
                 rdr1.Close();
 
                 del = del.Substring(11,del.Length-11);
@@ -247,6 +248,7 @@ namespace Nova_Gear
                 sec_emi = sec_emi.Substring(14, sec_emi.Length - 14);
                 jefe_cobro= jefe_cobro.Substring(12,jefe_cobro.Length-12);
                 dias_not= dias_not.Substring(9,dias_not.Length-9);
+                domi = domi.Substring(10, domi.Length - 10);
 
                 datos_ubicacion[0]=del;
                 datos_ubicacion[1]=no_del;
@@ -260,6 +262,7 @@ namespace Nova_Gear
                 datos_ubicacion[9]=sec_emi;
                 datos_ubicacion[10]=jefe_cobro;
                 datos_ubicacion[11]=dias_not;
+                datos_ubicacion[12] =domi;
                 //info = del+"|"+no_del+"|"+muni+"|"+sub+"|"+no_sub;
                 //MessageBox.Show(info);
                 /*String ruta;

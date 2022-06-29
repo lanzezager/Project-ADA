@@ -60,6 +60,8 @@ namespace Nova_Gear.ops_subs
             this.label11 = new System.Windows.Forms.Label();
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.textBox7 = new System.Windows.Forms.TextBox();
+            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label10
@@ -213,7 +215,7 @@ namespace Nova_Gear.ops_subs
             this.button4.ForeColor = System.Drawing.Color.White;
             this.button4.Image = global::Nova_Gear.Properties.Resources.file_save_as_1;
             this.button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button4.Location = new System.Drawing.Point(379, 333);
+            this.button4.Location = new System.Drawing.Point(379, 363);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(92, 28);
             this.button4.TabIndex = 24;
@@ -227,7 +229,7 @@ namespace Nova_Gear.ops_subs
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(12, 102);
+            this.label1.Location = new System.Drawing.Point(12, 132);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(108, 30);
             this.label1.TabIndex = 25;
@@ -236,7 +238,8 @@ namespace Nova_Gear.ops_subs
             // textBox1
             // 
             this.textBox1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F);
-            this.textBox1.Location = new System.Drawing.Point(126, 109);
+            this.textBox1.Location = new System.Drawing.Point(126, 139);
+            this.textBox1.MaxLength = 120;
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(345, 23);
             this.textBox1.TabIndex = 26;
@@ -244,7 +247,8 @@ namespace Nova_Gear.ops_subs
             // textBox2
             // 
             this.textBox2.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F);
-            this.textBox2.Location = new System.Drawing.Point(193, 148);
+            this.textBox2.Location = new System.Drawing.Point(193, 178);
+            this.textBox2.MaxLength = 120;
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(278, 23);
             this.textBox2.TabIndex = 28;
@@ -255,7 +259,7 @@ namespace Nova_Gear.ops_subs
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(12, 178);
+            this.label5.Location = new System.Drawing.Point(12, 208);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(157, 32);
             this.label5.TabIndex = 27;
@@ -264,7 +268,8 @@ namespace Nova_Gear.ops_subs
             // textBox3
             // 
             this.textBox3.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F);
-            this.textBox3.Location = new System.Drawing.Point(193, 187);
+            this.textBox3.Location = new System.Drawing.Point(193, 217);
+            this.textBox3.MaxLength = 120;
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(278, 23);
             this.textBox3.TabIndex = 30;
@@ -274,7 +279,7 @@ namespace Nova_Gear.ops_subs
             this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(12, 139);
+            this.label6.Location = new System.Drawing.Point(12, 169);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(157, 32);
             this.label6.TabIndex = 29;
@@ -283,7 +288,8 @@ namespace Nova_Gear.ops_subs
             // textBox4
             // 
             this.textBox4.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F);
-            this.textBox4.Location = new System.Drawing.Point(193, 225);
+            this.textBox4.Location = new System.Drawing.Point(193, 255);
+            this.textBox4.MaxLength = 120;
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(278, 23);
             this.textBox4.TabIndex = 32;
@@ -293,7 +299,7 @@ namespace Nova_Gear.ops_subs
             this.label7.BackColor = System.Drawing.Color.Transparent;
             this.label7.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(12, 216);
+            this.label7.Location = new System.Drawing.Point(12, 246);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(175, 32);
             this.label7.TabIndex = 31;
@@ -302,7 +308,8 @@ namespace Nova_Gear.ops_subs
             // textBox5
             // 
             this.textBox5.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F);
-            this.textBox5.Location = new System.Drawing.Point(211, 266);
+            this.textBox5.Location = new System.Drawing.Point(211, 296);
+            this.textBox5.MaxLength = 120;
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(260, 23);
             this.textBox5.TabIndex = 34;
@@ -312,7 +319,7 @@ namespace Nova_Gear.ops_subs
             this.label8.BackColor = System.Drawing.Color.Transparent;
             this.label8.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(12, 257);
+            this.label8.Location = new System.Drawing.Point(12, 287);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(193, 32);
             this.label8.TabIndex = 33;
@@ -323,7 +330,7 @@ namespace Nova_Gear.ops_subs
             this.label11.BackColor = System.Drawing.Color.Transparent;
             this.label11.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.Color.White;
-            this.label11.Location = new System.Drawing.Point(12, 304);
+            this.label11.Location = new System.Drawing.Point(12, 334);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(193, 23);
             this.label11.TabIndex = 35;
@@ -333,7 +340,8 @@ namespace Nova_Gear.ops_subs
             // textBox6
             // 
             this.textBox6.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F);
-            this.textBox6.Location = new System.Drawing.Point(211, 304);
+            this.textBox6.Location = new System.Drawing.Point(211, 334);
+            this.textBox6.MaxLength = 120;
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(260, 23);
             this.textBox6.TabIndex = 36;
@@ -341,18 +349,41 @@ namespace Nova_Gear.ops_subs
             // textBox7
             // 
             this.textBox7.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F);
-            this.textBox7.Location = new System.Drawing.Point(15, 333);
+            this.textBox7.Location = new System.Drawing.Point(15, 366);
             this.textBox7.Name = "textBox7";
             this.textBox7.Size = new System.Drawing.Size(82, 23);
             this.textBox7.TabIndex = 37;
             this.textBox7.Visible = false;
+            // 
+            // textBox8
+            // 
+            this.textBox8.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F);
+            this.textBox8.Location = new System.Drawing.Point(126, 104);
+            this.textBox8.MaxLength = 120;
+            this.textBox8.Name = "textBox8";
+            this.textBox8.Size = new System.Drawing.Size(345, 23);
+            this.textBox8.TabIndex = 39;
+            // 
+            // label12
+            // 
+            this.label12.BackColor = System.Drawing.Color.Transparent;
+            this.label12.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.ForeColor = System.Drawing.Color.White;
+            this.label12.Location = new System.Drawing.Point(12, 107);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(85, 20);
+            this.label12.TabIndex = 38;
+            this.label12.Text = "Domicilio:";
+            this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // selector_sub
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(489, 371);
+            this.ClientSize = new System.Drawing.Size(489, 402);
+            this.Controls.Add(this.textBox8);
+            this.Controls.Add(this.label12);
             this.Controls.Add(this.textBox7);
             this.Controls.Add(this.textBox6);
             this.Controls.Add(this.label11);
@@ -414,5 +445,7 @@ namespace Nova_Gear.ops_subs
         private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.Label label12;
 	}
 }

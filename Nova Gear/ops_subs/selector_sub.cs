@@ -40,7 +40,7 @@ namespace Nova_Gear.ops_subs
 		int ori=0;
 		public void cargar_info(){
 
-            String del, no_del, muni, sub, no_sub, subdele, jefe_afi, jefe_cob, jefe_emi, sec_emi, jefe_cobro, info, dias_not;
+            String del, no_del, muni, sub, no_sub, subdele, jefe_afi, jefe_cob, jefe_emi, sec_emi, jefe_cobro, info, dias_not,domi;
         	
             try{
                 StreamReader rdr1 = new StreamReader(@"sub_config.lz");
@@ -56,6 +56,7 @@ namespace Nova_Gear.ops_subs
                 sec_emi = rdr1.ReadLine();
                 jefe_cobro = rdr1.ReadLine();
                 dias_not = rdr1.ReadLine();
+                domi = rdr1.ReadLine();
                 rdr1.Close();
 
                 del = del.Substring(11,del.Length-11);
@@ -70,6 +71,7 @@ namespace Nova_Gear.ops_subs
                 sec_emi= sec_emi.Substring(14,sec_emi.Length-14);
                 jefe_cobro= jefe_cobro.Substring(12,jefe_cobro.Length-12);
                 dias_not = dias_not.Substring(9, dias_not.Length - 9);
+                domi = domi.Substring(10, domi.Length - 10);
 
                 info = del+"|"+no_del+"|"+muni+"|"+sub+"|"+no_sub+"|"+subdele+"|"+jefe_afi+"|"+jefe_cob+"|"+jefe_emi+"|"+sec_emi;
                 //MessageBox.Show(info);
@@ -91,6 +93,7 @@ namespace Nova_Gear.ops_subs
                 textBox5.Text=sec_emi;
                 textBox6.Text=jefe_cobro;
                 textBox7.Text = dias_not;
+                textBox8.Text = domi;
             }catch(Exception error){
                 MessageBox.Show("Ha ocurrido un error al leer el archivo de configuración de ubicación","ERROR",MessageBoxButtons.OK,MessageBoxIcon.Error);
                 
@@ -132,6 +135,7 @@ namespace Nova_Gear.ops_subs
 					wr.WriteLine("jefe_secc_epo:" + textBox5.Text);
                     wr.WriteLine("jefe_cobros:" + textBox6.Text);
                     wr.WriteLine("dias_not:" + textBox7.Text);
+                    wr.WriteLine("domicilio:" + textBox8.Text);
 					wr.WriteLine("DON'T CHANGE THIS SETTINGS!!!!!");
 					wr.WriteLine("By LZ");
 					wr.WriteLine("Arriba el Atlas!!!!!");

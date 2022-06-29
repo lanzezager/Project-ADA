@@ -189,6 +189,8 @@ namespace Nova_Gear
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.timer2 = new System.Windows.Forms.Timer(this.components);
+            this.timer3 = new System.Windows.Forms.Timer(this.components);
+            this.button49 = new System.Windows.Forms.Button();
             this.statusStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -523,7 +525,7 @@ namespace Nova_Gear
             this.panel7.Controls.Add(this.button39);
             this.panel7.Location = new System.Drawing.Point(2, 166);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(221, 176);
+            this.panel7.Size = new System.Drawing.Size(221, 172);
             this.panel7.TabIndex = 38;
             this.panel7.Visible = false;
             // 
@@ -649,6 +651,7 @@ namespace Nova_Gear
             // panel6
             // 
             this.panel6.BackColor = System.Drawing.Color.Transparent;
+            this.panel6.Controls.Add(this.button49);
             this.panel6.Controls.Add(this.button6);
             this.panel6.Controls.Add(this.button12);
             this.panel6.Controls.Add(this.button36);
@@ -657,7 +660,7 @@ namespace Nova_Gear
             this.panel6.Controls.Add(this.button18);
             this.panel6.Location = new System.Drawing.Point(2, 166);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(221, 176);
+            this.panel6.Size = new System.Drawing.Size(221, 230);
             this.panel6.TabIndex = 37;
             this.panel6.Visible = false;
             // 
@@ -1860,6 +1863,33 @@ namespace Nova_Gear
             this.timer2.Interval = 1000;
             this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
             // 
+            // timer3
+            // 
+            this.timer3.Interval = 1000;
+            this.timer3.Tick += new System.EventHandler(this.timer3_Tick);
+            // 
+            // button49
+            // 
+            this.button49.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button49.Enabled = false;
+            this.button49.FlatAppearance.BorderSize = 0;
+            this.button49.FlatAppearance.MouseDownBackColor = System.Drawing.Color.LightSteelBlue;
+            this.button49.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DodgerBlue;
+            this.button49.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button49.Font = new System.Drawing.Font("Arial Narrow", 9F, System.Drawing.FontStyle.Bold);
+            this.button49.ForeColor = System.Drawing.Color.White;
+            this.button49.Image = global::Nova_Gear.Properties.Resources.user_bender;
+            this.button49.Location = new System.Drawing.Point(4, 155);
+            this.button49.Name = "button49";
+            this.button49.Size = new System.Drawing.Size(70, 72);
+            this.button49.TabIndex = 31;
+            this.button49.Text = "Auto \r\nFENIX";
+            this.button49.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button49.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.toolTip1.SetToolTip(this.button49, "Automatización SISCOB\r\nModificacion de Sectores");
+            this.button49.UseVisualStyleBackColor = true;
+            this.button49.Click += new System.EventHandler(this.button49_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2021,5 +2051,7 @@ namespace Nova_Gear
         private System.Windows.Forms.Button button46;
         private System.Windows.Forms.Button button47;
         private System.Windows.Forms.Button button48;
+        private System.Windows.Forms.Timer timer3;
+        private System.Windows.Forms.Button button49;
     }
 }

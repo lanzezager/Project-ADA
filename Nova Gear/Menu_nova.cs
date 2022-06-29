@@ -77,6 +77,11 @@ namespace Nova_Gear
         {
             Supernova.Login super_log = new Supernova.Login();            
             Pantalla.estado_pantalla = 1;
+            try
+            {
+                MainForm.estado_pantalla_main=1;
+            }catch(Exception ex){
+            }
             this.Hide();
             super_log.Show();
             super_log.Focus();

@@ -29,6 +29,7 @@ namespace Nova_Gear.Estrados
         Conexion conex0 = new Conexion();//dias_festivos
         Conexion conex1 = new Conexion();//carga periodos
         Conexion conex2 = new Conexion();//consultar folios--
+        Conexion conex3 = new Conexion();//consultar fecha documentos--
 
         DataTable consultamysql = new DataTable();
         DataTable consultamysql2 = new DataTable();
@@ -41,6 +42,7 @@ namespace Nova_Gear.Estrados
         DataTable datos_para_usuario = new DataTable();
         DataTable num_packs = new DataTable();
         DataTable data_acumulador = new DataTable();
+        DataTable fechas_docs = new DataTable();
 
         //Declaracion de elementos para conexion office
         OleDbConnection conexion = null;
@@ -79,6 +81,7 @@ namespace Nova_Gear.Estrados
                 datos_a_guardar.Columns.Add("id_credito");
                 datos_a_guardar.Columns.Add("tipo_doc");
                 datos_a_guardar.Columns.Add("nom_per");
+                datos_a_guardar.Columns.Add("fecha_doc");
 
                 datos_para_usuario.Columns.Add("#");
                 datos_para_usuario.Columns.Add("FOLIO");
@@ -495,24 +498,41 @@ namespace Nova_Gear.Estrados
 
         public void cargar_datos_nn()
         {
-            String sql = "";
+            String sql = "", sql1 = "";
             conex1.conectar("base_principal");
-            if (comboBox1.SelectedIndex <= -1)
+            conex3.conectar("base_principal");
+            /*
+            if (comboBox1.SelectedIndex == -1)
             {
                  DialogResult resul = MessageBox.Show("Si no se selecciona un periodo en particular, no se podrá determinar de forma automática la fecha de emisión del documento.\n¿Desea Continuar?", "AVISO", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button2);
 
                  if (resul == DialogResult.Yes)
-                 {
-                     sql = "SELECT registro_patronal,razon_social,credito_cuotas,credito_multa,importe_cuota,importe_multa,fecha_recepcion,id,tipo_documento,nombre_periodo,pags_pdf FROM datos_factura WHERE" +
+                 {*/
+                     sql = "SELECT registro_patronal,razon_social,credito_cuotas,credito_multa,importe_cuota,importe_multa,fecha_recepcion,id,tipo_documento,nombre_periodo,pags_pdf,fecha_traspaso as \"FECHA DOCUMENTO\" FROM datos_factura WHERE" +
                          " nn = \"NN\" AND status=\"EN TRAMITE\" ORDER BY fecha_recepcion,registro_patronal, credito_cuotas";
+
                      consultamysql = conex1.consultar(sql);
 
-                     fech_doc = dateTimePicker3.Text;
-                     fech_doc = fech_doc.Substring(6, 4) + "-" + fech_doc.Substring(3, 2) + "-" + fech_doc.Substring(0, 2);
-                 }
+                     for (int i = 0; i < consultamysql.Rows.Count; i++)
+                     {
+                         sql1 = "SELECT fecha_impresa_documento FROM estado_periodos WHERE nombre_periodo=\"" + consultamysql.Rows[i][9] + "\"";
+                         fechas_docs= conex3.consultar(sql1);
+
+                         if (fechas_docs.Rows.Count > 0)
+                         {
+                             consultamysql.Rows[i][11] = fechas_docs.Rows[0][0].ToString();
+                         }
+                         else
+                         {
+                             fech_doc = dateTimePicker3.Text;
+                             fech_doc = fech_doc.Substring(6, 4) + "-" + fech_doc.Substring(3, 2) + "-" + fech_doc.Substring(0, 2);
+                             consultamysql.Rows[i][11] = fech_doc;
+                         }                         
+                     }                     
+                /*}
             }
             else
-            {
+           {
                 sql = "SELECT fecha_impresa_documento FROM estado_periodos WHERE nombre_periodo=\"" + comboBox1.SelectedItem.ToString() + "\"";
                 consultamysql = conex1.consultar(sql);
 
@@ -520,20 +540,22 @@ namespace Nova_Gear.Estrados
                 {
                     fech_doc = consultamysql.Rows[0][0].ToString();
 
-                    sql = "SELECT registro_patronal,razon_social,credito_cuotas,credito_multa,importe_cuota,importe_multa,fecha_recepcion,id,tipo_documento,nombre_periodo,pags_pdf FROM datos_factura WHERE" +
+                    sql = "SELECT registro_patronal,razon_social,credito_cuotas,credito_multa,importe_cuota,importe_multa,fecha_recepcion,id,tipo_documento,nombre_periodo,pags_pdf,fecha_traspaso as \"FECHA DOCUMENTO\" FROM datos_factura WHERE" +
                     " nn = \"NN\" AND status=\"EN TRAMITE\" AND nombre_periodo=\"" + comboBox1.SelectedItem.ToString() + "\" ORDER BY fecha_recepcion,registro_patronal, credito_cuotas";
                     consultamysql = conex1.consultar(sql);
                 }
                 else
                 {
                     MessageBox.Show("El periodo seleccionado no cuenta con fecha de documento almacenada en la base de datos.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                
-            }
+                }                
+            }*/
             
             dataGridView1.DataSource = consultamysql;
             label3.Text = "Registros Totales: " + consultamysql.Rows.Count;
-            estilo_grid();
+
+            if(consultamysql.Rows.Count>0){
+                estilo_grid();
+            }
         }
 
         public void cargar_datos_confirma_fechas()
@@ -876,7 +898,7 @@ namespace Nova_Gear.Estrados
                     if (Convert.ToBoolean(dataGridView1.Rows[i].Cells[0].Value.ToString()) == true)
                     {
                         //listBox1.Items.Add(dataGridView1.Rows[i].Cells[1].Value.ToString());
-                        datos_a_guardar.Rows.Add(dataGridView1.Rows[i].Cells[8].Value.ToString(), dataGridView1.Rows[i].Cells[9].Value.ToString(), dataGridView1.Rows[i].Cells[10].Value.ToString());
+                        datos_a_guardar.Rows.Add(dataGridView1.Rows[i].Cells[8].Value.ToString(), dataGridView1.Rows[i].Cells[9].Value.ToString(), dataGridView1.Rows[i].Cells[10].Value.ToString(), dataGridView1.Rows[i].Cells[12].Value.ToString());
                     }
                 }
 
@@ -896,7 +918,7 @@ namespace Nova_Gear.Estrados
 
                         datos_para_usuario.Rows.Clear();
 
-                        fecha_doc = fech_doc;
+                        //fecha_doc = fech_doc;
                         fecha_act = dateTimePicker3.Text;
                         fecha_firm = dateTimePicker3.Text;
                         fecha_publi = dateTimePicker4.Text;
@@ -956,7 +978,7 @@ namespace Nova_Gear.Estrados
                                     folio_act = consultamysql_verifica.Rows[0][0].ToString();
                                     if ((Convert.ToInt32(folio_act.Substring(6, 2))) < (Convert.ToInt32(DateTime.Today.Year.ToString().Substring(2, 2))))
                                     {
-                                        folio_act = "E" + del_num + "" + sub_num + "/" + (Convert.ToInt32(DateTime.Today.Year.ToString().Substring(2, 2))) + "-0001";
+                                        folio_act = "E" + del_num + "" + sub_num + "/" + (Convert.ToInt32(DateTime.Today.Year.ToString().Substring(2, 2))) + "-00001";
                                     }
                                     else
                                     {
@@ -1000,6 +1022,8 @@ namespace Nova_Gear.Estrados
                                 }
 
                                 //GUARDAR ESTRADOS
+                                fecha_doc = datos_a_guardar.Rows[i][3].ToString();
+                                fecha_doc = fecha_doc.Substring(6, 4) + "-" + fecha_doc.Substring(3, 2) + "-" + fecha_doc.Substring(0, 2);
                                 sql = "INSERT INTO estrados (folio,id_credito,nombre_documento,fecha_emision_doc,fecha_acta_circunstanciada,fojas,sub_emisora,titular_sub,supuesto_estrados,motivo_estrados,fecha_firma_alta,fecha_publicacion,fecha_inicio_not,fecha_fin_not,fecha_retiro_not,hora_not,observaciones,notificador_estrados,paquete)" +
                                      "VALUES(\"" + folio_act + "\"," + datos_a_guardar.Rows[i][0].ToString() + ",\"" + nombre_docto_full(datos_a_guardar.Rows[i][1].ToString(), datos_a_guardar.Rows[i][2].ToString()) + "\",\"" + fecha_doc + "\",\"" + fecha_act + "\"," + fojas + ",\"" + sub_nom + "\",\"" + subdele + "\",\"" + supuesto + "\",\"" + motivo + "\",\"" + fecha_firm + "\",\"" + fecha_publi + "\",\"" + fecha_ini_not + "\",\"" + fecha_fin_not + "\",\"" + fecha_ret_not + "\",\"" + maskedTextBox3.Text + "\",\"" + observaciones + "\"," + id_user + ","+num_pack+")";
 
@@ -1370,7 +1394,6 @@ namespace Nova_Gear.Estrados
         //CARGAR
         private void button5_Click(object sender, EventArgs e)
         {
-            
             cargar_datos_nn();
         }
 
@@ -1780,19 +1803,18 @@ namespace Nova_Gear.Estrados
         //ENTRAR EDITAR FECHAS
         private void button15_Click(object sender, EventArgs e)
         {
-            llenar_Cb4();
+            conex0.conectar("base_principal");
+            tabla_dias_fest = conex0.consultar("SELECT dia FROM dias_festivos");
 
             dateTimePicker10.Value = cuenta_dias_hab(dateTimePicker11.Value, 1);
             dateTimePicker9.Value = cuenta_dias_hab(dateTimePicker11.Value, 2);
             dateTimePicker8.Value = cuenta_dias_hab(dateTimePicker11.Value, (Convert.ToInt32(dias_not) + 1));
             dateTimePicker2.Value = cuenta_dias_hab(dateTimePicker11.Value, (Convert.ToInt32(dias_not) + 2));
+            
+            llenar_Cb4();
 
             timer1.Enabled = true;
 
-            conex0.conectar("base_principal");
-            tabla_dias_fest = conex0.consultar("SELECT dia FROM dias_festivos");
-            
-            
             panel3.Show();
         }
 

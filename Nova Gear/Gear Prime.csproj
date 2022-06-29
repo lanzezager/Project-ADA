@@ -233,6 +233,12 @@
     <Compile Include="Autocob.Designer.cs">
       <DependentUpon>Autocob.cs</DependentUpon>
     </Compile>
+    <Compile Include="Automatizacion\Fenix_automat.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Automatizacion\Fenix_automat.Designer.cs">
+      <DependentUpon>Fenix_automat.cs</DependentUpon>
+    </Compile>
     <Compile Include="Automatizacion\Sectorizador.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -270,6 +276,12 @@
     </Compile>
     <Compile Include="Config_backup.Designer.cs">
       <DependentUpon>Config_backup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="config_fenix.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="config_fenix.Designer.cs">
+      <DependentUpon>config_fenix.cs</DependentUpon>
     </Compile>
     <Compile Include="Consulta_patron.cs">
       <SubType>Form</SubType>
@@ -567,6 +579,12 @@
     </Compile>
     <Compile Include="Fecha_Not\Fecha_Not_Menu.Designer.cs">
       <DependentUpon>Fecha_Not_Menu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Fenix_estrados.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Fenix_estrados.Designer.cs">
+      <DependentUpon>Fenix_estrados.cs</DependentUpon>
     </Compile>
     <Compile Include="Generador_factura.cs">
       <SubType>Form</SubType>
@@ -1206,6 +1224,9 @@
     <EmbeddedResource Include="Autocob.resx">
       <DependentUpon>Autocob.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Automatizacion\Fenix_automat.resx">
+      <DependentUpon>Fenix_automat.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Automatizacion\Sectorizador.resx">
       <DependentUpon>Sectorizador.cs</DependentUpon>
     </EmbeddedResource>
@@ -1223,6 +1244,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Config_backup.resx">
       <DependentUpon>Config_backup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="config_fenix.resx">
+      <DependentUpon>config_fenix.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Consulta_patron.resx">
       <DependentUpon>Consulta_patron.cs</DependentUpon>
@@ -1392,6 +1416,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Fecha_Not\Fecha_Not_Menu.resx">
       <DependentUpon>Fecha_Not_Menu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fenix_estrados.resx">
+      <DependentUpon>Fenix_estrados.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Generador_factura.resx">
       <DependentUpon>Generador_factura.cs</DependentUpon>
@@ -1826,6 +1853,29 @@
     <None Include="Resources\computer_edit.png" />
     <None Include="Resources\server_connect.png" />
     <None Include="Resources\ceo.png" />
+    <None Include="Resources\check_box_5.png" />
+    <None Include="Resources\check_box_6.png" />
+    <None Include="Resources\check_box_7.png" />
+    <None Include="Resources\00.Act-Two.ico" />
+    <None Include="Resources\01.Fenix_Es_Extract-C.ico" />
+    <None Include="Resources\02.Fenix_Es_PDF_Stamp_K.ico" />
+    <None Include="Resources\03.Fenix_Es_N-Excel_K.ico" />
+    <None Include="Resources\04.Fenix_Es_Gold_MultiNavegador_K.ico" />
+    <None Include="Resources\05.Fenix_Es_Acuse_DLD.ico" />
+    <None Include="Resources\06.For_Snarf.ico" />
+    <None Include="Resources\00.Act-Two1.ico" />
+    <None Include="Resources\01.Fenix_Es_Extract-C1.ico" />
+    <None Include="Resources\aguila.png" />
+    <None Include="Resources\leono.png" />
+    <None Include="Resources\maquina.png" />
+    <None Include="Resources\mona.png" />
+    <None Include="Resources\ojos3.png" />
+    <None Include="Resources\robo.png" />
+    <None Include="Resources\snarf.png" />
+    <None Include="Resources\folder_add.png" />
+    <None Include="Resources\finance.png" />
+    <None Include="Resources\money.png" />
+    <None Include="Resources\money_bag.png" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
