@@ -42,23 +42,23 @@ namespace Nova_Gear.Mod40
         			/*if(!valor_bus.StartsWith("N")){
 	                	valor_bus = "N" + valor_bus;
 	            	}*/
-        			dataGridView1.DataSource=conex.consultar("SELECT periodo_pago,folio_sua,fecha_pago,importe_pago,imp_eym_pree,imp_inv_vida,imp_cesa_y_vej,imp_eym_pree_o,imp_inv_vida_o,imp_cesa_y_vej_o,per_cd_sua,tipo_modalidad,observaciones,nombre_trabajador,nss,rfc,curp,registro_patronal,estado_sindo "+
+        			dataGridView1.DataSource=conex.consultar("SELECT periodo_pago,folio_sua,fecha_pago,importe_pago,salario_diario,dias_cotizados,imp_eym_pree,imp_inv_vida,imp_cesa_y_vej,imp_eym_pree_o,imp_inv_vida_o,imp_cesa_y_vej_o,per_cd_sua,tipo_modalidad,observaciones,nombre_trabajador,nss,rfc,curp,registro_patronal,estado_sindo "+
         	                                         "FROM mod40_sua where nss= \""+valor_bus+"\" ORDER BY periodo_pago ASC,fecha_pago");
         			break;
         			
         		case 2:
-                    dataGridView1.DataSource = conex.consultar("SELECT periodo_pago,folio_sua,fecha_pago,importe_pago,imp_eym_pree,imp_inv_vida,imp_cesa_y_vej,imp_eym_pree_o,imp_inv_vida_o,imp_cesa_y_vej_o,per_cd_sua,tipo_modalidad,observaciones,nombre_trabajador,nss,rfc,curp,registro_patronal ,estado_sindo " +
+                    dataGridView1.DataSource = conex.consultar("SELECT periodo_pago,folio_sua,fecha_pago,importe_pago,salario_diario,dias_cotizados,imp_eym_pree,imp_inv_vida,imp_cesa_y_vej,imp_eym_pree_o,imp_inv_vida_o,imp_cesa_y_vej_o,per_cd_sua,tipo_modalidad,observaciones,nombre_trabajador,nss,rfc,curp,registro_patronal ,estado_sindo " +
                                                      "FROM mod40_sua where curp= \"" + valor_bus + "\" ORDER BY periodo_pago ASC,fecha_pago");
         			break;
         			
         		case 3:
-                    dataGridView1.DataSource = conex.consultar("SELECT periodo_pago,folio_sua,fecha_pago,importe_pago,imp_eym_pree,imp_inv_vida,imp_cesa_y_vej,imp_eym_pree_o,imp_inv_vida_o,imp_cesa_y_vej_o,per_cd_sua,tipo_modalidad,observaciones,nombre_trabajador,nss,rfc,curp,registro_patronal,estado_sindo " +
+                    dataGridView1.DataSource = conex.consultar("SELECT periodo_pago,folio_sua,fecha_pago,importe_pago,salario_diario,dias_cotizados,imp_eym_pree,imp_inv_vida,imp_cesa_y_vej,imp_eym_pree_o,imp_inv_vida_o,imp_cesa_y_vej_o,per_cd_sua,tipo_modalidad,observaciones,nombre_trabajador,nss,rfc,curp,registro_patronal,estado_sindo " +
                                                      "FROM mod40_sua where rfc= \"" + valor_bus + "\" ORDER BY periodo_pago ASC,fecha_pago");
         			break;
         			
         		case 4:
                     //MessageBox.Show("|"+valor_bus.ToUpper()+"|");
-                    dataGridView1.DataSource = conex.consultar("SELECT periodo_pago,folio_sua,fecha_pago,importe_pago,imp_eym_pree,imp_inv_vida,imp_cesa_y_vej,imp_eym_pree_o,imp_inv_vida_o,imp_cesa_y_vej_o,per_cd_sua,tipo_modalidad,observaciones,nombre_trabajador,nss,rfc,curp,registro_patronal,estado_sindo " +
+                    dataGridView1.DataSource = conex.consultar("SELECT periodo_pago,folio_sua,fecha_pago,importe_pago,salario_diario,dias_cotizados,imp_eym_pree,imp_inv_vida,imp_cesa_y_vej,imp_eym_pree_o,imp_inv_vida_o,imp_cesa_y_vej_o,per_cd_sua,tipo_modalidad,observaciones,nombre_trabajador,nss,rfc,curp,registro_patronal,estado_sindo " +
         			                                         "FROM mod40_sua where nombre_trabajador  = \"" + valor_bus.ToUpper() + "\" ORDER BY periodo_pago ASC,fecha_pago");
         			
         			break;
@@ -67,36 +67,38 @@ namespace Nova_Gear.Mod40
         	
         	if(dataGridView1.RowCount>0){
         		
-        		textBox1.Text=dataGridView1.Rows[0].Cells[13].FormattedValue.ToString().TrimEnd(' ');
-        		textBox2.Text=dataGridView1.Rows[0].Cells[14].FormattedValue.ToString();
-        		textBox3.Text=dataGridView1.Rows[0].Cells[15].FormattedValue.ToString();
-        		textBox4.Text=dataGridView1.Rows[0].Cells[16].FormattedValue.ToString();
-        		textBox5.Text=dataGridView1.Rows[0].Cells[17].FormattedValue.ToString();
+        		textBox1.Text=dataGridView1.Rows[0].Cells[15].FormattedValue.ToString().TrimEnd(' ');
+        		textBox2.Text=dataGridView1.Rows[0].Cells[16].FormattedValue.ToString();
+        		textBox3.Text=dataGridView1.Rows[0].Cells[17].FormattedValue.ToString();
+        		textBox4.Text=dataGridView1.Rows[0].Cells[18].FormattedValue.ToString();
+        		textBox5.Text=dataGridView1.Rows[0].Cells[19].FormattedValue.ToString();
         		textBox6.Text=dataGridView1.Rows[0].Cells[0].FormattedValue.ToString();
         		textBox7.Text=dataGridView1.Rows[dataGridView1.RowCount-1].Cells[0].FormattedValue.ToString();
-                estado_sindo = dataGridView1.Rows[0].Cells[18].Value.ToString();
+                estado_sindo = dataGridView1.Rows[0].Cells[20].Value.ToString();
         		
-        		dataGridView1.Columns[13].Visible=false;
-        		dataGridView1.Columns[14].Visible=false;
         		dataGridView1.Columns[15].Visible=false;
         		dataGridView1.Columns[16].Visible=false;
         		dataGridView1.Columns[17].Visible=false;
-                dataGridView1.Columns[18].Visible = false;
+        		dataGridView1.Columns[18].Visible=false;
+        		dataGridView1.Columns[19].Visible=false;
+                dataGridView1.Columns[20].Visible = false;
         		
         		dataGridView1.Columns[0].HeaderText="PERIODO";
         		dataGridView1.Columns[1].HeaderText="FOLIO SUA";
         		dataGridView1.Columns[2].HeaderText="FECHA PAGO";
         		dataGridView1.Columns[3].HeaderText="IMPORTE PAGO";
         		//dataGridView1.Columns[3].CellType
-        		dataGridView1.Columns[4].HeaderText="IMP_EYM_PREE";
-        		dataGridView1.Columns[5].HeaderText="IMP_INV_VIDA";
-        		dataGridView1.Columns[6].HeaderText="IMP_CESA_Y_VEJ";
-        		dataGridView1.Columns[7].HeaderText="IMP_EYM_PREE_O";
-        		dataGridView1.Columns[8].HeaderText="IMP_INV_VIDA_O";
-        		dataGridView1.Columns[9].HeaderText="IMP_CESA_Y_VEJ_O";
-        		dataGridView1.Columns[10].HeaderText="PERIODO\nCD SUA";
-        		dataGridView1.Columns[11].HeaderText="TIPO DE\nMODALIDAD";
-        		dataGridView1.Columns[12].HeaderText="OBSERVACIONES";
+                dataGridView1.Columns[4].HeaderText = "SALARIO DIARIO";
+                dataGridView1.Columns[5].HeaderText = "DIAS COTIZADOS";
+        		dataGridView1.Columns[6].HeaderText="IMP_EYM_PREE";
+        		dataGridView1.Columns[7].HeaderText="IMP_INV_VIDA";
+        		dataGridView1.Columns[8].HeaderText="IMP_CESA_Y_VEJ";
+        		dataGridView1.Columns[9].HeaderText="IMP_EYM_PREE_O";
+        		dataGridView1.Columns[10].HeaderText="IMP_INV_VIDA_O";
+        		dataGridView1.Columns[11].HeaderText="IMP_CESA_Y_VEJ_O";
+        		dataGridView1.Columns[12].HeaderText="PERIODO\nCD SUA";
+        		dataGridView1.Columns[13].HeaderText="TIPO DE\nMODALIDAD";
+        		dataGridView1.Columns[14].HeaderText="OBSERVACIONES";
         		
         		label7.Text=""+dataGridView1.RowCount;
         		checar_faltantes();
@@ -536,14 +538,19 @@ namespace Nova_Gear.Mod40
             dataGridView2.Columns.Add("dic", "dic");
 
             anio_rep = dataGridView1.Rows[0].Cells[0].FormattedValue.ToString();
-            dataGridView2.Rows.Add(2);
+            dataGridView2.Rows.Add(4);
             dataGridView2.Rows[j].Cells[0].Value = anio_rep.Substring(0, 4);
             dataGridView2.Rows[j + 1].Cells[0].Value = anio_rep.Substring(0, 4);
+            dataGridView2.Rows[j + 2].Cells[0].Value = anio_rep.Substring(0, 4);
+            dataGridView2.Rows[j + 3].Cells[0].Value = anio_rep.Substring(0, 4);
             k = 1;
+
             do
             {
                 dataGridView2.Rows[j].Cells[k].Value = "-";
                 dataGridView2.Rows[j + 1].Cells[k].Value = "-";
+                dataGridView2.Rows[j + 2].Cells[k].Value = "-";
+                dataGridView2.Rows[j + 3].Cells[k].Value = "-";
                 k++;
             } while (k < 13);
             //MessageBox.Show(anio_rep); 
@@ -563,15 +570,19 @@ namespace Nova_Gear.Mod40
                 if (!anio_rep.Substring(0,4).Equals(dataGridView1.Rows[i].Cells[0].FormattedValue.ToString().Substring(0,4)))
                 {
                     anio_rep = dataGridView1.Rows[i].Cells[0].FormattedValue.ToString();
-                    dataGridView2.Rows.Add(2);
-                    j = j + 2;
+                    dataGridView2.Rows.Add(4);
+                    j = j + 4;
 
                     dataGridView2.Rows[j].Cells[0].Value = anio_rep.Substring(0, 4);
                     dataGridView2.Rows[j + 1].Cells[0].Value = anio_rep.Substring(0, 4);
+                    dataGridView2.Rows[j + 2].Cells[0].Value = anio_rep.Substring(0, 4);
+                    dataGridView2.Rows[j + 3].Cells[0].Value = anio_rep.Substring(0, 4);
                     k = 1;
                     do{
                         dataGridView2.Rows[j].Cells[k].Value = "-";
                         dataGridView2.Rows[j + 1].Cells[k].Value = "-";
+                        dataGridView2.Rows[j + 2].Cells[k].Value = "-";
+                        dataGridView2.Rows[j + 3].Cells[k].Value = "-";
                         k++;
                     }while(k<13);
 
@@ -580,18 +591,21 @@ namespace Nova_Gear.Mod40
                 anio_rep = dataGridView1.Rows[i].Cells[0].FormattedValue.ToString();
 
                 if (linea_1.Equals(linea_2))
-                {
-                	
+                {                	
                 		
                 		if (anio_rep.Substring(4, 2).Equals("02"))
                 		{
                 			//linea1
                 			dataGridView2.Rows[j].Cells[1].Value = dataGridView1.Rows[i].Cells[2].FormattedValue.ToString();
                 			dataGridView2.Rows[j + 1].Cells[1].Value = dataGridView1.Rows[i].Cells[1].FormattedValue.ToString();
+                            dataGridView2.Rows[j + 2].Cells[1].Value = dataGridView1.Rows[i].Cells[4].FormattedValue.ToString();
+                            dataGridView2.Rows[j + 3].Cells[1].Value = dataGridView1.Rows[i].Cells[5].FormattedValue.ToString();
                 			try{
                 			//linea2
                 				dataGridView2.Rows[j].Cells[2].Value = dataGridView1.Rows[i + 1].Cells[2].FormattedValue.ToString();
                 				dataGridView2.Rows[j + 1].Cells[2].Value = dataGridView1.Rows[i + 1].Cells[1].FormattedValue.ToString();
+                                dataGridView2.Rows[j + 2].Cells[2].Value = dataGridView1.Rows[i+1].Cells[4].FormattedValue.ToString();
+                                dataGridView2.Rows[j + 3].Cells[2].Value = dataGridView1.Rows[i+1].Cells[5].FormattedValue.ToString();
                 			}catch{}
                 		}
 
@@ -600,10 +614,14 @@ namespace Nova_Gear.Mod40
                 			//linea1
                 			dataGridView2.Rows[j].Cells[3].Value = dataGridView1.Rows[i].Cells[2].FormattedValue.ToString();
                 			dataGridView2.Rows[j + 1].Cells[3].Value = dataGridView1.Rows[i].Cells[1].FormattedValue.ToString();
+                            dataGridView2.Rows[j + 2].Cells[3].Value = dataGridView1.Rows[i].Cells[4].FormattedValue.ToString();
+                            dataGridView2.Rows[j + 3].Cells[3].Value = dataGridView1.Rows[i].Cells[5].FormattedValue.ToString();
                 			try{
 	                			//linea2
 	                			dataGridView2.Rows[j].Cells[4].Value = dataGridView1.Rows[i + 1].Cells[2].FormattedValue.ToString();
 	                			dataGridView2.Rows[j + 1].Cells[4].Value = dataGridView1.Rows[i + 1].Cells[1].FormattedValue.ToString();
+                                dataGridView2.Rows[j + 2].Cells[4].Value = dataGridView1.Rows[i + 1].Cells[4].FormattedValue.ToString();
+                                dataGridView2.Rows[j + 3].Cells[4].Value = dataGridView1.Rows[i + 1].Cells[5].FormattedValue.ToString();
                 			}catch{}
                 		}
                 		if (anio_rep.Substring(4, 2).Equals("06"))
@@ -611,10 +629,14 @@ namespace Nova_Gear.Mod40
                 			//linea1
                 			dataGridView2.Rows[j].Cells[5].Value = dataGridView1.Rows[i].Cells[2].FormattedValue.ToString();
                 			dataGridView2.Rows[j + 1].Cells[5].Value = dataGridView1.Rows[i].Cells[1].FormattedValue.ToString();
+                            dataGridView2.Rows[j + 2].Cells[5].Value = dataGridView1.Rows[i].Cells[4].FormattedValue.ToString();
+                            dataGridView2.Rows[j + 3].Cells[5].Value = dataGridView1.Rows[i].Cells[5].FormattedValue.ToString();
                 			try{
 	                			//linea2
 	                			dataGridView2.Rows[j].Cells[6].Value = dataGridView1.Rows[i + 1].Cells[2].FormattedValue.ToString();
 	                			dataGridView2.Rows[j + 1].Cells[6].Value = dataGridView1.Rows[i + 1].Cells[1].FormattedValue.ToString();
+                                dataGridView2.Rows[j + 2].Cells[6].Value = dataGridView1.Rows[i + 1].Cells[4].FormattedValue.ToString();
+                                dataGridView2.Rows[j + 3].Cells[6].Value = dataGridView1.Rows[i + 1].Cells[5].FormattedValue.ToString();
                 			}catch{}
                 		}
 
@@ -623,10 +645,14 @@ namespace Nova_Gear.Mod40
                 			//linea1
                 			dataGridView2.Rows[j].Cells[7].Value = dataGridView1.Rows[i].Cells[2].FormattedValue.ToString();
                 			dataGridView2.Rows[j + 1].Cells[7].Value = dataGridView1.Rows[i].Cells[1].FormattedValue.ToString();
+                            dataGridView2.Rows[j + 2].Cells[7].Value = dataGridView1.Rows[i].Cells[4].FormattedValue.ToString();
+                            dataGridView2.Rows[j + 3].Cells[7].Value = dataGridView1.Rows[i].Cells[5].FormattedValue.ToString();
                 			try{
 	                			//linea2
 	                			dataGridView2.Rows[j].Cells[8].Value = dataGridView1.Rows[i + 1].Cells[2].FormattedValue.ToString();
 	                			dataGridView2.Rows[j + 1].Cells[8].Value = dataGridView1.Rows[i + 1].Cells[1].FormattedValue.ToString();
+                                dataGridView2.Rows[j + 2].Cells[8].Value = dataGridView1.Rows[i + 1].Cells[4].FormattedValue.ToString();
+                                dataGridView2.Rows[j + 3].Cells[8].Value = dataGridView1.Rows[i + 1].Cells[5].FormattedValue.ToString();
                 			}catch{}
                 		}
 
@@ -635,10 +661,14 @@ namespace Nova_Gear.Mod40
                 			//linea1
                 			dataGridView2.Rows[j].Cells[9].Value = dataGridView1.Rows[i].Cells[2].FormattedValue.ToString();
                 			dataGridView2.Rows[j + 1].Cells[9].Value = dataGridView1.Rows[i].Cells[1].FormattedValue.ToString();
+                            dataGridView2.Rows[j + 2].Cells[9].Value = dataGridView1.Rows[i].Cells[4].FormattedValue.ToString();
+                            dataGridView2.Rows[j + 3].Cells[9].Value = dataGridView1.Rows[i].Cells[5].FormattedValue.ToString();
                 			try{
 	                			//linea2
 	                			dataGridView2.Rows[j].Cells[10].Value = dataGridView1.Rows[i + 1].Cells[2].FormattedValue.ToString();
 	                			dataGridView2.Rows[j + 1].Cells[10].Value = dataGridView1.Rows[i + 1].Cells[1].FormattedValue.ToString();
+                                dataGridView2.Rows[j + 2].Cells[10].Value = dataGridView1.Rows[i + 1].Cells[4].FormattedValue.ToString();
+                                dataGridView2.Rows[j + 3].Cells[10].Value = dataGridView1.Rows[i + 1].Cells[5].FormattedValue.ToString();
                 			}catch{}
                 		}
 
@@ -647,11 +677,15 @@ namespace Nova_Gear.Mod40
                 			//linea1
                 			dataGridView2.Rows[j].Cells[11].Value = dataGridView1.Rows[i].Cells[2].FormattedValue.ToString();
                 			dataGridView2.Rows[j + 1].Cells[11].Value = dataGridView1.Rows[i].Cells[1].FormattedValue.ToString();
+                            dataGridView2.Rows[j + 2].Cells[11].Value = dataGridView1.Rows[i].Cells[4].FormattedValue.ToString();
+                            dataGridView2.Rows[j + 3].Cells[11].Value = dataGridView1.Rows[i].Cells[5].FormattedValue.ToString();
                 			//linea2
                 			try
                 			{
                 				dataGridView2.Rows[j].Cells[12].Value = dataGridView1.Rows[i + 1].Cells[2].FormattedValue.ToString();
                 				dataGridView2.Rows[j + 1].Cells[12].Value = dataGridView1.Rows[i + 1].Cells[1].FormattedValue.ToString();
+                                dataGridView2.Rows[j + 2].Cells[12].Value = dataGridView1.Rows[i + 1].Cells[4].FormattedValue.ToString();
+                                dataGridView2.Rows[j + 3].Cells[12].Value = dataGridView1.Rows[i + 1].Cells[5].FormattedValue.ToString();
 
                 			}
                 			catch (Exception ex)
@@ -662,20 +696,23 @@ namespace Nova_Gear.Mod40
 						i = i + 2;                	
                 }
                 else
-                {
-                    
+                {                    
                     if (i > 0)
                     {
                         dataGridView2.Rows.Add();
                         //linea1
                         dataGridView2.Rows[j].Cells[(Convert.ToInt32(anio_rep.Substring(4, 2))) - 1].Value = dataGridView1.Rows[i].Cells[2].FormattedValue.ToString();
                         dataGridView2.Rows[j + 1].Cells[(Convert.ToInt32(anio_rep.Substring(4, 2))) - 1].Value = dataGridView1.Rows[i].Cells[1].FormattedValue.ToString();
+                        dataGridView2.Rows[j + 2].Cells[(Convert.ToInt32(anio_rep.Substring(4, 2))) - 1].Value = dataGridView1.Rows[i].Cells[4].FormattedValue.ToString();
+                        dataGridView2.Rows[j + 3].Cells[(Convert.ToInt32(anio_rep.Substring(4, 2))) - 1].Value = dataGridView1.Rows[i].Cells[5].FormattedValue.ToString();
                     }
                     else
                     {
                         dataGridView2.Rows.Add();
                         dataGridView2.Rows[j].Cells[(Convert.ToInt32(anio_rep.Substring(4, 2)))].Value = dataGridView1.Rows[i].Cells[2].FormattedValue.ToString();
                         dataGridView2.Rows[j + 1].Cells[(Convert.ToInt32(anio_rep.Substring(4, 2)))].Value = dataGridView1.Rows[i].Cells[1].FormattedValue.ToString();
+                        dataGridView2.Rows[j + 2].Cells[(Convert.ToInt32(anio_rep.Substring(4, 2)))].Value = dataGridView1.Rows[i].Cells[4].FormattedValue.ToString();
+                        dataGridView2.Rows[j + 3].Cells[(Convert.ToInt32(anio_rep.Substring(4, 2)))].Value = dataGridView1.Rows[i].Cells[5].FormattedValue.ToString();
                     }
                     i = i + 1;
                 }
@@ -739,7 +776,7 @@ namespace Nova_Gear.Mod40
             //MessageBox.Show(user);
 
             Visor_oficios40 vis_mod40 = new Visor_oficios40();
-            vis_mod40.recibir_tabla(dt, textBox1.Text, textBox2.Text, textBox5.Text, fecha_ini, fecha_fin, "HIDALGO",resu_tr,user);
+            vis_mod40.recibir_tabla(dt, textBox1.Text, textBox2.Text, textBox5.Text, fecha_ini, fecha_fin, conex.leer_config_sub()[3].ToString(), resu_tr, user);
             vis_mod40.Show();
             //dt = null;
         }

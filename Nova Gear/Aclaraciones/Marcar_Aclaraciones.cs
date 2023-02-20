@@ -494,10 +494,14 @@ namespace Nova_Gear.Aclaraciones
                     }
 
                     if(omitidos>0){
+                        conex.guardar_evento("Se Guardaron "+guardados+" Créditos Correctamente para su correspondiente Aclaración. Se Omitieron "+omitidos+" Créditos debido a que ya se encuentran en proceso de Aclaración");
                         MessageBox.Show("Se Guardaron "+guardados+" Créditos Correctamente para su correspondiente Aclaración \nSe Omitieron "+omitidos+" Créditos debido a que ya se encuentran en proceso de Aclaración", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                    
                     }else{
+                        conex.guardar_evento("Se Guardaron " + guardados + " Créditos Correctamente para su correspondiente Aclaración");
                         MessageBox.Show("Se Guardaron " + guardados + " Créditos Correctamente para su correspondiente Aclaración", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                     }
+
                     
                     dataGridView1.Rows.Clear();
                     label4.Text = "Registros Cargados: 0";

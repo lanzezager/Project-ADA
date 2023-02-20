@@ -1032,5 +1032,10 @@ namespace Nova_Gear.Depuracion
                 button3.Enabled = false;
             }
         }
+
+        private void panel3_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

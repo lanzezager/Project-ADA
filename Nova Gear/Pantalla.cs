@@ -358,130 +358,146 @@ namespace Nova_Gear
 			FileStream fichero;
 			
 			try{
-			StreamReader rdr = new StreamReader(@"NG_info.lz");
-			cacha_error++;//contador para saber si falló la linea anterior
-			version = @""+rdr.ReadLine();
-			url = rdr.ReadLine();
-			dato_extra=rdr.ReadLine();
-			dato_extra=rdr.ReadLine();
-			dato_extra=rdr.ReadLine();
-			copyright = rdr.ReadLine();
-			dont = rdr.ReadLine();
-			lz = rdr.ReadLine();
-			atlas = rdr.ReadLine();
-			rdr.Close();
+			    StreamReader rdr = new StreamReader(@"NG_info.lz");
+			    cacha_error++;//contador para saber si falló la linea anterior
+			    version = @""+rdr.ReadLine();
+			    url = rdr.ReadLine();
+			    dato_extra=rdr.ReadLine();
+			    dato_extra=rdr.ReadLine();
+			    dato_extra=rdr.ReadLine();
+			    copyright = rdr.ReadLine();
+			    dont = rdr.ReadLine();
+			    lz = rdr.ReadLine();
+			    atlas = rdr.ReadLine();
+			    rdr.Close();
 			
-			if(atlas.Equals("Arriba el Atlas!!!!!")){
-				candado++;
-			}
-			if(lz.Equals("By LZ")){
-				candado++;
-			}
-			if(dont.Equals("DON'T CHANGE THIS SETTINGS!!!!!")){
-				candado++;
-			}
-			if(copyright.Equals("Nova Gear by Mario Espinoza & Miguel Bañuelos")){
-				candado++;
-			}
-			if(copyright.Equals("Nova Gear by Mario Espinoza & Miguel Bañuelos")){
-				candado++;
-			}
+			    if(atlas.Equals("Arriba el Atlas!!!!!")){
+				    candado++;
+			    }
+			    if(lz.Equals("By LZ")){
+				    candado++;
+			    }
+			    if(dont.Equals("DON'T CHANGE THIS SETTINGS!!!!!")){
+				    candado++;
+			    }
+			    if(copyright.Equals("Nova Gear by Mario Espinoza & Miguel Bañuelos")){
+				    candado++;
+			    }
+			    if(copyright.Equals("Nova Gear by Mario Espinoza & Miguel Bañuelos")){
+				    candado++;
+			    }
 			
-			if(candado==5){
-				version=version.Substring(8,version.Length-8);
-				url=url.Substring(4,url.Length-4);
-				url_act = new string[10];
-				try{
-					url_act=Directory.GetFiles(url);
-					
-					
-					//MessageBox.Show(url+"|"+version+"|"+url_act[0].ToString()+"|"+url_act[1].ToString());
-					
-					while(k<url_act.Length){
-						if(url_act[k].EndsWith(".msi")||url_act[k].EndsWith(".MSI")){
-							msi_tots++;
-							ind_msi=k;
-						}
-						k++;
-					}
-					
-				}catch{
-					msi_tots=0;
-				}
-				
-				if(msi_tots==1){
-					y=url_act[ind_msi].LastIndexOf('\\');
-					nom_arch=url_act[ind_msi].ToString();
-					nom_arch=nom_arch.Substring(y+1,nom_arch.Length-(y+1));
-					//MessageBox.Show(url+"|"+version+"|"+nom_arch);
-					ver_pro=Convert.ToDecimal(version);
-					ver_act=Convert.ToDecimal(nom_arch.Substring(3,nom_arch.Length-7));
-					if(ver_act>ver_pro){
-						DialogResult resultado;
-						resultado= MessageBox.Show("Se Encontró una Nueva Versión del Programa ("+(ver_act)+").\n\n¿Desea Proceder con la Actualización?","AVISO",MessageBoxButtons.YesNo,MessageBoxIcon.Information,MessageBoxDefaultButton.Button1);
-						
-						if(resultado == DialogResult.Yes){
-							System.IO.File.Delete(@"actualizador/instalado.txt");
-							//Crear archivos nuevos
-							fichero = System.IO.File.Create(@"actualizador/instalado.txt");
-							ruta = fichero.Name;
-							fichero.Close();
-							z=ruta.LastIndexOf('\\');
-							nueva_url=ruta.Substring(0,z);
-							z=nueva_url.LastIndexOf('\\');
-							url_raiz=nueva_url.Substring(0,z);
-							nueva_url=url_raiz+@"\temp\update.msi";
-                            if (Directory.Exists(url_raiz + @"\temp") ==false)
+			    if(candado==5){
+				    version=version.Substring(8,version.Length-8);
+				    url=url.Substring(4,url.Length-4);
+				    url_act = new string[10];
+                    if (Directory.Exists(url))
+                    {
+                        try
+                        {
+                            //MessageBox.Show(url);
+                            url_act = Directory.GetFiles(url);
+                            //MessageBox.Show(url_act[0]);
+                            //MessageBox.Show(url+"|"+version+"|"+url_act[0].ToString()+"|"+url_act[1].ToString());
+
+                            while (k < url_act.Length)
                             {
-                                Directory.CreateDirectory(url_raiz + @"\temp");
+                                if (url_act[k].EndsWith(".msi") || url_act[k].EndsWith(".MSI"))
+                                {
+                                    msi_tots++;
+                                    ind_msi = k;
+                                }
+                                k++;
                             }
-                           
-                            File.Copy(url_act[0].ToString(), nueva_url, true);
-                            							
-							StreamWriter wr1 = new StreamWriter(@"actualizador/instalacion_silenciosa.bat");
-							wr1.WriteLine("@echo off");
-							wr1.WriteLine("title ACTUALIZADOR DE NOVA GEAR");
-							wr1.WriteLine("msiexec.exe /i \""+nueva_url+"\" /q");
-							wr1.WriteLine("del /q \""+nueva_url+"\"");
-							wr1.WriteLine("del /q desinstalado.txt");
-							wr1.WriteLine("\"instalacion completa\" >instalado.txt");
-							wr1.Close();
-							
-							StreamWriter wr3 = new StreamWriter(@"actualizador/desinstalacion_silenciosa.bat");
-							wr3.WriteLine("@echo off");
-							wr3.WriteLine("title ACTUALIZADOR DE NOVA GEAR");
-							wr3.WriteLine("wmic product where name=\"Nova Gear\" call uninstall");
-							wr3.WriteLine("y");
-							wr3.WriteLine("del /q instalado.txt");
-							wr3.WriteLine("\"desinstalacion completa\" >desinstalado.txt");
-							wr3.Close();
-							
-							
-							StreamWriter wr2 = new StreamWriter(@"actualizer.bat");
-							wr2.WriteLine("@echo off");
-							wr2.WriteLine("C:");
-							wr2.WriteLine("cd \""+url_raiz+"\\actualizador\"");
-							wr2.WriteLine("start actualizabot.exe");
-							wr2.Close();
-							System.Diagnostics.Process.Start(@"actualizer.bat");
-							this.Close();
-						}
-					
-					}
-					//MessageBox.Show(url+"|"+version+"|"+url_act[0]);
-				}else{
-					MessageBox.Show("Verifique el URL de Actualización, no se pudo buscar la nueva version.","AVISO",MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
-				}
-				
-			}else{
-				MessageBox.Show("No se pudo verificar la versión del programa. \nLa Aplicación se cerrará","AVISO",MessageBoxButtons.OK,MessageBoxIcon.Error);
-				this.Close();
-			}
+
+                        }
+                        catch
+                        {
+                            msi_tots = 0;
+                        }
+
+                        if (msi_tots == 1)
+                        {
+                            y = url_act[ind_msi].LastIndexOf('\\');
+                            nom_arch = url_act[ind_msi].ToString();
+                            nom_arch = nom_arch.Substring(y + 1, nom_arch.Length - (y + 1));
+                            //MessageBox.Show(url+"|"+version+"|"+nom_arch);
+                            ver_pro = Convert.ToDecimal(version);
+                            ver_act = Convert.ToDecimal(nom_arch.Substring(3, nom_arch.Length - 7));
+
+                            if (ver_act > ver_pro)
+                            {
+                                DialogResult resultado;
+                                resultado = MessageBox.Show("Se Encontró una Nueva Versión del Programa (" + (ver_act) + ").\n\n¿Desea Proceder con la Actualización?", "AVISO", MessageBoxButtons.YesNo, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
+
+                                if (resultado == DialogResult.Yes)
+                                {
+                                    System.IO.File.Delete(@"actualizador/instalado.txt");
+                                    //Crear archivos nuevos
+                                    fichero = System.IO.File.Create(@"actualizador/instalado.txt");
+                                    ruta = fichero.Name;
+                                    fichero.Close();
+                                    z = ruta.LastIndexOf('\\');
+                                    nueva_url = ruta.Substring(0, z);
+                                    z = nueva_url.LastIndexOf('\\');
+                                    url_raiz = nueva_url.Substring(0, z);
+                                    nueva_url = url_raiz + @"\temp\update.msi";
+                                    if (Directory.Exists(url_raiz + @"\temp") == false)
+                                    {
+                                        Directory.CreateDirectory(url_raiz + @"\temp");
+                                    }
+
+                                    File.Copy(url_act[0].ToString(), nueva_url, true);
+
+                                    StreamWriter wr1 = new StreamWriter(@"actualizador/instalacion_silenciosa.bat");
+                                    wr1.WriteLine("@echo off");
+                                    wr1.WriteLine("title ACTUALIZADOR DE NOVA GEAR");
+                                    wr1.WriteLine("msiexec.exe /i \"" + nueva_url + "\" /q");
+                                    wr1.WriteLine("del /q \"" + nueva_url + "\"");
+                                    wr1.WriteLine("del /q desinstalado.txt");
+                                    wr1.WriteLine("\"instalacion completa\" >instalado.txt");
+                                    wr1.Close();
+
+                                    StreamWriter wr3 = new StreamWriter(@"actualizador/desinstalacion_silenciosa.bat");
+                                    wr3.WriteLine("@echo off");
+                                    wr3.WriteLine("title ACTUALIZADOR DE NOVA GEAR");
+                                    wr3.WriteLine("wmic product where name=\"Nova Gear\" call uninstall");
+                                    wr3.WriteLine("y");
+                                    wr3.WriteLine("del /q instalado.txt");
+                                    wr3.WriteLine("\"desinstalacion completa\" >desinstalado.txt");
+                                    wr3.Close();
+
+                                    StreamWriter wr2 = new StreamWriter(@"actualizer.bat");
+                                    wr2.WriteLine("@echo off");
+                                    wr2.WriteLine("C:");
+                                    wr2.WriteLine("cd \"" + url_raiz + "\\actualizador\"");
+                                    wr2.WriteLine("start actualizabot.exe");
+                                    wr2.Close();
+                                    System.Diagnostics.Process.Start(@"actualizer.bat");
+                                    this.Close();
+                                }
+
+                            }
+                            //MessageBox.Show(url+"|"+version+"|"+url_act[0]);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Verifique el URL de Actualización, no se pudo buscar la nueva version.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("No se puede acceder a la URL de Actualización.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    }
+			    }else{
+				    MessageBox.Show("No se pudo verificar la versión del programa. \nLa Aplicación se cerrará","AVISO",MessageBoxButtons.OK,MessageBoxIcon.Error);
+				    this.Close();
+			    }
 			
 			}catch(Exception error){
 				if(cacha_error==0){
 					MessageBox.Show("No se pudo verificar la versión del programa. \nLa Aplicación se cerrará","AVISO",MessageBoxButtons.OK,MessageBoxIcon.Error);
-					//this.Close();
+					this.Close();
 				}
 				
 				if(cacha_error>0){
@@ -709,7 +725,7 @@ namespace Nova_Gear
 			//label1.Location =new System.Drawing.Point(((Screen.PrimaryScreen.WorkingArea.Width - this.label1.Width) / 2),(((Screen.PrimaryScreen.WorkingArea.Height - this.label1.Height) / 2)+300));
 			//button2.Location = new System.Drawing.Point(((Screen.PrimaryScreen.WorkingArea.Width - this.panel1.Width) / 2),(((Screen.PrimaryScreen.WorkingArea.Height - this.button2.Height) / 2)+304));
 			textBox2.ReadOnly=false;
-			//actualizaciones();
+			actualizaciones();
 			verifi_sub();
 			/*
 			try{

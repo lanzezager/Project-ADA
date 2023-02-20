@@ -1,0 +1,1568 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
+  <PropertyGroup>
+    <ProjectGuid>{D7A13384-B099-4B68-8ED8-D8B3BE3412F1}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Nova_Gear</RootNamespace>
+    <AssemblyName>Gear Prime</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <NoWin32Manifest>False</NoWin32Manifest>
+    <SignAssembly>False</SignAssembly>
+    <DelaySign>False</DelaySign>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+    <AllowUnsafeBlocks>False</AllowUnsafeBlocks>
+    <NoStdLib>False</NoStdLib>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <IntermediateOutputPath>obj\$(Configuration)\</IntermediateOutputPath>
+    <WarningLevel>4</WarningLevel>
+    <RunCodeAnalysis>False</RunCodeAnalysis>
+    <SourceAnalysisOverrideSettingsFile>C:\Users\usuario\AppData\Roaming\ICSharpCode/SharpDevelop4\Settings.SourceAnalysis</SourceAnalysisOverrideSettingsFile>
+    <StartupObject>Nova_Gear.Program</StartupObject>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Platform)' == 'AnyCPU' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <BaseAddress>4194304</BaseAddress>
+    <RegisterForComInterop>False</RegisterForComInterop>
+    <GenerateSerializationAssemblies>Auto</GenerateSerializationAssemblies>
+    <FileAlignment>4096</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <DebugSymbols>True</DebugSymbols>
+    <DebugType>Full</DebugType>
+    <Optimize>False</Optimize>
+    <CheckForOverflowUnderflow>True</CheckForOverflowUnderflow>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <BaseIntermediateOutputPath>obj\</BaseIntermediateOutputPath>
+    <StartAction>Project</StartAction>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <DebugSymbols>False</DebugSymbols>
+    <DebugType>None</DebugType>
+    <Optimize>True</Optimize>
+    <CheckForOverflowUnderflow>False</CheckForOverflowUnderflow>
+    <DefineConstants>TRACE</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>ICON_GEAR_PRIME.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <CheckForOverflowUnderflow>true</CheckForOverflowUnderflow>
+    <FileAlignment>4096</FileAlignment>
+    <DebugType>Full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <FileAlignment>4096</FileAlignment>
+    <DebugType>None</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <CheckForOverflowUnderflow>true</CheckForOverflowUnderflow>
+    <FileAlignment>4096</FileAlignment>
+    <DebugType>Full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <FileAlignment>4096</FileAlignment>
+    <DebugType>None</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ClosedXML, Version=0.76.0.0, Culture=neutral, PublicKeyToken=fd1eb21b62ae805b, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>.\ClosedXML.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.CrystalReports.TemplateEngine, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="CrystalDecisions.Data.AdoDotNetInterop, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="DocumentFormat.OpenXml, Version=2.5.5631.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>.\DocumentFormat.OpenXml.dll</HintPath>
+    </Reference>
+    <Reference Include="FlashControlV71, Version=1.0.3187.32366, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="Ionic.Zip">
+      <HintPath>Ionic.Zip.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp">
+      <HintPath>..\..\..\..\Desktop\itextsharp-all-5.5.9\itextsharp-dll-core\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp.pdfa">
+      <HintPath>..\..\..\..\Desktop\itextsharp-all-5.5.9\itextsharp-dll-pdfa\itextsharp.pdfa.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp.xtra">
+      <HintPath>..\..\..\..\Desktop\itextsharp-all-5.5.9\itextsharp-dll-xtra\itextsharp.xtra.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Access" />
+    <Reference Include="Microsoft.Office.Interop.Access.Dao" />
+    <Reference Include="Microsoft.Office.Interop.Excel" />
+    <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.1016.290\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data, Version=6.9.7.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\nova\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Speech">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="About.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="About.Designer.cs">
+      <DependentUpon>About.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Actualizador.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Actualizador.Designer.cs">
+      <DependentUpon>Actualizador.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Asigna_noti.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Asigna_noti.Designer.cs">
+      <DependentUpon>Asigna_noti.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Autocob.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Autocob.Designer.cs">
+      <DependentUpon>Autocob.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Automatizacion\Sectorizador.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Automatizacion\Sectorizador.Designer.cs">
+      <DependentUpon>Sectorizador.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Automatizacion\Sindo_nator.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Automatizacion\Sindo_nator.Designer.cs">
+      <DependentUpon>Sindo_nator.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Auxiliar.cs" />
+    <Compile Include="Busca_nn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Busca_nn.Designer.cs">
+      <DependentUpon>Busca_nn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Carga.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Carga.Designer.cs">
+      <DependentUpon>Carga.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Cartera_reportes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cartera_reportes.Designer.cs">
+      <DependentUpon>Cartera_reportes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Conexion.cs" />
+    <Compile Include="Config_backup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Config_backup.Designer.cs">
+      <DependentUpon>Config_backup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Consulta_patron.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Consulta_patron.Designer.cs">
+      <DependentUpon>Consulta_patron.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Correspondencia_acta_citatorio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Correspondencia_acta_citatorio.Designer.cs">
+      <DependentUpon>Correspondencia_acta_citatorio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Depuracion\DataSet_Depu.cs">
+      <DependentUpon>DataSet_Depu.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Depuracion\Depuracion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Depuracion\Depuracion.Designer.cs">
+      <DependentUpon>Depuracion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Depuracion\DataSet_Depu.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSet_Depu.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Depuracion\Depuración2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Depuracion\Depuración2.Designer.cs">
+      <DependentUpon>Depuración2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Depuracion\DepuRB.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Depuracion\DepuRB.Designer.cs">
+      <DependentUpon>DepuRB.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Depuracion\Depu_manu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Depuracion\Depu_manu.Designer.cs">
+      <DependentUpon>Depu_manu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Depuracion\Depu_rale.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Depuracion\Depu_rale.Designer.cs">
+      <DependentUpon>Depu_rale.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Depuracion\Formatos_Reporte\Depu_report.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Depu_report.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Depuracion\Formatos_Reporte\Depu_report3.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Depu_report3.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Depuracion\Formatos_Reporte\Entrega_cartera.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Entrega_cartera.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Depuracion\Formatos_Reporte\Factura_Notificador.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Factura_Notificador.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Depuracion\Formatos_Reporte\Formato_Factura_v2.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Formato_Factura_v2.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Depuracion\Formatos_Reporte\Formato_impresion_cons_pat.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Formato_impresion_cons_pat.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Depuracion\Formatos_Reporte\Formato_Registro_Usuario.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Formato_Registro_Usuario.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Depuracion\Formatos_Reporte\Mod40_reporte_baja.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Mod40_reporte_baja.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Depuracion\Formatos_Reporte\Mod40_reporte_baja_un_per.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Mod40_reporte_baja_un_per.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Depuracion\Formatos_Reporte\Mod40_reporte_informal.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Mod40_reporte_informal.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Depuracion\Formatos_Reporte\Mod40_reporte_oficial.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Mod40_reporte_oficial.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Depuracion\Formatos_Reporte\Oficios_factura.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Oficios_factura.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Depuracion\Formatos_Reporte\Prefactura.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Prefactura.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Depuracion\Formatos_Reporte\Reporte_depu2.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reporte_depu2.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Depuracion\Formatos_Reporte\Reporte_mensual.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reporte_mensual.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Depuracion\Formatos_Reporte\Reporte_mestro.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reporte_mestro.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Depuracion\Formatos_Reporte\reporte_sector00.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>reporte_sector00.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Depuracion\Formatos_Reporte\Reporte_Sectores_No_Asignados.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reporte_Sectores_No_Asignados.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Depuracion\Grid_checador.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Depuracion\Grid_checador.Designer.cs">
+      <DependentUpon>Grid_checador.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Depuracion\Lector_Depus.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Depuracion\Lector_Depus.Designer.cs">
+      <DependentUpon>Lector_Depus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Depuracion\Sel_archivo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Depuracion\Sel_archivo.Designer.cs">
+      <DependentUpon>Sel_archivo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Depuracion\Visor_Reporte.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Depuracion\Visor_Reporte.Designer.cs">
+      <DependentUpon>Visor_Reporte.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Depu_report.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Depu_report.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Depu_report3.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Depu_report3.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Entrega_cartera.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Entrega_cartera.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Envio_31.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Envio_31.Designer.cs">
+      <DependentUpon>Envio_31.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Estrados\Captura_info_estrados.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Estrados\Captura_info_estrados.Designer.cs">
+      <DependentUpon>Captura_info_estrados.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Estrados\Menu_estrados.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Estrados\Menu_estrados.Designer.cs">
+      <DependentUpon>Menu_estrados.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Estrados\Opciones_estrados.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Estrados\Opciones_estrados.Designer.cs">
+      <DependentUpon>Opciones_estrados.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Estrados\Reporte_estrados.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Estrados\Reporte_estrados.Designer.cs">
+      <DependentUpon>Reporte_estrados.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Factura_Notificador.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Factura_Notificador.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Fechas_periodos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Fechas_periodos.Designer.cs">
+      <DependentUpon>Fechas_periodos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Fecha_Not\Fecha_Not_Cartera.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Fecha_Not\Fecha_Not_Cartera.Designer.cs">
+      <DependentUpon>Fecha_Not_Cartera.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Fecha_Not\Fecha_Not_Menu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Fecha_Not\Fecha_Not_Menu.Designer.cs">
+      <DependentUpon>Fecha_Not_Menu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Generador_factura.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Generador_factura.Designer.cs">
+      <DependentUpon>Generador_factura.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Generador_reportes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Generador_reportes.Designer.cs">
+      <DependentUpon>Generador_reportes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Guarda_Evento.cs" />
+    <Compile Include="Inventario\Auxiliares.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Inventario\Auxiliares.Designer.cs">
+      <DependentUpon>Auxiliares.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inventario\Cartera\Menu_inv_c.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Inventario\Cartera\Menu_inv_c.Designer.cs">
+      <DependentUpon>Menu_inv_c.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inventario\Cartera\No_vig.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Inventario\Cartera\No_vig.Designer.cs">
+      <DependentUpon>No_vig.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inventario\Cartera\opciones_inv_c.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Inventario\Cartera\opciones_inv_c.Designer.cs">
+      <DependentUpon>opciones_inv_c.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inventario\Cartera\Vigs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Inventario\Cartera\Vigs.Designer.cs">
+      <DependentUpon>Vigs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inventario\Consulta_verificacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Inventario\Consulta_verificacion.Designer.cs">
+      <DependentUpon>Consulta_verificacion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inventario\Formatos\informe_dia.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>informe_dia.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Inventario\Formatos\Resumen_creditos_rev.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resumen_creditos_rev.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Inventario\Formatos\Resumen_general.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resumen_general.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Inventario\Generador_informes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Inventario\Generador_informes.Designer.cs">
+      <DependentUpon>Generador_informes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inventario\Menu_inventario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Inventario\Menu_inventario.Designer.cs">
+      <DependentUpon>Menu_inventario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inventario\Menu_invs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Inventario\Menu_invs.Designer.cs">
+      <DependentUpon>Menu_invs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inventario\Opciones_inventario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Inventario\Opciones_inventario.Designer.cs">
+      <DependentUpon>Opciones_inventario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inventario\Responsables.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Inventario\Responsables.Designer.cs">
+      <DependentUpon>Responsables.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inventario\Visor_informes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Inventario\Visor_informes.Designer.cs">
+      <DependentUpon>Visor_informes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Jarviscob.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Jarviscob.Designer.cs">
+      <DependentUpon>Jarviscob.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Lector_Fac.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Lector_Fac.Designer.cs">
+      <DependentUpon>Lector_Fac.cs</DependentUpon>
+    </Compile>
+    <Compile Include="lector_pdf.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="lector_pdf.Designer.cs">
+      <DependentUpon>lector_pdf.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Lector_rale_txt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Lector_rale_txt.Designer.cs">
+      <DependentUpon>Lector_rale_txt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Log.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Log.Designer.cs">
+      <DependentUpon>Log.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Menu_cores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Menu_cores.Designer.cs">
+      <DependentUpon>Menu_cores.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Menu_nova.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Menu_nova.Designer.cs">
+      <DependentUpon>Menu_nova.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Mod40\Asig_Pag_m40.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mod40\Asig_Pag_m40.Designer.cs">
+      <DependentUpon>Asig_Pag_m40.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Mod40\Carga_access.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mod40\Carga_access.Designer.cs">
+      <DependentUpon>Carga_access.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Mod40\Carga_excel40.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mod40\Carga_excel40.Designer.cs">
+      <DependentUpon>Carga_excel40.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Mod40\Consulta_Mod40.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mod40\Consulta_Mod40.Designer.cs">
+      <DependentUpon>Consulta_Mod40.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Mod40\Datos_inf40.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mod40\Datos_inf40.Designer.cs">
+      <DependentUpon>Datos_inf40.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Mod40\Info40.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mod40\Info40.Designer.cs">
+      <DependentUpon>Info40.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Mod40\Insertar_40.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mod40\Insertar_40.Designer.cs">
+      <DependentUpon>Insertar_40.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Mod40\Menu40.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mod40\Menu40.Designer.cs">
+      <DependentUpon>Menu40.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Mod40\Resultados_analisis.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mod40\Resultados_analisis.Designer.cs">
+      <DependentUpon>Resultados_analisis.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Mod40\Tipo_reporte.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mod40\Tipo_reporte.Designer.cs">
+      <DependentUpon>Tipo_reporte.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Mod40\Visor_oficios40.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mod40\Visor_oficios40.Designer.cs">
+      <DependentUpon>Visor_oficios40.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Navegador_web.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Navegador_web.Designer.cs">
+      <DependentUpon>Navegador_web.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Oficios\Oficios_captura.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Oficios\Oficios_captura.Designer.cs">
+      <DependentUpon>Oficios_captura.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Oficios\Oficios_consulta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Oficios\Oficios_consulta.Designer.cs">
+      <DependentUpon>Oficios_consulta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Oficios\Oficios_imprimir.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Oficios\Oficios_imprimir.Designer.cs">
+      <DependentUpon>Oficios_imprimir.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Oficios\Oficios_ingreso.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Oficios\Oficios_ingreso.Designer.cs">
+      <DependentUpon>Oficios_ingreso.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Oficios\Oficios_proceso.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Oficios\Oficios_proceso.Designer.cs">
+      <DependentUpon>Oficios_proceso.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Oficios\Visor_oficios_factura.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Oficios\Visor_oficios_factura.Designer.cs">
+      <DependentUpon>Visor_oficios_factura.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ops_subs\selector_sub.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ops_subs\selector_sub.Designer.cs">
+      <DependentUpon>selector_sub.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ordena_listviews.cs" />
+    <Compile Include="Pantalla.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pantalla.Designer.cs">
+      <DependentUpon>Pantalla.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Prefactura.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Prefactura.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Profile_user.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Profile_user.Designer.cs">
+      <DependentUpon>Profile_user.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Puente.cs" />
+    <Compile Include="Registros\Busca_usuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Registros\Busca_usuario.Designer.cs">
+      <DependentUpon>Busca_usuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Registros\Configura_ctrldr.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Registros\Configura_ctrldr.Designer.cs">
+      <DependentUpon>Configura_ctrldr.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Registros\Foto_ampliada.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Registros\Foto_ampliada.Designer.cs">
+      <DependentUpon>Foto_ampliada.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Registros\Reg_Usuarios_2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Registros\Reg_Usuarios_2.Designer.cs">
+      <DependentUpon>Reg_Usuarios_2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Registros\Selector_notificador.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Registros\Selector_notificador.Designer.cs">
+      <DependentUpon>Selector_notificador.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Registros\Selector_sector.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Registros\Selector_sector.Designer.cs">
+      <DependentUpon>Selector_sector.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Registros\Terminos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Registros\Terminos.Designer.cs">
+      <DependentUpon>Terminos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Registros\Usuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Registros\Usuarios.Designer.cs">
+      <DependentUpon>Usuarios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Registros\Visor_Formato_Registro.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Registros\Visor_Formato_Registro.Designer.cs">
+      <DependentUpon>Visor_Formato_Registro.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporte_mensual.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reporte_mensual.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reporte_mestro.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reporte_mestro.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="reporte_sector00.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>reporte_sector00.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reporte_Sectores_No_Asignados.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reporte_Sectores_No_Asignados.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Sepomex\Carga_sepo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sepomex\Carga_sepo.Designer.cs">
+      <DependentUpon>Carga_sepo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sepomex\Consulta_sepo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sepomex\Consulta_sepo.Designer.cs">
+      <DependentUpon>Consulta_sepo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sepomex\Fecha_not_sepo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sepomex\Fecha_not_sepo.Designer.cs">
+      <DependentUpon>Fecha_not_sepo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sepomex\Generar_fac_sepo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sepomex\Generar_fac_sepo.Designer.cs">
+      <DependentUpon>Generar_fac_sepo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sepomex\Menu_sepomex.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sepomex\Menu_sepomex.Designer.cs">
+      <DependentUpon>Menu_sepomex.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sepomex\Sectorizacion_sepo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sepomex\Sectorizacion_sepo.Designer.cs">
+      <DependentUpon>Sectorizacion_sepo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Setup_mysql.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Setup_mysql.Designer.cs">
+      <DependentUpon>Setup_mysql.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sicofi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sicofi.Designer.cs">
+      <DependentUpon>Sicofi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sicofitron.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sicofitron.Designer.cs">
+      <DependentUpon>Sicofitron.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SiscobEva.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SiscobEva.Designer.cs">
+      <DependentUpon>SiscobEva.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Siscobnator.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Siscobnator.Designer.cs">
+      <DependentUpon>Siscobnator.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SqlServerTypes\Loader.cs" />
+    <Compile Include="Supervision\Estado_noti.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Supervision\Estado_noti.Designer.cs">
+      <DependentUpon>Estado_noti.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Supervision\Productividad_noti.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Supervision\Productividad_noti.Designer.cs">
+      <DependentUpon>Productividad_noti.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Universal\Entrega_especial.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Universal\Entrega_especial.Designer.cs">
+      <DependentUpon>Entrega_especial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Universal\Insertar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Universal\Insertar.Designer.cs">
+      <DependentUpon>Insertar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Visor_consulta_patron.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Visor_consulta_patron.Designer.cs">
+      <DependentUpon>Visor_consulta_patron.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Visor_Prefactura.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Visor_Prefactura.Designer.cs">
+      <DependentUpon>Visor_Prefactura.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Visor_reporte_cartera.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Visor_reporte_cartera.Designer.cs">
+      <DependentUpon>Visor_reporte_cartera.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Visor_reporte_factura.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Visor_reporte_factura.Designer.cs">
+      <DependentUpon>Visor_reporte_factura.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Visor_reporte_mensual.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Visor_reporte_mensual.Designer.cs">
+      <DependentUpon>Visor_reporte_mensual.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Visor_Sector00.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Visor_Sector00.Designer.cs">
+      <DependentUpon>Visor_Sector00.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="About.resx">
+      <DependentUpon>About.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Actualizador.resx">
+      <DependentUpon>Actualizador.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Asigna_noti.resx">
+      <DependentUpon>Asigna_noti.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Autocob.resx">
+      <DependentUpon>Autocob.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Automatizacion\Sectorizador.resx">
+      <DependentUpon>Sectorizador.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Automatizacion\Sindo_nator.resx">
+      <DependentUpon>Sindo_nator.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Busca_nn.resx">
+      <DependentUpon>Busca_nn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Carga.resx">
+      <DependentUpon>Carga.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Cartera_reportes.resx">
+      <DependentUpon>Cartera_reportes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Config_backup.resx">
+      <DependentUpon>Config_backup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Consulta_patron.resx">
+      <DependentUpon>Consulta_patron.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Correspondencia_acta_citatorio.resx">
+      <DependentUpon>Correspondencia_acta_citatorio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Depuracion\Depuracion.resx">
+      <DependentUpon>Depuracion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Depuracion\Depuración2.resx">
+      <DependentUpon>Depuración2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Depuracion\DepuRB.resx">
+      <DependentUpon>DepuRB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Depuracion\Depu_manu.resx">
+      <DependentUpon>Depu_manu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Depuracion\Depu_rale.resx">
+      <DependentUpon>Depu_rale.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Depuracion\Formatos_Reporte\Depu_report.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Depu_report.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Depuracion\Formatos_Reporte\Depu_report3.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Depu_report3.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Depuracion\Formatos_Reporte\Entrega_cartera.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Entrega_cartera.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Depuracion\Formatos_Reporte\Factura_Notificador.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Factura_Notificador.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Depuracion\Formatos_Reporte\Formato_Factura_v2.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Formato_Factura_v2.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Depuracion\Formatos_Reporte\Formato_impresion_cons_pat.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Formato_impresion_cons_pat.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Depuracion\Formatos_Reporte\Formato_Registro_Usuario.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Formato_Registro_Usuario.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Depuracion\Formatos_Reporte\Mod40_reporte_baja.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Mod40_reporte_baja.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Depuracion\Formatos_Reporte\Mod40_reporte_baja_un_per.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Mod40_reporte_baja_un_per.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Depuracion\Formatos_Reporte\Mod40_reporte_informal.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Mod40_reporte_informal.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Depuracion\Formatos_Reporte\Mod40_reporte_oficial.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Mod40_reporte_oficial.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Depuracion\Formatos_Reporte\Oficios_factura.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Oficios_factura.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Depuracion\Formatos_Reporte\Prefactura.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Prefactura.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Depuracion\Formatos_Reporte\Report1.rdlc" />
+    <EmbeddedResource Include="Depuracion\Formatos_Reporte\Reporte_depu2.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Reporte_depu2.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Depuracion\Formatos_Reporte\Reporte_mensual.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Reporte_mensual.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Depuracion\Formatos_Reporte\Reporte_mestro.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Reporte_mestro.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Depuracion\Formatos_Reporte\reporte_sector00.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>reporte_sector00.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Depuracion\Formatos_Reporte\Reporte_Sectores_No_Asignados.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Reporte_Sectores_No_Asignados.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Depuracion\Grid_checador.resx">
+      <DependentUpon>Grid_checador.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Depuracion\Lector_Depus.resx">
+      <DependentUpon>Lector_Depus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Depuracion\Sel_archivo.resx">
+      <DependentUpon>Sel_archivo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Depuracion\Visor_Reporte.resx">
+      <DependentUpon>Visor_Reporte.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Depu_report.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Depu_report.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Depu_report3.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Depu_report3.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Entrega_cartera.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Entrega_cartera.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Envio_31.resx">
+      <DependentUpon>Envio_31.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Estrados\Captura_info_estrados.resx">
+      <DependentUpon>Captura_info_estrados.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Estrados\Menu_estrados.resx">
+      <DependentUpon>Menu_estrados.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Estrados\Opciones_estrados.resx">
+      <DependentUpon>Opciones_estrados.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Estrados\Reporte_estrados.resx">
+      <DependentUpon>Reporte_estrados.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Factura_Notificador.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Factura_Notificador.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fechas_periodos.resx">
+      <DependentUpon>Fechas_periodos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fecha_Not\Fecha_Not_Cartera.resx">
+      <DependentUpon>Fecha_Not_Cartera.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fecha_Not\Fecha_Not_Menu.resx">
+      <DependentUpon>Fecha_Not_Menu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Generador_factura.resx">
+      <DependentUpon>Generador_factura.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Generador_reportes.resx">
+      <DependentUpon>Generador_reportes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventario\Auxiliares.resx">
+      <DependentUpon>Auxiliares.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventario\Cartera\Menu_inv_c.resx">
+      <DependentUpon>Menu_inv_c.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventario\Cartera\No_vig.resx">
+      <DependentUpon>No_vig.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventario\Cartera\opciones_inv_c.resx">
+      <DependentUpon>opciones_inv_c.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventario\Cartera\Vigs.resx">
+      <DependentUpon>Vigs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventario\Consulta_verificacion.resx">
+      <DependentUpon>Consulta_verificacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventario\Formatos\informe_dia.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>informe_dia.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventario\Formatos\Resumen_creditos_rev.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Resumen_creditos_rev.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventario\Formatos\Resumen_general.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Resumen_general.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventario\Generador_informes.resx">
+      <DependentUpon>Generador_informes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventario\Menu_inventario.resx">
+      <DependentUpon>Menu_inventario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventario\Menu_invs.resx">
+      <DependentUpon>Menu_invs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventario\Opciones_inventario.resx">
+      <DependentUpon>Opciones_inventario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventario\Responsables.resx">
+      <DependentUpon>Responsables.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventario\Visor_informes.resx">
+      <DependentUpon>Visor_informes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Jarviscob.resx">
+      <DependentUpon>Jarviscob.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Lector_Fac.resx">
+      <DependentUpon>Lector_Fac.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="lector_pdf.resx">
+      <DependentUpon>lector_pdf.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Lector_rale_txt.resx">
+      <DependentUpon>Lector_rale_txt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Log.resx">
+      <DependentUpon>Log.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Menu_cores.resx">
+      <DependentUpon>Menu_cores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Menu_nova.resx">
+      <DependentUpon>Menu_nova.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mod40\Asig_Pag_m40.resx">
+      <DependentUpon>Asig_Pag_m40.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mod40\Carga_access.resx">
+      <DependentUpon>Carga_access.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mod40\Carga_excel40.resx">
+      <DependentUpon>Carga_excel40.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mod40\Consulta_Mod40.resx">
+      <DependentUpon>Consulta_Mod40.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mod40\Datos_inf40.resx">
+      <DependentUpon>Datos_inf40.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mod40\Info40.resx">
+      <DependentUpon>Info40.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mod40\Insertar_40.resx">
+      <DependentUpon>Insertar_40.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mod40\Menu40.resx">
+      <DependentUpon>Menu40.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mod40\Resultados_analisis.resx">
+      <DependentUpon>Resultados_analisis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mod40\Tipo_reporte.resx">
+      <DependentUpon>Tipo_reporte.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mod40\Visor_oficios40.resx">
+      <DependentUpon>Visor_oficios40.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Navegador_web.resx">
+      <DependentUpon>Navegador_web.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Oficios\Oficios_captura.resx">
+      <DependentUpon>Oficios_captura.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Oficios\Oficios_consulta.resx">
+      <DependentUpon>Oficios_consulta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Oficios\Oficios_imprimir.resx">
+      <DependentUpon>Oficios_imprimir.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Oficios\Oficios_ingreso.resx">
+      <DependentUpon>Oficios_ingreso.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Oficios\Oficios_proceso.resx">
+      <DependentUpon>Oficios_proceso.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Oficios\Visor_oficios_factura.resx">
+      <DependentUpon>Visor_oficios_factura.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ops_subs\selector_sub.resx">
+      <DependentUpon>selector_sub.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pantalla.resx">
+      <DependentUpon>Pantalla.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Prefactura.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Prefactura.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Profile_user.resx">
+      <DependentUpon>Profile_user.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Registros\Busca_usuario.resx">
+      <DependentUpon>Busca_usuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Registros\Configura_ctrldr.resx">
+      <DependentUpon>Configura_ctrldr.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Registros\Foto_ampliada.resx">
+      <DependentUpon>Foto_ampliada.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Registros\Reg_Usuarios_2.resx">
+      <DependentUpon>Reg_Usuarios_2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Registros\Selector_notificador.resx">
+      <DependentUpon>Selector_notificador.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Registros\Selector_sector.resx">
+      <DependentUpon>Selector_sector.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Registros\Terminos.resx">
+      <DependentUpon>Terminos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Registros\Usuarios.resx">
+      <DependentUpon>Usuarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Registros\Visor_Formato_Registro.resx">
+      <DependentUpon>Visor_Formato_Registro.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporte_mensual.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Reporte_mensual.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporte_mestro.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Reporte_mestro.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="reporte_sector00.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>reporte_sector00.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporte_Sectores_No_Asignados.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Reporte_Sectores_No_Asignados.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sepomex\Carga_sepo.resx">
+      <DependentUpon>Carga_sepo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sepomex\Consulta_sepo.resx">
+      <DependentUpon>Consulta_sepo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sepomex\Fecha_not_sepo.resx">
+      <DependentUpon>Fecha_not_sepo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sepomex\Generar_fac_sepo.resx">
+      <DependentUpon>Generar_fac_sepo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sepomex\Menu_sepomex.resx">
+      <DependentUpon>Menu_sepomex.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sepomex\Sectorizacion_sepo.resx">
+      <DependentUpon>Sectorizacion_sepo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Setup_mysql.resx">
+      <DependentUpon>Setup_mysql.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sicofi.resx">
+      <DependentUpon>Sicofi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sicofitron.resx">
+      <DependentUpon>Sicofitron.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SiscobEva.resx">
+      <DependentUpon>SiscobEva.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Siscobnator.resx">
+      <DependentUpon>Siscobnator.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Supervision\Estado_noti.resx">
+      <DependentUpon>Estado_noti.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Supervision\Productividad_noti.resx">
+      <DependentUpon>Productividad_noti.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Universal\Entrega_especial.resx">
+      <DependentUpon>Entrega_especial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Universal\Insertar.resx">
+      <DependentUpon>Insertar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Visor_consulta_patron.resx">
+      <DependentUpon>Visor_consulta_patron.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Visor_Prefactura.resx">
+      <DependentUpon>Visor_Prefactura.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Visor_reporte_cartera.resx">
+      <DependentUpon>Visor_reporte_cartera.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Visor_reporte_factura.resx">
+      <DependentUpon>Visor_reporte_factura.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Visor_reporte_mensual.resx">
+      <DependentUpon>Visor_reporte_mensual.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Visor_Sector00.resx">
+      <DependentUpon>Visor_Sector00.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config">
+      <DependentUpon>Actualizador.cs</DependentUpon>
+    </None>
+    <None Include="ClosedXML.dll" />
+    <None Include="Depuracion\DataSet_Depu.xsc">
+      <DependentUpon>DataSet_Depu.xsd</DependentUpon>
+    </None>
+    <None Include="Depuracion\DataSet_Depu.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSet_Depu.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Depuracion\DataSet_Depu.xss">
+      <DependentUpon>DataSet_Depu.xsd</DependentUpon>
+    </None>
+    <None Include="DocumentFormat.OpenXml.dll" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="recursos\iconos\database_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="recursos\iconos\cog_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="recursos\iconos\cog_delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="recursos\iconos\LZ_logo.png" />
+    <None Include="recursos\iconos\page_white_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="recursos\iconos\page_white_database.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="recursos\iconos\resultset_previous.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="recursos\iconos\database_save.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="recursos\iconos\resultset_next.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="recursos\iconos\table_go.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="recursos\iconos\page_white_excel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="recursos\iconos\table_excel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Report1.srd" />
+    <None Include="reporte_facturas_notificadores.srd" />
+    <None Include="Resources\application_form_magnify.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\date.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\resultset_previous.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Depuracion\Cores\" />
+    <Folder Include="recursos\pics_users\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\network_wireless.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\network_tools.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\database_connect.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\access.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\setting_tools.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\warning.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logo_inicio.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Logo_Gear_Prime_CHIDO.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ICON_GEAR_PRIME.ico" />
+    <None Include="Resources\Gear Prime.png" />
+    <Content Include="SqlServerTypes\readme.htm" />
+    <Content Include="SqlServerTypes\x64\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x64\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.6">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.6 %28x86 y x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

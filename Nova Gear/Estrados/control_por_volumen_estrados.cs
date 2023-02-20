@@ -273,7 +273,9 @@ namespace Nova_Gear.Estrados
             conex.conectar("base_principal");
             comboBox4.Items.Clear();
             int i = 0;
-            dataGridView4.DataSource = conex.consultar("SELECT DISTINCT(paquete) FROM estrados ORDER BY paquete DESC");
+            //dataGridView4.DataSource = conex.consultar("SELECT DISTINCT(paquete) FROM estrados ORDER BY paquete DESC");
+            dataGridView4.DataSource = conex.consultar("SELECT paquete FROM estrados group by paquete order by paquete DESC");
+            
             do
             {
                 if (dataGridView4.Rows[i].Cells[0].Value.ToString() != "0")
@@ -524,9 +526,10 @@ namespace Nova_Gear.Estrados
                          }
                          else
                          {
-                             fech_doc = dateTimePicker3.Text;
-                             fech_doc = fech_doc.Substring(6, 4) + "-" + fech_doc.Substring(3, 2) + "-" + fech_doc.Substring(0, 2);
-                             consultamysql.Rows[i][11] = fech_doc;
+                             consultamysql.Rows[i][11] = dateTimePicker3.Value;
+                             //fech_doc = dateTimePicker3.Text;
+                             //fech_doc = fech_doc.Substring(6, 4) + "-" + fech_doc.Substring(3, 2) + "-" + fech_doc.Substring(0, 2);
+                             //consultamysql.Rows[i][11] = fech_doc;
                          }                         
                      }                     
                 /*}
@@ -1286,7 +1289,9 @@ namespace Nova_Gear.Estrados
                             if (Convert.ToBoolean(dataGridView5[0, i].Value.ToString()) == true)
                             {
                                 sql = "UPDATE estrados SET fecha_firma_alta=\"" + fecha_firm + "\",fecha_publicacion=\"" + fecha_publi + "\",fecha_inicio_not=\"" + fecha_ini_not + "\",fecha_fin_not=\"" + fecha_fin_not + "\",fecha_retiro_not=\"" + fecha_ret_not + "\",hora_not=\"" + maskedTextBox5.Text + "\" WHERE folio=\""+dataGridView5[1,i].Value.ToString()+"\"";
-                                conex.consultar(sql);                                
+                                conex.consultar(sql);
+
+                                conex.guardar_evento("Se editaron las fechas del estrado con Folio: " + dataGridView5[1, i].Value.ToString());
 
                                 toolStripStatusLabel1.Text = "Cargando " + (k + 1) + " de " + tot;
                                 porc = Convert.ToInt32(((k + 1) * 100) / tot);
@@ -1805,7 +1810,7 @@ namespace Nova_Gear.Estrados
         {
             conex0.conectar("base_principal");
             tabla_dias_fest = conex0.consultar("SELECT dia FROM dias_festivos");
-
+            
             dateTimePicker10.Value = cuenta_dias_hab(dateTimePicker11.Value, 1);
             dateTimePicker9.Value = cuenta_dias_hab(dateTimePicker11.Value, 2);
             dateTimePicker8.Value = cuenta_dias_hab(dateTimePicker11.Value, (Convert.ToInt32(dias_not) + 1));

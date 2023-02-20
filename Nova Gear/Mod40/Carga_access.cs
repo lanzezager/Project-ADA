@@ -41,7 +41,7 @@ namespace Nova_Gear.Mod40
 
         //Variables
         String cad_con_ofis,sql_ofis,archivo,nrp,periodo,ext,cve_unit,fecha,nombre,linea,ciclo,nrp_text,nss,periodo_txt;
-        String per_count, mes_cad, periodo_nor, nom_tabla_pa, nom_tabla_as, primer_per, cad_con, quita_non, lista_nrps;
+        String per_count, mes_cad, periodo_nor, nom_tabla_pa, nom_tabla_as, nom_tabla_mo, primer_per, cad_con, quita_non, lista_nrps;
         int tot_row = 0, i = 0, porcentaje = 0, tot1 = 0, band1 = 0, tot_rowsdgv3 = 0, tot_rowsdgv2 = 0,k=0;
         decimal imp_tot=0;
         string[] aux;
@@ -52,14 +52,18 @@ namespace Nova_Gear.Mod40
         DataTable tabla_baja_1 = new DataTable();
         DataTable tabla_excel = new DataTable();
         DataTable tabla_excel1= new DataTable();
+        DataTable tabla_mov = new DataTable();
 
         //Declaracion de elementos para conexion office
         OleDbConnection conexion = null;
         OleDbConnection conexion1 = null;
+        OleDbConnection conexion_mov = null;
         DataSet dataSet = null;
         DataSet dataSet1 = null;
+        DataSet dataSet_mov = null;
         OleDbDataAdapter dataAdapter = null;
         OleDbDataAdapter dataAdapter1 = null;
+        OleDbDataAdapter dataAdapter_mov = null;
 
         //Declaracion de elementos para conexion excel
         OleDbConnection conexion2 = null;
@@ -88,6 +92,7 @@ namespace Nova_Gear.Mod40
 
         	nom_tabla_pa = "CDSUPA" + periodo;
         	nom_tabla_as = "CDSUAS" + periodo;
+            nom_tabla_mo = "CDSUMO" + periodo;
 
         	if ((ext.ToLower()).Equals("mdb"))
         	{
@@ -108,6 +113,31 @@ namespace Nova_Gear.Mod40
                                          label1.Refresh();
                                          progressBar1.Value = 4;
                                          progressBar1.Refresh();
+                                         //MessageBox.Show(lista_nrps);
+
+                                         //************Componer NRP ******
+                                         string[] partes = lista_nrps.Split(',');
+                                         String lista_nrps_temp = "";
+                                         int guion_ind = 0;
+
+                                         for (int ii = 0; ii < partes.Length; ii++)
+                                         {
+                                             while((guion_ind) > -1){
+                                                 guion_ind = partes[ii].IndexOf('-');
+                                                 if(guion_ind > -1){
+                                                    partes[ii] = partes[ii].Remove(guion_ind, 1);
+                                                 }
+                                             }
+
+                                             partes[ii] = partes[ii].Insert(1,"P");
+                                             lista_nrps_temp += partes[ii]+",";
+                                             guion_ind = 0;
+                                         }
+
+                                         lista_nrps = lista_nrps_temp.Substring(0, lista_nrps_temp.Length - 1);
+                                         //************Componer NRP ******
+
+                                         //MessageBox.Show(lista_nrps);
 
                                          sql_ofis = "SELECT RCPS_DEL,RCPS_SUB,RCPS_CVE_UNIT,RCPS_PZA_SUC,RCPS_PER_PAGO,RCPS_NUM_FOL_SUA,RCPS_FECHA_PAGO,RCPS_PATRON " +
                                                  //"FROM " + nom_tabla_pa + " WHERE RCPS_PATRON = \"" + nrp + "\";";
@@ -158,18 +188,20 @@ namespace Nova_Gear.Mod40
                                              dataGridView3.Columns.Add("RCAS_IMP_IV", "RCAS_IMP_IV"); //14
                                              dataGridView3.Columns.Add("RCAS_IMP_CYV", "RCAS_IMP_CYV");//15
                                              dataGridView3.Columns.Add("RCPS_PATRON", "RCPS_PATRON");//16
+                                             dataGridView3.Columns.Add("RCMS_SAL_DIA_INT", "RCMS_SAL_DIA_INT");//17
 
                                              if (Convert.ToInt32(periodo.Substring(2, 4) + periodo.Substring(0, 2)) > 200602)
                                              {
-                                                 dataGridView3.Columns.Add("RCAS_IMP_EYM_ESPE_O", "RCAS_IMP_EYM_ESPE_O");//17
-                                                 dataGridView3.Columns.Add("RCAS_IMP_IV_O", "RCAS_IMP_IV_O");//18
-                                                 dataGridView3.Columns.Add("RCAS_IMP_CYV_O", "RCAS_IMP_CYV_O");//19
+                                                 dataGridView3.Columns.Add("RCAS_IMP_EYM_ESPE_O", "RCAS_IMP_EYM_ESPE_O");//18
+                                                 dataGridView3.Columns.Add("RCAS_IMP_IV_O", "RCAS_IMP_IV_O");//19
+                                                 dataGridView3.Columns.Add("RCAS_IMP_CYV_O", "RCAS_IMP_CYV_O");//20
                                              }
 
                                              //dataGridView3.Columns.Add("RCPS_PATRON", "RCPS_PATRON");//19
 
                                          }));
         		i = 0;
+
         		do{
                     Invoke(new MethodInvoker(delegate
                                      {
@@ -222,20 +254,20 @@ namespace Nova_Gear.Mod40
                                          dataGridView3.Rows[(dataGridView3.RowCount - 1)].Cells[14].Value = dataGridView2.Rows[j].Cells[7].FormattedValue.ToString();
                                          dataGridView3.Rows[(dataGridView3.RowCount - 1)].Cells[15].Value = dataGridView2.Rows[j].Cells[8].FormattedValue.ToString();
                                          dataGridView3.Rows[(dataGridView3.RowCount - 1)].Cells[16].Value = dataGridView1.Rows[i].Cells[7].FormattedValue.ToString();
+                                         dataGridView3.Rows[(dataGridView3.RowCount - 1)].Cells[17].Value = "0.00";
 
                                          if (Convert.ToInt32(periodo.Substring(2, 4) + periodo.Substring(0, 2)) > 200602)
                                          {
-                                             dataGridView3.Rows[(dataGridView3.RowCount - 1)].Cells[17].Value = dataGridView2.Rows[j].Cells[9].FormattedValue.ToString();
-                                             dataGridView3.Rows[(dataGridView3.RowCount - 1)].Cells[18].Value = dataGridView2.Rows[j].Cells[10].FormattedValue.ToString();
-                                             dataGridView3.Rows[(dataGridView3.RowCount - 1)].Cells[19].Value = dataGridView2.Rows[j].Cells[11].FormattedValue.ToString();
+                                             dataGridView3.Rows[(dataGridView3.RowCount - 1)].Cells[18].Value = dataGridView2.Rows[j].Cells[9].FormattedValue.ToString();
+                                             dataGridView3.Rows[(dataGridView3.RowCount - 1)].Cells[19].Value = dataGridView2.Rows[j].Cells[10].FormattedValue.ToString();
+                                             dataGridView3.Rows[(dataGridView3.RowCount - 1)].Cells[20].Value = dataGridView2.Rows[j].Cells[11].FormattedValue.ToString();
                                          }
 
 
                                      }));
 	        			j++;
-        			}while(j<k);
-        			
-        			
+        			}while(j<k);   
+
         			i++;
                     Invoke(new MethodInvoker(delegate
                     {
@@ -243,6 +275,44 @@ namespace Nova_Gear.Mod40
                     }));
         			
         		}while(i < tot_row);
+
+
+                //EXTRAER SALARIO INICIO -----------------------------------------------------
+                String cve_u="", num_a="";
+ 
+                for (int gi = 0; gi < dataGridView3.RowCount; gi++)
+                {
+
+                    cve_u = dataGridView3[2, gi].Value.ToString();
+                    num_a = dataGridView3[7, gi].Value.ToString();
+
+                    sql_ofis = "SELECT RCMS_SAL_DIA_INT " +
+                               "FROM " + nom_tabla_mo + " WHERE RCMS_CVE_UNIT = \"" + cve_u + "\" AND RCMS_NUM_AFIL =\""+num_a+"\" ORDER BY RCMS_NUM_AFIL DESC";
+
+                    dataAdapter_mov = new OleDbDataAdapter(sql_ofis, conexion); //traemos los datos de la hoja y las guardamos en un dataSdapter
+                    dataSet_mov = new DataSet(); // creamos la instancia del objeto DataSet
+                    dataAdapter_mov.Fill(dataSet_mov, nom_tabla_mo);//llenamos el dataset
+
+                    tabla_mov = dataSet_mov.Tables[0]; //le asignamos al DataGridView el contenido del dataSet
+
+                    
+                   
+                    if (tabla_mov.Rows.Count > 0)
+                    {
+                        dataGridView3[17, gi].Value = tabla_mov.Rows[0][0].ToString();
+                        //MessageBox.Show("clave: " + cve_u + ", num_afil: " + num_a + ", total_tabla_mov: " + tabla_mov.Rows.Count.ToString() + ", salario: " + tabla_mov.Rows[0][0].ToString());                        
+                    }
+
+                    Invoke(new MethodInvoker(delegate
+                    {
+                        label2.Text = "Extrayendo Salarios de Asegurados... " + (gi + 1) + " de " + dataGridView3.RowCount;
+                        label2.Refresh();
+                    }));
+             
+                }
+
+                //EXTRAER SALARIO FIN -----------------------------------------------------
+
         		//MessageBox.Show(""+dataGridView3.Rows.Count);
         		conexion.Close();//cerramos la conexion
         		
@@ -315,7 +385,7 @@ namespace Nova_Gear.Mod40
                         	Invoke(new MethodInvoker(delegate
                             {
                             conex.consultar("INSERT INTO mod40_sua (del,sub,cve_unit,registro_patronal,nss,rfc,curp,nombre_trabajador,dias_cotizados,pza_sucursal," +
-                                "periodo_pago,folio_sua,fecha_pago,imp_eym_pree,imp_inv_vida,imp_cesa_y_vej,imp_eym_pree_o,imp_inv_vida_o,imp_cesa_y_vej_o,per_cd_sua,tipo_modalidad,importe_pago,imp_ret) " +
+                                "periodo_pago,folio_sua,fecha_pago,imp_eym_pree,imp_inv_vida,imp_cesa_y_vej,imp_eym_pree_o,imp_inv_vida_o,imp_cesa_y_vej_o,per_cd_sua,tipo_modalidad,importe_pago,imp_ret,salario_diario) " +
                                             "VALUES(\"" + dataGridView3.Rows[i].Cells[0].FormattedValue.ToString() + "\"," +//del
                                             "\"" + dataGridView3.Rows[i].Cells[1].FormattedValue.ToString() + "\"," +  //sub
                                             "\"" + dataGridView3.Rows[i].Cells[2].FormattedValue.ToString() + "\"," +//cve_unit
@@ -339,7 +409,8 @@ namespace Nova_Gear.Mod40
                                             "" + periodo_nor + "," +//per_cd_sua
                                             "\"40\"," +//tipo_modalidad
                                             "" + imp_tot + "," +//importe pago
-                                            "" + dataGridView3.Rows[i].Cells[12].FormattedValue.ToString() + "" +//importe RET
+                                            "" + dataGridView3.Rows[i].Cells[12].FormattedValue.ToString() + "," +//importe RET
+                                            "" + dataGridView3.Rows[i].Cells[17].FormattedValue.ToString() + "" +//sal_diario
                                             " )");
                             }));
 
@@ -352,14 +423,14 @@ namespace Nova_Gear.Mod40
                                 Convert.ToDecimal(dataGridView3.Rows[i].Cells[13].FormattedValue.ToString()) +
                                 Convert.ToDecimal(dataGridView3.Rows[i].Cells[14].FormattedValue.ToString()) +
                                 Convert.ToDecimal(dataGridView3.Rows[i].Cells[15].FormattedValue.ToString()) +
-                                Convert.ToDecimal(dataGridView3.Rows[i].Cells[17].FormattedValue.ToString()) +
                                 Convert.ToDecimal(dataGridView3.Rows[i].Cells[18].FormattedValue.ToString()) +
-                                Convert.ToDecimal(dataGridView3.Rows[i].Cells[19].FormattedValue.ToString());
+                                Convert.ToDecimal(dataGridView3.Rows[i].Cells[19].FormattedValue.ToString()) +
+                                Convert.ToDecimal(dataGridView3.Rows[i].Cells[20].FormattedValue.ToString());
 							}));
                         	Invoke(new MethodInvoker(delegate
                             {
                             conex.consultar("INSERT INTO mod40_sua (del,sub,cve_unit,registro_patronal,nss,rfc,curp,nombre_trabajador,dias_cotizados,pza_sucursal,periodo_pago," +
-                                "folio_sua,fecha_pago,imp_eym_pree,imp_inv_vida,imp_cesa_y_vej,imp_eym_pree_o,imp_inv_vida_o,imp_cesa_y_vej_o,per_cd_sua,tipo_modalidad,importe_pago,imp_ret) " +
+                                "folio_sua,fecha_pago,imp_eym_pree,imp_inv_vida,imp_cesa_y_vej,imp_eym_pree_o,imp_inv_vida_o,imp_cesa_y_vej_o,per_cd_sua,tipo_modalidad,importe_pago,imp_ret,salario_diario) " +
                                             "VALUES(\"" + dataGridView3.Rows[i].Cells[0].FormattedValue.ToString() + "\"," +//del
                                             "\"" + dataGridView3.Rows[i].Cells[1].FormattedValue.ToString() + "\"," +  //sub
                                             "\"" + dataGridView3.Rows[i].Cells[2].FormattedValue.ToString() + "\"," +//cve_unit
@@ -376,13 +447,14 @@ namespace Nova_Gear.Mod40
                                             "" + dataGridView3.Rows[i].Cells[13].FormattedValue.ToString() + "," +//eym_pree
                                             "" + dataGridView3.Rows[i].Cells[14].FormattedValue.ToString() + "," +//eym_vida
                                             "" + dataGridView3.Rows[i].Cells[15].FormattedValue.ToString() + "," +//eym_cesa_vej
-                                            "" + dataGridView3.Rows[i].Cells[17].FormattedValue.ToString() + "," +//eym_pree_o
-                                            "" + dataGridView3.Rows[i].Cells[18].FormattedValue.ToString() + "," +//eym_vida_o
-                                            "" + dataGridView3.Rows[i].Cells[19].FormattedValue.ToString() + "," +//eym_cesa_vej_o
+                                            "" + dataGridView3.Rows[i].Cells[18].FormattedValue.ToString() + "," +//eym_pree_o
+                                            "" + dataGridView3.Rows[i].Cells[19].FormattedValue.ToString() + "," +//eym_vida_o
+                                            "" + dataGridView3.Rows[i].Cells[20].FormattedValue.ToString() + "," +//eym_cesa_vej_o
                                             "" + periodo_nor + "," +//per_cd_sua
                                             "\"40\"," +//tipo_modalidad
                                             "" + imp_tot + "," +//importe pago
-                                            "" + dataGridView3.Rows[i].Cells[12].FormattedValue.ToString() + "" +//importe RET
+                                            "" + dataGridView3.Rows[i].Cells[12].FormattedValue.ToString() + "," +//importe RET
+                                            "" + dataGridView3.Rows[i].Cells[17].FormattedValue.ToString() + "" +//sal_diario
                                             " )");
                                 }));
                         }
@@ -461,9 +533,9 @@ namespace Nova_Gear.Mod40
         		linea = t4.ReadLine();
         		if (linea.Length > 115)
         		{
-        			if (linea.Substring(105, 5).Equals("CICLO"))
+        			if (linea.Substring(97, 5).Equals("CICLO"))
         			{
-        				ciclo = linea.Substring(112, 7);
+        				ciclo = linea.Substring(105, 7);
         				ciclo = ciclo.Substring(3, 4) + ciclo.Substring(0, 2);
         				//MessageBox.Show(ciclo);
         			}
@@ -471,6 +543,7 @@ namespace Nova_Gear.Mod40
                     for (int x = 0; x < tablanrps.Rows.Count; x++)
                     {
                       //if (linea.Substring(2, 14).Equals(nrp_text))
+                        //MessageBox.Show(tablanrps.Rows[x][0].ToString());
                         if (linea.Substring(2, 14).Equals(tablanrps.Rows[x][0].ToString()))
                         {
                             nss = linea.Substring(19, 15);
@@ -488,6 +561,7 @@ namespace Nova_Gear.Mod40
         		i++;
         	}//fin lectura
 
+            //MessageBox.Show(ciclo);
         	//*********Proceso****************************************************
         	
         	conex.conectar("base_principal");
@@ -512,15 +586,16 @@ namespace Nova_Gear.Mod40
         	j = 0;
         	band1 = 0;
         	/***-----------------*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*PROCESO*/
-        	do{
+            while (i < tot_row){
         		Invoke(new MethodInvoker(delegate
         		                         {
         		                         	dataGridView2.DataSource = null;
         		                         	nss = dataGridView1.Rows[i].Cells[0].FormattedValue.ToString();
                                             nrp_text = tablanrp_guarda.Rows[i][0].ToString();
-                                            //MessageBox.Show(ciclo + "-" + calcula_periodo_min(ciclo));
+                                            //MessageBox.Show(ciclo + "-" + calcula_periodo_min(ciclo)+" nss: "+nss);
                                             dataGridView2.DataSource = conex.consultar("SELECT nombre_trabajador,periodo_pago FROM mod40_sua WHERE nss=\"" + nss + "\" AND  (periodo_pago BETWEEN \"" + calcula_periodo_min(ciclo) + "\" AND  \"" + ciclo + "\") ORDER BY periodo_pago ASC");///////esta es la linea a modiifcar
         		                         	tot1=dataGridView2.RowCount;
+                                            //MessageBox.Show(ciclo + "-" + calcula_periodo_min(ciclo) + " coincidencias en la bd: " + tot1);
         		                         	j=0;
         		                         }));
         		
@@ -945,7 +1020,7 @@ namespace Nova_Gear.Mod40
         		                         	this.Text="Cargar Archivo/CD SUA "+progressBar1.Value+"%";
         		                         }));
         		i++;
-        	}while(i<tot_row);
+            }//fin proceso 1**************--*-*-*-*-*-*-*-**--**
 			
         	tot_rowsdgv3=0;
             tabla_excel.Columns.Add();
@@ -957,9 +1032,10 @@ namespace Nova_Gear.Mod40
             int cont_tabl = 0;
 
         	Invoke(new MethodInvoker(delegate{
-  
-                tot_rowsdgv3=dataGridView3.Rows.Count;
 
+                //label2.Text = "Obteniendo Periodos sin Pago... " + (i+1) + " de " + tot_row;
+                tot_rowsdgv3=dataGridView3.Rows.Count;
+                //MessageBox.Show("Llegó aqui : antes del while de formato de celdas y tot_rowsdgv3= "+tot_rowsdgv3);
                 while (cont_tabl < tot_rowsdgv3)
                 {
                     tabla_excel.Rows.Add(dataGridView3.Rows[cont_tabl].Cells[0].FormattedValue.ToString(),
@@ -974,44 +1050,47 @@ namespace Nova_Gear.Mod40
                 tot_rowsdgv3 = tabla_excel.Rows.Count;
         	                         }));
 
-        	
-			if(tot_rowsdgv3>0){
-        		//ARREGLAR PERIODOS DOBLES
-        		k = 0;
-        		DataTable caja_lista = new DataTable();
-        		DataTable consulta_completa = new DataTable();
-        		DataView vista = new DataView(consulta_completa);
-        		
-        		if(tabla_baja_1.Columns.Count<=0){
-        			tabla_baja.Columns.Add();
-        			tabla_baja.Columns.Add();
-        			tabla_baja.Columns.Add();
-        			tabla_baja.Columns.Add();
-        			
-        			tabla_baja_1.Columns.Add();
-        			tabla_baja_1.Columns.Add();
-        			tabla_baja_1.Columns.Add();
-        			tabla_baja_1.Columns.Add();
+            //MessageBox.Show("Llegó aqui : antes del if Arreglar periodos dobles, tot_rowsdgv3= " + tot_rowsdgv3);
+            if (tot_rowsdgv3 > 0)
+            {
+                //MessageBox.Show("Llegó aqui : Arreglar periodos dobles (entró al if ");
+                //ARREGLAR PERIODOS DOBLES
+                k = 0;
+                DataTable caja_lista = new DataTable();
+                DataTable consulta_completa = new DataTable();
+                DataView vista = new DataView(consulta_completa);
 
-        			conex.conectar("base_principal");
-        			concat_nss = "-";
-        			concat_per = "";
-        			Invoke(new MethodInvoker(delegate
-        			                         {
-        			                         	dataGridView1.DataSource=null;
-        			                         	dataGridView1.Columns.Clear();
+                if (tabla_baja_1.Columns.Count <= 0)
+                {
+                    tabla_baja.Columns.Add();
+                    tabla_baja.Columns.Add();
+                    tabla_baja.Columns.Add();
+                    tabla_baja.Columns.Add();
 
-        			                         }));
-        			String sql,anterior,actual="",actual_nss="",periodo_bd="",anterior_nss="";
-        			anterior="";
-        			int cont_caja=0,res_repe=0,tot_filas=0,guardar_en_grid=0;
-        			
-        			
-        			do
-        			{
-        				cont_caja=0;
-        				Invoke(new MethodInvoker(delegate
-        			                         {
+                    tabla_baja_1.Columns.Add();
+                    tabla_baja_1.Columns.Add();
+                    tabla_baja_1.Columns.Add();
+                    tabla_baja_1.Columns.Add();
+
+                    conex.conectar("base_principal");
+                    concat_nss = "-";
+                    concat_per = "";
+                    Invoke(new MethodInvoker(delegate
+                                             {
+                                                 dataGridView1.DataSource = null;
+                                                 dataGridView1.Columns.Clear();
+
+                                             }));
+                    String sql, anterior, actual = "", actual_nss = "", periodo_bd = "", anterior_nss = "";
+                    anterior = "";
+                    int cont_caja = 0, res_repe = 0, tot_filas = 0, guardar_en_grid = 0;
+
+
+                    do
+                    {
+                        cont_caja = 0;
+                        Invoke(new MethodInvoker(delegate
+                                             {
 
                                                  actual = tabla_excel.Rows[k][3].ToString();
                                                  actual_nss = tabla_excel.Rows[k][1].ToString();
@@ -1020,40 +1099,45 @@ namespace Nova_Gear.Mod40
                                                  //actual = dataGridView3.Rows[k].Cells[3].FormattedValue.ToString();
                                                  //actual_nss = dataGridView3.Rows[k].Cells[1].FormattedValue.ToString();
                                                  //primer_per = dataGridView3.Rows[k].Cells[4].FormattedValue.ToString();
-                                                 
+
                                                  label2.Text = "Analizando Datos Asegurados... " + k + " de " + tot_rowsdgv3;
-                                                 label2.Refresh(); 
+                                                 label2.Refresh();
                                                  barra_progreso_txt3();
                                                  this.Text = "Cargar Archivo/CD SUA " + progressBar1.Value + "%";
-        				                     }));
-        			
-        				if(!actual_nss.Equals(anterior_nss)){
-        					sql = "SELECT fecha_pago,periodo_pago FROM base_principal.mod40_sua WHERE nss=\"" + actual_nss + "\"";
-        					consulta_completa = conex.consultar(sql);
-        					vista.Table=consulta_completa;
-        					anterior_nss = actual_nss;
-        				}
-        				
-        				do{
-        					if(caja_lista.Rows.Count>0){
-        						//MessageBox.Show(caja_lista.Rows[cont_caja][0].ToString());
-        						if(actual.Equals(caja_lista.Rows[cont_caja][0].ToString())){
-        							//MessageBox.Show(caja_lista.Rows[cont_caja][0].ToString());
-        							res_repe=1;
-        						}
-        					}
-        					cont_caja++;
-        				}while(cont_caja < caja_lista.Rows.Count);
-        				
-        				if(res_repe==0){
+                                             }));
+
+                        if (!actual_nss.Equals(anterior_nss))
+                        {
+                            sql = "SELECT fecha_pago,periodo_pago FROM base_principal.mod40_sua WHERE nss=\"" + actual_nss + "\"";
+                            consulta_completa = conex.consultar(sql);
+                            vista.Table = consulta_completa;
+                            anterior_nss = actual_nss;
+                        }
+
+                        do
+                        {
+                            if (caja_lista.Rows.Count > 0)
+                            {
+                                //MessageBox.Show(caja_lista.Rows[cont_caja][0].ToString());
+                                if (actual.Equals(caja_lista.Rows[cont_caja][0].ToString()))
+                                {
+                                    //MessageBox.Show(caja_lista.Rows[cont_caja][0].ToString());
+                                    res_repe = 1;
+                                }
+                            }
+                            cont_caja++;
+                        } while (cont_caja < caja_lista.Rows.Count);
+
+                        if (res_repe == 0)
+                        {
                             if (!actual.Equals(primer_per))
                             {
-                                
+
                                 Invoke(new MethodInvoker(delegate
                                 {
-                                	vista.RowFilter="periodo_pago='" + actual + "'";
-                                	vista.Sort="fecha_pago ASC";
-                                    dataGridView1.DataSource= vista;
+                                    vista.RowFilter = "periodo_pago='" + actual + "'";
+                                    vista.Sort = "fecha_pago ASC";
+                                    dataGridView1.DataSource = vista;
                                     tot_filas = dataGridView1.Rows.Count;
                                 }));
                                 //MessageBox.Show(sql);
@@ -1110,9 +1194,10 @@ namespace Nova_Gear.Mod40
                                     }
                                 }
                             }
-        					   anterior=actual;
-                            
-        					Invoke(new MethodInvoker(delegate{
+                            anterior = actual;
+
+                            Invoke(new MethodInvoker(delegate
+                            {
                                 if (guardar_en_grid == 1)
                                 {
                                     dataGridView3.Rows.Add(tabla_excel.Rows[k][0].ToString(),
@@ -1128,7 +1213,7 @@ namespace Nova_Gear.Mod40
                                         dataGridView3.Rows.Add(tabla_excel.Rows[k][0].ToString(),
                                                            tabla_excel.Rows[k][1].ToString(),
                                                            tabla_excel.Rows[k][2].ToString(),
-                                                           (Convert.ToInt32(concat_per)-1),
+                                                           (Convert.ToInt32(concat_per) - 1),
                                                            tabla_excel.Rows[k][4].ToString());
 
                                         dataGridView3.Rows.Add(tabla_excel.Rows[k][0].ToString(),
@@ -1150,147 +1235,167 @@ namespace Nova_Gear.Mod40
                                     }
                                 }
                                 guardar_en_grid = 0;
-        					                         }));
-        				}
-        				res_repe=0;	
-        				k++;
-        			} while (k < tot_rowsdgv3);
-        			//FIN PERIODOS DOBLES
-        			
-        			tabla_excel1.Columns.Add("REG_PAT");
-		            tabla_excel1.Columns.Add("NSS");
-		            tabla_excel1.Columns.Add("NOMBRE");
-		            tabla_excel1.Columns.Add("PERIODO");
-		            tabla_excel1.Columns.Add("PERIODO_INICIAL");
-        			
-		            cont_tabl=0;
-		            
-		            
-		            Invoke(new MethodInvoker(delegate{
-                    while (cont_tabl < dataGridView3.Rows.Count)
-                	{
-                    	tabla_excel1.Rows.Add(dataGridView3.Rows[cont_tabl].Cells[0].FormattedValue.ToString(),
-                                         dataGridView3.Rows[cont_tabl].Cells[1].FormattedValue.ToString(),
-                                         dataGridView3.Rows[cont_tabl].Cells[2].FormattedValue.ToString(),
-                                         dataGridView3.Rows[cont_tabl].Cells[3].FormattedValue.ToString(),
-                                         dataGridView3.Rows[cont_tabl].Cells[4].FormattedValue.ToString());
-                    	cont_tabl++;
-                	}
-		                                     }));
-		            
-        			try{
-		            	System.IO.File.Delete(@"mod40/temporal_mod40.xlsx");
-		            	}catch(Exception es0){
-        			}
-		            
-		            try{	
-						XLWorkbook wb = new XLWorkbook();	
-						wb.Worksheets.Add(tabla_excel1,"hoja_lz");
-						wb.SaveAs(@"mod40/temporal_mod40.xlsx");
-						
-        			}catch(Exception es){
-        				
-        			}
-        			
-                    //CONSULTA A LA TABLA DE EXCEL
-                    periodo_bd="";
-                    guardar_en_grid=0;
-                    //MessageBox.Show(""+ciclo+"|"+((Convert.ToInt32(ciclo))%2).ToString());
-                    if(((Convert.ToInt32(ciclo))%2) != 0){//periodo de factura non
-                    anio=Convert.ToInt32(ciclo.Substring(0,4));
-                    mes=Convert.ToInt32(ciclo.Substring(4,2));
-		            
-		            mes=mes+1;
-		            
-		            if (mes > 12)
-        			{
-        				mes = 2;
-        				anio++;
-        			}
-		            
-		            if(mes < 10){
-        				mes_cad = "0" + mes;
-        			}else{
-        				mes_cad = mes.ToString();
-        			}
-		            
-		            periodo_bd=anio.ToString()+mes_cad;
-		            
-		            guardar_en_grid=1;
-		            
-                    }
-        			
-                    //MessageBox.Show("periodo="+periodo_bd);
-                    
-                    Invoke(new MethodInvoker(delegate{
-                    cad_con = "provider=Microsoft.ACE.OLEDB.12.0;Data Source='mod40/temporal_mod40.xlsx';Extended Properties=Excel 12.0;";
-					conexion = new OleDbConnection(cad_con);//creamos la conexion con la hoja de excel
-					conexion.Open();
-                                             
-					carga_excel("Select distinct ([NSS]) from [hoja_lz$]");//carga en dgv1
-					tot_rowsdgv3=dataGridView1.RowCount;
-					conexion.Close();
-					
-					dataGridView3.Rows.Clear();
-					dataGridView3.DataSource=null;
+                            }));
+                        }
+                        res_repe = 0;
+                        k++;
+                    } while (k < tot_rowsdgv3);
+                    //FIN PERIODOS DOBLES
+
+                    tabla_excel1.Columns.Add("REG_PAT");
+                    tabla_excel1.Columns.Add("NSS");
+                    tabla_excel1.Columns.Add("NOMBRE");
+                    tabla_excel1.Columns.Add("PERIODO");
+                    tabla_excel1.Columns.Add("PERIODO_INICIAL");
+
+                    cont_tabl = 0;
+
+
+                    Invoke(new MethodInvoker(delegate
+                    {
+                        while (cont_tabl < dataGridView3.Rows.Count)
+                        {
+                            tabla_excel1.Rows.Add(dataGridView3.Rows[cont_tabl].Cells[0].FormattedValue.ToString(),
+                                             dataGridView3.Rows[cont_tabl].Cells[1].FormattedValue.ToString(),
+                                             dataGridView3.Rows[cont_tabl].Cells[2].FormattedValue.ToString(),
+                                             dataGridView3.Rows[cont_tabl].Cells[3].FormattedValue.ToString(),
+                                             dataGridView3.Rows[cont_tabl].Cells[4].FormattedValue.ToString());
+                            cont_tabl++;
+                        }
                     }));
-                    
-					cad_con = "provider=Microsoft.ACE.OLEDB.12.0;Data Source='mod40/temporal_mod40.xlsx';Extended Properties=Excel 12.0;";
-					conexion1 = new OleDbConnection(cad_con);//creamos la conexion con la hoja de excel
-					conexion1.Open();
-					k=0;
-					tabla_baja.Rows.Clear();
-					tabla_excel1.Rows.Clear();
-					
-			
-					do{
-						Invoke(new MethodInvoker(delegate{
-						    //progreso inicio
+
+                    try
+                    {
+                        System.IO.File.Delete(@"mod40/temporal_mod40.xlsx");
+                    }
+                    catch (Exception es0)
+                    {
+                    }
+
+                    try
+                    {
+                        XLWorkbook wb = new XLWorkbook();
+                        wb.Worksheets.Add(tabla_excel1, "hoja_lz");
+                        wb.SaveAs(@"mod40/temporal_mod40.xlsx");
+
+                    }
+                    catch (Exception es)
+                    {
+
+                    }
+
+                    //CONSULTA A LA TABLA DE EXCEL
+                    periodo_bd = "";
+                    guardar_en_grid = 0;
+                    //MessageBox.Show(""+ciclo+"|"+((Convert.ToInt32(ciclo))%2).ToString());
+                    if (((Convert.ToInt32(ciclo)) % 2) != 0)
+                    {//periodo de factura non
+                        anio = Convert.ToInt32(ciclo.Substring(0, 4));
+                        mes = Convert.ToInt32(ciclo.Substring(4, 2));
+
+                        mes = mes + 1;
+
+                        if (mes > 12)
+                        {
+                            mes = 2;
+                            anio++;
+                        }
+
+                        if (mes < 10)
+                        {
+                            mes_cad = "0" + mes;
+                        }
+                        else
+                        {
+                            mes_cad = mes.ToString();
+                        }
+
+                        periodo_bd = anio.ToString() + mes_cad;
+
+                        guardar_en_grid = 1;
+
+                    }
+
+                    //MessageBox.Show("periodo="+periodo_bd);
+
+                    Invoke(new MethodInvoker(delegate
+                    {
+                        cad_con = "provider=Microsoft.ACE.OLEDB.12.0;Data Source='mod40/temporal_mod40.xlsx';Extended Properties=Excel 12.0;";
+                        conexion = new OleDbConnection(cad_con);//creamos la conexion con la hoja de excel
+                        conexion.Open();
+
+                        carga_excel("Select distinct ([NSS]) from [hoja_lz$]");//carga en dgv1
+                        tot_rowsdgv3 = dataGridView1.RowCount;
+                        conexion.Close();
+
+                        dataGridView3.Rows.Clear();
+                        dataGridView3.DataSource = null;
+                    }));
+
+                    cad_con = "provider=Microsoft.ACE.OLEDB.12.0;Data Source='mod40/temporal_mod40.xlsx';Extended Properties=Excel 12.0;";
+                    conexion1 = new OleDbConnection(cad_con);//creamos la conexion con la hoja de excel
+                    conexion1.Open();
+                    k = 0;
+                    tabla_baja.Rows.Clear();
+                    tabla_excel1.Rows.Clear();
+
+
+                    do
+                    {
+                        Invoke(new MethodInvoker(delegate
+                        {
+                            //progreso inicio
                             label2.Text = "Compactando Datos Asegurados... " + k + " de " + tot_rowsdgv3;
                             label2.Refresh();
                             barra_progreso_txt4();
                             this.Text = "Cargar Archivo/CD SUA " + progressBar1.Value + "%";
                             //progreso fin                         	
-						 }));
-						
-						sql="Select distinct([PERIODO]),[REG_PAT],[NSS],[NOMBRE],[PERIODO_INICIAL] from [hoja_lz$] where [NSS]=\""+dataGridView1.Rows[k].Cells[0].FormattedValue.ToString()+"\" order by [PERIODO] asc";
-						dataAdapter1= new OleDbDataAdapter(sql, conexion1); //traemos los datos de la hoja y las guardamos en un dataSdapter
-						dataSet1 = new DataSet();
-						dataAdapter1.Fill(dataSet1, "hoja_lz");//llenamos el dataset
-						//dataGridView3.DataSource = dataSet1.Tables[0]; //le asignamos al DataGridView el contenido del dataSet
+                        }));
 
-						tot_filas=0;
-						concat_per="";
-						//MessageBox.Show("dgv3_rc: "+dataSet1.Tables[0].Rows.Count);
-					//	MessageBox.Show("apunta: "+dataSet1.Tables[0].Rows[tot_filas][2].ToString());
-						
-						do{
-							if(guardar_en_grid==1){
-								if(!dataSet1.Tables[0].Rows[tot_filas][0].ToString().Equals(periodo_bd)){
-									concat_per+=dataSet1.Tables[0].Rows[tot_filas][0].ToString()+",";
-								}
-								
-							}else{
-								concat_per+=dataSet1.Tables[0].Rows[tot_filas][0].ToString()+",";
-							}
-							tot_filas++;
-						}while(tot_filas<dataSet1.Tables[0].Rows.Count);
-					
-						concat_per = concat_per.TrimEnd(',');
-						tabla_baja.Rows.Add(dataSet1.Tables[0].Rows[0][2].ToString(),
-	                                        dataSet1.Tables[0].Rows[0][3].ToString(), concat_per);
-						                         
-						k++;
-					}while(k<dataGridView1.RowCount);
-					
-                    Invoke(new MethodInvoker(delegate{
-					dataGridView2.DataSource = tabla_baja;
-                    tot_rowsdgv2 = dataGridView2.RowCount;
-					                         }));
-        			//COMBINACION DE ASEGURADOS
-      
-        			/*k=0;
-        			concat_per = "";
+                        sql = "Select distinct([PERIODO]),[REG_PAT],[NSS],[NOMBRE],[PERIODO_INICIAL] from [hoja_lz$] where [NSS]=\"" + dataGridView1.Rows[k].Cells[0].FormattedValue.ToString() + "\" order by [PERIODO] asc";
+                        dataAdapter1 = new OleDbDataAdapter(sql, conexion1); //traemos los datos de la hoja y las guardamos en un dataSdapter
+                        dataSet1 = new DataSet();
+                        dataAdapter1.Fill(dataSet1, "hoja_lz");//llenamos el dataset
+                        //dataGridView3.DataSource = dataSet1.Tables[0]; //le asignamos al DataGridView el contenido del dataSet
+
+                        tot_filas = 0;
+                        concat_per = "";
+                        //MessageBox.Show("dgv3_rc: "+dataSet1.Tables[0].Rows.Count);
+                        //	MessageBox.Show("apunta: "+dataSet1.Tables[0].Rows[tot_filas][2].ToString());
+
+                        do
+                        {
+                            if (guardar_en_grid == 1)
+                            {
+                                if (!dataSet1.Tables[0].Rows[tot_filas][0].ToString().Equals(periodo_bd))
+                                {
+                                    concat_per += dataSet1.Tables[0].Rows[tot_filas][0].ToString() + ",";
+                                }
+
+                            }
+                            else
+                            {
+                                concat_per += dataSet1.Tables[0].Rows[tot_filas][0].ToString() + ",";
+                            }
+                            tot_filas++;
+                        } while (tot_filas < dataSet1.Tables[0].Rows.Count);
+
+                        concat_per = concat_per.TrimEnd(',');
+                        tabla_baja.Rows.Add(dataSet1.Tables[0].Rows[0][2].ToString(),
+                                            dataSet1.Tables[0].Rows[0][3].ToString(), concat_per);
+
+                        k++;
+                    } while (k < dataGridView1.RowCount);
+
+                    Invoke(new MethodInvoker(delegate
+                    {
+                        dataGridView2.DataSource = tabla_baja;
+                        tot_rowsdgv2 = dataGridView2.RowCount;
+                    }));
+                    //COMBINACION DE ASEGURADOS
+
+                    /*k=0;
+                    concat_per = "";
                     Invoke(new MethodInvoker(delegate
                     {
                         tot_rowsdgv3 = dataGridView3.RowCount;
@@ -1320,19 +1425,19 @@ namespace Nova_Gear.Mod40
                                 {
                                     if ((Convert.ToInt32(dataGridView3.Rows[k].Cells[3].FormattedValue.ToString()) <= Convert.ToInt32(ciclo)))
                                     {
-                                    	if (k == (dataGridView3.RowCount - 1))
-                                    	{
-	                                        concat_per += dataGridView3.Rows[k].Cells[3].FormattedValue.ToString();
-	                                        concat_per = concat_per.TrimEnd(',');
-	                                        tabla_baja.Rows.Add(dataGridView3.Rows[k].Cells[1].FormattedValue.ToString(),
-	                                                            dataGridView3.Rows[k].Cells[2].FormattedValue.ToString(), concat_per);
-	                                        concat_per = "";
-                                    	}else{
-	                                    	if (!dataGridView3.Rows[k].Cells[3].FormattedValue.ToString().Equals(dataGridView3.Rows[k+1].Cells[3].FormattedValue.ToString()))
-	                            			{
-	                                        	concat_per += dataGridView3.Rows[k].Cells[3].FormattedValue.ToString() + ",";
-	                                    	}
-                                    	}
+                                        if (k == (dataGridView3.RowCount - 1))
+                                        {
+                                            concat_per += dataGridView3.Rows[k].Cells[3].FormattedValue.ToString();
+                                            concat_per = concat_per.TrimEnd(',');
+                                            tabla_baja.Rows.Add(dataGridView3.Rows[k].Cells[1].FormattedValue.ToString(),
+                                                                dataGridView3.Rows[k].Cells[2].FormattedValue.ToString(), concat_per);
+                                            concat_per = "";
+                                        }else{
+                                            if (!dataGridView3.Rows[k].Cells[3].FormattedValue.ToString().Equals(dataGridView3.Rows[k+1].Cells[3].FormattedValue.ToString()))
+                                            {
+                                                concat_per += dataGridView3.Rows[k].Cells[3].FormattedValue.ToString() + ",";
+                                            }
+                                        }
                                     }
                                 }
                             }
@@ -1367,7 +1472,7 @@ namespace Nova_Gear.Mod40
                         dataGridView2.DataSource = tabla_baja;
                         tot_rowsdgv2 = dataGridView2.RowCount;
                     }));*/
-        			
+
                     //FIN COMBINACION ASEGURADOS
 
                     //QUITAR DUPLICADOS INICIO
@@ -1423,113 +1528,150 @@ namespace Nova_Gear.Mod40
                     tabla_excel = (DataTable)(dataGridView2.DataSource);
                     //QUITAR DUPLICADOS FIN
                     */
-                    try{
-						XLWorkbook wb = new XLWorkbook();	
-						wb.Worksheets.Add(tabla_baja,"hoja_lz");
-						wb.SaveAs(@"mod40/temporal_mod40_resultados_sin_recorte.xlsx");
-        			}catch(Exception es){
-        				
-        			}
-                    
-                    //RECORTE PERIODOS/SEPARACION DE MUCHOS Y UNO
-                    Invoke(new MethodInvoker(delegate{
-        			
-                    tabla_excel.Rows.Clear();
-                    tabla_baja_1.Rows.Clear();
-                    
-                    tabla_excel.Columns.Add();
-                    tabla_baja_1.Columns.Add();
-					tabla_baja_1.Columns.Add();
-					tabla_baja_1.Columns.Add();
-					
-                    k=0;
-        			concat_per = "";
-        			int apa=0,x=1,y=1;
-        			do{
-                        //progreso inicio
-                        label2.Text = "Confirmando Asegurados en Mora... " + k + " de " + tot_rowsdgv2;
-                        label2.Refresh();
-                        barra_progreso_txt5();
-                        this.Text = "Cargar Archivo/CD SUA " + progressBar1.Value + "%";
-                        //progreso fin
-        				concat_per=dataGridView2.Rows[k].Cells[2].FormattedValue.ToString();
-        				if(concat_per.Contains(",")){
-        					apa=0;
-        					foreach(char c in concat_per){
-        						if(c.Equals(',')){
-        							apa++;
-        						}
-        					}
-        					//MessageBox.Show(concat_per+" "+apa);
-        					if(apa>=1){
-        						//concat_per=concat_per.Substring(0,13);
-        						tabla_baja_1.Rows.Add(x," ",dataGridView2.Rows[k].Cells[0].FormattedValue.ToString(),
-        						                      dataGridView2.Rows[k].Cells[1].FormattedValue.ToString(),concat_per," ");
-        						x++;
-        					}
-        				}else{
-        					if(concat_per.Length>2){
-        					tabla_excel.Rows.Add(y,dataGridView2.Rows[k].Cells[0].FormattedValue.ToString(),
-        						                      dataGridView2.Rows[k].Cells[1].FormattedValue.ToString(),concat_per," ");
-        					y++;
-        					}
-        				}
+                    try
+                    {
+                        XLWorkbook wb = new XLWorkbook();
+                        wb.Worksheets.Add(tabla_baja, "hoja_lz");
+                        wb.SaveAs(@"mod40/temporal_mod40_resultados_sin_recorte.xlsx");
+                    }
+                    catch (Exception es)
+                    {
 
-        				k++;
-                    } while (k < tot_rowsdgv2);
-        			
-        			}));
+                    }
+
+                    //RECORTE PERIODOS/SEPARACION DE MUCHOS Y UNO
+                    Invoke(new MethodInvoker(delegate
+                    {
+
+                        tabla_excel.Rows.Clear();
+                        tabla_baja_1.Rows.Clear();
+
+                        tabla_excel.Columns.Add();
+                        tabla_baja_1.Columns.Add();
+                        tabla_baja_1.Columns.Add();
+                        tabla_baja_1.Columns.Add();
+
+                        k = 0;
+                        concat_per = "";
+                        int apa = 0, x = 1, y = 1;
+                        do
+                        {
+                            //progreso inicio
+                            label2.Text = "Confirmando Asegurados en Mora... " + k + " de " + tot_rowsdgv2;
+                            label2.Refresh();
+                            barra_progreso_txt5();
+                            this.Text = "Cargar Archivo/CD SUA " + progressBar1.Value + "%";
+                            //progreso fin
+                            concat_per = dataGridView2.Rows[k].Cells[2].FormattedValue.ToString();
+                            if (concat_per.Contains(","))
+                            {
+                                apa = 0;
+                                foreach (char c in concat_per)
+                                {
+                                    if (c.Equals(','))
+                                    {
+                                        apa++;
+                                    }
+                                }
+                                //MessageBox.Show(concat_per+" "+apa);
+                                if (apa >= 1)
+                                {
+                                    //concat_per=concat_per.Substring(0,13);
+                                    tabla_baja_1.Rows.Add(x, " ", dataGridView2.Rows[k].Cells[0].FormattedValue.ToString(),
+                                                          dataGridView2.Rows[k].Cells[1].FormattedValue.ToString(), concat_per, " ");
+                                    x++;
+                                }
+                            }
+                            else
+                            {
+                                if (concat_per.Length > 2)
+                                {
+                                    tabla_excel.Rows.Add(y, dataGridView2.Rows[k].Cells[0].FormattedValue.ToString(),
+                                                              dataGridView2.Rows[k].Cells[1].FormattedValue.ToString(), concat_per, " ");
+                                    y++;
+                                }
+                            }
+
+                            k++;
+                        } while (k < tot_rowsdgv2);
+
+                    }));
                     //FIN RECORTE PERIODOS
 
-        		}
-        		//RESULTADOS
-                
-        		if(tabla_baja_1.Rows.Count>0){
-        			Invoke(new MethodInvoker(delegate{
-        			button4.Visible = true;
-        			try{
-        				k=0;
-        				while(tabla_excel.Columns.Count>5){
-        					tabla_excel.Columns.RemoveAt(tabla_excel.Columns.Count-1);
-        				}
-        				
-        				while(tabla_baja_1.Columns.Count>6){
-        					tabla_baja_1.Columns.RemoveAt(tabla_baja_1.Columns.Count-1);
-        				}
-        				
-        				//tabla_excel
-						XLWorkbook wb = new XLWorkbook();	
-						wb.Worksheets.Add(tabla_excel,"hoja_lz_"+ciclo);
-						wb.SaveAs(@"mod40/mod40_un_periodo.xlsx");
-        				//tabla_baja_1
-						XLWorkbook wb1 = new XLWorkbook();	
-						wb1.Worksheets.Add(tabla_baja_1,"hoja_lz_"+ciclo);
-						wb1.SaveAs(@"mod40/mod40_resultados.xlsx");
-						
-						ZipFile arch = new ZipFile();
-						arch.AddFile(@"mod40/mod40_un_periodo.xlsx","");
-						arch.AddFile(@"mod40/mod40_resultados.xlsx","");
-						arch.Save(@"mod40/analisis_cd_"+ciclo+".LZ40");
-						
-        			}catch(Exception es){
-        				
-        			}
-        			}));
-        		}else{
-        			MessageBox.Show("No Se encontraron Asegurados con Pagos Pendientes","AVISO");
-        		}
-                
-        		Invoke(new MethodInvoker(delegate{
-        		label2.Text = "Se Encontraron " +tabla_baja_1.Rows.Count+" Asegurados con dos o mas Pagos Pendientes";
-        		label2.Refresh();
-        		label1.Text = "100%";
-        		label1.Refresh();
-        		progressBar1.Value = 100;
-        		progressBar1.Refresh();
-        		this.Text="Cargar Archivo/CD SUA "+progressBar1.Value+"%";
-        		conex.guardar_evento("Se realizó una comparación de asegurados con una factura del periodo "+ciclo+", encontrándose " +tabla_baja_1.Rows.Count+" Asegurados con dos o mas Pagos Pendientes");
-        		                         }));
-        	}
+                }
+                //RESULTADOS
+
+                if (tabla_baja_1.Rows.Count > 0)
+                {
+                    Invoke(new MethodInvoker(delegate
+                    {
+                        button4.Visible = true;
+                        try
+                        {
+                            k = 0;
+                            while (tabla_excel.Columns.Count > 5)
+                            {
+                                tabla_excel.Columns.RemoveAt(tabla_excel.Columns.Count - 1);
+                            }
+
+                            while (tabla_baja_1.Columns.Count > 6)
+                            {
+                                tabla_baja_1.Columns.RemoveAt(tabla_baja_1.Columns.Count - 1);
+                            }
+
+                            //tabla_excel
+                            XLWorkbook wb = new XLWorkbook();
+                            wb.Worksheets.Add(tabla_excel, "hoja_lz_" + ciclo);
+                            wb.SaveAs(@"mod40/mod40_un_periodo.xlsx");
+                            //tabla_baja_1
+                            XLWorkbook wb1 = new XLWorkbook();
+                            wb1.Worksheets.Add(tabla_baja_1, "hoja_lz_" + ciclo);
+                            wb1.SaveAs(@"mod40/mod40_resultados.xlsx");
+
+                            ZipFile arch = new ZipFile();
+                            arch.AddFile(@"mod40/mod40_un_periodo.xlsx", "");
+                            arch.AddFile(@"mod40/mod40_resultados.xlsx", "");
+                            arch.Save(@"mod40/analisis_cd_" + ciclo + ".LZ40");
+
+                        }
+                        catch (Exception es)
+                        {
+
+                        }
+                    }));
+                }
+                else
+                {
+                    MessageBox.Show("No Se encontraron Asegurados con Pagos Pendientes", "AVISO");
+                }
+
+                Invoke(new MethodInvoker(delegate
+                {
+                    label2.Text = "Se Encontraron " + tabla_baja_1.Rows.Count + " Asegurados con dos o mas Pagos Pendientes";
+                    label2.Refresh();
+                    label1.Text = "100%";
+                    label1.Refresh();
+                    progressBar1.Value = 100;
+                    progressBar1.Refresh();
+                    this.Text = "Cargar Archivo/CD SUA " + progressBar1.Value + "%";
+                    conex.guardar_evento("Se realizó una comparación de asegurados con una factura del periodo " + ciclo + ", encontrándose " + tabla_baja_1.Rows.Count + " Asegurados con dos o mas Pagos Pendientes");
+                }));
+            }
+            else
+            {
+                Invoke(new MethodInvoker(delegate
+                {
+                    label2.Text = "Ocurrió algo inesperado...";
+                    label2.Refresh();
+                    label1.Text = "100%";
+                    label1.Refresh();
+                    progressBar1.Value = 100;
+                    progressBar1.Refresh();
+                    this.Text = "Cargar Archivo/CD SUA " + progressBar1.Value + "%";
+                }));
+                MessageBox.Show("Todos los periodos se encuentran sin pago, esto ocurre cuando la base de datos se encuentra desactualizada, ingrese los CDs correspondientes para solucionar este error.","ERROR",MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
+                this.Close();
+            }
         	 //}
         	// catch (Exception error)
         	// {
@@ -1618,7 +1760,7 @@ namespace Nova_Gear.Mod40
         {
             String per_min="";
             int per_anio = 0, per_mes = 0;
-
+            //proceso para bajarle 4 meses al periodo
             per_anio = Convert.ToInt32(per_max.Substring(0, 4));//2020
             per_mes = Convert.ToInt32(per_max.Substring(4, 2));//06
 
@@ -1693,12 +1835,12 @@ namespace Nova_Gear.Mod40
                         //MessageBox.Show(tablanrps.Rows[0][0].ToString());
                         lista_nrps="";
                         for(int x=0; x<tablanrps.Rows.Count;x++){
-                            lista_nrps += "\"P"+tablanrps.Rows[x][0].ToString()+"\",";
+                            lista_nrps += "\""+tablanrps.Rows[x][0].ToString()+"\",";
                         }
 
                         lista_nrps=lista_nrps.Substring(0, lista_nrps.Length - 1);
 
-                       // MessageBox.Show(lista_nrps);
+                        //MessageBox.Show(lista_nrps);
                     }
                 }
                 catch (AccessViolationException ex)

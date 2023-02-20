@@ -125,7 +125,7 @@ namespace Nova_Gear
 			//MessageBox.Show(user);
 			conectar("base_principal");
 			consultar("INSERT INTO log_eventos (dia_hora,evento,usuario) VALUES (\""+fecha+"\",\""+evento+"\",\""+user+"\" )");
-			
+            cerrar();
 		}
         
         public String linea_evento(String evento){

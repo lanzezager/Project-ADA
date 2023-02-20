@@ -48,6 +48,8 @@ namespace Nova_Gear
 		double cuo_o=0,cuo_a=0,rec=0,imp_mul=0,imp_tot=0,por=0,tot1=0,tot2=0,totr=0;
 		char espacio=' ';
 
+        public static int tipo_anual = 0;
+
 		Conexion conex = new Conexion();
 		DataTable consultamysql = new DataTable();
 		
@@ -1634,10 +1636,6 @@ namespace Nova_Gear
 		{
 			
 			if ((radioButton1.Checked)||(radioButton2.Checked)||(radioButton5.Checked)){
-				panel1.Visible=false;
-				this.Height=400;
-				button1.Enabled=true;
-				button5.Enabled=false;
 				
 				if(radioButton1.Checked){
 					this.Text="Nova Gear: Lector de Facturas - COP";
@@ -1648,11 +1646,37 @@ namespace Nova_Gear
 				}
 				
 				if(radioButton5.Checked){
-					this.Text="Nova Gear: Lector de Facturas - Oficio";
+
+                    Selector_RT_CLEM sel = new Selector_RT_CLEM();
+                    sel.ShowDialog();
+
+                    if (tipo_anual == 1)
+                    {
+                        this.Text = "Nova Gear: Lector de Facturas - Oficio";
+                        tipo_anual = 0;
+                    }
+                    else
+                    {
+                        if (tipo_anual == 2)
+                        {
+                            Lector_CLEM lector = new Lector_CLEM();
+                            tipo_anual = 0;                            
+                            lector.Show();
+                        }
+
+                        this.Hide();
+                    }
+
 				}
+
+                panel1.Visible = false;
+                this.Height = 400;
+                button1.Enabled = true;
+                button5.Enabled = false;
 			}
 			
 			if((radioButton3.Checked)||(radioButton4.Checked)||(radioButton6.Checked)){
+                panel1.Visible = false;
 				panel2.Visible=true;
 				this.Height=535;
 				
@@ -1885,6 +1909,7 @@ namespace Nova_Gear
 		void Button7Click(object sender, EventArgs e)
 		{
 			panel2.Visible=false;
+            panel1.Visible = true;
 			textBox3.Text="";
 			comboBox1.Items.Clear();
 			comboBox1.Text="";

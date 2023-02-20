@@ -679,6 +679,8 @@ namespace Nova_Gear.Estrados
                     {
                         conex.consultar("UPDATE datos_factura SET pags_pdf=\"" + dataGridView1[5, i].Value.ToString() + "-" + dataGridView1[6, i].Value.ToString() + "\" WHERE registro_patronal2=\"" + dataGridView1[2, i].Value.ToString() + "\" and credito_cuotas=\"" + dataGridView1[3, i].Value.ToString() + "\" and credito_multa=\"" + dataGridView1[4, i].Value.ToString() + "\"");
                     }
+
+                    conex.guardar_evento("Se añadieron los número de pagina de archivo PDF de "+dataGridView1.RowCount+" creditos");
                     conex.cerrar();
                     MessageBox.Show("La información fue guardada correctamente", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                 }

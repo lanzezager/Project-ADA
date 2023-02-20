@@ -256,10 +256,13 @@ namespace Nova_Gear
                         button48.Enabled = true;
                         button39.Enabled = true;
                         button39.Visible = true;
+                        button50.Visible = true;
+                        button50.Enabled = true;
 						
 						//Opciones
 						button17.Enabled=true;
 						button23.Enabled=true;
+                        
 						
                         
 			    break;
@@ -553,7 +556,7 @@ namespace Nova_Gear
            toolTip1.SetToolTip(button15, "Generar Reportes");
            toolTip1.SetToolTip(button16, "Captura de\nAjuste Manual");
            toolTip1.SetToolTip(button17, "Lista de\nUsuarios");
-           toolTip1.SetToolTip(button18, "Captura de Cambio a Incidencia 02 \n(Necesario Folio SICOFI)");
+           toolTip1.SetToolTip(button18, "Captura de Ajuste Manual\nAlternativa");
            toolTip1.SetToolTip(button19, "Captura de Estrados");
            toolTip1.SetToolTip(button20, "Sectorización");
            toolTip1.SetToolTip(button21, "Capturar Fechas\nProductos");
@@ -580,6 +583,7 @@ namespace Nova_Gear
            ruta = @"\\" + ruta + @"\Nova_Gear\Recursos\Imagenes\Usuarios\";
 
            pictureBox1.ImageLocation = ruta + datos_usuario[3];
+           toolTip1.SetToolTip(pictureBox1, ruta + datos_usuario[3]);
            pictureBox1.Visible = true;
 
            //conex.guardar_evento("Si Chacho la funcion1");
@@ -1189,6 +1193,13 @@ namespace Nova_Gear
             Automatizacion.Fenix_automat fenix_auto = new Automatizacion.Fenix_automat();
             fenix_auto.Show();
             fenix_auto.Focus();
+        }
+
+        private void button50_Click(object sender, EventArgs e)
+        {
+            Limpiador_Nova limpia_nova = new Limpiador_Nova();
+            limpia_nova.Show();
+            limpia_nova.Focus();
         }
 }
 }

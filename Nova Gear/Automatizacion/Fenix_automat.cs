@@ -33,6 +33,7 @@ namespace Nova_Gear.Automatizacion
             //Crear archivos nuevos
             fichero = System.IO.File.Create(@"fenix_automat/temp.LZ");
             ruta = fichero.Name;
+            fichero.Close();
         }
 
         private void button26_Click(object sender, EventArgs e)
@@ -159,6 +160,46 @@ namespace Nova_Gear.Automatizacion
         {
             config_fenix fenix_config = new config_fenix(1);
             fenix_config.ShowDialog();
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            String bat_name = "fenix14.bat";
+
+            if (File.Exists(@"" + bat_name) == true)
+            {
+                System.IO.File.Delete(@"" + bat_name);
+            }
+
+            StreamWriter wr1 = new StreamWriter(@"" + bat_name);
+            wr1.WriteLine("@echo off");
+            wr1.WriteLine("" + ruta.Substring(0, 1) + ":");
+            wr1.WriteLine("cd " + ruta.Substring(0, (ruta.Length - 8)));
+            wr1.WriteLine("start Fenix_PDF_Extract.exe");
+
+            wr1.Close();
+
+            System.Diagnostics.Process.Start(@"" + bat_name);
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            String bat_name = "fenix15.bat";
+
+            if (File.Exists(@"" + bat_name) == true)
+            {
+                System.IO.File.Delete(@"" + bat_name);
+            }
+
+            StreamWriter wr1 = new StreamWriter(@"" + bat_name);
+            wr1.WriteLine("@echo off");
+            wr1.WriteLine("" + ruta.Substring(0, 1) + ":");
+            wr1.WriteLine("cd " + ruta.Substring(0, (ruta.Length - 8)));
+            wr1.WriteLine("start X_Zone.exe");
+
+            wr1.Close();
+
+            System.Diagnostics.Process.Start(@"" + bat_name);
         }
     }
 }

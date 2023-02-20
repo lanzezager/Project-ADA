@@ -21,6 +21,7 @@ namespace Nova_Gear.Supernova
 
         int id_con,mode;
         Super_conexion conex = new Super_conexion();
+        //Conexion conexion_original = new Conexion();
         DataTable datos_conex = new DataTable();
         DataTable datos_verif = new DataTable();
         DataTable datos_verif2 = new DataTable();
@@ -114,10 +115,13 @@ namespace Nova_Gear.Supernova
                              {
                                  conex.consultar("INSERT INTO conexiones (del_nom,del_num,sub_nom,sub_num,estado,municipio,usuario,contrasena,nombre_bd,ip_servidor) " +
                                                 " VALUES (\"" + textBox1.Text + "\"," + textBox2.Text + ",\"" + textBox3.Text + "\"," + textBox4.Text + ",\"" + comboBox1.SelectedItem.ToString() + "\",\"" + textBox5.Text + "\",\"" + textBox6.Text + "\",AES_ENCRYPT(\"" + textBox7.Text + "\", \"Nova Gear & AKD ATLAS & LZ RULES!!!\"),\"" + textBox8.Text + "\",\"" + textBox9.Text + "\")");
+
+                                 //conexion_original.guardar_evento("SUPERNOVA: se creó una nueva conexión");
                              }
                              else
                              {
                                  conex.consultar("UPDATE conexiones SET del_nom=\"" + textBox1.Text + "\",del_num=" + textBox2.Text + ",sub_nom=\"" + textBox3.Text + "\",sub_num=" + textBox4.Text + ",estado=\"" + comboBox1.SelectedItem.ToString() + "\",municipio=\"" + textBox5.Text + "\",usuario=\"" + textBox6.Text + "\",contrasena=AES_ENCRYPT(\"" + textBox7.Text + "\", \"Nova Gear & AKD ATLAS & LZ RULES!!!\"),nombre_bd=\"" + textBox8.Text + "\", ip_servidor=\"" + textBox9.Text + "\"  WHERE idconexiones=" + id_con);
+                                
                              }
 
                              MessageBox.Show("Datos Guardados Correctamente", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);

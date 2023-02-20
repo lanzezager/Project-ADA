@@ -34,6 +34,7 @@ namespace Nova_Gear
             //Crear archivos nuevos
             fichero = System.IO.File.Create(@"fenix_estrados/temp.LZ");         
             ruta = fichero.Name;
+            fichero.Close();
         }
 
         private void button26_Click(object sender, EventArgs e)

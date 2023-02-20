@@ -496,6 +496,7 @@ namespace Nova_Gear.Universal
                     try
                     {
                         conex4.consultar(sql);
+                        conex4.guardar_evento("Se editó información de los creditos con los siguientes IDs: "+ids);
                         MessageBox.Show("Los créditos seleccionados fueron actualizados correctamente","Actualización Exitosa");
 
                         llenar_Cb4_todos();

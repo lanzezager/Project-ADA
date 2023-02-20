@@ -141,6 +141,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.comboBox3);
             this.panel1.Controls.Add(this.button10);
             this.panel1.Controls.Add(this.label12);
@@ -166,11 +167,10 @@
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.dataGridView1);
-            this.panel1.Controls.Add(this.label2);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(870, 447);
+            this.panel1.Size = new System.Drawing.Size(870, 421);
             this.panel1.TabIndex = 0;
             this.panel1.Visible = false;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
@@ -222,7 +222,7 @@
             this.label12.BackColor = System.Drawing.Color.Transparent;
             this.label12.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.ForeColor = System.Drawing.Color.White;
-            this.label12.Location = new System.Drawing.Point(723, 331);
+            this.label12.Location = new System.Drawing.Point(723, 305);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(135, 25);
             this.label12.TabIndex = 80;
@@ -256,7 +256,7 @@
             this.maskedTextBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.maskedTextBox3.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.maskedTextBox3.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.maskedTextBox3.Location = new System.Drawing.Point(607, 390);
+            this.maskedTextBox3.Location = new System.Drawing.Point(607, 364);
             this.maskedTextBox3.Mask = "00:00";
             this.maskedTextBox3.Name = "maskedTextBox3";
             this.maskedTextBox3.Size = new System.Drawing.Size(110, 22);
@@ -270,7 +270,7 @@
             this.label23.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label23.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label23.ForeColor = System.Drawing.Color.White;
-            this.label23.Location = new System.Drawing.Point(478, 395);
+            this.label23.Location = new System.Drawing.Point(478, 369);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(114, 17);
             this.label23.TabIndex = 75;
@@ -282,7 +282,7 @@
             this.dateTimePicker7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.dateTimePicker7.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimePicker7.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker7.Location = new System.Drawing.Point(607, 359);
+            this.dateTimePicker7.Location = new System.Drawing.Point(607, 333);
             this.dateTimePicker7.Name = "dateTimePicker7";
             this.dateTimePicker7.Size = new System.Drawing.Size(110, 23);
             this.dateTimePicker7.TabIndex = 68;
@@ -294,7 +294,7 @@
             this.label22.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label22.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label22.ForeColor = System.Drawing.Color.Yellow;
-            this.label22.Location = new System.Drawing.Point(478, 365);
+            this.label22.Location = new System.Drawing.Point(478, 339);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(123, 17);
             this.label22.TabIndex = 74;
@@ -305,7 +305,7 @@
             // 
             this.dateTimePicker6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.dateTimePicker6.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker6.Location = new System.Drawing.Point(369, 390);
+            this.dateTimePicker6.Location = new System.Drawing.Point(369, 364);
             this.dateTimePicker6.Name = "dateTimePicker6";
             this.dateTimePicker6.Size = new System.Drawing.Size(101, 20);
             this.dateTimePicker6.TabIndex = 67;
@@ -315,7 +315,7 @@
             this.label21.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label21.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label21.ForeColor = System.Drawing.Color.White;
-            this.label21.Location = new System.Drawing.Point(245, 395);
+            this.label21.Location = new System.Drawing.Point(245, 369);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(96, 17);
             this.label21.TabIndex = 73;
@@ -327,7 +327,7 @@
             // 
             this.dateTimePicker5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.dateTimePicker5.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker5.Location = new System.Drawing.Point(136, 390);
+            this.dateTimePicker5.Location = new System.Drawing.Point(136, 364);
             this.dateTimePicker5.Name = "dateTimePicker5";
             this.dateTimePicker5.Size = new System.Drawing.Size(101, 20);
             this.dateTimePicker5.TabIndex = 66;
@@ -337,7 +337,7 @@
             this.label20.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label20.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label20.ForeColor = System.Drawing.Color.White;
-            this.label20.Location = new System.Drawing.Point(12, 395);
+            this.label20.Location = new System.Drawing.Point(12, 369);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(118, 17);
             this.label20.TabIndex = 72;
@@ -349,7 +349,7 @@
             // 
             this.dateTimePicker4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.dateTimePicker4.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker4.Location = new System.Drawing.Point(369, 362);
+            this.dateTimePicker4.Location = new System.Drawing.Point(369, 336);
             this.dateTimePicker4.Name = "dateTimePicker4";
             this.dateTimePicker4.Size = new System.Drawing.Size(101, 20);
             this.dateTimePicker4.TabIndex = 65;
@@ -359,7 +359,7 @@
             this.label19.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label19.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label19.ForeColor = System.Drawing.Color.White;
-            this.label19.Location = new System.Drawing.Point(245, 365);
+            this.label19.Location = new System.Drawing.Point(245, 339);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(118, 17);
             this.label19.TabIndex = 71;
@@ -370,7 +370,7 @@
             // 
             this.dateTimePicker3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.dateTimePicker3.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker3.Location = new System.Drawing.Point(136, 362);
+            this.dateTimePicker3.Location = new System.Drawing.Point(136, 336);
             this.dateTimePicker3.Name = "dateTimePicker3";
             this.dateTimePicker3.Size = new System.Drawing.Size(101, 20);
             this.dateTimePicker3.TabIndex = 64;
@@ -382,7 +382,7 @@
             this.label17.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label17.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label17.ForeColor = System.Drawing.Color.White;
-            this.label17.Location = new System.Drawing.Point(12, 365);
+            this.label17.Location = new System.Drawing.Point(12, 339);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(118, 17);
             this.label17.TabIndex = 70;
@@ -403,7 +403,7 @@
             this.button4.ForeColor = System.Drawing.Color.White;
             this.button4.Image = global::Nova_Gear.Properties.Resources.file_save_as;
             this.button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button4.Location = new System.Drawing.Point(738, 359);
+            this.button4.Location = new System.Drawing.Point(738, 333);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(120, 50);
             this.button4.TabIndex = 63;
@@ -423,7 +423,7 @@
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView2.Location = new System.Drawing.Point(50, 115);
             this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(323, 107);
+            this.dataGridView2.Size = new System.Drawing.Size(323, 81);
             this.dataGridView2.TabIndex = 61;
             this.dataGridView2.Visible = false;
             // 
@@ -508,7 +508,7 @@
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(12, 334);
+            this.label3.Location = new System.Drawing.Point(12, 308);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(183, 25);
             this.label3.TabIndex = 38;
@@ -555,7 +555,7 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(846, 254);
+            this.dataGridView1.Size = new System.Drawing.Size(846, 228);
             this.dataGridView1.TabIndex = 37;
             this.dataGridView1.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellEndEdit);
             this.dataGridView1.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellMouseDoubleClick);
@@ -802,7 +802,7 @@
             this.label16.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label16.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label16.ForeColor = System.Drawing.Color.White;
-            this.label16.Location = new System.Drawing.Point(245, 395);
+            this.label16.Location = new System.Drawing.Point(245, 369);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(96, 17);
             this.label16.TabIndex = 73;
@@ -815,7 +815,7 @@
             this.label18.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label18.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label18.ForeColor = System.Drawing.Color.White;
-            this.label18.Location = new System.Drawing.Point(12, 395);
+            this.label18.Location = new System.Drawing.Point(12, 369);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(118, 17);
             this.label18.TabIndex = 72;
@@ -876,7 +876,7 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(870, 447);
+            this.panel3.Size = new System.Drawing.Size(870, 421);
             this.panel3.TabIndex = 81;
             this.panel3.Visible = false;
             // 
@@ -899,7 +899,7 @@
             this.label13.BackColor = System.Drawing.Color.Transparent;
             this.label13.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.ForeColor = System.Drawing.Color.White;
-            this.label13.Location = new System.Drawing.Point(723, 331);
+            this.label13.Location = new System.Drawing.Point(723, 305);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(135, 25);
             this.label13.TabIndex = 80;
@@ -912,7 +912,7 @@
             this.maskedTextBox5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.maskedTextBox5.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.maskedTextBox5.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.maskedTextBox5.Location = new System.Drawing.Point(607, 390);
+            this.maskedTextBox5.Location = new System.Drawing.Point(607, 364);
             this.maskedTextBox5.Mask = "00:00";
             this.maskedTextBox5.Name = "maskedTextBox5";
             this.maskedTextBox5.Size = new System.Drawing.Size(110, 22);
@@ -926,7 +926,7 @@
             this.label14.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label14.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label14.ForeColor = System.Drawing.Color.White;
-            this.label14.Location = new System.Drawing.Point(478, 395);
+            this.label14.Location = new System.Drawing.Point(478, 369);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(114, 17);
             this.label14.TabIndex = 75;
@@ -938,7 +938,7 @@
             this.dateTimePicker2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.dateTimePicker2.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker2.Location = new System.Drawing.Point(607, 359);
+            this.dateTimePicker2.Location = new System.Drawing.Point(607, 333);
             this.dateTimePicker2.Name = "dateTimePicker2";
             this.dateTimePicker2.Size = new System.Drawing.Size(110, 23);
             this.dateTimePicker2.TabIndex = 68;
@@ -949,7 +949,7 @@
             this.label15.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label15.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label15.ForeColor = System.Drawing.Color.Yellow;
-            this.label15.Location = new System.Drawing.Point(478, 365);
+            this.label15.Location = new System.Drawing.Point(478, 339);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(123, 17);
             this.label15.TabIndex = 74;
@@ -960,7 +960,7 @@
             // 
             this.dateTimePicker8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.dateTimePicker8.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker8.Location = new System.Drawing.Point(369, 390);
+            this.dateTimePicker8.Location = new System.Drawing.Point(369, 364);
             this.dateTimePicker8.Name = "dateTimePicker8";
             this.dateTimePicker8.Size = new System.Drawing.Size(101, 20);
             this.dateTimePicker8.TabIndex = 67;
@@ -969,7 +969,7 @@
             // 
             this.dateTimePicker9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.dateTimePicker9.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker9.Location = new System.Drawing.Point(136, 390);
+            this.dateTimePicker9.Location = new System.Drawing.Point(136, 364);
             this.dateTimePicker9.Name = "dateTimePicker9";
             this.dateTimePicker9.Size = new System.Drawing.Size(101, 20);
             this.dateTimePicker9.TabIndex = 66;
@@ -978,7 +978,7 @@
             // 
             this.dateTimePicker10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.dateTimePicker10.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker10.Location = new System.Drawing.Point(369, 362);
+            this.dateTimePicker10.Location = new System.Drawing.Point(369, 336);
             this.dateTimePicker10.Name = "dateTimePicker10";
             this.dateTimePicker10.Size = new System.Drawing.Size(101, 20);
             this.dateTimePicker10.TabIndex = 65;
@@ -988,7 +988,7 @@
             this.label24.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label24.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label24.ForeColor = System.Drawing.Color.White;
-            this.label24.Location = new System.Drawing.Point(245, 365);
+            this.label24.Location = new System.Drawing.Point(245, 339);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(118, 17);
             this.label24.TabIndex = 71;
@@ -999,7 +999,7 @@
             // 
             this.dateTimePicker11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.dateTimePicker11.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker11.Location = new System.Drawing.Point(136, 362);
+            this.dateTimePicker11.Location = new System.Drawing.Point(136, 336);
             this.dateTimePicker11.Name = "dateTimePicker11";
             this.dateTimePicker11.Size = new System.Drawing.Size(101, 20);
             this.dateTimePicker11.TabIndex = 64;
@@ -1010,7 +1010,7 @@
             this.label25.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label25.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label25.ForeColor = System.Drawing.Color.White;
-            this.label25.Location = new System.Drawing.Point(12, 365);
+            this.label25.Location = new System.Drawing.Point(12, 339);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(118, 17);
             this.label25.TabIndex = 70;
@@ -1031,7 +1031,7 @@
             this.button13.ForeColor = System.Drawing.Color.White;
             this.button13.Image = global::Nova_Gear.Properties.Resources.file_save_as;
             this.button13.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button13.Location = new System.Drawing.Point(738, 359);
+            this.button13.Location = new System.Drawing.Point(738, 333);
             this.button13.Name = "button13";
             this.button13.Size = new System.Drawing.Size(120, 50);
             this.button13.TabIndex = 63;
@@ -1051,7 +1051,7 @@
             this.dataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView4.Location = new System.Drawing.Point(619, 86);
             this.dataGridView4.Name = "dataGridView4";
-            this.dataGridView4.Size = new System.Drawing.Size(224, 145);
+            this.dataGridView4.Size = new System.Drawing.Size(224, 119);
             this.dataGridView4.TabIndex = 61;
             this.dataGridView4.Visible = false;
             // 
@@ -1125,7 +1125,7 @@
             this.label28.BackColor = System.Drawing.Color.Transparent;
             this.label28.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label28.ForeColor = System.Drawing.Color.White;
-            this.label28.Location = new System.Drawing.Point(12, 334);
+            this.label28.Location = new System.Drawing.Point(12, 308);
             this.label28.Name = "label28";
             this.label28.Size = new System.Drawing.Size(183, 25);
             this.label28.TabIndex = 38;
@@ -1172,7 +1172,7 @@
             dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridView5.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridView5.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView5.Size = new System.Drawing.Size(846, 254);
+            this.dataGridView5.Size = new System.Drawing.Size(846, 228);
             this.dataGridView5.TabIndex = 37;
             this.dataGridView5.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView5_ColumnHeaderMouseClick);
             this.dataGridView5.ColumnHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView5_ColumnHeaderMouseDoubleClick);
@@ -1259,7 +1259,7 @@
             dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridView3.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.dataGridView3.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView3.Size = new System.Drawing.Size(846, 279);
+            this.dataGridView3.Size = new System.Drawing.Size(846, 253);
             this.dataGridView3.TabIndex = 61;
             // 
             // dataGridViewCheckBoxColumn1
@@ -1324,7 +1324,7 @@
             this.button6.ForeColor = System.Drawing.Color.White;
             this.button6.Image = global::Nova_Gear.Properties.Resources.tick_light_blue_1;
             this.button6.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button6.Location = new System.Drawing.Point(723, 367);
+            this.button6.Location = new System.Drawing.Point(723, 341);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(135, 47);
             this.button6.TabIndex = 65;
@@ -1340,7 +1340,7 @@
             this.label8.BackColor = System.Drawing.Color.Transparent;
             this.label8.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(12, 356);
+            this.label8.Location = new System.Drawing.Point(12, 330);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(183, 25);
             this.label8.TabIndex = 66;
@@ -1378,7 +1378,7 @@
             this.label10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label10.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.Yellow;
-            this.label10.Location = new System.Drawing.Point(12, 385);
+            this.label10.Location = new System.Drawing.Point(12, 359);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(123, 17);
             this.label10.TabIndex = 76;
@@ -1391,7 +1391,7 @@
             this.dateTimePicker1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.dateTimePicker1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(141, 379);
+            this.dateTimePicker1.Location = new System.Drawing.Point(141, 353);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(110, 23);
             this.dateTimePicker1.TabIndex = 75;
@@ -1411,7 +1411,7 @@
             this.button7.ForeColor = System.Drawing.Color.White;
             this.button7.Image = global::Nova_Gear.Properties.Resources.file_save_as_1;
             this.button7.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button7.Location = new System.Drawing.Point(257, 379);
+            this.button7.Location = new System.Drawing.Point(257, 353);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(164, 25);
             this.button7.TabIndex = 77;
@@ -1477,7 +1477,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(870, 447);
+            this.panel2.Size = new System.Drawing.Size(870, 421);
             this.panel2.TabIndex = 77;
             this.panel2.Visible = false;
             // 
@@ -1487,10 +1487,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(870, 447);
-            this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
+            this.Controls.Add(this.panel3);
+            this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button15);
             this.Controls.Add(this.button1);

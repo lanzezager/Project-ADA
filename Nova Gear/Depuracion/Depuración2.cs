@@ -47,6 +47,7 @@ namespace Nova_Gear.Depuracion
 		Conexion conex3 = new Conexion();
 		Conexion conex4 = new Conexion();
 		Conexion conex5 = new Conexion();
+        Conexion conex6 = new Conexion();
 
 		//Data Tables
 		System.Data.DataTable dt = new System.Data.DataTable();
@@ -58,7 +59,8 @@ namespace Nova_Gear.Depuracion
 		System.Data.DataTable data_solo_pago = new System.Data.DataTable();
 		System.Data.DataTable data_reporte = new System.Data.DataTable();
 		System.Data.DataTable consultamysql = new System.Data.DataTable();
-		System.Data.DataTable data_rale = new System.Data.DataTable();		
+		System.Data.DataTable data_rale = new System.Data.DataTable();
+        System.Data.DataTable data_pro_bd = new System.Data.DataTable();	
 
 		//Declaracion de elementos para conexion office
 		OleDbConnection conexion = null;
@@ -75,6 +77,8 @@ namespace Nova_Gear.Depuracion
         
         //Declarar variables opciones
         String verif_rale = "", pago_min = "";
+
+        public static int menu_pro_res = 0;
 
 		public void llenar_Cb1() {
 			conex.conectar("base_principal");
@@ -391,6 +395,58 @@ namespace Nova_Gear.Depuracion
 			//MessageBox.Show(data_acumulador.Rows.Count.ToString());
 		}
 
+        public void leer_procesar_bd()
+        {
+            String periodo = "", fecha="";
+            int per_num = 0;
+
+            Invoke(new MethodInvoker(delegate
+            {
+                periodo = comboBox1.SelectedItem.ToString();
+            }));
+
+            if (periodo.StartsWith("RCV"))
+            {
+                per_num = Convert.ToInt32(periodo.Substring(periodo.Length - 2, 2));
+                per_num = per_num * 2;
+                if (per_num > 9)
+                {
+                    periodo = periodo.Substring(0, periodo.Length - 2) + per_num.ToString();
+                }
+                else
+                {
+                    periodo = periodo.Substring(0, periodo.Length - 2) + "0" + per_num.ToString();
+                }
+
+            }
+
+            periodo = periodo.Substring(periodo.Length - 6, 6);
+
+            //MessageBox.Show(periodo);
+
+            conex6.conectar("base_principal");
+            data_pro_bd = conex6.consultar("SELECT reg_pat, f_sua, fecha_pago, 4ss, rcv FROM procesar WHERE periodo_pago= "+periodo+" AND ((diag1 <> 146) AND (diag1 <> 857))");
+            conex6.cerrar();
+
+            for (int i = 0; i < data_pro_bd.Rows.Count;i++)
+            {
+                fecha = data_pro_bd.Rows[i][2].ToString().Substring(0, 10);
+                fecha = fecha.Substring(6, 4) + "-" + fecha.Substring(3, 2) + "-" + fecha.Substring(0,2);
+
+                //MessageBox.Show(fecha);
+                
+                Invoke(new MethodInvoker(delegate {
+
+                    data_acumulador.Rows.Add(data_pro_bd.Rows[i][0].ToString().Substring(0,10),
+                                             data_pro_bd.Rows[i][1].ToString(),
+                                             fecha,
+                                             data_pro_bd.Rows[i][3].ToString(),
+                                             data_pro_bd.Rows[i][4].ToString(), periodo, "BASE DE DATOS");
+									}));
+            }
+
+        }
+
 		public void leer_archivos() {
 
 			int i = 0, progreso = 0, tot_rows = 0;
@@ -419,19 +475,21 @@ namespace Nova_Gear.Depuracion
 								leer_xls(archivo, 0, 3);
 							}
 						}
-
 					}
 				} else {
 					if (archivo.Substring(archivo.Length - 3, 3).Equals("csv") == true) {
 						leer_sip_csv(i);
 					}
+
+                    if (tipo_lec.Equals("4") == true)//si es Procesar de BASE de DATOS
+                    {
+                        leer_procesar_bd();
+                    }
 				}
 				i++;
 
 				Invoke(new MethodInvoker(delegate {
-
 				}));
-
 			}
 
 			System.IO.File.Delete(@"temporal_combinado.xlsx");
@@ -1444,8 +1502,16 @@ namespace Nova_Gear.Depuracion
 		void CheckBox1CheckedChanged(object sender, EventArgs e)
 		{
 			if(checkBox1.Checked==true){
-				checkBox3.Enabled=false;
-				cargar_archivos(1);//PROCESAR
+			    checkBox3.Enabled=false;
+
+                Menu_depu_procesar menu_pro = new Menu_depu_procesar();
+                menu_pro.ShowDialog();
+
+                if(menu_pro_res==1){
+				    cargar_archivos(1);//PROCESAR
+                }else{
+                    dataGridView2.Rows.Add((dataGridView2.Rows.Count + 1), "PROCESAR [Base de Datos]", 4);
+                }
 				
 			}else{
 				dataGridView2.Rows.Clear();

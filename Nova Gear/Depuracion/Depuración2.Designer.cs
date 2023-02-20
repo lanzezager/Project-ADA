@@ -339,6 +339,7 @@ namespace Nova_Gear.Depuracion
             this.Column3});
             this.dataGridView2.Location = new System.Drawing.Point(15, 69);
             this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.ReadOnly = true;
             this.dataGridView2.Size = new System.Drawing.Size(371, 55);
             this.dataGridView2.TabIndex = 8;
             this.dataGridView2.DataSourceChanged += new System.EventHandler(this.DataGridView2DataSourceChanged);
@@ -350,6 +351,7 @@ namespace Nova_Gear.Depuracion
             this.Column2.HeaderText = "No.";
             this.Column2.MinimumWidth = 30;
             this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
             this.Column2.Width = 30;
             // 
             // Column1
@@ -357,12 +359,14 @@ namespace Nova_Gear.Depuracion
             this.Column1.HeaderText = "archivos";
             this.Column1.MinimumWidth = 280;
             this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
             this.Column1.Width = 280;
             // 
             // Column3
             // 
             this.Column3.HeaderText = "tipo_archi";
             this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
             this.Column3.Visible = false;
             // 
             // checkBox3
@@ -588,6 +592,7 @@ namespace Nova_Gear.Depuracion
             // 
             // button1
             // 
+            this.button1.BackColor = System.Drawing.Color.Transparent;
             this.button1.FlatAppearance.BorderSize = 0;
             this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DodgerBlue;
             this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Blue;
@@ -600,7 +605,7 @@ namespace Nova_Gear.Depuracion
             this.button1.Size = new System.Drawing.Size(111, 22);
             this.button1.TabIndex = 4;
             this.button1.Text = "Mostrar Core";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.Button1Click);
             // 
             // timer1

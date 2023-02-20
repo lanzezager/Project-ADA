@@ -54,13 +54,16 @@ namespace Nova_Gear.Supervision
 		Conexion conex11 = new Conexion();		
 		Conexion conex12 = new Conexion();
 		Conexion conex13 = new Conexion();
-		
+
+        Conexion conex14 = new Conexion();
+
 		DataTable tabla_totales = new DataTable();
 		DataTable tabla_entramite = new DataTable();
 		DataTable tabla_notificados = new DataTable();
 		DataTable tabla_pagados = new DataTable();
 		DataTable tabla_depurados = new DataTable();
 		DataTable tabla_nn = new DataTable();
+        DataTable tabla_estrados = new DataTable();
 		DataTable tabla_periodos = new DataTable();
 		
 		DataTable tabla_totales_o= new DataTable();
@@ -228,6 +231,35 @@ namespace Nova_Gear.Supervision
 				}
 				i++;
 			}
+
+            i = 0;
+
+            //Estrados
+            while (i < dataGridView19.RowCount)
+            {
+                while (j < dataGridView7.RowCount)
+                {
+                    if (dataGridView7.Rows[j].Cells[0].FormattedValue.ToString().Equals(dataGridView19.Rows[i].Cells[0].FormattedValue.ToString()))
+                    {
+                        dataGridView7.Rows[j].Cells[7].Value = dataGridView19.Rows[i].Cells[1].FormattedValue.ToString();
+                    }
+                    j++;
+                }
+                j = 0;
+                i++;
+            }
+
+            i = 0;
+            j = 0;
+
+            while (i < dataGridView7.RowCount)
+            {
+                if (dataGridView7.Rows[i].Cells[7].FormattedValue.ToString().Length == 0)
+                {
+                    dataGridView7.Rows[i].Cells[7].Value = "0";
+                }
+                i++;
+            }
 			
 			//totales_trabajados
 			i=0;
@@ -241,14 +273,15 @@ namespace Nova_Gear.Supervision
 					Convert.ToInt32(dataGridView7.Rows[i].Cells[4].FormattedValue.ToString())+
 					/*Convert.ToInt32(dataGridView7.Rows[i].Cells[5].FormattedValue.ToString())+*/
 					Convert.ToInt32(dataGridView7.Rows[i].Cells[6].FormattedValue.ToString());
+                    Convert.ToInt32(dataGridView7.Rows[i].Cells[7].FormattedValue.ToString());
 					
-				dataGridView7.Rows[i].Cells[7].Value=tot;
+				dataGridView7.Rows[i].Cells[8].Value=tot;
 				try{
 					porcent=Convert.ToInt32((tot*100)/Convert.ToInt32(dataGridView7.Rows[i].Cells[1].FormattedValue.ToString()));
 				}catch(Exception esd){
 					porcent=0;
 				}
-				dataGridView7.Rows[i].Cells[8].Value=porcent;
+				dataGridView7.Rows[i].Cells[9].Value=porcent;
 				i++;
 			}
 			
@@ -482,6 +515,7 @@ namespace Nova_Gear.Supervision
                 conex3.conectar("base_principal");
                 conex4.conectar("base_principal");
                 conex5.conectar("base_principal");
+                conex14.conectar("base_principal");
 
                 tabla_totales.Clear();
                 tabla_depurados.Clear();
@@ -489,8 +523,9 @@ namespace Nova_Gear.Supervision
                 tabla_nn.Clear();
                 tabla_notificados.Clear();
                 tabla_pagados.Clear();
+                tabla_estrados.Clear();
 
-            if (comboBox1.SelectedIndex > -1)
+            if (comboBox1.SelectedIndex > -1) //Productividad por periodo
             {
                 fecha_desde = dateTimePicker1.Text.ToString();
                 fecha_desde = fecha_desde.Substring(6, 4) + "-" + fecha_desde.Substring(3, 2) + "-" + fecha_desde.Substring(0, 2);
@@ -515,8 +550,12 @@ namespace Nova_Gear.Supervision
                 dataGridView4.DataSource = tabla_pagados;
 
                 //NN
-                tabla_nn = conex4.consultar("SELECT notificador, COUNT(id) as Total FROM datos_factura WHERE (fecha_recepcion BETWEEN \"" + fecha_desde + "\" AND \"" + fecha_hasta + "\") AND nombre_periodo=\"" + comboBox1.SelectedItem.ToString() + "\" AND (nn=\"NN\" OR nn=\"ESTRADOS\") AND observaciones NOT LIKE \"%PAGADO%\" GROUP BY notificador ORDER BY notificador ASC");
+                tabla_nn = conex4.consultar("SELECT notificador, COUNT(id) as Total FROM datos_factura WHERE (fecha_recepcion BETWEEN \"" + fecha_desde + "\" AND \"" + fecha_hasta + "\") AND nombre_periodo=\"" + comboBox1.SelectedItem.ToString() + "\" AND (nn=\"NN\" ) AND observaciones NOT LIKE \"%PAGADO%\" GROUP BY notificador ORDER BY notificador ASC");
                 dataGridView5.DataSource = tabla_nn;
+
+                //ESTRADOS
+                tabla_estrados = conex14.consultar("SELECT notificador, COUNT(id) as Total FROM datos_factura WHERE (fecha_recepcion BETWEEN \"" + fecha_desde + "\" AND \"" + fecha_hasta + "\") AND nombre_periodo=\"" + comboBox1.SelectedItem.ToString() + "\" AND (nn=\"ESTRADOS\") AND observaciones NOT LIKE \"%PAGADO%\" GROUP BY notificador ORDER BY notificador ASC");
+                dataGridView19.DataSource = tabla_estrados;
 
                 //Depurados
                 tabla_depurados = conex5.consultar("SELECT notificador, COUNT(id) as Total FROM datos_factura WHERE nombre_periodo=\"" + comboBox1.SelectedItem.ToString() + "\" AND status like\"%DEPU%\" AND nn<>\"NN\" AND nn<>\"ESTRADOS\" AND observaciones NOT LIKE \"%PAGADO%\" GROUP BY notificador ORDER BY notificador ASC");
@@ -560,8 +599,12 @@ namespace Nova_Gear.Supervision
                 dataGridView4.DataSource = tabla_pagados;
 
                 //NN
-                tabla_nn = conex4.consultar("SELECT notificador, COUNT(id) as Total FROM datos_factura WHERE (fecha_recepcion BETWEEN \"" + des + "\" AND \"" + has + "\") AND (nn=\"NN\" OR nn=\"ESTRADOS\") AND observaciones NOT LIKE \"%PAGADO%\" GROUP BY notificador ORDER BY notificador ASC");
+                tabla_nn = conex4.consultar("SELECT notificador, COUNT(id) as Total FROM datos_factura WHERE (fecha_recepcion BETWEEN \"" + des + "\" AND \"" + has + "\") AND (nn=\"NN\") AND observaciones NOT LIKE \"%PAGADO%\" GROUP BY notificador ORDER BY notificador ASC");
                 dataGridView5.DataSource = tabla_nn;
+
+                //ESTRADOS
+                tabla_estrados = conex14.consultar("SELECT notificador, COUNT(id) as Total FROM datos_factura WHERE (fecha_recepcion BETWEEN \"" + des + "\" AND \"" + has + "\") AND (nn=\"ESTRADOS\") AND observaciones NOT LIKE \"%PAGADO%\" GROUP BY notificador ORDER BY notificador ASC");
+                dataGridView19.DataSource = tabla_estrados;
 
                 //Depurados
                 tabla_depurados = conex5.consultar("SELECT notificador, COUNT(id) as Total FROM datos_factura WHERE (fecha_entrega BETWEEN \"" + fecha_desde + "\" AND \"" + fecha_hasta + "\") AND status like\"%DEPU%\" AND nn<>\"NN\" AND nn<>\"ESTRADOS\" AND observaciones NOT LIKE \"%PAGADO%\" GROUP BY notificador ORDER BY notificador ASC");
@@ -770,7 +813,7 @@ namespace Nova_Gear.Supervision
 		}
 		
 		public void suma(){
-			int ii=0,jj=0,entregados=0,en_tramite=0,notif=0,pagados=0,nn=0,total=0,pos_punto=0;
+			int ii=0,jj=0,entregados=0,en_tramite=0,notif=0,pagados=0,nn=0,estrados=0,total=0,pos_punto=0;
 			string nombre="";
 			decimal productividad;
 			
@@ -793,6 +836,7 @@ namespace Nova_Gear.Supervision
 						notif=Convert.ToInt32(dataGridView7.Rows[jj].Cells[3].Value.ToString());
 						pagados=Convert.ToInt32(dataGridView7.Rows[jj].Cells[4].Value.ToString());
 						nn=Convert.ToInt32(dataGridView7.Rows[jj].Cells[6].Value.ToString());
+                        estrados = Convert.ToInt32(dataGridView7.Rows[jj].Cells[7].Value.ToString());
 					}
 					jj++;
 				}
@@ -825,12 +869,13 @@ namespace Nova_Gear.Supervision
 				dataGridView18.Rows[ii].Cells[3].Value=notif;
 				dataGridView18.Rows[ii].Cells[4].Value=pagados;
 				dataGridView18.Rows[ii].Cells[5].Value=nn;
+                dataGridView18.Rows[ii].Cells[6].Value = estrados;
 				total=notif+pagados+nn;
-				dataGridView18.Rows[ii].Cells[6].Value=total;
+				dataGridView18.Rows[ii].Cells[7].Value=total;
 				if(entregados<=0){
-					dataGridView18.Rows[ii].Cells[7].Value=0;
+					dataGridView18.Rows[ii].Cells[8].Value=0;
 				}else{
-					dataGridView18.Rows[ii].Cells[7].Value=(total*100)/entregados;
+					dataGridView18.Rows[ii].Cells[8].Value=(total*100)/entregados;
 				}
 				if(cuenta_dias()<=0){
 					productividad=0;
@@ -842,19 +887,19 @@ namespace Nova_Gear.Supervision
 				if(pos_punto>-1){
                     if (productividad.ToString().Length >= pos_punto + 3)
                     {
-                        dataGridView18.Rows[ii].Cells[8].Value=Convert.ToDecimal(productividad.ToString().Substring(0,pos_punto+3));
+                        dataGridView18.Rows[ii].Cells[9].Value=Convert.ToDecimal(productividad.ToString().Substring(0,pos_punto+3));
                     }else{
                         if (productividad.ToString().Length >= pos_punto + 2)
                         {
-                            dataGridView18.Rows[ii].Cells[8].Value = Convert.ToDecimal(productividad.ToString().Substring(0, pos_punto + 2) + "0");
+                            dataGridView18.Rows[ii].Cells[9].Value = Convert.ToDecimal(productividad.ToString().Substring(0, pos_punto + 2) + "0");
                         }
                         else
                         {
-                            dataGridView18.Rows[ii].Cells[8].Value = Convert.ToDecimal(productividad.ToString().Substring(0, pos_punto + 1) + "00");
+                            dataGridView18.Rows[ii].Cells[9].Value = Convert.ToDecimal(productividad.ToString().Substring(0, pos_punto + 1) + "00");
                         }
                     }
 				}else{
-					dataGridView18.Rows[ii].Cells[8].Value=Convert.ToDecimal(productividad.ToString());
+					dataGridView18.Rows[ii].Cells[9].Value=Convert.ToDecimal(productividad.ToString());
 				}
 				
 				entregados=0;
