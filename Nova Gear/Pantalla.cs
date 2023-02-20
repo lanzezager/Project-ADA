@@ -709,7 +709,7 @@ namespace Nova_Gear
 			//label1.Location =new System.Drawing.Point(((Screen.PrimaryScreen.WorkingArea.Width - this.label1.Width) / 2),(((Screen.PrimaryScreen.WorkingArea.Height - this.label1.Height) / 2)+300));
 			//button2.Location = new System.Drawing.Point(((Screen.PrimaryScreen.WorkingArea.Width - this.panel1.Width) / 2),(((Screen.PrimaryScreen.WorkingArea.Height - this.button2.Height) / 2)+304));
 			textBox2.ReadOnly=false;
-			//actualizaciones();
+			actualizaciones();
 			verifi_sub();
 			/*
 			try{

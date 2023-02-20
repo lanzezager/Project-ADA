@@ -256,10 +256,13 @@ namespace Nova_Gear
                         button48.Enabled = true;
                         button39.Enabled = true;
                         button39.Visible = true;
+                        button50.Visible = true;
+                        button50.Enabled = true;
 						
 						//Opciones
 						button17.Enabled=true;
 						button23.Enabled=true;
+                        
 						
                         
 			    break;
@@ -1189,6 +1192,13 @@ namespace Nova_Gear
             Automatizacion.Fenix_automat fenix_auto = new Automatizacion.Fenix_automat();
             fenix_auto.Show();
             fenix_auto.Focus();
+        }
+
+        private void button50_Click(object sender, EventArgs e)
+        {
+            Limpiador_Nova limpia_nova = new Limpiador_Nova();
+            limpia_nova.Show();
+            limpia_nova.Focus();
         }
 }
 }

@@ -257,7 +257,7 @@ namespace Nova_Gear
 				                         	importe=dataGridView1.Rows[i].Cells[13].Value.ToString();
 				                         	reg=reg.Substring(0,3)+reg.Substring(4,5)+reg.Substring(10,2);
 				                         	
-				                         	tot_guar=Convert.ToInt32((i*100)/tot_dgv1);
+				                         	tot_guar=Convert.ToInt32(((i*100)/tot_dgv1)/10);
 				                         	label4.Text=tot_guar+"%";
 				                         	label4.Refresh();
 				                         	if(tot_guar<101){
@@ -288,7 +288,7 @@ namespace Nova_Gear
 						}*/
 					}
 				}
-				
+				/*
 				if(j==10){
 					
 					conex.consultar("INSERT INTO rale (registro_patronal,mov,fecha_mov,sector,credito,ce,periodo,td,fecha_alta,fecha_noti,incidencia,fecha_incidencia,dias,importe,tipo_rale) VALUES " +
@@ -306,19 +306,58 @@ namespace Nova_Gear
 					rale.Rows.Clear();
 					total=total+10;
 					j=0;
-				}
+				}*/
 				i++;
 				
-			}
-			
-			//MessageBox.Show(""+rale.Rows.Count);
+			}//fin construccion consulta
+
+            //MessageBox.Show("filas guardadas:" + rale.Rows.Count + "porcentaje al momento:" + tot_guar);
+
+            Invoke(new MethodInvoker(delegate
+            {
+                tot_guar = 10;
+                label4.Text = tot_guar + "%";
+                label4.Refresh();
+                if (tot_guar < 101)
+                {
+                    progressBar1.Value = tot_guar;
+                }
+            }));
+
 			k=0;
+
+            String sql = "INSERT INTO rale (registro_patronal,mov,fecha_mov,sector,credito,ce,periodo,td,fecha_alta,fecha_noti,incidencia,fecha_incidencia,dias,importe,tipo_rale) VALUES ";
+            String sql2 = "";
+
+            int tot_temp = 0;
+
 			while(k<rale.Rows.Count){
-				conex.consultar("INSERT INTO rale (registro_patronal,mov,fecha_mov,sector,credito,ce,periodo,td,fecha_alta,fecha_noti,incidencia,fecha_incidencia,dias,importe,tipo_rale) VALUES " +
-				                "(\""+rale.Rows[k][0].ToString()+"\","+rale.Rows[k][1].ToString()+",\""+rale.Rows[k][2].ToString()+"\","+rale.Rows[k][3].ToString()+",\""+rale.Rows[k][4].ToString()+"\",\""+rale.Rows[k][5].ToString()+"\",\""+rale.Rows[k][6].ToString()+"\",\""+rale.Rows[k][7].ToString()+"\",\""+rale.Rows[k][8].ToString()+"\",\""+rale.Rows[k][9].ToString()+"\",\""+rale.Rows[k][10].ToString()+"\",\""+rale.Rows[k][11].ToString()+"\","+rale.Rows[k][12].ToString()+","+rale.Rows[k][13].ToString()+",\""+tipo_rale+"\")");
-				k++;
+
+                sql2 += " (\"" + rale.Rows[k][0].ToString() + "\"," + rale.Rows[k][1].ToString() + ",\"" + rale.Rows[k][2].ToString() + "\"," + rale.Rows[k][3].ToString() + ",\"" + rale.Rows[k][4].ToString() + "\",\"" + rale.Rows[k][5].ToString() + "\",\"" + rale.Rows[k][6].ToString() + "\",\"" + rale.Rows[k][7].ToString() + "\",\"" + rale.Rows[k][8].ToString() + "\",\"" + rale.Rows[k][9].ToString() + "\",\"" + rale.Rows[k][10].ToString() + "\",\"" + rale.Rows[k][11].ToString() + "\"," + rale.Rows[k][12].ToString() + "," + rale.Rows[k][13].ToString() + ",\"" + tipo_rale + "\"),";
+                
+                if(tot_temp==1000){
+                    sql2 = sql2.Substring(0, sql2.Length - 1);
+				    conex.consultar(sql+sql2);
+                    tot_temp=0;
+                    sql2 = "";
+				}
+
+                tot_temp++;
+                k++;
 				total++;
+
+                Invoke(new MethodInvoker(delegate{
+                    tot_guar = Convert.ToInt32(((k * 90) / rale.Rows.Count)+10);
+                    label4.Text = tot_guar + "%";
+                    label4.Refresh();
+                    if (tot_guar < 101)
+                    {
+                        progressBar1.Value = tot_guar;
+                    }
+                }));
 			}
+            sql2 = sql2.Substring(0, sql2.Length - 1);
+            conex.consultar(sql + sql2);
 			
 			Invoke(new MethodInvoker(delegate{
 				tot_dgv1= dataGridView1.RowCount;

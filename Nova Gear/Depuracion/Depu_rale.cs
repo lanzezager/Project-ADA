@@ -77,6 +77,7 @@ namespace Nova_Gear.Depuracion
 				if (!(dataGridView1.Rows[i].Cells[3].Value.ToString()).Equals("")){
 					if ((dataGridView1.Rows[i].Cells[3].Value.ToString()).Equals("TABLE")){
 						tabla=dataGridView1.Rows[i].Cells[2].Value.ToString();
+                        //MessageBox.Show(tabla);
 						if((tabla.Substring((tabla.Length-1),1)).Equals("$")){
 							tabla = tabla.Remove((tabla.Length-1),1);
 							hojas.Rows.Add(tabla);
@@ -105,11 +106,11 @@ namespace Nova_Gear.Depuracion
 				if(tipo_inicio==1){//si se va a cargar el rale en la base de datos principal
 					if(tipo_rale=="COP"){
                         //cons_exc = "Select [reg_pat],[mov],[fecha_mov],[sector],[credito],[ce],[periodo],[td],[fecha_alta],[fecha_notif],[inc],[fecha_inc],[dias],[importe] from [" + hoja + "$] where [inc] NOT in (\"20\",\"21\",\"22\",\"23\",\"25\") and ([td] =\"00\" or [td] =\"02\" or [td] =\"03\" or [td] =\"70\" or [td] =\"80\" or [td] =\"81\" or [td] =\"82\" or [td] =\"89\")";
-                        cons_exc = "Select [reg_pat],[mov],[fecha_mov],[sector],[credito],[ce],[periodo],[td],[fecha_alta],[fecha_notif],[inc],[fecha_inc],[dias],[importe] from [" + hoja + "$])";
+                        cons_exc = "Select [reg_pat],[mov],[fecha_mov],[sector],[credito],[ce],[periodo],[td],[fecha_alta],[fecha_notif],[inc],[fecha_inc],[dias],[importe] from [" + hoja + "$]";
                     }else{
 						if(tipo_rale=="RCV"){
                             //cons_exc = "Select [reg_pat],[mov],[fecha_mov],[sector],[credito],[ce],[periodo],[td],[fecha_alta],[fecha_notif],[inc],[fecha_inc],[dias],[importe] from [" + hoja + "$] where [inc] NOT in (\"20\",\"21\",\"22\",\"23\",\"25\") and ([td] =\"06\" or [td] =\"03\")";
-                            cons_exc = "Select [reg_pat],[mov],[fecha_mov],[sector],[credito],[ce],[periodo],[td],[fecha_alta],[fecha_notif],[inc],[fecha_inc],[dias],[importe] from [" + hoja + "$])";
+                            cons_exc = "Select [reg_pat],[mov],[fecha_mov],[sector],[credito],[ce],[periodo],[td],[fecha_alta],[fecha_notif],[inc],[fecha_inc],[dias],[importe] from [" + hoja + "$]";
                         }
 					}
 				}else{//si se va a cargar el rale en la base de inventario, la misma linea para cop y rcv
@@ -163,13 +164,16 @@ namespace Nova_Gear.Depuracion
 					}
 				}
 			}
-			
+
+            String sql = "", sql2 = "";
+
+            sql = "INSERT INTO rale (registro_patronal,mov,fecha_mov,sector,credito,ce,periodo,td,fecha_alta,fecha_noti,incidencia,fecha_incidencia,dias,importe,tipo_rale) VALUES ";
 			while(i<rale.Rows.Count){
 				j=i;
-				k=0;
-				rale_fecha.Rows.Clear();
-				while(k<10){
-					rale_fecha.Rows.Add();
+				
+				//rale_fecha.Rows.Clear();
+				//while(k<10){
+					//rale_fecha.Rows.Add();
 					reg_pat=rale.Rows[j][0].ToString();
 					reg_pat=reg_pat.Substring(0,3)+reg_pat.Substring(4,5)+reg_pat.Substring(10,2);
 					rale.Rows[j][0]=reg_pat;
@@ -181,18 +185,21 @@ namespace Nova_Gear.Depuracion
 					fecha_mov=rale.Rows[j][2].ToString();
 					fecha_mov=fecha_mov.Substring(6,4)+"-"+fecha_mov.Substring(3,2)+"-"+fecha_mov.Substring(0,2);
 					//rale.Rows[j][2]=fecha_mov;
-					rale_fecha.Rows[k][0]=fecha_mov.ToString();
+					//rale_fecha.Rows[k][0]=fecha_mov.ToString();
 					
 					rale.Rows[j][4]=rale.Rows[j][4].ToString().Substring(0,9);
 					
 					periodo=rale.Rows[j][6].ToString();
-					periodo=periodo.Substring(3,4)+periodo.Substring(0,2);
-					rale.Rows[j][6]=periodo;
-					
+
+                    if(periodo.Contains("/")==true){
+                        periodo=periodo.Substring(3,4)+periodo.Substring(0,2);
+					    rale.Rows[j][6]=periodo;
+					}
+
 					fecha_alta=rale.Rows[j][8].ToString();
 					fecha_alta=fecha_alta.Substring(6,4)+"-"+fecha_alta.Substring(3,2)+"-"+fecha_alta.Substring(0,2);
 					//rale.Rows[j][8]=fecha_alta;
-					rale_fecha.Rows[k][1]=fecha_alta.ToString();
+					//rale_fecha.Rows[k][1]=fecha_alta.ToString();
 					
 					fecha_not=rale.Rows[j][9].ToString();
 					if(fecha_not.Length>1){
@@ -221,12 +228,22 @@ namespace Nova_Gear.Depuracion
 					}
 					
 					j++;
-					k++;
-					
-					
-					
-				}
-				
+                    k++;				
+				//}
+
+
+                sql2 += " (\"" + rale.Rows[i][0].ToString() + "\"," + rale.Rows[i][1].ToString() + ",\"" + fecha_mov.Substring(0, 10) + "\"," + rale.Rows[i][3].ToString() + ",\"" + rale.Rows[i][4].ToString() + "\",\"" + rale.Rows[i][5].ToString() + "\",\"" + rale.Rows[i][6].ToString() + "\",\"" + rale.Rows[i][7].ToString() + "\",\"" + fecha_alta.Substring(0, 10) + "\"," + rale.Rows[i][9].ToString() + ",\"" + rale.Rows[i][10].ToString() + "\",\"" + rale.Rows[i][11].ToString() + "\"," + rale.Rows[i][12].ToString() + ",\"" + rale.Rows[i][13].ToString() + "\",\"" + tipo_rale + "\"),";
+                
+                if(k==1000){
+                    sql2 = sql2.Substring(0, sql2.Length - 1);
+                    conex.consultar(sql + sql2);
+                    k = 0;
+                    sql2 = "";
+                }
+
+                i++;
+                
+                /*
 				conex.consultar("INSERT INTO rale (registro_patronal,mov,fecha_mov,sector,credito,ce,periodo,td,fecha_alta,fecha_noti,incidencia,fecha_incidencia,dias,importe,tipo_rale) VALUES " +
 				                "(\""+rale.Rows[i+0][0].ToString()+"\","+rale.Rows[i+0][1].ToString()+",\""+rale_fecha.Rows[0][0].ToString().Substring(0,10)+"\","+rale.Rows[i+0][3].ToString()+",\""+rale.Rows[i+0][4].ToString()+"\",\""+rale.Rows[i+0][5].ToString()+"\",\""+rale.Rows[i+0][6].ToString()+"\",\""+rale.Rows[i+0][7].ToString()+"\",\""+rale_fecha.Rows[0][1].ToString().Substring(0,10)+"\","+rale.Rows[i+0][9].ToString()+",\""+rale.Rows[i+0][10].ToString()+"\",\""+rale.Rows[i+0][11].ToString()+"\","+rale.Rows[i+0][12].ToString()+",\""+rale.Rows[i+0][13].ToString()+"\",\""+tipo_rale+"\"),"+
 				                "(\""+rale.Rows[i+1][0].ToString()+"\","+rale.Rows[i+1][1].ToString()+",\""+rale_fecha.Rows[1][0].ToString().Substring(0,10)+"\","+rale.Rows[i+1][3].ToString()+",\""+rale.Rows[i+1][4].ToString()+"\",\""+rale.Rows[i+1][5].ToString()+"\",\""+rale.Rows[i+1][6].ToString()+"\",\""+rale.Rows[i+1][7].ToString()+"\",\""+rale_fecha.Rows[1][1].ToString().Substring(0,10)+"\","+rale.Rows[i+1][9].ToString()+",\""+rale.Rows[i+1][10].ToString()+"\",\""+rale.Rows[i+1][11].ToString()+"\","+rale.Rows[i+1][12].ToString()+",\""+rale.Rows[i+1][13].ToString()+"\",\""+tipo_rale+"\"),"+
@@ -239,19 +256,24 @@ namespace Nova_Gear.Depuracion
 				                "(\""+rale.Rows[i+8][0].ToString()+"\","+rale.Rows[i+8][1].ToString()+",\""+rale_fecha.Rows[8][0].ToString().Substring(0,10)+"\","+rale.Rows[i+8][3].ToString()+",\""+rale.Rows[i+8][4].ToString()+"\",\""+rale.Rows[i+8][5].ToString()+"\",\""+rale.Rows[i+8][6].ToString()+"\",\""+rale.Rows[i+8][7].ToString()+"\",\""+rale_fecha.Rows[8][1].ToString().Substring(0,10)+"\","+rale.Rows[i+8][9].ToString()+",\""+rale.Rows[i+8][10].ToString()+"\",\""+rale.Rows[i+8][11].ToString()+"\","+rale.Rows[i+8][12].ToString()+",\""+rale.Rows[i+8][13].ToString()+"\",\""+tipo_rale+"\"),"+
 				                "(\""+rale.Rows[i+9][0].ToString()+"\","+rale.Rows[i+9][1].ToString()+",\""+rale_fecha.Rows[9][0].ToString().Substring(0,10)+"\","+rale.Rows[i+9][3].ToString()+",\""+rale.Rows[i+9][4].ToString()+"\",\""+rale.Rows[i+9][5].ToString()+"\",\""+rale.Rows[i+9][6].ToString()+"\",\""+rale.Rows[i+9][7].ToString()+"\",\""+rale_fecha.Rows[9][1].ToString().Substring(0,10)+"\","+rale.Rows[i+9][9].ToString()+",\""+rale.Rows[i+9][10].ToString()+"\",\""+rale.Rows[i+9][11].ToString()+"\","+rale.Rows[i+9][12].ToString()+",\""+rale.Rows[i+9][13].ToString()+"\",\""+tipo_rale+"\")");
 				i=i+10;
+                 * */
 				Invoke(new MethodInvoker(delegate{
 					label4.Text="Importando registros del RALE a la base de datos "+(i)+" de "+rale.Rows.Count;
 					label4.Refresh();
 				                         }));
-				
+				/*
 				if((rale.Rows.Count-i)<10){
 					l=i;
 					i=rale.Rows.Count+1;
 				}
-				
+				*/
 				llenar_barra1(i);
-			}
-			
+			}/*************************    fin proceso    *******************************/
+
+            //Procesar Restantes
+            sql2 = sql2.Substring(0, sql2.Length - 1);
+            conex.consultar(sql + sql2);
+			/*
 			i=l;
 			
 			while(i<rale.Rows.Count){
@@ -269,8 +291,11 @@ namespace Nova_Gear.Depuracion
 				rale.Rows[i][2]=fecha_mov;
 				
 				periodo=rale.Rows[i][6].ToString();
-				periodo=periodo.Substring(3,4)+periodo.Substring(0,2);
-				rale.Rows[i][6]=periodo;
+                if (periodo.Contains("/") == true)
+                {
+                    periodo = periodo.Substring(3, 4) + periodo.Substring(0, 2);
+                    rale.Rows[i][6] = periodo;
+                }
 				
 				fecha_alta=rale.Rows[i][8].ToString();
 				fecha_alta=fecha_alta.Substring(6,4)+"-"+fecha_alta.Substring(3,2)+"-"+fecha_alta.Substring(0,2);
@@ -313,13 +338,20 @@ namespace Nova_Gear.Depuracion
 				                         }));
 				i++;
 				llenar_barra1(i);
-			}
+			}*/
+
 			llenar_barra1(rale.Rows.Count);
 			Invoke(new MethodInvoker(delegate{
 					label4.Text="Importando registros del RALE a la base de datos "+(rale.Rows.Count)+" de "+rale.Rows.Count;
 					label4.Refresh();
 				                         }));
 			conex.guardar_evento("Se Ingreso el RALE_"+tipo_rale.ToUpper()+" con "+rale.Rows.Count+" registros");
+
+            MessageBox.Show("Se Ingreso el RALE " + tipo_rale.ToUpper() + " de " + rale.Rows.Count + " casos.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+            Invoke(new MethodInvoker(delegate
+                                         {
+                                             this.Close();
+                                         }));
 		}
 		
 		public void importar_rale_inventario(){

@@ -37,13 +37,13 @@
             this.textBox11 = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.listBox1 = new System.Windows.Forms.ListBox();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.quitarRegistroToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.maskedTextBox4 = new System.Windows.Forms.MaskedTextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.quitarRegistroToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -134,6 +134,21 @@
             this.listBox1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.listBox1_MouseClick);
             this.listBox1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.listBox1_MouseDown);
             // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.quitarRegistroToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(154, 26);
+            // 
+            // quitarRegistroToolStripMenuItem
+            // 
+            this.quitarRegistroToolStripMenuItem.Image = global::Nova_Gear.Properties.Resources.delete;
+            this.quitarRegistroToolStripMenuItem.Name = "quitarRegistroToolStripMenuItem";
+            this.quitarRegistroToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
+            this.quitarRegistroToolStripMenuItem.Text = "Quitar Registro";
+            this.quitarRegistroToolStripMenuItem.Click += new System.EventHandler(this.quitarRegistroToolStripMenuItem_Click);
+            // 
             // label2
             // 
             this.label2.BackColor = System.Drawing.Color.Transparent;
@@ -164,7 +179,7 @@
             this.maskedTextBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.maskedTextBox4.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.maskedTextBox4.Location = new System.Drawing.Point(147, 240);
-            this.maskedTextBox4.Mask = "Pa00 - 00000 - 00 - 0";
+            this.maskedTextBox4.Mask = "a00 - 00000 - 00 - 0";
             this.maskedTextBox4.Name = "maskedTextBox4";
             this.maskedTextBox4.Size = new System.Drawing.Size(128, 21);
             this.maskedTextBox4.TabIndex = 31;
@@ -208,21 +223,6 @@
             this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.quitarRegistroToolStripMenuItem});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(154, 26);
-            // 
-            // quitarRegistroToolStripMenuItem
-            // 
-            this.quitarRegistroToolStripMenuItem.Image = global::Nova_Gear.Properties.Resources.delete;
-            this.quitarRegistroToolStripMenuItem.Name = "quitarRegistroToolStripMenuItem";
-            this.quitarRegistroToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
-            this.quitarRegistroToolStripMenuItem.Text = "Quitar Registro";
-            this.quitarRegistroToolStripMenuItem.Click += new System.EventHandler(this.quitarRegistroToolStripMenuItem_Click);
             // 
             // Info40
             // 

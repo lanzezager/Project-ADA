@@ -180,13 +180,15 @@ namespace Nova_Gear.Mod40
 
                 tablanrps_guarda.Columns.Add("NRP");
                 tablanrps_guarda.Columns.Add("NUM_SUB");
-                tablanrps_guarda.Columns.Add("NOM_SUB"); 
+                tablanrps_guarda.Columns.Add("NOM_SUB");
 
+                
                 for (int i = 0; i < tablanrps.Rows.Count - 1;i++)
                 {
                     int eli = 0;
-                    for (int j = 0; j < tablanrps_eliminados.Rows.Count - 1; j++)
+                    for (int j = 0; j < tablanrps_eliminados.Rows.Count; j++)
                     {
+                        //MessageBox.Show("eliminar:" + tablanrps.Rows[i][0].ToString() + " encontrado:" + tablanrps_eliminados.Rows[j][0].ToString());
                         if (tablanrps.Rows[i][0].ToString() == tablanrps_eliminados.Rows[j][0].ToString())
                         {
                             eli = 1;
@@ -198,7 +200,7 @@ namespace Nova_Gear.Mod40
                     }
 
                     if(eli==0){
-                        tablanrps_guarda.Rows.Add(tablanrps.Rows[i][0].ToString(), tablanrps.Rows[i][1].ToString(), tablanrps.Rows[i][2].ToString());
+                        tablanrps_guarda.Rows.Add(tablanrps.Rows[i][0].ToString(), tablanrps.Rows[i][1].ToString(), tablanrps.Rows[i][2].ToString().ToUpper());
                     }
                 }
 
@@ -398,15 +400,15 @@ namespace Nova_Gear.Mod40
 
         private void button1_Click(object sender, EventArgs e)
         {
-            DialogResult res = MessageBox.Show("Se Añadira este Registro Patronal: "+maskedTextBox4.Text+"\n ¿Desea Continuar?", "AVISO", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button2);
+            DialogResult res = MessageBox.Show("Se Añadira este Registro Patronal: "+maskedTextBox4.Text.ToUpper()+"\n ¿Desea Continuar?", "AVISO", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button2);
 
             if (res == DialogResult.Yes)
             {
                 String nrp_nvo = "";
 
-                nrp_nvo = maskedTextBox4.Text;
-                nrp_nvo = nrp_nvo.Substring(1, nrp_nvo.Length - 1);
-                nrp_nvo = nrp_nvo.Replace(" - ", "");
+                nrp_nvo = maskedTextBox4.Text.ToUpper();
+                //nrp_nvo = nrp_nvo.Substring(1, nrp_nvo.Length - 1);
+                nrp_nvo = nrp_nvo.Replace(" ", "");
 
                 tablanrps_adicionados.Rows.Add(nrp_nvo, conex.leer_config_sub()[4], conex.leer_config_sub()[3]);
 

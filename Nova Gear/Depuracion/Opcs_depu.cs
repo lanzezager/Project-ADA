@@ -19,6 +19,9 @@ namespace Nova_Gear.Depuracion
             InitializeComponent();
         }
 
+        Conexion conex = new Conexion();
+        DataTable anti_dupli = new DataTable();
+
         private void trackBar1_Scroll(object sender, EventArgs e)
         {
             textBox1.Text = trackBar1.Value.ToString();
@@ -38,7 +41,6 @@ namespace Nova_Gear.Depuracion
                  pago_min = pago_min.Substring(9, pago_min.Length - 9);
 
 
-
                  if (verif_rale == "1")
                  {
                      radioButton3.Checked = true;
@@ -55,6 +57,12 @@ namespace Nova_Gear.Depuracion
 
                  textBox1.Text = pago_min;
                  trackBar1.Value = Convert.ToInt32(pago_min);
+
+                 conex.conectar("base_principal");
+                 anti_dupli = conex.consultar("SELECT fecha_ingreso FROM procesar ORDER BY fecha_pago DESC LIMIT 1");
+                 conex.cerrar();
+                 String fecha = anti_dupli.Rows[0][0].ToString().Substring(0, 10);
+                 label8.Text = "Último Ingresado: "+fecha;
              }
              catch (Exception error)
              {
@@ -101,6 +109,13 @@ namespace Nova_Gear.Depuracion
             {
                 MessageBox.Show("Ha ocurrido un error al guardar las opciones", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Carga_procesar procesar_insertar = new Carga_procesar();
+            procesar_insertar.ShowDialog();
+            this.Close();
         }
     }
 }
