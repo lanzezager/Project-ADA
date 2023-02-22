@@ -205,8 +205,8 @@ namespace Nova_Gear
                 }
             }));
 
-            conex.guardar_evento("Se Ingreso el CLEM " + nombre_per + " de " + clem.Rows.Count + " casos");
-            MessageBox.Show("Se Ingreso el CLEM " + nombre_per + " de " + clem.Rows.Count + " casos.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+            conex.guardar_evento("Se Ingreso el Periodo " + nombre_per + " de " + clem.Rows.Count + " casos");
+            MessageBox.Show("Se Ingreso el Periodo " + nombre_per + " de " + clem.Rows.Count + " casos.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
             conex.cerrar();
             Invoke(new MethodInvoker(delegate
             {

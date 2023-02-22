@@ -40,7 +40,7 @@ namespace Nova_Gear
 			//
 		}
 		
-		String nrp,credito,nrp_limpio,credito_limpio,sql,cred_tipo,nombre_tabla_ema,reg_pat,id;
+		String nrp,credito,nrp_limpio,credito_limpio,sql,cred_tipo,nombre_tabla_ema,reg_pat,id,buscar_en="";
 		int tipo_cred=0,i=0,j=0,entrada_p=0,entrada_c=0;
 		
 		//Declaracion de elementos para conexion mysql
@@ -135,7 +135,7 @@ namespace Nova_Gear
 				sql = "SELECT nombre_periodo,registro_patronal,credito_cuotas,credito_multa,razon_social,periodo,sector_notificacion_actualizado,"+
 					" notificador,controlador,fecha_entrega,fecha_recepcion,fecha_notificacion,fecha_cartera,status,importe_cuota,importe_multa,tipo_documento,nn,observaciones,"+
 					" importe_pago,porcentaje_pago,num_pago,fecha_pago,fecha_depuracion,folio_sipare_sua,incidencia,incidencia_multa,tipo_documento_multa,id,periodo_factura,pags_pdf"+
-					" FROM datos_factura WHERE "+nrp+credito+" ORDER BY registro_patronal, credito_cuotas";
+					" FROM "+buscar_en+" WHERE "+nrp+credito+" ORDER BY registro_patronal, credito_cuotas";
 				//MessageBox.Show(sql);
 				consultamysql = conex.consultar(sql);
 				dataGridView1.DataSource = consultamysql;
@@ -580,7 +580,8 @@ namespace Nova_Gear
              if(Convert.ToInt32(rango)<2){
             	button25.Enabled=true;
             }
-			
+
+             buscar_en = "datos_factura";
 		}
 		
 		void Button1Click(object sender, EventArgs e)//Mensaje de Info
@@ -781,6 +782,18 @@ namespace Nova_Gear
         private void label67_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void radioButton3_CheckedChanged(object sender, EventArgs e)
+        {
+            buscar_en = "datos_factura";
+            buscar_patron();
+        }
+
+        private void radioButton4_CheckedChanged(object sender, EventArgs e)
+        {
+            buscar_en = "datos_factura_archivo";
+            buscar_patron();
         }
 	}
 }

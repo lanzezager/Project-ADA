@@ -182,6 +182,7 @@ namespace Nova_Gear
             sql = sql.Substring(0, sql.Length - 2);
             //MessageBox.Show(sql);
             conex2.consultar(sql);
+            conex2.cerrar();
 
             Invoke(new MethodInvoker(delegate
             {
@@ -194,11 +195,14 @@ namespace Nova_Gear
 
             Invoke(new MethodInvoker(delegate
             {
-                toolStripStatusLabel2.Text = "Liberando Base de Datos";
+                toolStripStatusLabel2.Text = "Liberando " + por_borrar.Rows.Count + " registros de la B.D.";
             }));
 
+            
 
+            conex2.conectar("base_principal");
             conex2.consultar("DELETE FROM datos_factura WHERE "+condicion);
+
             conex2.guardar_evento("Se movieron correctamente los " + por_borrar.Rows.Count + " registros a la base de datos secundaria");
             MessageBox.Show("Se movieron correctamente los " + por_borrar.Rows.Count + " registros a la base de datos secundaria", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
         }
@@ -217,7 +221,7 @@ namespace Nova_Gear
             fecha = dateTimePicker1.Value.Year + "-" + dateTimePicker1.Value.Month + "-" + dateTimePicker1.Value.Day;
             //MessageBox.Show(fecha);
 
-            condicion = "fecha_notificacion <= \"" + fecha + "\" AND (status != \"EN TRAMITE\" AND status !=\"0\" )";
+            condicion = " (fecha_notificacion <= \"" + fecha + "\" OR fecha_depuracion <= \"" + fecha + "\") AND (status != \"EN TRAMITE\" AND status !=\"0\" )";
 
             conex.conectar("base_principal");
             por_borrar = conex.consultar("SELECT * FROM base_principal.datos_factura WHERE "+condicion);

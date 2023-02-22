@@ -264,7 +264,8 @@ namespace Nova_Gear.Supervision
 			//totales_trabajados
 			i=0;
 			j=0;
-			
+
+            
 			while(i<dataGridView7.RowCount){
 				tot=0;
 				porcent=0;
@@ -272,7 +273,7 @@ namespace Nova_Gear.Supervision
 				tot=Convert.ToInt32(dataGridView7.Rows[i].Cells[3].FormattedValue.ToString())+
 					Convert.ToInt32(dataGridView7.Rows[i].Cells[4].FormattedValue.ToString())+
 					/*Convert.ToInt32(dataGridView7.Rows[i].Cells[5].FormattedValue.ToString())+*/
-					Convert.ToInt32(dataGridView7.Rows[i].Cells[6].FormattedValue.ToString());
+					Convert.ToInt32(dataGridView7.Rows[i].Cells[6].FormattedValue.ToString())+
                     Convert.ToInt32(dataGridView7.Rows[i].Cells[7].FormattedValue.ToString());
 					
 				dataGridView7.Rows[i].Cells[8].Value=tot;
@@ -870,7 +871,7 @@ namespace Nova_Gear.Supervision
 				dataGridView18.Rows[ii].Cells[4].Value=pagados;
 				dataGridView18.Rows[ii].Cells[5].Value=nn;
                 dataGridView18.Rows[ii].Cells[6].Value = estrados;
-				total=notif+pagados+nn;
+				total=notif+pagados+nn+estrados;
 				dataGridView18.Rows[ii].Cells[7].Value=total;
 				if(entregados<=0){
 					dataGridView18.Rows[ii].Cells[8].Value=0;

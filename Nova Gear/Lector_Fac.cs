@@ -44,7 +44,8 @@ namespace Nova_Gear
 		String cons_tabla,num_cred,num_trab,nom_cm_ac,num_per_cm,tipo_doc,nombre_per_oficio,peri_a_leer,tipo_doc_mul;
 		string[] palabra,reg_part,text,aux;
 		int tot_lin=0,porcent=0,i=0,j=0,k=0,bandera=0,contador=0,bandera2=0,num_cm=0,contador_lin=0,eco=0,error_nul=0,nvomini=0,candado=0,porcent2=0;
-        int tipo_file = 0, gancho = 0, ver = 0, lin_var = 0, bloque = 0, finbloque = 0, sub = 0, filas = 0, tipocarga = 0, tot_row = 0, tot_col = 0, cm = 0, band_peri = 0, l = 0, no_del_real, no_sub_real, n = 0, tipo_rt = 0;
+        int tipo_file = 0, gancho = 0, ver = 0, lin_var = 0, bloque = 0, finbloque = 0, sub = 0, filas = 0, tipocarga = 0, tot_row = 0, tot_col = 0;
+        int cm = 0, band_peri = 0, l = 0, no_del_real, no_sub_real, n = 0, tipo_rt = 0, tipo_cargador=0;
 		double cuo_o=0,cuo_a=0,rec=0,imp_mul=0,imp_tot=0,por=0,tot1=0,tot2=0,totr=0;
 		char espacio=' ';
 
@@ -181,7 +182,14 @@ namespace Nova_Gear
 								descomponer_linea_sivepa();
 							}else{
 								//llama a la funcion que descifra la linea
-								descomponer_linea_eco();
+                                if (tipo_cargador == 1)
+                                {
+                                    descomponer_linea_eco();
+                                }
+                                else
+                                {
+                                    descomponer_linea_sivepa_eco_2023();
+                                }
 							}
 							//llama a la funcion que guarda la linea descrifrada
 								capturar_datos();
@@ -198,7 +206,14 @@ namespace Nova_Gear
 								descomponer_linea_sivepa();
 							}else{
 								//llama a la funcion que descifra la linea
-								descomponer_linea_eco();
+                                if (tipo_cargador == 1)
+                                {
+                                    descomponer_linea_eco();
+                                }
+                                else
+                                {
+                                    descomponer_linea_sivepa_eco_2023();
+                                }
 							}
 							
 								//llama a la funcion que guarda la linea descrifrada
@@ -236,21 +251,53 @@ namespace Nova_Gear
 			while(m<20){
 				line_z=aux[m];
 				if(nombre_per.Substring(4,3).Equals("ECO")){
-					if(line_z.Contains("FACTURA SECTORIZADA")==true && o==0){
-						peri_a_leer=line_z.Substring(120,10);
-						
-						while (n < peri_a_leer.Length){
-							if (!(peri_a_leer.Substring(n, 1)).Equals(" ")){
-								lina_temp += peri_a_leer.Substring(n, 1);
-							}
-							n++;
-						}
-						//MessageBox.Show(lina_temp);
-						lina_temp=lina_temp.Substring(3,4)+lina_temp.Substring(0,2);
-						peri_a_leer=lina_temp;
-						o=1;
-					}
-					
+                    if (radioButton14.Checked)
+                    {
+                        if (line_z.Contains("FACTURA SECTORIZADA") == true && o == 0)
+                        {
+                            peri_a_leer = line_z.Substring(120, 10);
+
+                            while (n < peri_a_leer.Length)
+                            {
+                                if (!(peri_a_leer.Substring(n, 1)).Equals(" "))
+                                {
+                                    lina_temp += peri_a_leer.Substring(n, 1);
+                                }
+                                n++;
+                            }
+                            //MessageBox.Show(lina_temp);
+                            lina_temp = lina_temp.Substring(3, 4) + lina_temp.Substring(0, 2);
+                            peri_a_leer = lina_temp;
+                            o = 1;
+                        }
+                    }
+                    else
+                    {
+                        if (line_z.Contains("PERIODO") == true && o == 0)
+                        {
+                            peri_a_leer = aux[m + 1].Substring(68, 7);
+                            peri_a_leer = peri_a_leer.Substring(3, 4) + peri_a_leer.Substring(0, 2);
+                            o = 1;
+                        }
+
+                        if (line_z.Contains("CICLO") == true && o == 0)
+                        {
+                            try
+                            {
+                                peri_a_leer = line_z.Substring(122, 8);
+                                tipo_rt = 1;
+                            }
+                            catch (Exception exz)
+                            {
+                                peri_a_leer = line_z.Substring(121, 8);
+                                tipo_rt = 0;
+                            }
+
+                            //MessageBox.Show("n="+n);
+                            peri_a_leer = peri_a_leer.Substring(0, 4) + peri_a_leer.Substring(peri_a_leer.Length - 2, 2);
+                            o = 1;
+                        }
+                    }
 				}else{
 					if(line_z.Contains("PERIODO")==true && o==0){
 						peri_a_leer=aux[m+1].Substring(68,7);
@@ -404,7 +451,90 @@ namespace Nova_Gear
 				}
 			}
 		}
-	
+
+        public void descomponer_linea_sivepa_eco_2023()
+        {
+
+            if (linea.Length > 6)
+            {
+                linea_vac = linea.Substring(1, 4);
+
+                if (linea_vac.Equals((no_del_real.ToString() + no_sub_real.ToString())))
+                {//default1438
+                    //label4.Text ="";
+
+                    if ((linea.Length) > 90)
+                    {
+                        //label2.Text = linea.Substring(22,6);
+
+                        //Extraer Sector de Notificación
+                        if ((linea.Substring(131, 6)).Equals("SECTOR"))
+                        {
+                            sector_n = linea.Substring(linea.Length - 2, 2);
+                        }
+
+                        //Extraer Linea de Datos
+                        if (bandera == 1)
+                        {
+                            //Extraer la 1ra Parte de los Datos
+                            reg_pat = linea.Substring(15, 14);
+                            ra_soc = linea.Substring(31, 35);
+                            periodo = linea.Substring(68, 7);
+                            band_peri = 1;
+                            cred_cuo = linea.Substring(77, 9);
+                            cred_mul = linea.Substring(88, 9);
+
+                            //Extraer la 2da Parte de los Datos
+                            linea2 = linea.Substring(97, (linea.Length-97));
+                            palabra = linea2.Split(espacio);
+                            contador = 0;
+
+                            for (i = 0; i < palabra.Length; i++)
+                            {
+
+                                if (!palabra[i].Equals(""))
+                                {
+
+                                    if (contador == 0)
+                                    {
+                                        cuota_omi = palabra[i];
+                                    }
+                                    if (contador == 1)
+                                    {
+                                        cuota_ac = palabra[i];
+                                    }
+                                    if (contador == 2)
+                                    {
+                                        recargo = palabra[i];
+                                    }
+                                    if (contador == 3)
+                                    {
+                                        imp_multa = palabra[i];
+                                    }
+                                    if (contador == 4)
+                                    {
+                                        imp_total = palabra[i];
+                                    }
+
+                                    contador = contador + 1;
+                                    bandera2 = 1;
+                                }
+                            }
+                        }
+
+                        //Activar Bandera
+                        if (linea.Length > 90)
+                        {
+                            if ((linea.Substring(15, 4)).Equals("REG."))
+                            {
+                                bandera = 1;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
 		public void descomponer_linea_eco(){
 			
 			if(linea.Length>6){
@@ -1787,94 +1917,127 @@ namespace Nova_Gear
 		void Button5Click(object sender, EventArgs e)
 		{
             int leer=0;
+            //MessageBox.Show("|"+peri_a_leer+"|"+peri_a_leer.Length);			
 
-			peri_a_leer=nombre_per.Substring(0,nombre_per.Length-1)+"_"+peri_a_leer;
-			
-			DialogResult resu = DialogResult.No;
-			if(tipo_file==1||tipo_file==2){
-				resu = MessageBox.Show("Esta por ingresar los datos de un "+peri_a_leer+".\nEsto afectará la base de datos.\n\n¿Está seguro de querer continuar?","AVISO",MessageBoxButtons.YesNo,MessageBoxIcon.Exclamation,MessageBoxDefaultButton.Button2);
-			}
-			
-			if(tipo_file==4){
-				resu = MessageBox.Show("Esta por ingresar los datos de "+peri_a_leer+".\nEsto afectará la base de datos.\n\n¿Está seguro de querer continuar?","AVISO",MessageBoxButtons.YesNo,MessageBoxIcon.Exclamation,MessageBoxDefaultButton.Button2);
-			}
-			
-			if(resu == DialogResult.Yes){
-				if(tipo_file == 4){
-					conex.conectar("base_principal");
-					dataGridView2.DataSource = conex.consultar("SELECT DISTINCT nombre_periodo FROM datos_factura WHERE nombre_periodo LIKE \"OFICIOS_%\" ORDER BY nombre_periodo DESC");
-					if(dataGridView2.RowCount-1 > 0){
-						nombre_per_oficio=dataGridView2.Rows[0].Cells[0].Value.ToString();
-						i=0;
-						if(Int32.TryParse(nombre_per_oficio.Substring(nombre_per_oficio.Length-3,3), out i)){
-							i = Convert.ToInt32(nombre_per_oficio.Substring(nombre_per_oficio.Length-3,3));
-							i++;
-							
-							if(i<10){
-								nombre_per_oficio="OFICIOS_00"+i;
-							}else{
-								
-								if(10<=i && i<100){
-									nombre_per_oficio="OFICIOS_0"+i;
-									
-								}else{
-									nombre_per_oficio="OFICIOS_"+i;
-								}
-							}
-						}
-						
-						
-					}else{
-						nombre_per_oficio="OFICIOS_000";
-					}
-					conex.cerrar();
-					i=0;
-				}
-				
-				conex.conectar("base_principal");
-				dataGridView2.DataSource = conex.consultar("SELECT COUNT(id) FROM datos_factura WHERE nombre_periodo =\""+peri_a_leer+"\" ");
-                int regs_tot1 = Convert.ToInt32(dataGridView2.Rows[0].Cells[0].FormattedValue.ToString());
-
-                if (regs_tot1 > 0)
+            if (peri_a_leer.Length == 6)
+            {
+                peri_a_leer = nombre_per.Substring(0, nombre_per.Length - 1) + "_" + peri_a_leer;
+                DialogResult resu = DialogResult.No;
+                if (tipo_file == 1 || tipo_file == 2)
                 {
-                    MessageBox.Show("El Periodo que desea ingresar ya se encuentra en la base de datos.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                else
-                {
-                    leer++;
+                    resu = MessageBox.Show("Esta por ingresar los datos de un " + peri_a_leer + ".\nEsto afectará la base de datos.\n\n¿Está seguro de querer continuar?", "AVISO", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button2);
                 }
 
-                dataGridView2.DataSource = conex.consultar("SELECT fecha_impresa_documento FROM estado_periodos WHERE nombre_periodo =\"" + peri_a_leer + "\" ");
-                string fecha_docs = dataGridView2.Rows[0].Cells[0].FormattedValue.ToString();
-
-                if (fecha_docs.Length > 4)
+                if (tipo_file == 4)
                 {
-                    leer++;
-                }
-                else
-                {
-                    //conex.consultar("INSERT INTO estado_periodos (nombre_periodo) VALUES (\"" + peri_a_leer + "\")");
-                    MessageBox.Show("Tiene que llenar primero los datos completos del periodo a ingresar.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    Fechas_periodos fech_pers = new Fechas_periodos();
-                    MainForm.nombre_periodo = peri_a_leer;                    
-                    fech_pers.Show();
-                    fech_pers.llena_fechas_forzosa();
-                    this.Hide();
+                    resu = MessageBox.Show("Esta por ingresar los datos de " + peri_a_leer + ".\nEsto afectará la base de datos.\n\n¿Está seguro de querer continuar?", "AVISO", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button2);
                 }
 
-				
-				
-	            if(leer>1){
-					this.Height=480;
-					UseWaitCursor=true;
-					button1.Enabled=false;
-					button3.Enabled=false;
-					button5.Enabled=false;
-					
-					hilosecundario = new Thread(new ThreadStart(inicio));
-					hilosecundario.Start();
-				}
-			}
+                if (resu == DialogResult.Yes)
+                {
+                    if (tipo_file == 4)
+                    {
+                        conex.conectar("base_principal");
+                        dataGridView2.DataSource = conex.consultar("SELECT DISTINCT nombre_periodo FROM datos_factura WHERE nombre_periodo LIKE \"OFICIOS_%\" ORDER BY nombre_periodo DESC");
+                        if (dataGridView2.RowCount - 1 > 0)
+                        {
+                            nombre_per_oficio = dataGridView2.Rows[0].Cells[0].Value.ToString();
+                            i = 0;
+                            if (Int32.TryParse(nombre_per_oficio.Substring(nombre_per_oficio.Length - 3, 3), out i))
+                            {
+                                i = Convert.ToInt32(nombre_per_oficio.Substring(nombre_per_oficio.Length - 3, 3));
+                                i++;
+
+                                if (i < 10)
+                                {
+                                    nombre_per_oficio = "OFICIOS_00" + i;
+                                }
+                                else
+                                {
+
+                                    if (10 <= i && i < 100)
+                                    {
+                                        nombre_per_oficio = "OFICIOS_0" + i;
+
+                                    }
+                                    else
+                                    {
+                                        nombre_per_oficio = "OFICIOS_" + i;
+                                    }
+                                }
+                            }
+
+
+                        }
+                        else
+                        {
+                            nombre_per_oficio = "OFICIOS_000";
+                        }
+                        conex.cerrar();
+                        i = 0;
+                    }
+
+                    conex.conectar("base_principal");
+                    dataGridView2.DataSource = conex.consultar("SELECT COUNT(id) FROM datos_factura WHERE nombre_periodo =\"" + peri_a_leer + "\" ");
+                    int regs_tot1 = Convert.ToInt32(dataGridView2.Rows[0].Cells[0].FormattedValue.ToString());
+
+                    if (regs_tot1 > 0)
+                    {
+                        MessageBox.Show("El Periodo que desea ingresar ya se encuentra en la base de datos.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else
+                    {
+                        leer++;
+                    }
+
+                    dataGridView2.DataSource = conex.consultar("SELECT fecha_impresa_documento FROM estado_periodos WHERE nombre_periodo =\"" + peri_a_leer + "\" ");
+                    string fecha_docs = dataGridView2.Rows[0].Cells[0].FormattedValue.ToString();
+
+                    if (fecha_docs.Length > 4)
+                    {
+                        leer++;
+                    }
+                    else
+                    {
+                        //conex.consultar("INSERT INTO estado_periodos (nombre_periodo) VALUES (\"" + peri_a_leer + "\")");
+                        MessageBox.Show("Tiene que llenar primero los datos completos del periodo a ingresar.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        Fechas_periodos fech_pers = new Fechas_periodos();
+                        MainForm.nombre_periodo = peri_a_leer;
+                        fech_pers.Show();
+                        fech_pers.llena_fechas_forzosa();
+                        this.Hide();
+                    }
+
+
+
+                    if (leer > 1)
+                    {
+                        this.Height = 480;
+                        UseWaitCursor = true;
+                        button1.Enabled = false;
+                        button3.Enabled = false;
+                        button5.Enabled = false;
+
+                        if (radioButton14.Checked)
+                        {
+                            tipo_cargador = 1;
+                        }
+
+                        if (radioButton15.Checked)
+                        {
+                            tipo_cargador = 2;
+                        }
+
+                        hilosecundario = new Thread(new ThreadStart(inicio));
+                        hilosecundario.Start();
+                    }
+                }
+
+            }
+            else
+            {
+                MessageBox.Show("No se pudo leer el periodo del archivo a ingresar.\nIntente con un tipo de carga diferente.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 			//inicio();
 			
 		}
@@ -2230,6 +2393,11 @@ namespace Nova_Gear
 			escritura_bd();
 			
 		}
+
+        private void groupBox5_Enter(object sender, EventArgs e)
+        {
+
+        }
 	
 	}
 }

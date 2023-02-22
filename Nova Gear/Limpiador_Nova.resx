@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="label2.Text" xml:space="preserve">
-    <value>Selecciona la FECHA de NOTIFICACIÓN hasta la que se van a tomar los registros antiguos para ser transferidos a la base de datos secundaria, para así mejorar el rendimiento de la base de datos principal de Nova Gear.
+    <value>Selecciona la Fecha Límite de NOTIFICACIÓN y DEPURACIÓN hasta las que se van a tomar los registros antiguos para ser transferidos a la base de datos secundaria, para así mejorar el rendimiento de la base de datos principal de Nova Gear.
 
 Se omitirán registros que aún posean un Estatus EN TRAMITE</value>
   </data>

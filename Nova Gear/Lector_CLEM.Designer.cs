@@ -154,10 +154,10 @@
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(163, 12);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(137, 23);
+            this.label1.Size = new System.Drawing.Size(117, 23);
             this.label1.TabIndex = 19;
             this.label1.Text = "Nombre Periodo";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // textBox1
             // 
@@ -165,7 +165,7 @@
             this.textBox1.Location = new System.Drawing.Point(163, 38);
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(137, 23);
+            this.textBox1.Size = new System.Drawing.Size(227, 23);
             this.textBox1.TabIndex = 18;
             // 
             // dataGridView2

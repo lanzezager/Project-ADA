@@ -130,6 +130,10 @@ namespace Nova_Gear
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label67 = new System.Windows.Forms.Label();
+            this.radioButton3 = new System.Windows.Forms.RadioButton();
+            this.radioButton4 = new System.Windows.Forms.RadioButton();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.groupBox6 = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
@@ -142,6 +146,8 @@ namespace Nova_Gear
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.groupBox5.SuspendLayout();
+            this.groupBox6.SuspendLayout();
             this.SuspendLayout();
             // 
             // label4
@@ -191,9 +197,9 @@ namespace Nova_Gear
             this.button3.ForeColor = System.Drawing.Color.White;
             this.button3.Image = global::Nova_Gear.Properties.Resources.magnifier_1;
             this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button3.Location = new System.Drawing.Point(107, 48);
+            this.button3.Location = new System.Drawing.Point(59, 47);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(156, 34);
+            this.button3.Size = new System.Drawing.Size(133, 34);
             this.button3.TabIndex = 4;
             this.button3.Text = "   Buscar";
             this.button3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -254,7 +260,7 @@ namespace Nova_Gear
             this.maskedTextBox1.AsciiOnly = true;
             this.maskedTextBox1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.maskedTextBox1.InsertKeyMode = System.Windows.Forms.InsertKeyMode.Overwrite;
-            this.maskedTextBox1.Location = new System.Drawing.Point(319, 52);
+            this.maskedTextBox1.Location = new System.Drawing.Point(275, 52);
             this.maskedTextBox1.Mask = "a00 - 00000 - 00 - 0";
             this.maskedTextBox1.Name = "maskedTextBox1";
             this.maskedTextBox1.Size = new System.Drawing.Size(194, 29);
@@ -550,7 +556,7 @@ namespace Nova_Gear
             this.maskedTextBox2.AsciiOnly = true;
             this.maskedTextBox2.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.maskedTextBox2.InsertKeyMode = System.Windows.Forms.InsertKeyMode.Overwrite;
-            this.maskedTextBox2.Location = new System.Drawing.Point(535, 52);
+            this.maskedTextBox2.Location = new System.Drawing.Point(6, 19);
             this.maskedTextBox2.Mask = "000000000";
             this.maskedTextBox2.Name = "maskedTextBox2";
             this.maskedTextBox2.Size = new System.Drawing.Size(125, 29);
@@ -566,7 +572,7 @@ namespace Nova_Gear
             this.label30.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label30.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label30.ForeColor = System.Drawing.Color.Cyan;
-            this.label30.Location = new System.Drawing.Point(350, 33);
+            this.label30.Location = new System.Drawing.Point(306, 33);
             this.label30.Name = "label30";
             this.label30.Size = new System.Drawing.Size(135, 18);
             this.label30.TabIndex = 56;
@@ -579,12 +585,14 @@ namespace Nova_Gear
             this.label31.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label31.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label31.ForeColor = System.Drawing.Color.Cyan;
-            this.label31.Location = new System.Drawing.Point(553, 33);
+            this.label31.Location = new System.Drawing.Point(34, 77);
             this.label31.Name = "label31";
             this.label31.Size = new System.Drawing.Size(88, 18);
             this.label31.TabIndex = 57;
             this.label31.Text = "Por Credito";
             this.label31.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label31.UseMnemonic = false;
+            this.label31.Visible = false;
             // 
             // radioButton1
             // 
@@ -592,7 +600,7 @@ namespace Nova_Gear
             this.radioButton1.Checked = true;
             this.radioButton1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.radioButton1.ForeColor = System.Drawing.Color.White;
-            this.radioButton1.Location = new System.Drawing.Point(677, 46);
+            this.radioButton1.Location = new System.Drawing.Point(141, 15);
             this.radioButton1.Name = "radioButton1";
             this.radioButton1.Size = new System.Drawing.Size(58, 18);
             this.radioButton1.TabIndex = 2;
@@ -605,7 +613,7 @@ namespace Nova_Gear
             this.radioButton2.BackColor = System.Drawing.Color.Transparent;
             this.radioButton2.Font = new System.Drawing.Font("Arial Rounded MT Bold", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.radioButton2.ForeColor = System.Drawing.Color.White;
-            this.radioButton2.Location = new System.Drawing.Point(677, 68);
+            this.radioButton2.Location = new System.Drawing.Point(141, 33);
             this.radioButton2.Name = "radioButton2";
             this.radioButton2.Size = new System.Drawing.Size(58, 18);
             this.radioButton2.TabIndex = 3;
@@ -649,6 +657,7 @@ namespace Nova_Gear
             this.panel1.Controls.Add(this.label66);
             this.panel1.Controls.Add(this.dataGridView3);
             this.panel1.Controls.Add(this.label33);
+            this.panel1.Controls.Add(this.label31);
             this.panel1.ForeColor = System.Drawing.Color.White;
             this.panel1.Location = new System.Drawing.Point(340, 86);
             this.panel1.Name = "panel1";
@@ -715,9 +724,9 @@ namespace Nova_Gear
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Arial Rounded MT Bold", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.Image = global::Nova_Gear.Properties.Resources.draw_eraser;
-            this.button2.Location = new System.Drawing.Point(269, 48);
+            this.button2.Location = new System.Drawing.Point(210, 47);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(44, 34);
+            this.button2.Size = new System.Drawing.Size(37, 34);
             this.button2.TabIndex = 6;
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.Button2Click);
@@ -732,7 +741,7 @@ namespace Nova_Gear
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button4.Font = new System.Drawing.Font("Arial Rounded MT Bold", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button4.Image = global::Nova_Gear.Properties.Resources.printer_1;
-            this.button4.Location = new System.Drawing.Point(780, 46);
+            this.button4.Location = new System.Drawing.Point(791, 46);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(44, 34);
             this.button4.TabIndex = 69;
@@ -1385,6 +1394,61 @@ namespace Nova_Gear
             this.label67.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.label67.Click += new System.EventHandler(this.label67_Click);
             // 
+            // radioButton3
+            // 
+            this.radioButton3.BackColor = System.Drawing.Color.Transparent;
+            this.radioButton3.Checked = true;
+            this.radioButton3.Font = new System.Drawing.Font("Arial Rounded MT Bold", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radioButton3.ForeColor = System.Drawing.Color.White;
+            this.radioButton3.Location = new System.Drawing.Point(6, 15);
+            this.radioButton3.Name = "radioButton3";
+            this.radioButton3.Size = new System.Drawing.Size(58, 18);
+            this.radioButton3.TabIndex = 74;
+            this.radioButton3.TabStop = true;
+            this.radioButton3.Text = "B.D.";
+            this.radioButton3.UseVisualStyleBackColor = false;
+            this.radioButton3.CheckedChanged += new System.EventHandler(this.radioButton3_CheckedChanged);
+            // 
+            // radioButton4
+            // 
+            this.radioButton4.BackColor = System.Drawing.Color.Transparent;
+            this.radioButton4.Font = new System.Drawing.Font("Arial Rounded MT Bold", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radioButton4.ForeColor = System.Drawing.Color.White;
+            this.radioButton4.Location = new System.Drawing.Point(6, 32);
+            this.radioButton4.Name = "radioButton4";
+            this.radioButton4.Size = new System.Drawing.Size(86, 18);
+            this.radioButton4.TabIndex = 73;
+            this.radioButton4.Text = "Respaldo";
+            this.radioButton4.UseVisualStyleBackColor = false;
+            this.radioButton4.CheckedChanged += new System.EventHandler(this.radioButton4_CheckedChanged);
+            // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.maskedTextBox2);
+            this.groupBox5.Controls.Add(this.radioButton1);
+            this.groupBox5.Controls.Add(this.radioButton2);
+            this.groupBox5.Font = new System.Drawing.Font("Arial Rounded MT Bold", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox5.ForeColor = System.Drawing.Color.Cyan;
+            this.groupBox5.Location = new System.Drawing.Point(474, 33);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(207, 53);
+            this.groupBox5.TabIndex = 73;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Por Crédito";
+            // 
+            // groupBox6
+            // 
+            this.groupBox6.Controls.Add(this.radioButton3);
+            this.groupBox6.Controls.Add(this.radioButton4);
+            this.groupBox6.Font = new System.Drawing.Font("Arial Rounded MT Bold", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox6.ForeColor = System.Drawing.Color.Cyan;
+            this.groupBox6.Location = new System.Drawing.Point(692, 33);
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.Size = new System.Drawing.Size(92, 53);
+            this.groupBox6.TabIndex = 73;
+            this.groupBox6.TabStop = false;
+            this.groupBox6.Text = "Buscar en";
+            // 
             // Consulta_patron
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1393,6 +1457,8 @@ namespace Nova_Gear
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(842, 652);
+            this.Controls.Add(this.groupBox6);
+            this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.label67);
             this.Controls.Add(this.button25);
             this.Controls.Add(this.pictureBox1);
@@ -1407,11 +1473,7 @@ namespace Nova_Gear
             this.Controls.Add(this.button2);
             this.Controls.Add(this.label32);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.radioButton2);
-            this.Controls.Add(this.radioButton1);
-            this.Controls.Add(this.label31);
             this.Controls.Add(this.label30);
-            this.Controls.Add(this.maskedTextBox2);
             this.Controls.Add(this.maskedTextBox1);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.dataGridView1);
@@ -1435,6 +1497,9 @@ namespace Nova_Gear
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.groupBox4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox5.PerformLayout();
+            this.groupBox6.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1531,5 +1596,9 @@ namespace Nova_Gear
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Label label67;
+        private System.Windows.Forms.RadioButton radioButton3;
+        private System.Windows.Forms.RadioButton radioButton4;
+        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.GroupBox groupBox6;
 	}
 }
